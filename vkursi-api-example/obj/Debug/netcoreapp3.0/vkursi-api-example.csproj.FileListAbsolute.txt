@@ -1,0 +1,14 @@
+D:\Users\vkursi-api-example\vkursi-api-example\bin\Debug\netcoreapp3.0\vkursi-api-example.exe
+D:\Users\vkursi-api-example\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.csprojAssemblyReference.cache
+D:\Users\vkursi-api-example\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.AssemblyInfoInputs.cache
+D:\Users\vkursi-api-example\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.AssemblyInfo.cs
+D:\Users\vkursi-api-example\vkursi-api-example\bin\Debug\netcoreapp3.0\RestSharp.dll
+D:\Users\vkursi-api-example\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.csproj.CopyComplete
+D:\Users\vkursi-api-example\vkursi-api-example\bin\Debug\netcoreapp3.0\vkursi-api-example.deps.json
+D:\Users\vkursi-api-example\vkursi-api-example\bin\Debug\netcoreapp3.0\vkursi-api-example.runtimeconfig.json
+D:\Users\vkursi-api-example\vkursi-api-example\bin\Debug\netcoreapp3.0\vkursi-api-example.runtimeconfig.dev.json
+D:\Users\vkursi-api-example\vkursi-api-example\bin\Debug\netcoreapp3.0\vkursi-api-example.dll
+D:\Users\vkursi-api-example\vkursi-api-example\bin\Debug\netcoreapp3.0\vkursi-api-example.pdb
+D:\Users\vkursi-api-example\vkursi-api-example\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+D:\Users\vkursi-api-example\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.dll
+D:\Users\vkursi-api-example\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.pdb
