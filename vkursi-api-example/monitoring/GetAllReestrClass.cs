@@ -49,7 +49,7 @@ namespace vkursi_api_example.monitoring
 
     public class GetAllReestrResponseModel
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+        public Guid Id { get; set; }            // Id списку
+        public string Name { get; set; }        // Номер списку
     }
 }

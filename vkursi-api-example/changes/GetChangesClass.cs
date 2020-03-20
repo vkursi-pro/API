@@ -49,19 +49,19 @@ namespace vkursi_api_example.changes
         }
     }
 
-    public class OwnerChangesInfo
+    public class OwnerChangesInfo                                   // Інформация про організацію / ФОП по якому відбулась зміна
     {
-        public string id { get; set; }
-        public int type { get; set; }
-        public string name { get; set; }
-        public string code { get; set; }
+        public string id { get; set; }                              // Системний Id
+        public int type { get; set; }                               // Тип (1 - організация | 2 - фізична особа)
+        public string name { get; set; }                            // Найменування
+        public string code { get; set; }                            // Код ІНП / Єдрпоу
     }
 
     public class GetChangesResponseModel
     {
-        public DateTime dateOfChange { get; set; }
-        public string changeType { get; set; }
-        public string change { get; set; }
-        public OwnerChangesInfo ownerChangesInfo { get; set; }
+        public DateTime dateOfChange { get; set; }                  // Дата зміни
+        public string changeType { get; set; }                      // Тип зміни
+        public string change { get; set; }                          // Опис інформмації по зміну
+        public OwnerChangesInfo ownerChangesInfo { get; set; }      // Інформация про організацію / ФОП по якому відбулась зміна
     }
 }

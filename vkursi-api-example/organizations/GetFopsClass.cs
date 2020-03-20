@@ -33,9 +33,9 @@ namespace vkursi_api_example.organizations
             request.AddParameter("application/json", body, ParameterType.RequestBody);
 
             IRestResponse response = client.Execute(request);
-            var responseString = response.Content;
+            string responseString = response.Content;
 
-            if (responseString == "Not found")
+            if (responseString == "\"Not found\"")
             {
                 Console.WriteLine("Not found");
             }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using HtmlAgilityPack;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,9 @@ namespace vkursi_api_example.courtdecision
                 token = AuthorizeClass.Authorize();
                 goto link1;
             }
+
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(responseString);
 
             return responseString;
         }

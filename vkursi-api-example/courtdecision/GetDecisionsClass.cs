@@ -12,7 +12,7 @@ namespace vkursi_api_example.courtdecision
         // 10.	Запит на отримання даних по судовим рішенням організації
         // [POST] /api/1.0/courtdecision/getdecisions
 
-        public static GetDecisionsResponseModel GetDecisions(string edrpou, int skip, int typeSide, int justiceKindId, string token)
+        public static GetDecisionsResponseModel GetDecisions(string edrpou, int? skip, int? typeSide, int? justiceKindId, List<string> npas, string token)
         {
             if (String.IsNullOrEmpty(token))
             {
@@ -24,8 +24,19 @@ namespace vkursi_api_example.courtdecision
             RestClient client = new RestClient("https://vkursi-api.azurewebsites.net");
             RestRequest request = new RestRequest("api/1.0/courtdecision/getdecisions", Method.POST);
 
-            string body = "{\"edrpou\":\"" + edrpou + "\",\"skip\":"+ skip + ",\"typeSide\":"+ typeSide + ",\"justiceKindId\":"+ justiceKindId + "}";
-            body = "{\"edrpou\":\"14360570\",\"skip\":100,\"typeSide\":1}";
+            GetDecisionsRequestBodyModel Body = new GetDecisionsRequestBodyModel
+            {
+                Edrpou = edrpou,
+                Skip = skip,
+                TypeSide = typeSide,
+                JusticeKindId = justiceKindId,
+                Npas = npas
+            };
+
+            string body = JsonConvert.SerializeObject(Body);
+
+            // Body example: {"Edrpou":"14360570","Skip":0,"TypeSide":null,"JusticeKindId":null,"Npas":["F545D851-6015-455D-BFE7-01201B629774"]}
+
             request.AddHeader("ContentType", "application/json");
             request.AddHeader("Authorization", "Bearer " + token);
             request.AddParameter("application/json", body, ParameterType.RequestBody);
@@ -50,15 +61,24 @@ namespace vkursi_api_example.courtdecision
         }
     }
 
-    public class ListDecisions
+    public class GetDecisionsRequestBodyModel
     {
-        public int id { get; set; }
-        public DateTime adjudicationDate { get; set; }
+        public string Edrpou { get; set; }                  // ЄДРПОУ
+        public int? Skip { get; set; }                      // К-ть документів які необхідно пропустити (щоб взяти наступні 100)
+        public int? TypeSide { get; set; }                  // null - all, 1 - Plaintiffs; 2 - Defendants; 3 - Other;
+        public int? JusticeKindId { get; set; }             // null - all, 0 - "Iнше", 1 - "Цивільне", 2 - "Кримінальне", 3 - "Господарське", 4 - "Адміністративне", 5 - "Адмінправопорушення"
+        public List<string> Npas { get; set; }              // фильтр по НПА
+    }
+
+    public class ListDecisions                              // Перелік Id судових документів
+    {
+        public int id { get; set; }                         // Id документа
+        public DateTime adjudicationDate { get; set; }      // Дата судовога засідання
     }
 
     public class GetDecisionsResponseModel
     {
-        public double totalDecision { get; set; }
-        public List<ListDecisions> list { get; set; }
+        public double totalDecision { get; set; }           // Загальна кількість судових документів
+        public List<ListDecisions> list { get; set; }       // Перелік Id судових документів
     }
 }

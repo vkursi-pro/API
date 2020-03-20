@@ -11,7 +11,7 @@ namespace vkursi_api_example.organizations
         // 2.	Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
         // [POST] /api/1.0/organizations/getorganizations
 
-        public static List<GetOrganizationsResponseModel> GetOrganizations(string code, string token)
+        public static List<GetOrganizationsResponseModel> GetOrganizations(string code, ref string token)
         {
             if (String.IsNullOrEmpty(token))
             {

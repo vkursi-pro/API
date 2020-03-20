@@ -12,7 +12,7 @@ namespace vkursi_api_example.organizations
         // 4.	Розширений запит. Запит на отримання розширених даних про ЮР / ФІЗ осіб
         // [POST] /api/1.0/organizations/getadvancedorganization
 
-        public static GetAdvancedOrganizationResponseModel GetAdvancedOrganization(string code, string token)
+        public static GetAdvancedOrganizationResponseModel GetAdvancedOrganization(string code, ref string token)
         {
             if (String.IsNullOrEmpty(token))
             {
@@ -21,7 +21,7 @@ namespace vkursi_api_example.organizations
 
             link1:
             
-            string body = "\"" + code + "\"";
+            string body = "{\"Code\":\"" + code + "\"}";
             //body = "\"" + "21560045" + "\"";
             RestClient client = new RestClient("https://vkursi-api.azurewebsites.net");
             RestRequest request = new RestRequest("api/1.0/organizations/getadvancedorganization", Method.POST);

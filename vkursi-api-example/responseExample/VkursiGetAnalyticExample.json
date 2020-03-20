@@ -1,0 +1,477 @@
+{
+  "orgId" : "99cad766-a8d5-41e7-83a4-77227b1f1512",	// Id організації 
+  "name" : """АТ КБ "ПРИВАТБАНК"""",				// Назва ЮО / ФОП
+  "legalEntity" : true,								// Тип ЮО - true/ ФОП - false
+  "edrpou" : "14360570",							// код ЄДРПОУ / ІПН
+  "stateInt" : 1,									// Статус код ( 1 - зареєстровано, 2 - припинено, ... відп.до довідника № 3)
+  "state" : {
+	"orgState" : "зареєстровано"					// Статуc назва
+  },
+  "totalAmount" : 2.0605974396E11,					// Сума статутного капіталу
+  "vatPayers" : {									// ПДВ 
+	"vatPayer" : true,								// Платник / Не платник
+	"vatPayerDate" : "1997-07-07T00:00:00",			// Дата отримання
+	"vatPayerCancel" : false						// Дата анулювання
+  },
+  "tenders" : [										// Аналіз тендерів в розрізі періоду (місяць)
+	{
+	  "periodDete" : "2018-03-01T00:00:00",			// Період (місяць)
+	  "uchastCount" : 50,							// Кількість тендерів в яких брав участь
+	  "uchastSum" : 3146621.920000001,				// Сума тендерів в яких брав участь, грн.
+	  "peremohyCount" : 50,							// Кількість тендерів в яких переміг
+	  "peremohySum" : 3146621.920000001				// Сума тендерів в яких переміг, грн.
+	},
+	{
+	  "periodDete" : "2018-07-01T00:00:00",
+	  "uchastCount" : 61,
+	  "uchastSum" : 3.399652449E7,
+	  "peremohyCount" : 58,
+	  "peremohySum" : 3.116555582E7,
+	  "progranoCount" : 3,
+	  "progranoSum" : 233400.0
+	}
+  ],
+  "patents" : [										// Патенти, торгові марки, корисні моделі (період місяць)
+	{
+	  "period" : "2008-05-01T00:00:00",				// Період (місяць)
+	  "patentsDesignsCount" : 1,					// Кількість промисмових зразків
+	  "tradeMarkCount" : 1,							// Кількість торгових марок
+	  "integratedСircuitsCount" : 0					// Кількість топографічних інтегральних схем
+	},
+	{
+	  "period" : "1996-10-01T00:00:00",
+	  "tradeMarkCount" : 1,
+	  "integratedСircuitsCount" : 0
+	}
+  ],
+  "date" : {										// Дата створення компанії / ФОП
+	"dateOpened" : "1992-03-19T00:00:00"
+  },
+  "totalCourts" : {									// Загальна аналітика по судовим рішенням
+	"civil" : 2146550,								// К-ть цивільних справ
+	"criminal" : 24459,								// К-ть кримінальних справ
+	"household" : 105597,							// К-ть господарських справ
+	"administrative" : 7737,						// К-ть адміністративних справ
+	"adminoffense" : 720,							// К-ть справ про адмін.правопорушення
+	"plaintiff" : 1848700,							// К-ть справ в яких позивач
+	"defendant" : 136384,							// К-ть справ в яких відповідач
+	"otherSide" : 360108,							// К-ть справ в яких інша сторона
+	"lost" : 135447,								// К-ть справ в яких програв
+	"win" : 206819,									// К-ть справ в яких переміг
+	"appointedConsideration" : 21585,				// К-ть цивільних справ
+	"totalDecision" : 2326740,						// К-ть документів
+	"casecount" : 905806,							// К-ть справ
+	"inprocess" : 15654								// К-ть справ в процесі
+  },
+  "courtsAnalytics" : [								// Аналітика по судовим в розрізі місяця
+	{
+	  "period" : "2017-03-01T00:00:00Z",			// Період (місяць)
+	  "documentsCount" : 33213,						// Загальна кількість судових документів
+	  "tsyvilne" : 30734,							// К-ть цивільних справ
+	  "kryminalne" : 202,							// К-ть кримінальних справ
+	  "hospodarske" : 2180,							// К-ть господарських справ
+	  "administratyvne" : 82,						// К-ть адміністративних справ
+	  "admіnpravoporushennya" : 15,					// К-ть справ про адмін правопорушення
+	  "vidpovidachi" : 2933,						// К-ть справ де сторона відповідач
+	  "pozyvachi" : 29865,							// К-ть справ де сторона позивач
+	  "inshaStorona" : 3235,						// К-ть справ де інша сторона
+	  "vyhrano" : 1171,								// К-ть вигранних справ
+	  "prohrano" : 828								// К-ть програнних справ
+	},
+	{
+	  "period" : "2017-04-01T00:00:00Z",
+	  "documentsCount" : 29216,
+	  "tsyvilne" : 27380,
+	  "kryminalne" : 236,
+	  "hospodarske" : 1534,
+	  "administratyvne" : 61,
+	  "admіnpravoporushennya" : 5,
+	  "vidpovidachi" : 2040,
+	  "pozyvachi" : 26023,
+	  "inshaStorona" : 3430,
+	  "vyhrano" : 1524,
+	  "prohrano" : 702
+	}
+  ],
+  "edata" : [										// Аналітика по Edata період (місяць)
+	{
+	  "period" : "2019-01-01T00:00:00",				// Період (місяць)
+	  "count" : 149985,								// Загальна кількість транзакцій 
+	  "paymentSumIn" : 5.706833145830113E9,			// Сума вхідних транзакцій 
+	  "paymentCountIn" : 149985						// К-ть вхідних транзакцій 
+	  "paymentSumOut" : 15.2520425752027E8,			// Сума вихідних транзакцій 
+	  "paymentCountOut" : 7458						// К-ть вихідних транзакцій 
+	},
+	{
+	  "period" : "2019-02-01T00:00:00",
+	  "count" : 177239,
+	  "paymentSumIn" : 6.61420425752027E9,
+	  "paymentCountIn" : 177239
+	}
+  ],
+  "orgChecks" : [									// Аналітика по перевіркам
+	{
+	  "checkDate" : "2018-01-24T00:00:00",			// Дата події
+	  "isPlanned" : false,							// Запранована перевірка (так - true / ні - false)
+	  "regulatorId" : 1,							// Перевіряючий орган код (відп.до довідника № 4))
+	  "statusInt" : 1,								// Статус перевірки (відп.до довідника № 5)
+	  "sanctionAmount" : 0.0						// Сума штрафу
+	},
+	{
+	  "checkDate" : "2018-03-20T02:00:00",
+	  "isPlanned" : false,
+	  "regulatorId" : 1,
+	  "statusInt" : 1,
+	  "sanctionAmount" : 0.0
+	}
+  ],
+  "debtorsBorg" : [									// Динаміка податкового боргу (період місяць)
+	{
+	  "period" : "2019-08-01T00:00:00",				// Період (місяць)
+	  "zp" : 235016.56,								// Сума заборгованості по заробітній платі
+	  "db" : 21.06,									// Сума заборгованості перед державним бюджетом
+	  "mb" : 52.36									// Сума заборгованості перед місцевим бюджетом
+	},
+	{
+	  "period" : "2018-10-01T00:00:00",
+	  "mb" : 21.06
+	}
+  ],
+  "changeHistory" : {								// Історія реєстрацийних змін
+	"changeAdress" : [								// Зміни адреси
+	  "1999-03-15T00:00:00",						// Дати змін
+	  "2013-01-30T00:00:00"
+	],
+	"changeChief" : [								// Зміни керівників
+	  "1999-03-15T00:00:00",
+	  "2017-01-05T00:00:00"
+	],
+	"changeKved" : [								// Зміни кведів
+	  "2005-08-22T00:00:00",
+	  "2010-08-03T00:00:00"
+	],
+	"changeName" : [								// Зміни назв
+	  "2000-10-09T00:00:00",
+	  "2009-07-17T00:00:00"
+	],
+	"changeState" : [ 								// Зміни статуса
+	  "2002-05-27T00:00:00",
+	  "2002-11-30T00:00:00"
+	  ],
+	"changeFounder" : [								// Зміни бенефіціарів
+	  "2002-05-27T00:00:00",
+	  "2002-11-30T00:00:00"
+	]
+  },
+  "organizationLicenses" : [						// Аналіз ліцензій (в розрізі органу ліцензування)
+	{
+	  "actualCount" : 44,							// К-ть актуальних ліцензій
+	  "nonActualCount" : 15,						// К-ть не актуальних ліцензій
+	  "organInt" : 1,								// Орган ліцензування код (відп.до довідника № 6)
+	  "typeOfLicenseInt" : 27						// Тип ліцензії (відп.до довідника № 7)
+	},
+	{
+	  "nonActualCount" : 15,
+	  "organInt" : 4,
+	  "typeOfLicenseInt" : 5
+	}
+  ],
+  "expressScore" : {								// Дані експрес перевірки 
+	"liquidation" : false,
+	"bankruptcy" : false,
+	"badRelations" : 1,
+	"sffiliatedMore" : 18,
+	"sanctions" : false,
+	"introduction" : 1049,
+	"criminal" : 20704,
+	"audits" : false,
+	"taxDebt" : false,
+	"kved" : false,
+	"newDirector" : false,
+	"massRegistration" : 0,
+	"youngCompany" : false,
+	"atoRegistered" : false,
+	"fictitiousBusiness" : true,
+	"headOtherCompanies" : 0,
+	"notLicense" : 15,
+	"vatLessThree" : false,
+	"sanctionsRelationships" : 3,
+	"territoriesRelationships" : 0,
+	"criminalRelationships" : 33
+  },
+  "regions" : [									// Юридична адреса
+	{
+	  "code" : "01001",
+	  "country" : "Україна",
+	  "countryId" : "79590138-fc6f-4b70-ab5f-001e9e93f453",
+	  "region" : "м.Київ",
+	  "regionId" : "71074298-52da-477d-b466-8608c9265155",
+	  "district" : "Печерський район",
+	  "districtId" : "1cbe2697-fc42-4587-aeed-2c193a16ecaf",
+	  "street" : "ВУЛИЦЯ ГРУШЕВСЬКОГО буд"
+	}
+  ],
+  "founders" : [								// Аналітика по засновникам в розрізі країни
+	{
+	  "countryId" : 804,						// Країна код (відп.до довідника № 8)
+	  "personCount" : 1,						// Кількість персон (з вказаної країни)
+	  "companyCount" : 1,						// Кількість компаній (з вказаної країни)
+	  "personCapitalSum" : 2.0605974396E11,		// Сума статутного капіталу персон (з вказаної країни)	
+	  "companyCapitalSum" : 0.0,				// Сума статутного капіталу компаній (з вказаної країни)	
+	  "personCapitalPercent" : 100.0,			// %, статутного капіталу персон (з вказаної країни)	
+	  "companyCapitalPercent" : 0.0				// %, статутного капіталу компаній (з вказаної країни)
+	}
+  ],
+  "declarations":[								// Аналітика по деклараціям  (період рік)
+  {
+	"declarationYearInt": 2017,					// Період (рік)
+	"corporateRightsCount": 100,				// К-ть осіб які мають корпоративні права
+	"beneficiaryOwnersCount": 100,				// К-ть осіб які є бенефіціарами
+	"intangibleAssetsCount": 100,				// К-ть осіб які мають нематериальні активи
+	"incomefinanceCount": 100,					// К-ть осіб які мають доходи, у тому числі подарунки
+	"moneyAssetsCount": 100,					// К-ть осіб які мають грошові активи
+	"financialLiabilitiesCount": 100,			// К-ть осіб які мають фінансові зобов'язання
+	"membershipOrgCount": 100,					// К-ть осіб які є членами в організаці
+	"corporateRightsSum": 100.00,				// Сума часток осіб які мають корпоративні права
+	"beneficiaryOwnersSum": 100.00,				// Сума часток осіб які є бенефіціарами
+	"intangibleAssetsSum": 100.00,				// Сума нематериальних активів
+	"incomefinanceSum": 100.00,					// Сума доходів, у тому числі подарунків
+	"moneyAssetsSum": 100.00,					// Сума грошових активів
+	"financialLiabilitiesSum": 100.00			// Сума фінансових зобов'язань
+  }],
+  "tenderBidStatistics" : {						// Аналіз участі в торгах 
+	"disqualified" : 0,							// Кількість дискваліцікацій
+	"avgConcurrency" : 1.17,					// Середня конкуренція
+	"sum" : 1.3970580077E8,						// Загальна сума участей
+	"wins" : 1644,								// Кількість перемог (лоти)
+	"organizators" : 698,						// Кількість унакальних організаторів
+	"requests" : 1643,							// Загальна к-ть участей (тендери)
+	"currentTendersCount" : 0,					// Поточна к-ть тендерів 
+	"currentTendersSum" : 0.0,					// Поточна сума тендерів 
+	"nonConcurrentTendersCount" : 1643,			// К-ть неконкурентних тендерів
+	"nonConcurrentTendersSum" : 1.3890580077E8,	// Сума неконкурентних тендерів
+	"concurrentTendersCount" : 3,				// К-ть конкурентних тендерів
+	"concurrentTendersSum" : 4514960.0,			// Сума конкурентних тендерів
+	"changedBidsTendersCount" : 2,				// К-ть тендерів зі зміною ставки
+	"changedBidsTendersSum" : 3584819.680170213,// Сума тендерів зі зміною ставки
+	"notChangedBidsTendersCount" : 1,			// К-ть тендерів без зміни ставки
+	"notChangedBidsTendersSum" : 10879.222857142857,		// Сума тендерів без зміни ставки
+	"curConNonConCount" : 1646,					// 
+	"curConNonConSum" : 1.4342076077E8,
+	"winsNonConcurrentTendersCount" : 1643,		// К-ть перемог в неконкурентних тендерах
+	"winsNonConcurrentTendersSum" : 1.3890580077E8,			// Сума перемог в неконкурентних тендерах
+	"winsConcurrentTendersCount" : 1,			// К-ть перемог в конкурентних тендерах
+	"winsConcurrentTendersSum" : 800000.0,		// Сума перемог в конкурентних тендерах
+	"winsChangedBidsTendersCount" : 0,			// К-ть перемог в тендерах зі зміною ставки
+	"winsChangedBidsTendersSum" : 0.0,			// Сума перемог в тендерах зі зміною ставки
+	"winsNotChangedBidsTendersCount" : 0,		// К-ть перемог в тендерах без зміни ставки
+	"winsNotChangedBidsTendersSum" : 0.0,		// Сума перемог в тендерах без зміни ставки
+	"winsCurConNonConCount" : 1644,				// 
+	"winsCurConNonConSum" : 1.3970580077E8,		// 
+	"firstMinimalPriceWin" : 0,					// К-ть перемог на першій мінімальній ціні
+	"firstMinimalPriceLose" : 1,				// К-ть поразок на першій мінімальній ціні
+	"firstMinimalPriceWinPercent" : 0,			// Відсоток перемог на першій мінімальній ціні
+	"firstMinimalPriceLosePercent" : 100,		// Відсоток поразок на першій мінімальній ціні
+	"notChangedBidWin" : 0,						// К-ть перемог в тендерах без зміни ставок
+	"notChangedBidLose" : 1,					// К-ть поразок в тендерах без зміни ставок
+	"notChangedBidWinPercent" : 0,				// Відсоток перемог в тендерах без зміни ставок
+	"notChangedBidLosePercent" : 100,			// Відсоток поразок в тендерах без зміни ставок
+	"onLastBidWin" : 0,							// К-ть перемог в тендерах на останній ставці
+	"onLastBidLose" : 2,						// К-ть поразок в тендерах на останній ставці
+	"onLastBidWinPercent" : 0,					// Відсоток перемог в тендерах на останній ставці
+	"onLastBidLosePercent" : 100				// Відсоток поразок в тендерах на останній ставці
+  },
+  "tenderOrganizerStatistics" : {				// Аналіз організованніх тендерів
+	"announcedTenders" : 52,					// К-ть організованніх тендерів
+	"sum" : 6.4562811087E8,						// Сума організованніх тендерів
+	"participants" : 125,						// Унікальних учасників
+	"concurrency" : 3.8461538461538463,			// Середня к-ть унакальних учасників
+	"avgContracts" : 1.7777777777777777,		// Середня к-ть контрактів на одного учасника
+	"currentTendersCount" : 0,					// К-ть тендерів з торгами
+	"nonConcurrentTendersCount" : 0,			// К-ть неконкурентних тендерів
+	"concurrentTendersCount" : 52,				// К-ть конкурентних тендерів
+	"concurrentTendersSum" : 6.4562811087E8,	// Сума конкурентних тендерів
+	"changedBidsTendersCount" : 191,			// К-ть тендерів зі зміною ставки
+	"changedBidsTendersSum" : 1.1387969999934313E9,		// Сума тендерів зі зміною ставки
+	"notChangedBidsTendersCount" : 37,			// К-ть тендерів без зміни ставки
+	"notChangedBidsTendersSum" : 3.974744574772217E8,	// Сума тендерів без зміни ставки
+	"curConNonConCount" : 52,					// К-ть контрактів у конкурентних
+	"curConNonConSum" : 6.4562811087E8,			// Сума контрактів у конкурентних
+	"priceReduction" : 0.0,						// Дод.угода зменшення ціни
+	"priceIncrease" : 100.0,					// Дод.угода збільшення ціни
+	"shippingReduction" : 0.0,					// Дод.угода зміна об'єму
+	"other" : 0.0								// Дод.угода інше
+  },
+  "tenderCpvStats" : [								// Аналіз участі в тендерах в розрізі CPV (період рік)
+	{
+	  "year" : 2018,								// Період (рік)
+	  "cpv" : 5011000099,							// CPV код
+	  "bidCount" : 1,								// Кількість участей
+	  "bidSum" : 102295.0,							// Сума участей
+	  "awardCount" : 1,								// Кількість перемог
+	  "awardSum" : 102295.0							// Сума перемог
+	},
+	{
+	  "year" : 2018,
+	  "cpv" : 322231196,
+	  "bidCount" : 1,
+	  "bidSum" : 1593.0,
+	  "awardCount" : 1,
+	  "awardSum" : 1593.0
+	}
+  ],
+  "realEstateRightsLand" : {						// Аналіз земельних ділянок
+	"full" : 1707,									// Загальна кількість
+	"vlasnyk" : 106,								// Власник
+	"pravokorystuvach" : 46,						// Правокористувач
+	"inshyy" : 3,									// Інший
+	"orendar" : 212,								// Орендар
+	"orendodavets" : 1,								// Орендодавець
+	"ipotekoderzhatel" : 325,						// Іпотекодержатель
+	"ipotekodavets" : 3,							// Іпотекодавець
+	"borzhnyk" : 119,								// Боржник
+	"obtyazhuvach" : 731,							// Обряжувач
+	"osobaMaynoYakoyiObtyazhuyutsya" : 6,			// Особа майно якої обтяжується
+	"osobaVinteresakhYakoyi" : 203,					// Особа в інтересах якої встановлено обтяження
+	"ploshcha" : 1665.2767789999996,				// Загальна площа, га
+	"regions" : [									// Земельні ділянки в розрізі регіону
+	  {
+		"regionId" : 3,								// Регіон код (відп.до довідника № 9)
+		"objectCount" : 191,						// К-ть земельних ділянок
+		"area" : 94.72959999999998					// Площа земельних ділянок, га
+	  },
+	  {
+		"regionId" : 22,
+		"objectCount" : 67,
+		"area" : 52.16960000000001
+	  }
+	],
+	"purposes" : [									// Земельні ділянки в розрізі призначення
+	  {
+		"purposeCode" : 0,							// Призначення код (відп.до довідника № 11)
+		"objectCount" : 162,						// К-ть земельних ділянок
+		"area" : 448.6008000000002					// Площа земельних ділянок, га
+	  },
+	  {
+		"purposeCode" : 87,
+		"objectCount" : 29,
+		"area" : 28.515500000000007
+	  },
+	  {
+		"purposeCode" : 29,
+		"objectCount" : 113,
+		"area" : 66.58750000000003
+	  }
+	]
+  },
+  "realEstateRightsObj" : {							// Аналіз об'єктів нерухомого майна (крім земельних ділянок)
+	"full" : 7634,									// Загальна кількість
+	"vlasnyk" : 767,								// Власник
+	"inshyy" : 17,									// Інший
+	"naymach" : 1,									// Наймач
+	"orendar" : 23,									// Орендар
+	"orendodavets" : 20,							// Орендодавець
+	"ipotekodavets" : 229,							// Іпотекодавець
+	"borzhnyk" : 55,								// Боржник
+	"obtyazhuvach" : 5926,							// Обряжувач
+	"osobaMaynoYakoyiObtyazhuyutsya" : 359,			// Особа майно якої обтяжується
+	"regions" : [									// Об'єкти нерухомого майна в розрізі регіону
+	  {
+		"regionId" : 7,								// Регіон код (відп.до довідника № 9)
+		"objectCount" : 330							// К-ть об'єктів нерухомого майна
+	  },
+	  {
+		"regionId" : 8,
+		"objectCount" : 158
+	  }
+	]
+  },
+  "financialRisks" : [								// Аналіз фінансових ризиків (період рік) (відп.до довідника № 12) 
+   {
+    "risksThirdInt" : 3,
+    "year" : 2017,									// Період (рік)
+    "risksFirstInt" : 3,							
+    "metricsCount" : 3,								// Кількість показників
+    "kvedGroupNumb" : 5,							// Група за квед
+    "risksCategoryInt" : 3,							// Категорія
+    "debtClass" : 4,								// Класс боржника
+    "risksSecondInt" : 3							
+   },
+   {
+    "risksThirdInt" : 3,
+    "year" : 2018,
+    "risksFirstInt" : 3,
+    "metricsCount" : 3,
+    "kvedGroupNumb" : 5,
+    "risksCategoryInt" : 5,
+    "debtClass" : 5,
+    "risksSecondInt" : 5
+   }
+  ],
+  "financialFEA" : [								// Аналіз ЗЕД (період рік)
+	{
+	  "year" : 2018,								// Період (рік)
+	  "isImport" : true,							// Імпорт (true) / Експорт (false)
+	  "operationsCount" : 10,						// Кількість операцій
+	  "operationsSum" : 4.127E7,					// Сума операцій
+	  "groupPersent" : 99.0,						// Відсоток основної групи
+	  "groupCount" : 5,								// Загальна кількість груп імпорту / експорту
+	  "largestGroupCode" : 8470,					// Код найбільшої групи імпорту / експорту
+	  "largestCountryCode" : 100,					// Код найбільшої країни імпорту / експорту
+	  "countryCount" : 4,							// Загальна кількість країн імпорту / експорту
+	  "countryLargestPersent" : 98.0				// Відсоток найбільної країни
+	},
+	{
+	  "year" : 2017,
+	  "isImport" : true,
+	  "operationsCount" : 61,
+	  "operationsSum" : 5497000.0,
+	  "groupPersent" : 44.0,
+	  "groupCount" : 13,
+	  "largestGroupCode" : 8470,
+	  "largestCountryCode" : 380,
+	  "countryCount" : 6,
+	  "countryLargestPersent" : 45.0
+	}
+  ],
+  "vehiclesInfo" : [								// Відомость про нерухомі транспортні засоби
+	"22480170504015",								// Відповідно до довідника № 14
+	"28470130104016"
+  ],
+  "bankruptcy":[									// Відомості про банкрутство
+  {
+	"publicationType": 1,							// Тип публікації (відп.до довідника № 10) 
+	"dateProclamation": "2017-08-01T00:00:00",		// Дата публікації 
+	"totalSumPossessions": 5655000.00				// Сума майна на виставленного на аукціон
+  }],
+  "financial": [									// Фінансова аналітика (період рік)
+  {
+	"year": 2018,									// Період (рік)
+	"main_active": 1533600.00,						// Основні засоби
+	"main_active_percent": 26.00,					// Основні засоби в порівняні з попереднім періодом
+	"current_liabilities": -1600.00,				// Поточні зобов'язання
+	"current_liabilities_percent": -16.00,			// Поточні зобов'язання в порівняні з попереднім періодом
+	"net_income": -2560.00,							// Виручка
+	"net_income_percent": -25.00,					// Виручка в порівняні з попереднім періодом
+	"net_profit": 1.00,								// Дохід
+	"net_profit_percent": 26.00						// Дохід в порівняні з попереднім періодом
+  }],
+  "employees" : [									// Дані про кількість співробітників (період рік)
+  {
+    "year" : 2017,									// Період (рік)
+    "count" : 1,									// К-ть співробітників
+    "differentPrevCount" : 1						// Різниця в к-ті співробітників з попереднім періодом
+  },
+  {
+    "year" : 2018,
+    "count" : 3,
+    "differentPrevCount" : 2
+  },
+  "sanctions":[										// Відомості про наявні санкції
+  {
+	"sanctionTypeId":1,								// Тип санкцій код (відп.до довідника № 11) 
+	"isActive": true,								// Активні на даний момент (так - true / ні - false)
+	"sanctionStart":"2017-08-14T00:00:00",			// Дата початку
+	"sanctionEnd":"2017-08-14T00:00:00"				// Дата закінчення
+  }]
+}
