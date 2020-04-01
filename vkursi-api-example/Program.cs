@@ -7,6 +7,7 @@ using vkursi_api_example.estate;
 using vkursi_api_example.monitoring;
 using vkursi_api_example.movableloads;
 using vkursi_api_example.organizations;
+using vkursi_api_example.person;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example
@@ -22,7 +23,7 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
-            GetChangesByCodeClass.GetChangesByCode(token, "00131305", "20.11.2018", "25.11.2019", null);
+            CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ");
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -158,6 +159,17 @@ namespace vkursi_api_example
             // [POST] /api/1.0/changes/getchangesbyCode
 
             GetChangesByCodeClass.GetChangesByCode(token, "00131305", "20.11.2018", "25.11.2019", null);
+
+            // 29. Отримання інформації по фізичній особі
+            // [POST] /api/1.0/person/checkperson
+
+            CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ");
+
+            // 30. Судові рішення по ФО
+            // ----------------------
+
+            // Основні словники сервісу
+            // ----[POST] /api/1.0/changes/getchangesbyCode
 
             // Перелік статусів відповідей API
         }
