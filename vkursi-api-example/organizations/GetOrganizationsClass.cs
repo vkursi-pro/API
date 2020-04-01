@@ -8,7 +8,7 @@ namespace vkursi_api_example.organizations
 {
     public class GetOrganizationsClass
     {
-        // 2.	Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
+        // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
         // [POST] /api/1.0/organizations/getorganizations
 
         public static List<GetOrganizationsResponseModel> GetOrganizations(string code, ref string token)
@@ -22,8 +22,8 @@ namespace vkursi_api_example.organizations
 
             string body = "[\"" + code + "\"]";
 
-            //Example1: body = "{\"code\": [\"40073472\", \"41462280\"]}";
-            //Example2: body = "[\"40073472\", \"41462280\"]";
+            //Example1: body = {"code": ["40073472", "41462280"]}
+
 
             RestClient client = new RestClient("https://vkursi-api.azurewebsites.net");
             RestRequest request = new RestRequest("api/1.0/organizations/getorganizations", Method.POST);

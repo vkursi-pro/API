@@ -10,7 +10,7 @@ namespace vkursi_api_example.movableloads
     {
         /*
          
-        23. ДРОРМ отримання витяга
+        23. ДРОРМ отримання витяга по Id обтяжння
         [POST] api/1.0/MovableLoads/getpaymovableloads
         
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/MovableLoads/getpaymovableloads' \
@@ -31,7 +31,7 @@ namespace vkursi_api_example.movableloads
             {
                 GetPayMovableLoadsRequestBodyModel GPMLRequestBody = new GetPayMovableLoadsRequestBodyModel
                 {
-                    Id = movableId
+                    Id = movableId      // Id обтяжння
                 };
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/MovableLoads/getpaymovableloads");
@@ -105,31 +105,74 @@ namespace vkursi_api_example.movableloads
 
     public class GetPayMovableLoadsRequestBodyModel
     {
-        public int Id { get; set; }
+        public int Id { get; set; }                                         // Id обтяжння
     }
 
     public class GetPayMovableLoadsResponseModel
     {
-        public bool isSuccess { get; set; }
-        public string status { get; set; }
-        public Data data { get; set; }
+        public bool isSuccess { get; set; }                                 // Успішний запит (true - так / false - ні)
+        public string status { get; set; }                                  // Статус запиту
+        public Data data { get; set; }                                      // Дані
     }
 
 
-    public class Data
+    public class Data                                                       
     {
-        public Guid userId { get; set; }
-        public Dictionary<int, Guid> success { get; set; }
-        public List<int> withError { get; set; }
-        public string reportRef { get; set; }
-        public Report report { get; set; }
+        public Guid userId { get; set; }                                    // Системний id Vkursi
+        public Dictionary<int, Guid> success { get; set; }                  // Перелік успішнио отриманих обтяжень
+        public List<int> withError { get; set; }                            // Перелік не успішнио отриманих обтяжень
+        public string reportRef { get; set; }                               // Посилання на перегляд витягу на Vkursi
+        public Report report { get; set; }                                  // Дані витягу
     }
 
     public class Report
     {
-        public DateTime createdOn { get; set; }
-        public string dataObjectOriginal { get; set; } 
-        public DataObjectClear dataObject { get; set; }
+        public DateTime createdOn { get; set; }                             // Дата отримання
+        public string dataObjectOriginal { get; set; }                      // Оригінальні дані відповіді від Nais (1в1).                       Опис полів від ДП Nais https://nais.gov.ua/files/general/2020/01/27/20200127160802-47.docx
+        public DataObjectClear dataObject { get; set; }                     // Витяг (Оригінальні дані відповіді Nais перетворені в об'єкт).    Опис полів від ДП Nais https://nais.gov.ua/files/general/2020/01/27/20200127160802-47.docx
+    }
+
+    public class DataObjectClear                                            // Витяг
+    {
+        public int id { get; set; }
+        public int opOpID { get; set; }
+        public string lmType { get; set; }
+        public string opStatus { get; set; }
+        public string opType { get; set; }
+        public DateTime actTerm { get; set; }
+        public object archiveDate { get; set; }
+        public DateTime execTerm { get; set; }
+        public object prevRegistration { get; set; }
+        public int reqReqID { get; set; }
+        public object bnBnID { get; set; }
+        public string regNum { get; set; }
+        public string contractSum { get; set; }
+        public string checkSum { get; set; }
+        public object archiveNum { get; set; }
+        public object penaltyInit { get; set; }
+        public string currencyType { get; set; }
+        public string lmSort { get; set; }
+        public string alPossible { get; set; }
+        public object lmTypeExtension { get; set; }
+        public string additional { get; set; }
+        public object archRegName { get; set; }
+        public DateTime regDate { get; set; }
+        public int currentObjID { get; set; }
+        public object startDay { get; set; }
+        public object startMonth { get; set; }
+        public object startYear { get; set; }
+        public double validContractSum { get; set; }
+        public List<Property> properties { get; set; }
+        public List<Subject> subjects { get; set; }
+        public List<CauseDocument> causeDocuments { get; set; }
+        public DateTime opRegDate { get; set; }
+        public string registrarInfo { get; set; }
+        public string lmState { get; set; }
+        public List<Document> documents { get; set; }
+        public string lmStateName { get; set; }
+        public string currentObjName { get; set; }
+        public string currentRegistrar { get; set; }
+        public object penalty { get; set; }
     }
 
     public class PrTypeAttr
@@ -258,48 +301,5 @@ namespace vkursi_api_example.movableloads
         public string docState { get; set; }
         public string docTypeName { get; set; }
         public string empFullName { get; set; }
-    }
-
-    public class DataObjectClear
-    {
-        public int id { get; set; }
-        public int opOpID { get; set; }
-        public string lmType { get; set; }
-        public string opStatus { get; set; }
-        public string opType { get; set; }
-        public DateTime actTerm { get; set; }
-        public object archiveDate { get; set; }
-        public DateTime execTerm { get; set; }
-        public object prevRegistration { get; set; }
-        public int reqReqID { get; set; }
-        public object bnBnID { get; set; }
-        public string regNum { get; set; }
-        public string contractSum { get; set; }
-        public string checkSum { get; set; }
-        public object archiveNum { get; set; }
-        public object penaltyInit { get; set; }
-        public string currencyType { get; set; }
-        public string lmSort { get; set; }
-        public string alPossible { get; set; }
-        public object lmTypeExtension { get; set; }
-        public string additional { get; set; }
-        public object archRegName { get; set; }
-        public DateTime regDate { get; set; }
-        public int currentObjID { get; set; }
-        public object startDay { get; set; }
-        public object startMonth { get; set; }
-        public object startYear { get; set; }
-        public double validContractSum { get; set; }
-        public List<Property> properties { get; set; }
-        public List<Subject> subjects { get; set; }
-        public List<CauseDocument> causeDocuments { get; set; }
-        public DateTime opRegDate { get; set; }
-        public string registrarInfo { get; set; }
-        public string lmState { get; set; }
-        public List<Document> documents { get; set; }
-        public string lmStateName { get; set; }
-        public string currentObjName { get; set; }
-        public string currentRegistrar { get; set; }
-        public object penalty { get; set; }
     }
 }

@@ -34,10 +34,10 @@ namespace vkursi_api_example.estate
                 GetEstatesRequestBodyModel GERequestBodyRow = new GetEstatesRequestBodyModel
                 {
                     Edrpou = new List<string> {
-                        edrpou
+                        edrpou                      // Масив кодів ЄДРПОУ (обеження 1)
                     },
                     Ipn = new List<string> {
-                        ipn
+                        ipn                         // Масив кодів ІПН
                     }
                 };
 

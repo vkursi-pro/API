@@ -23,8 +23,6 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
-            CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ");
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -165,11 +163,17 @@ namespace vkursi_api_example
 
             CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ");
 
-            // 30. Судові рішення по ФО
-            // ----------------------
+            // 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
+            // [POST] /api/1.0/movableloads/getexistedmovableloads
+
+            // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
+            // [inprogress]
+
+            // Судові рішення по ФО
+            // [inprogress]
 
             // Основні словники сервісу
-            // ----[POST] /api/1.0/changes/getchangesbyCode
+            // [inprogress]
 
             // Перелік статусів відповідей API
         }
