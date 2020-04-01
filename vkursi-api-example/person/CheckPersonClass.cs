@@ -2,6 +2,7 @@
 using RestSharp;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using vkursi_api_example.token;
 using vkursi_api_example.organizations;
 
 namespace vkursi_api_example.person

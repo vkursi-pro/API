@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace vkursi_api_example.dictionaries
+namespace vkursi_api_example.dictionary
 {
-    public static class СommonDictionaries
+    public static class CommonDictionaries
     {
         // 1. Стан суб’єкта
         public static Dictionary<int, string> GetOrganizationStateDict()
@@ -227,7 +227,7 @@ namespace vkursi_api_example.dictionaries
             return RegionDict;
         }
 
-        // 10. Тип публікації про банкрутство BankruptcyPublicationType of 
+        // 10. Тип публікації про банкрутство BankruptcyPublicationType
 
         public static Dictionary<int, string> GetBankruptcyPublicationTypeDict()
         {

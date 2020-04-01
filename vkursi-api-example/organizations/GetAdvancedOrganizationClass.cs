@@ -4,61 +4,87 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using vkursi_api_example.token;
 
 namespace vkursi_api_example.organizations
 {
     public class GetAdvancedOrganizationClass
     {
-        // 4.	Розширений запит. Запит на отримання розширених даних про ЮР / ФІЗ осіб
-        // [POST] /api/1.0/organizations/getadvancedorganization
+        /*
+
+        4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
+        [POST] /api/1.0/organizations/getadvancedorganization
+
+
+
+         */
 
         public static GetAdvancedOrganizationResponseModel GetAdvancedOrganization(string code, ref string token)
         {
             if (String.IsNullOrEmpty(token))
-            {
                 token = AuthorizeClass.Authorize();
-            }
 
-            link1:
-            
-            string body = "{\"Code\":\"" + code + "\"}";
-            //body = "\"" + "21560045" + "\"";
-            RestClient client = new RestClient("https://vkursi-api.azurewebsites.net");
-            RestRequest request = new RestRequest("api/1.0/organizations/getadvancedorganization", Method.POST);
-            request.AddHeader("Authorization", "Bearer " + token);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
+            string responseString = string.Empty;
 
-            IRestResponse response = client.Execute(request);
-            var responseString = response.Content;
-
-            if (responseString == "Not found")
+            while (string.IsNullOrEmpty(responseString))
             {
-                Console.WriteLine("Not found");
+                GetAdvancedOrganizationRequestBodyModel GAORequestBody = new GetAdvancedOrganizationRequestBodyModel
+                {
+                    Code = code                                             // Код ЄДРПОУ / ІПН
+                };
+
+                string body = JsonConvert.SerializeObject(GAORequestBody);  // Example body: {"Code":"21560045"}
+
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getadvancedorganization");
+                RestRequest request = new RestRequest(Method.POST);
+
+                request.AddHeader("ContentType", "application/json");
+                request.AddHeader("Authorization", "Bearer " + token);
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute(request);
+                responseString = response.Content;
+
+                if ((int)response.StatusCode == 401)
+                {
+                    Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
+                    token = AuthorizeClass.Authorize();
+                }
+                else if ((int)response.StatusCode == 200 && responseString == "\"Not found\"")
+                {
+                    Console.WriteLine("За вказаным кодом організації не знайдено");
+                    return null;
+                }
+                else if ((int)response.StatusCode != 200)
+                {
+                    Console.WriteLine("Запит не успішний");
+                    return null;
+                }
             }
 
-            if (responseString == "")
-            {
-                Console.WriteLine("Request is not correct");
-                token = AuthorizeClass.Authorize();
-                goto link1;
-            }
+            GetAdvancedOrganizationResponseModel GAOResponse = new GetAdvancedOrganizationResponseModel();
 
-            GetAdvancedOrganizationResponseModel OrganizationAdvancedResponse = JsonConvert.DeserializeObject<GetAdvancedOrganizationResponseModel>(responseString);
+            GAOResponse = JsonConvert.DeserializeObject<GetAdvancedOrganizationResponseModel>(responseString);
 
-            return OrganizationAdvancedResponse;
-
+            return GAOResponse;
         }
     }
 
-    public class GetAdvancedOrganizationResponseModel
+
+    public class GetAdvancedOrganizationRequestBodyModel                    // Модель Body запиту
     {
-        public OrganizationaisElasticModel Data { get; set; }
-        public OrganizationGageModel ExpressScore { get; set; }
-        public CourtDecisionAnaliticViewModel CourtAnalytic { get; set; }
-        public DateTime? DateRegInn { get; set; }
-        public string Inn { get; set; }
-        public DateTime? DateCanceledInn { get; set; }
-        public string Koatuu { get; set; }
+        public string Code { get; set; }                                    // Код ЄДРПОУ / ІПН
+    }
+
+    public class GetAdvancedOrganizationResponseModel                       // Модель відповіді GetAdvancedOrganization
+    {
+        public OrganizationaisElasticModel Data { get; set; }               // 
+        public OrganizationGageModel ExpressScore { get; set; }             // 
+        public CourtDecisionAnaliticViewModel CourtAnalytic { get; set; }   // 
+        public DateTime? DateRegInn { get; set; }                           // 
+        public string Inn { get; set; }                                     // 
+        public DateTime? DateCanceledInn { get; set; }                      // 
+        public string Koatuu { get; set; }                                  // 
     }
 
     public class OrganizationaisElasticModel

@@ -2,7 +2,7 @@
 using RestSharp;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using vkursi_api_example.organizations;
+using vkursi_api_example.token;
 
 namespace vkursi_api_example.movableloads
 {
@@ -103,12 +103,12 @@ namespace vkursi_api_example.movableloads
 
     */
 
-    public class GetPayMovableLoadsRequestBodyModel
+    public class GetPayMovableLoadsRequestBodyModel                         // Модель Body запиту
     {
         public int Id { get; set; }                                         // Id обтяжння
     }
 
-    public class GetPayMovableLoadsResponseModel
+    public class GetPayMovableLoadsResponseModel                            // Модель відповіді
     {
         public bool isSuccess { get; set; }                                 // Успішний запит (true - так / false - ні)
         public string status { get; set; }                                  // Статус запиту

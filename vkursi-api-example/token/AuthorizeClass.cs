@@ -1,10 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace vkursi_api_example.organizations
+namespace vkursi_api_example.token
 {
     public class AuthorizeClass
     {

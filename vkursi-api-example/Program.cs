@@ -26,17 +26,17 @@ namespace vkursi_api_example
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
-            List<GetOrganizationsResponseModel> OrganizationsShortList = GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
+            GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
 
             // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
             // [POST] /api/1.0/organizations/getfops
 
-            List<GetFopsResponseModel> FopsShortList = GetFopsClass.GetFops("1841404820", token); // 3334800417
+            GetFopsClass.GetFops("1841404820", token); // 3334800417
 
-            // 4. Розширений запит. Запит на отримання розширених даних про ЮР / ФІЗ осіб
+            // 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
             // [POST] /api/1.0/organizations/getadvancedorganization
 
-            GetAdvancedOrganizationResponseModel OrganizatioAdvancedRow = GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
+            GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
 
             // 5. Нерухомість по ФОП або ЮО
             // [GET] /api/1.0/estate/getestatebycodenew
@@ -166,13 +166,13 @@ namespace vkursi_api_example
             // 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
             // [POST] /api/1.0/movableloads/getexistedmovableloads
 
+            // 31. Основні словники сервісу
+            // [POST] /api/1.0/dictionary/getdictionary
+
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress]
 
             // Судові рішення по ФО
-            // [inprogress]
-
-            // Основні словники сервісу
             // [inprogress]
 
             // Перелік статусів відповідей API

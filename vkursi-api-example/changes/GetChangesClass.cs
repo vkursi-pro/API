@@ -3,7 +3,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using vkursi_api_example.organizations;
+using vkursi_api_example.token;
 
 namespace vkursi_api_example.changes
 {
