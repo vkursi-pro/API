@@ -1,8 +1,10 @@
 # API
-           // 1. Отримання токена авторизації
+            // 1. Отримання токена авторизації
             // [POST] /api/1.0/token/authorize
 
             token = AuthorizeClass.Authorize();
+
+            CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ");
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -139,4 +141,16 @@
 
             GetChangesByCodeClass.GetChangesByCode(token, "00131305", "20.11.2018", "25.11.2019", null);
 
+            // 29. Отримання інформації по фізичній особі
+            // [POST] /api/1.0/person/checkperson
+
+            CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ");
+
+            // 30. Судові рішення по ФО
+            // [inprogress]
+
+            // Основні словники сервісу
+            // [inprogress]
+
             // Перелік статусів відповідей API
+
