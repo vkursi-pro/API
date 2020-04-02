@@ -31,16 +31,13 @@ namespace vkursi_api_example.monitoring
 
             while (string.IsNullOrEmpty(responseString))
             {
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/Monitoring/addToControl");
-                RestRequest request = new RestRequest(Method.POST);
-
                 AddToControlRequestBodyModel ATCRBodyRow = new AddToControlRequestBodyModel
                 {
                     Codes = new List<string>                                // Перелік кодів ЄДРПОУ
                     {
                         code
                     },
-                    ReestrId = ReestrId,                                    // Id списка(реєстра) в який будуть додані записи
+                    ReestrId = ReestrId,                                    // Id списка(реєстра) в який будуть додані записи (перелік мона отримати api/1.0/monitoring/getAllReestr)
                     IsOnMonitoring = true,                                  // Автоматично додати до моніторингу (true - так / false - ні)
                     Persons = new List<EventControlPersonAddItemModel>      // Перелік фізичних осіб для додавання в списки
                     {
@@ -54,16 +51,18 @@ namespace vkursi_api_example.monitoring
                     }
                 };
                 
-                string body = JsonConvert.SerializeObject(ATCRBodyRow);
-                // Body example: {"Codes":["00131305"],"ReestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b","IsOnMonitoring":true,"Persons":[{"Name":"Шевченко Тарас Григорович","Ipn":"3334725058","Birthday":"09.03.1978","PassportCode":"HM156253"}]}
+                string body = JsonConvert.SerializeObject(ATCRBodyRow);     // Example body: {"Codes":["00131305"],"ReestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b","IsOnMonitoring":true,"Persons":[{"Name":"Шевченко Тарас Григорович","Ipn":"3334725058","Birthday":"09.03.1978","PassportCode":"HM156253"}]}
+
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/Monitoring/addToControl");
+                RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
                 request.AddParameter("application/json", body, ParameterType.RequestBody);
+
                 IRestResponse response = client.Execute(request);
                 responseString = response.Content;
 
-                // "reestrId not found"
                 if (responseString == "\"reestrId not found\"")
                 {
                     Console.WriteLine("За вказаним reestrId реєстр не знайдено. Отримати перелік реєстрів api/1.0/monitoring/getAllReestr");
@@ -83,9 +82,11 @@ namespace vkursi_api_example.monitoring
                 }
             }
 
-            List<AddToControlResponseModel> AddToControlRow = JsonConvert.DeserializeObject<List<AddToControlResponseModel>>(responseString);
+            List<AddToControlResponseModel> ATCResponse = new List<AddToControlResponseModel>();
 
-            return AddToControlRow;
+            ATCResponse = JsonConvert.DeserializeObject<List<AddToControlResponseModel>>(responseString);
+
+            return ATCResponse;
         }
     }
 
@@ -124,31 +125,31 @@ namespace vkursi_api_example.monitoring
 
      */
 
-    public class AddToControlRequestBodyModel       // Body на додавання до списку
+    public class AddToControlRequestBodyModel                                   // Модель Body запиту
     {
-        public List<string> Codes { get; set; }     // Перелік кодів ЄДРПОУ
-        public string ReestrId { get; set; }        // Id списка(реєстра) в який будуть додані записи
-        public bool? IsOnMonitoring { get; set; }   // Автоматично додати до моніторингу (true - так / false - ні)
-        public List<EventControlPersonAddItemModel> Persons { get; set; }   // Перелік фізичних осіб для додавання в списки
+        public List<string> Codes { get; set; }                                 // Перелік кодів ЄДРПОУ
+        public string ReestrId { get; set; }                                    // Id списка(реєстра) в який будуть додані записи
+        public bool? IsOnMonitoring { get; set; }                               // Автоматично додати до моніторингу (true - так / false - ні)
+        public List<EventControlPersonAddItemModel> Persons { get; set; }       // Перелік фізичних осіб для додавання в списки
     }
 
-    public class EventControlPersonAddItemModel     // Перелік фізичних осіб для додавання в списки
+    public class EventControlPersonAddItemModel                                 // Перелік фізичних осіб для додавання в списки
     {
-        public string Name { get; set; }            // ПІБ фізичної особи
-        public string Ipn { get; set; }             // ІПН фізичної особи
-        public string Birthday { get; set; }        // Дата народження
-        public string PassportCode { get; set; }    // Серія та номер паспорта
+        public string Name { get; set; }                                        // ПІБ фізичної особи
+        public string Ipn { get; set; }                                         // ІПН фізичної особи
+        public string Birthday { get; set; }                                    // Дата народження
+        public string PassportCode { get; set; }                                // Серія та номер паспорта
     }
 
-    public class AddToControlResponseModel          // Відповідь
+    public class AddToControlResponseModel                                      // Модель відповіді AddToControl
     {
-        public string name { get; set; }            // Назва 
-        public string shortName { get; set; }       // Скорочена назва
-        public string code { get; set; }            // Код
-        public string boss { get; set; }            // Керівник
-        public string location { get; set; }        // Адреса
-        public string kved { get; set; }            // КВЕД
-        public string state { get; set; }           // Стан
-        public string dateAddedToMonitoring { get; set; }   // Дата додавання на моніторинг
+        public string name { get; set; }                                        // Назва 
+        public string shortName { get; set; }                                   // Скорочена назва
+        public string code { get; set; }                                        // Код
+        public string boss { get; set; }                                        // Керівник
+        public string location { get; set; }                                    // Адреса
+        public string kved { get; set; }                                        // КВЕД
+        public string state { get; set; }                                       // Стан
+        public string dateAddedToMonitoring { get; set; }                       // Дата додавання
     }
 }

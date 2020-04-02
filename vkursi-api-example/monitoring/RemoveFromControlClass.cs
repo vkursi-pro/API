@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,39 +9,113 @@ namespace vkursi_api_example.monitoring
 {
     public class RemoveFromControlClass
     {
-        // 13.	Видилити контрагентів зі списку
-        // [POST] /api/1.0/Monitoring/removeFromControl
+        /*
+         
+        13. Видалити контрагентів зі списку
+        [POST] /api/1.0/Monitoring/removeFromControl     
 
-        public static void RemoveFromControl(string code, string reestrId, string token)
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/monitoring/removeFromControl' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIs...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"codes":["00131305"],"reestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b"}'
+
+        */
+
+        public static bool RemoveFromControl(string code, string reestrId, string token)
         {
-            if (String.IsNullOrEmpty(token))
-            {
+            if (string.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
-            }
 
-            link1:
+            string responseString = string.Empty;
 
-            RestClient client = new RestClient("https://vkursi-api.azurewebsites.net");
-            RestRequest request = new RestRequest("api/1.0/monitoring/removeFromControl", Method.POST);
+            bool isSuccessful = false;
 
-            string body = "{\"codes\":[\""+ code + "\"],\"reestrId\":\"" + reestrId + "\"}";
-            request.AddHeader("ContentType", "application/json");
-            request.AddHeader("Authorization", "Bearer " + token);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-            string responseString = response.Content;
-
-            if (responseString == "Not found")
+            while (string.IsNullOrEmpty(responseString))
             {
-                Console.WriteLine("Not found");
+                RemoveFromControlRequestBodyModel RFCRequestBody = new RemoveFromControlRequestBodyModel
+                {
+                    codes = new List<string>                                    // Перелік кодів ЄДРПОУ / ІПН які будуть видалені
+                    {
+                        code
+                    },
+                    reestrId = reestrId                                         // Id реєстра з якого будуть видалені
+                };
+
+
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/monitoring/removeFromControl");
+                RestRequest request = new RestRequest(Method.POST);
+
+                string body = JsonConvert.SerializeObject(RFCRequestBody);      // Example body: {"codes":["00131305"],"reestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b"}
+
+                request.AddHeader("ContentType", "application/json");
+                request.AddHeader("Authorization", "Bearer " + token);
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute(request);
+                responseString = response.Content;
+
+                if ((int)response.StatusCode == 401)
+                {
+                    Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
+                    token = AuthorizeClass.Authorize();
+                }
+                else if ((int)response.StatusCode == 200 && responseString == "\"Not found\"")
+                {
+                    Console.WriteLine("За вказаним кодом організації не знайдено");
+                    return isSuccessful;
+                }
+                else if ((int)response.StatusCode != 200)
+                {
+                    Console.WriteLine("Запит не успішний");
+                    return isSuccessful;
+                }
             }
 
-            if (responseString == "")
-            {
-                Console.WriteLine("Request is not correct");
-                token = AuthorizeClass.Authorize();
-                goto link1;
-            }
+            isSuccessful = true;                                                // Виконано успішно
+
+            return isSuccessful;
         }
+    }
+
+    /*
+        // Python - http.client example:
+
+        import http.client
+        import mimetypes
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = "{\"codes\":[\"00131305\"],\"reestrId\":\"1c891112-b022-4a83-ad34-d1f976c60a0b\"}"
+        headers = {
+          'ContentType': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV...',
+          'Content-Type': 'application/json'
+        }
+        conn.request("POST", "/api/1.0/monitoring/removeFromControl", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
+
+
+        // Java - OkHttp example:
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"codes\":[\"00131305\"],\"reestrId\":\"1c891112-b022-4a83-ad34-d1f976c60a0b\"}");
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/monitoring/removeFromControl")
+          .method("POST", body)
+          .addHeader("ContentType", "application/json")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsIn...")
+          .addHeader("Content-Type", "application/json")
+          .build();
+        Response response = client.newCall(request).execute();
+
+     */
+
+    public class RemoveFromControlRequestBodyModel                              // Модель Body запиту
+    {
+        public List<string> codes { get; set; }                                 // Перелік кодів ЄДРПОУ / ІПН які будуть видалені
+        public string reestrId { get; set; }                                    // Id реєстра
     }
 }

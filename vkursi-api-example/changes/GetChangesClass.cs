@@ -9,44 +9,102 @@ namespace vkursi_api_example.changes
 {
     public class GetChangesClass
     {
-        // 6.	Історія змін по компаніям які додані на моніторинг
-        // [GET] /api/1.0/changes/getchanges
+        /*
+        
+        6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
+        [GET] /api/1.0/changes/getchanges
+
+        curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges?date=28.10.2019' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOi...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Code":"21560045"}'
+
+        */
 
         public static List<GetChangesResponseModel> GetChanges(string date, string token)
         {
-            if (String.IsNullOrEmpty(token))
-            {
+            if (string.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
-            }
 
-            link1:
+            string responseString = string.Empty;
 
-            RestClient client = new RestClient("https://vkursi-api.azurewebsites.net");
-            RestRequest request = new RestRequest("api/1.0/changes/getchanges", Method.GET);
-
-            request.AddParameter("date", date);
-            request.AddHeader("ContentType", "application/json");
-            request.AddHeader("Authorization", "Bearer " + token);
-
-            IRestResponse response = client.Execute(request);
-            string responseString = response.Content;
-
-            if (responseString == "Not found")
+            while (string.IsNullOrEmpty(responseString))
             {
-                Console.WriteLine("Not found");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges");
+                RestRequest request = new RestRequest(Method.GET);
+
+                request.AddParameter("date", date);                 // Дата в яку сервіс Vkursi виявив зміни
+                request.AddHeader("ContentType", "application/json");
+                request.AddHeader("Authorization", "Bearer " + token);
+
+                IRestResponse response = client.Execute(request);
+                responseString = response.Content;
+
+                if ((int)response.StatusCode == 401)
+                {
+                    Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
+                    token = AuthorizeClass.Authorize();
+                }
+                else if ((int)response.StatusCode == 403 && responseString.Contains("Not enough cards to form a request"))
+                {
+                    Console.WriteLine("Недостатньо ресурсів для виконання запиту, відповідно до вашого тарифу. Дізнатися об'єм доступних ресурсів - /api/1.0/token/gettariff");
+                    return null;
+                }
+                else if ((int)response.StatusCode != 200)
+                {
+                    Console.WriteLine("Запит не успішний");
+                    return null;
+                }
             }
 
-            if (responseString == "")
-            {
-                Console.WriteLine("Request is not correct");
-                token = AuthorizeClass.Authorize();
-                goto link1;
-            }
+            List<GetChangesResponseModel> ChangesResponseList = new List<GetChangesResponseModel>();
 
-            List<GetChangesResponseModel> ChangesResponseList = JsonConvert.DeserializeObject<List<GetChangesResponseModel>>(responseString);
+            ChangesResponseList = JsonConvert.DeserializeObject<List<GetChangesResponseModel>>(responseString);
 
             return ChangesResponseList;
         }
+    }
+
+    /*
+        // Python - http.client example:
+
+        import http.client
+        import mimetypes
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = "{\"Code\":\"21560045\"}"
+        headers = {
+          'ContentType': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5c...',
+          'Content-Type': 'application/json',
+        }
+        conn.request("GET", "/api/1.0/changes/getchanges?date=28.10.2019", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
+
+
+        // Java - OkHttp example:
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges?date=28.10.2019")
+          .method("GET", null)
+          .addHeader("ContentType", "application/json")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIs...")
+          .addHeader("Content-Type", "application/json")
+          .build();
+        Response response = client.newCall(request).execute();
+
+     */
+
+    public class GetChangesResponseModel                            // Модель відповіді GetChanges
+    {
+        public DateTime dateOfChange { get; set; }                  // Дата зміни
+        public string changeType { get; set; }                      // Тип зміни
+        public string change { get; set; }                          // Опис інформмації по зміну
+        public OwnerChangesInfo ownerChangesInfo { get; set; }      // Інформация про організацію / ФОП по якому відбулась зміна
     }
 
     public class OwnerChangesInfo                                   // Інформация про організацію / ФОП по якому відбулась зміна
@@ -55,13 +113,5 @@ namespace vkursi_api_example.changes
         public int type { get; set; }                               // Тип (1 - організация | 2 - фізична особа)
         public string name { get; set; }                            // Найменування
         public string code { get; set; }                            // Код ІНП / Єдрпоу
-    }
-
-    public class GetChangesResponseModel
-    {
-        public DateTime dateOfChange { get; set; }                  // Дата зміни
-        public string changeType { get; set; }                      // Тип зміни
-        public string change { get; set; }                          // Опис інформмації по зміну
-        public OwnerChangesInfo ownerChangesInfo { get; set; }      // Інформация про організацію / ФОП по якому відбулась зміна
     }
 }

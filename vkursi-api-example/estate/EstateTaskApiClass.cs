@@ -204,87 +204,86 @@ namespace vkursi_api_example.estate
 
 
     // 19.
-
-    public class EstateCreateTaskApiRequestBodyModel
+    public class EstateCreateTaskApiRequestBodyModel                            // Модель Body запиту
     {
-        public List<string> Edrpous { get; set; }   // Коди ЄДРПОУ
-        public List<string> Ipns { get; set; }      // ІПН-и
-        public List<string> Koatuus { get; set; }   // КОАТУУ
-        public List<string> Cadastrs { get; set; }  // Кадастрові номери
-        public bool? СalculateСost { get; set; }    // Якщо тільки порахувати вартість
-        public bool IsNeedUpdateAll { get; set; }   // Якщо true - оновлюємо всі дані в ДЗК і РРП
-        public bool IsReport { get; set; }          // Якщо true - формуємо звіт, false / null - повертаємо тільки json
-        public string TaskName { get; set; }        // Назва задачі
-        public bool DzkOnly { get; set; }           // Запити тільки по ДЗК
+        public List<string> Edrpous { get; set; }                               // Коди ЄДРПОУ
+        public List<string> Ipns { get; set; }                                  // ІПН-и
+        public List<string> Koatuus { get; set; }                               // КОАТУУ
+        public List<string> Cadastrs { get; set; }                              // Кадастрові номери
+        public bool? СalculateСost { get; set; }                                // Якщо тільки порахувати вартість
+        public bool IsNeedUpdateAll { get; set; }                               // Якщо true - оновлюємо всі дані в ДЗК і РРП
+        public bool IsReport { get; set; }                                      // Якщо true - формуємо звіт, false / null - повертаємо тільки json
+        public string TaskName { get; set; }                                    // Назва задачі
+        public bool DzkOnly { get; set; }                                       // Запити тільки по ДЗК
     }
 
-    public class EstateCreateTaskApiResponseBodyModel
+    public class EstateCreateTaskApiResponseBodyModel                           // Модель відповіді EstateCreateTaskApi
     {
-        public bool isSuccess { get; set; }         // Запит віконано успішно
-        public string status { get; set; }          // Повідомлення
-        public string taskId { get; set; }          // Id задачі за яким ми будемо перевіряти її виконання
-        public string taskName { get; set; }        // Назва задачі
-        public double? cost { get; set; }           // Вартість виконання запиту
+        public bool isSuccess { get; set; }                                     // Запит віконано успішно
+        public string status { get; set; }                                      // Повідомлення
+        public string taskId { get; set; }                                      // Id задачі за яким ми будемо перевіряти її виконання
+        public string taskName { get; set; }                                    // Назва задачі
+        public double? cost { get; set; }                                       // Вартість виконання запиту
     }
 
     // 20.
-    public class ApiTaskListEstateAnswerModel       // Перелік створенних задач (задачі на виконання запитів до ДРРП, НГО, ДЗК)
+    public class ApiTaskListEstateAnswerModel                                   // Модель Body запиту (перелік створенних задач (задачі на виконання запитів до ДРРП, НГО, ДЗК))
     {
-        public string Id { get; set; }              // Id задачі
-        public string Name { get; set; }            // Назва задачі
-        public DateTime DateStart { get; set; }     // Дата початку виконання
-        public DateTime? DateEnd { get; set; }      // Дата закінчення виконання
-        public bool Complete { get; set; }          // Задачу виконано (true - так / false - ні)
-        public bool WithReport { get; set; }        // Сформовано звіт в сервісі VkursiLand (true - так / false - ні)
+        public string Id { get; set; }                                          // Id задачі
+        public string Name { get; set; }                                        // Назва задачі
+        public DateTime DateStart { get; set; }                                 // Дата початку виконання
+        public DateTime? DateEnd { get; set; }                                  // Дата закінчення виконання
+        public bool Complete { get; set; }                                      // Задачу виконано (true - так / false - ні)
+        public bool WithReport { get; set; }                                    // Сформовано звіт в сервісі VkursiLand (true - так / false - ні)
     }
 
 
     // 21.
 
-    public class EstateGetTaskDataApiRequestBodyModel
+    public class EstateGetTaskDataApiRequestBodyModel                           // Модель Body запиту
     {
-        public string taskId { get; set; }          // Id задачі
-        public int? skip { get; set; }              // К-ть записів які будуть пропущені
-        public int? take { get; set; }              // К-ть записів які будуть отримані (максимум 1000)
+        public string taskId { get; set; }                                      // Id задачі
+        public int? skip { get; set; }                                          // К-ть записів які будуть пропущені
+        public int? take { get; set; }                                          // К-ть записів які будуть отримані (максимум 1000)
     }
 
 
 
-    public class EstateGetTaskDataApiResponseModel
+    public class EstateGetTaskDataApiResponseModel                              // Модель відповіді EstateGetTaskDataApi
     {
-        public bool isSuccess { get; set; }         // Запит віконано успішно
-        public string status { get; set; }          // Повідомлення
-        public List<EstateGetTaskDataApiDataModel> data { get; set; } // EstateGetTaskDataApiDataModel
+        public bool isSuccess { get; set; }                                     // Запит віконано успішно
+        public string status { get; set; }                                      // Повідомлення
+        public List<EstateGetTaskDataApiDataModel> data { get; set; }           // EstateGetTaskDataApiDataModel
     }
 
     public class EstateGetTaskDataApiDataModel
     {
-        public string CadastrNumber { get; set; }   // Кадастровий номер
-        public ElasticPlot Plot { get; set; }       // ДЗК + гео дані
-        public StateRegisterRealEstateModel RrpAdvanced { get; set; }   // РРП
+        public string CadastrNumber { get; set; }                               // Кадастровий номер
+        public ElasticPlot Plot { get; set; }                                   // ДЗК + ПКУУ (гео дані)
+        public StateRegisterRealEstateModel RrpAdvanced { get; set; }           // РРП
     }
 
-    public class RealEstateAdvancedResponseModel
+    public class RealEstateAdvancedResponseModel                                // 
     {
-        public List<Realty> realty { get; set; }
-        public List<oldRealty> oldRealty { get; set; }
-        public List<oldMortgageJson> oldMortgageJson { get; set; }
-        public List<oldLimitationJson> oldLimitationJson { get; set; }
+        public List<Realty> realty { get; set; }                                // 
+        public List<oldRealty> oldRealty { get; set; }                          // 
+        public List<oldMortgageJson> oldMortgageJson { get; set; }              // 
+        public List<oldLimitationJson> oldLimitationJson { get; set; }          // 
     }
 
-    public class StateRegisterRealEstateModel
+    public class StateRegisterRealEstateModel                                   // 
     {
-        public List<Realty> realty { get; set; }
-        public List<object> oldRealty { get; set; }
-        public List<object> oldMortgageJson { get; set; }
-        public List<object> oldLimitationJson { get; set; }
-        public int CourtCount { get; set; }
-        public string CadastrNumber { get; set; }
-        public long LocationId { get; set; }
-        public string OwnerForm { get; set; }
-        public string Address { get; set; }
-        public Guid Id { get; set; }        //Id из таблицы RealEstateRightsAdvanced
-        public double? AreaFromFreeQuery { get; set; }  //Площадь из бесплатного запроса
+        public List<Realty> realty { get; set; }                                // 
+        public List<object> oldRealty { get; set; }                             // 
+        public List<object> oldMortgageJson { get; set; }                       // 
+        public List<object> oldLimitationJson { get; set; }                     // 
+        public int CourtCount { get; set; }                                     // 
+        public string CadastrNumber { get; set; }                               // 
+        public long LocationId { get; set; }                                    // 
+        public string OwnerForm { get; set; }                                   // 
+        public string Address { get; set; }                                     // 
+        public Guid Id { get; set; }                                            // Id из таблицы RealEstateRightsAdvanced
+        public double? AreaFromFreeQuery { get; set; }                          // Площадь из бесплатного запроса
 
     }
 

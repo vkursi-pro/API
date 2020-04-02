@@ -1,0 +1,20 @@
+{
+   "isSucces":true,
+   "succes":"Дані успішно знайдені",
+   "data":{
+      "0":"AllDictionaryDict",
+      "1":"OrganizationStateDict",
+      "2":"NaisPersonRoleDict",
+      "3":"FieldTypeDict",
+      "4":"RegulatorDict",
+      "5":"AuditsResultStatusDict",
+      "6":"OrganOfLicensesDict",
+      "7":"TypeOfLicensesDict",
+      "8":"CountryDict",
+      "9":"RegionDict",
+      "10":"BankruptcyPublicationTypeDict",
+      "11":"PurposeDict",
+      "12":"SanctionTypeDict"
+   },
+   "updateDate":"2020-04-01T00:00:00"
+}

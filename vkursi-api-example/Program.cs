@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using vkursi_api_example.bi;
 using vkursi_api_example.changes;
 using vkursi_api_example.courtdecision;
+using vkursi_api_example.dictionary;
 using vkursi_api_example.estate;
 using vkursi_api_example.monitoring;
 using vkursi_api_example.movableloads;
@@ -38,75 +39,75 @@ namespace vkursi_api_example
 
             GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
 
-            // 5. Нерухомість по ФОП або ЮО
+            // 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
             // [GET] /api/1.0/estate/getestatebycodenew
 
-            GetRealEstateRightsResponseModel RealEstateRightRpw = GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+            GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 
-            // 6. Історія змін по компаніям які додані на моніторинг
+            // 6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
             // [GET] /api/1.0/changes/getchanges
 
-            List<GetChangesResponseModel> ChangesResponseList = GetChangesClass.GetChanges("28.10.2019", token);
+            GetChangesClass.GetChanges("28.10.2019", token);
 
-            // 7. Отримати перелік списків контрагентів
+            // 7. Отримати перелік списків (які користувач створив на vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
             // [GET] /api/1.0/monitoring/getAllReestr
 
-            List<GetAllReestrResponseModel> AllReestrList = GetAllReestrClass.GetAllReestr(token);
+            GetAllReestrClass.GetAllReestr(token);
 
-            // 8. Додати новий список контрагентів
+            // 8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
             // [POST] /api/1.0/monitoring/addNewReestr
 
-            string reestrId = AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
+            AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
 
             // 9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getanalytic
 
-            GetAnalyticResponseModel GetAnalyticRow = GetAnalyticClass.GetAnalytic("00131305", token);
+            GetAnalyticClass.GetAnalytic("00131305", token);
 
-            // 10. Запит на отримання даних по судовим рішенням організації
+            // 10. Запит на отримання переліку судових документів організації за критеріями (контент та параметри документа можна отримати в методі /api/1.0/courtdecision/getdecisionbyid)
             // [POST] /api/1.0/courtdecision/getdecisions
 
-            GetDecisionsResponseModel DecisionsResponseRow = GetDecisionsClass.GetDecisions("00131305", 100, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
+            GetDecisionsClass.GetDecisions("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
 
-            // 11. Запит на отримання контенту судового рішення
+            // 11. Запит на отримання контенту судового рішення за id документа (id документа можна отримати в api/1.0/courtdecision/getdecisions)
             // [POST] /api/1.0/courtdecision/getcontent
 
-            string courtDecisionContent = GetContentClass.GetContent("84583482", token);
+            GetContentClass.GetContent("84583482", token);
 
-            // 12. Додати контрагентів до списку
+            // 12. Додати контрагентів до списку (до списку vkursi.pro/eventcontrol#/reestr)
             // [POST] /api/1.0/Monitoring/addToControl
 
-            List<AddToControlResponseModel> AddToControlRow = AddToControlClass.AddToControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
+           AddToControlClass.AddToControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
-            // 13. Видилити контрагентів зі списку
+            // 13. Видалити контрагентів зі списку 
             // [POST] /api/1.0/Monitoring/removeFromControl
 
             RemoveFromControlClass.RemoveFromControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
-            // 14. Запит на отримання списку компаній по коду КОАТУУ
+            // 14. Отримання переліку кодів ЄДРПОУ або Id фізичних або юридичних осіб які знаходятся за певним КОАТУУ
             // [POST] /api/1.0/organizations/getinfobykoatuu
 
-            List<GetInfoByKoatuuResponseModel> InfoByKoatuuResponseList = GetInfoByKoatuuClass.GetInfoByKoatuu("510900000", "1", token);
+            GetInfoByKoatuuClass.GetInfoByKoatuu("510900000", "1", token);
 
-            // 15. Запит на отримання списку нових компаній(компаній / ФОП)
-            // [POST] /api/1.0/organizations/getnewregistrationі
+            // 15. Новий бізнес. Запит на отримання списку новозареєстрованих фізичних та юридичних осіб
+            // [POST] /api/1.0/organizations/getnewregistration
 
-            string NewRegistrationList = GetNewRegistrationClass.GetNewRegistration("29.10.2019", "1", 0, 10, true, true, token);
+            GetNewRegistrationClass.GetNewRegistration("29.10.2019", "1", 0, 10, true, true, token);
 
             // 16. Видалити список контрагентів
             // [DELETE] /api/1.0/monitoring/removeReestr
 
             RemoveReestrClass.RemoveReestr("1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
-            // 17. Отримати перелік компаний які відібрані по BI
+            // 17. Отримати перелік компаний які відібрані в модулі BI
             // [POST] /api/1.0/bi/getbidata
 
-            List<GetBiDataResponseModel> GetBiDataList = GetBiDataClass.GetBiData(null, 1000, token);
+            GetBiDataClass.GetBiData(null, 1000, token);
 
-            // 18. Отримати перелік Label доступних по BI
+            // 18. Отримати перелік Label доступних в модулі BI
             // [GET] /api/1.0/bi/getbiimportlabels
 
-            List<string> GetBiImportLabelsList = GetBiImportLabelsClass.GetBiImportLabels(token);
+            GetBiImportLabelsClass.GetBiImportLabels(token);
 
             // 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам 
             // [POST] /api/1.0/estate/estatecreatetaskapi
@@ -168,6 +169,22 @@ namespace vkursi_api_example
 
             // 31. Основні словники сервісу
             // [POST] /api/1.0/dictionary/getdictionary
+
+            GetDictionaryClass.GetDictionary(ref token, 0);
+
+            // 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
+            // [POST] /api/1.0/organizations/getorgvehicle
+
+
+            // 33. Список воконавчич проваджень по фізичним або юридичним осібам за кодом ІПН / ЄДРПОУ
+            // [POST] api/1.0/organizations/getorgenforcements
+
+            // 34. Відомості про публікації (SMIDA, Банкрутство)
+            // [POST] /api/1.0/organizations/getorgpubliicfunds
+
+            // 35. Фінансові ризики
+            // [POST] /api/1.0/organizations/getorgFinancialRisks
+
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress]

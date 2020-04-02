@@ -31,15 +31,13 @@ namespace vkursi_api_example.movableloads
             {
                 GetPayMovableLoadsRequestBodyModel GPMLRequestBody = new GetPayMovableLoadsRequestBodyModel
                 {
-                    Id = movableId      // Id обтяжння
+                    Id = movableId                                          // Id обтяжння
                 };
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/MovableLoads/getpaymovableloads");
                 RestRequest request = new RestRequest(Method.POST);
 
-                string body = JsonConvert.SerializeObject(GPMLRequestBody);
-
-                // Example Body: {"Id":1278898}
+                string body = JsonConvert.SerializeObject(GPMLRequestBody); // Example Body: {"Id":1278898}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);

@@ -34,16 +34,14 @@ namespace vkursi_api_example.estate
                 GetEstatesRequestBodyModel GERequestBodyRow = new GetEstatesRequestBodyModel
                 {
                     Edrpou = new List<string> {
-                        edrpou                      // Масив кодів ЄДРПОУ (обеження 1)
+                        edrpou                                                  // Масив кодів ЄДРПОУ (обеження 1)
                     },
                     Ipn = new List<string> {
-                        ipn                         // Масив кодів ІПН
+                        ipn                                                     // Масив кодів ІПН (обеження 1)
                     }
                 };
 
-                string body = JsonConvert.SerializeObject(GERequestBodyRow);
-
-                // Example Body: {"Edrpou":["36679626"],"Ipn":["3006679626"]}
+                string body = JsonConvert.SerializeObject(GERequestBodyRow);    // Example Body: {"Edrpou":["36679626"],"Ipn":["3006679626"]}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
@@ -109,44 +107,44 @@ namespace vkursi_api_example.estate
 
     */
 
-    public class GetEstatesRequestBodyModel
+    public class GetEstatesRequestBodyModel                                     // Модель Body запиту
     {
-        public List<string> Edrpou { get; set; }
-        public List<string> Ipn { get; set; }
+        public List<string> Edrpou { get; set; }                                // Масив кодів ЄДРПОУ (обеження 1)
+        public List<string> Ipn { get; set; }                                   // Масив кодів ІПН (обеження 1)
     }
 
 
-    public class GetEstatesResponseModel
+    public class GetEstatesResponseModel                                        // Модель відповіді GetEstates
     {
-        public bool isSuccess { get; set; }
-        public string status { get; set; }
-        public GetEstateApiFreeModelAnswerData data { get; set; }
+        public bool isSuccess { get; set; }                                     // Успішний запит (true - так / false - ні)
+        public string status { get; set; }                                      // Статус запиту
+        public GetEstateApiFreeModelAnswerData data { get; set; }               // Дані
     }
 
-    public class GetEstateApiFreeModelAnswerData
+    public class GetEstateApiFreeModelAnswerData                                // Дані
     {
-        public string dataObjectOriginal { get; set; }
-        public EstateResponceWithParsedResultData dataObject { get; set; }
-        public Dictionary<string, List<int>> types { get; set; }
+        public string dataObjectOriginal { get; set; }                          // Оригінал відповіді від ДП Nais (1в1).                            // https://nais.gov.ua/files/general/2019/07/30/20190730154716-22.docx
+        public EstateResponceWithParsedResultData dataObject { get; set; }      // Витяг (Оригінальні дані відповіді Nais перетворені в об'єкт).    // https://nais.gov.ua/files/general/2019/07/30/20190730154716-22.docx
+        public Dictionary<string, List<int>> types { get; set; }                // 
     }
-    public class EstateResponceWithParsedResultData
+    public class EstateResponceWithParsedResultData                             // Витяг (Оригінальні дані відповіді Nais перетворені в об'єкт).    // https://nais.gov.ua/files/general/2019/07/30/20190730154716-22.docx
     {
-        public string entity { get; set; }
-        public string method { get; set; }
-        public string sign { get; set; }
-        public SearchParams searchParams { get; set; }
-        public int resultID { get; set; }
-        public ResponseEstateData resultData { get; set; }
-        public long reportResultID { get; set; }
-        public int groupID { get; set; }
+        public string entity { get; set; }                                      // Системна інформація Nais
+        public string method { get; set; }                                      // Системна інформація Nais. Назва методу
+        public string sign { get; set; }                                        // Системна інформація Nais. Підпис ЕЦП
+        public SearchParams searchParams { get; set; }                          // Системна інформація Nais. Параметри пошуку (за якими була знайдені об'єкти)
+        public int resultID { get; set; }                                       // Системна інформація Nais. 
+        public ResponseEstateData resultData { get; set; }                      // 
+        public long reportResultID { get; set; }                                // Системна інформація Nais. 
+        public int groupID { get; set; }                                        // Системна інформація Nais. 
     }
-    public class SearchParams
+    public class SearchParams                                                   // Системна інформація Nais. Параметри пошуку (за якими була знайдені об'єкти)
     {
-        public bool isShowHistoricalNames { get; set; }
-        public string searchType { get; set; }
-        public SubjectSearchInfo subjectSearchInfo { get; set; }
-        public string reason { get; set; }
-        public bool isDelayed { get; set; }
+        public bool isShowHistoricalNames { get; set; }                         // Відображати історичність назв
+        public string searchType { get; set; }                                  // Для пошуку по об’єкту ="1" для пошуку по суб’єкту = "2"
+        public SubjectSearchInfo subjectSearchInfo { get; set; }                // ПІБ користувача/Назва
+        public string reason { get; set; }                                      // Підстава виникнення речового права
+        public bool isDelayed { get; set; }                                     // 
         public string dcReqtypeSubject { get; set; }
         public bool isExternal { get; set; }
         public bool isSuspend { get; set; }

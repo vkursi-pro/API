@@ -9,112 +9,179 @@ namespace vkursi_api_example.organizations
 {
     public class GetAnalyticClass
     {
-        // 9.	Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ
-        // [POST] /api/1.0/organizations/getanalytic
+
+        /*
+
+        9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ
+        [POST] /api/1.0/organizations/getanalytic
+
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getanalytic' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"code":"00131305"}'
+
+        */
 
         public static GetAnalyticResponseModel GetAnalytic(string code, string token)
         {
-            if (String.IsNullOrEmpty(token))
-            {
+            if (string.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
-            }
-        
-            link1:
-            
-            RestClient client = new RestClient("https://vkursi-api.azurewebsites.net");
-            RestRequest request = new RestRequest("api/1.0/organizations/getanalytic", Method.POST);
 
-            // Example1: {"code":"00131305"};
-            // Example2: "00131305";
+            string responseString = string.Empty;
 
-            string body = "\"" + code + "\"";
-            request.AddHeader("ContentType", "application/json");
-            request.AddHeader("Authorization", "Bearer " + token);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-            string responseString = response.Content;
-
-            if (responseString == "Not found")
+            while (string.IsNullOrEmpty(responseString))
             {
-                Console.WriteLine("Not found");
+                GetAnalyticRequestBodyModel GARequestBody = new GetAnalyticRequestBodyModel
+                {
+                    code = code                                             // Код ЄДРПОУ / ІПН
+                };
+
+                string body = JsonConvert.SerializeObject(GARequestBody);   // Example body: {"code":"00131305"}
+
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getanalytic");
+                RestRequest request = new RestRequest(Method.POST);
+
+                request.AddHeader("ContentType", "application/json");
+                request.AddHeader("Authorization", "Bearer " + token);
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute(request);
+                responseString = response.Content;
+
+                if ((int)response.StatusCode == 401)
+                {
+                    Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
+                    token = AuthorizeClass.Authorize();
+                }
+                else if ((int)response.StatusCode == 200 && responseString == "\"Not found\"")
+                {
+                    Console.WriteLine("За вказаным кодом організації не знайдено");
+                    return null;
+                }
+                else if ((int)response.StatusCode == 403 && responseString.Contains("Not enough cards to form a request"))
+                {
+                    Console.WriteLine("Недостатньо ресурсів для виконання запиту, відповідно до вашого тарифу. Дізнатися об'єм доступних ресурсів - /api/1.0/token/gettariff");
+                    return null;
+                }
+                else if ((int)response.StatusCode != 200)
+                {
+                    Console.WriteLine("Запит не успішний");
+                    return null;
+                }
             }
 
-            if (responseString == "")
-            {
-                Console.WriteLine("Request is not correct");
-                token = AuthorizeClass.Authorize();
-                goto link1;
-            }
+            GetAnalyticResponseModel organizationAnalytic = new GetAnalyticResponseModel();
 
-            GetAnalyticResponseModel organizationAnalytic = JsonConvert.DeserializeObject<GetAnalyticResponseModel>(responseString);
+            organizationAnalytic = JsonConvert.DeserializeObject<GetAnalyticResponseModel>(responseString);
 
             return organizationAnalytic;
         }
     }
 
-    public class GetAnalyticResponseModel
+    /*
+        // Python - http.client example:
+
+        import http.client
+        import mimetypes
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = "{\"code\":\"00131305\"}"
+        headers = {
+          'ContentType': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...',
+          'Content-Type': 'application/json'
+        }
+        conn.request("POST", "/api/1.0/organizations/getanalytic", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
+
+
+        // Java - OkHttp example:
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"code\":\"00131305\"}");
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getanalytic")
+          .method("POST", body)
+          .addHeader("ContentType", "application/json")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1Ni...")
+          .addHeader("Content-Type", "application/json")
+          .build();
+        Response response = client.newCall(request).execute();
+
+     */
+
+    public class GetAnalyticRequestBodyModel                                    // Модель Body запиту
     {
-        public string orgId { get; set; }// Id організації 
-        public string name { get; set; }// Назва ЮО / ФОП
+        public string code { get; set; }                                        // Код ЄДРПОУ / ІПН
+    }
+
+    public class GetAnalyticResponseModel                                       // Модель відповіді GetAnalytic
+    {
+        public string orgId { get; set; }                                       // Id організації 
+        public string name { get; set; }                                        // Назва ЮО / ФОП
         public string clearName { get; set; }
-        public bool legalEntity { get; set; } //Тип ЮО - true/ ФОП - false
-        public string edrpou { get; set; }// код ЄДРПОУ | ІПН
-        public int? stateInt { get; set; }// Статус код ( 1 - зареєстровано, 2 - припинено, ... відп.до довідника № 3)
-        public State state { get; set; }// Статуc назва
-        public double totalAmount { get; set; } // Сума статутного капіталу
-        public VatPayers vatPayers { get; set; } // ПДВ 
-        public List<Tenders> tenders { get; set; } // Аналіз тендерів в розрізі періоду (місяць)
-        public List<Patents> patents { get; set; }// Патенти, торгові марки, 
-        public List<Declarations> declarations { get; set; }// Аналітика по деклараціям  (період рік)
-        public Date date { get; set; } // Дата створення / закрыття компанії / ФОП
-        public TotalCourts totalCourts { get; set; }// Загальна аналітика по судовим рішенням
+        public bool legalEntity { get; set; }                                   //Тип ЮО - true/ ФОП - false
+        public string edrpou { get; set; }                                      // код ЄДРПОУ | ІПН
+        public int? stateInt { get; set; }                                      // Статус код ( 1 - зареєстровано, 2 - припинено, ... відп.до довідника № 3)
+        public State state { get; set; }                                        // Статуc назва
+        public double totalAmount { get; set; }                                 // Сума статутного капіталу
+        public VatPayers vatPayers { get; set; }                                // ПДВ 
+        public List<Tenders> tenders { get; set; }                              // Аналіз тендерів в розрізі періоду (місяць)
+        public List<Patents> patents { get; set; }                              // Патенти, торгові марки, 
+        public List<Declarations> declarations { get; set; }                    // Аналітика по деклараціям  (період рік)
+        public Date date { get; set; }                                          // Дата створення / закрыття компанії / ФОП
+        public TotalCourts totalCourts { get; set; }                            // Загальна аналітика по судовим рішенням
 
-        public List<OrganizationAnalytiCourtsAnalytics> courtsAnalytics { get; set; } // Аналітика по судовим в розрізі місяця
-        public List<OrganizationAnalytiCourtsAnalytics> courtsAssignedAnalytics { get; set; } // Аналітика по справам призначенним до розгляду в розрізі місяця
-        public List<OrganizationAnalyticEnforcements> enforcements { get; set; } // Виконавчі провадження
-        public OrganizationAnalyticEnforcementsStatistic enforcementsStatistic { get; set; } // Виконавчі провадження по категоріям сторін
-        public List<OrganizationAnalyticBankruptcy> bankruptcy { get; set; } // Публікації ВГСУ про банкрутство
-        public List<OrganizationAnalyticEdata> edata { get; set; } // Аналітика по Edata період (місяць)
-        public List<OrgChecks> orgChecks { get; set; }// Аналітика по перевіркам
-        public List<DebtorsBorg> debtorsBorg { get; set; }// Динаміка податкового боргу (період місяць)
-        public ChangeHistory changeHistory { get; set; }// Історія реєстрацийних змін
-        public List<OrganizationLicensesElastic> organizationLicenses { get; set; }// Аналіз ліцензій (в розрізі органу ліцензування)
-        public OrganizationAnalyticExpressScore expressScore { get; set; } // Дані експрес перевірки  
-        public List<OrganizationAnalyticSanctions> sanctions { get; set; }// Відомості про наявні санкції
-        public List<int> kvedsInt { get; set; } // Основний квед Id
-        public List<Regions> regions { get; set; } // Юридична адресса
-        public List<Ownership> ownership { get; set; } // Форма власності
-        public List<Founders> founders { get; set; } // Аналітика по засновникам в розрізі країни
-        public TenderStatistic tenderStatistic { get; set; } // 
-        public List<OrganizationAnalyticFinancialBKI> financial { get; set; } // Фінансова аналітика (період рік)
-        public OrganizationAnalyticTenderBidStatistics tenderBidStatistics { get; set; } // Аналіз участі в торгах 
-        public OrganizationAnalyticTenderOrganizerStatistics tenderOrganizerStatistics { get; set; } // Аналіз організованніх тендерів
+        public List<OrganizationAnalytiCourtsAnalytics> courtsAnalytics { get; set; }           // Аналітика по судовим в розрізі місяця
+        public List<OrganizationAnalytiCourtsAnalytics> courtsAssignedAnalytics { get; set; }   // Аналітика по справам призначенним до розгляду в розрізі місяця
+        public List<OrganizationAnalyticEnforcements> enforcements { get; set; }                // Виконавчі провадження
+        public OrganizationAnalyticEnforcementsStatistic enforcementsStatistic { get; set; }    // Виконавчі провадження по категоріям сторін
+        public List<OrganizationAnalyticBankruptcy> bankruptcy { get; set; }    // Публікації ВГСУ про банкрутство
+        public List<OrganizationAnalyticEdata> edata { get; set; }              // Аналітика по Edata період (місяць)
+        public List<OrgChecks> orgChecks { get; set; }                          // Аналітика по перевіркам
+        public List<DebtorsBorg> debtorsBorg { get; set; }                      // Динаміка податкового боргу (період місяць)
+        public ChangeHistory changeHistory { get; set; }                        // Історія реєстрацийних змін
+        public List<OrganizationLicensesElastic> organizationLicenses { get; set; }             // Аналіз ліцензій (в розрізі органу ліцензування)
+        public OrganizationAnalyticExpressScore expressScore { get; set; }      // Дані експрес перевірки  
+        public List<OrganizationAnalyticSanctions> sanctions { get; set; }      // Відомості про наявні санкції
+        public List<int> kvedsInt { get; set; }                                 // Основний квед Id
+        public List<Regions> regions { get; set; }                              // Юридична адресса
+        public List<Ownership> ownership { get; set; }                          // Форма власності
+        public List<Founders> founders { get; set; }                            // Аналітика по засновникам в розрізі країни
+        public TenderStatistic tenderStatistic { get; set; }                    // 
+        public List<OrganizationAnalyticFinancialBKI> financial { get; set; }   // Фінансова аналітика (період рік)
+        public OrganizationAnalyticTenderBidStatistics tenderBidStatistics { get; set; }                        // Аналіз участі в торгах 
+        public OrganizationAnalyticTenderOrganizerStatistics tenderOrganizerStatistics { get; set; }            // Аналіз організованніх тендерів
 
-        public List<OrganizationAnalyticTenderBidStatisticsTenderCpvStats> tenderCpvStats { get; set; }// Аналіз участі в тендерах в розрізі CPV (період рік)
-        public OrganizationAnalyticTenderBidStatisticsRealEstateRightsLand realEstateRightsLand { get; set; }// Аналіз земельних ділянок
-        public OrganizationAnalyticTenderBidStatisticsRealEstateRightsObj realEstateRightsObj { get; set; } // Аналіз об'єктів нерухомого майна (крім земельних ділянок)
-        public List<OrganizationAnalyticOrganizationFEAModel> financialFEA { get; set; }// Аналіз ЗЕД (період рік)
-        public List<OrganizationAnalyticFinancialRisks> financialRisks { get; set; } // Аналіз фінансових ризиків (період рік) (відп.до довідника № 12) 
-        public List<OrganizationAnalyticEmployeesModel> employees { get; set; }// Дані про кількість співробітників (період рік)
+        public List<OrganizationAnalyticTenderBidStatisticsTenderCpvStats> tenderCpvStats { get; set; }         // Аналіз участі в тендерах в розрізі CPV (період рік)
+        public OrganizationAnalyticTenderBidStatisticsRealEstateRightsLand realEstateRightsLand { get; set; }   // Аналіз земельних ділянок
+        public OrganizationAnalyticTenderBidStatisticsRealEstateRightsObj realEstateRightsObj { get; set; }     // Аналіз об'єктів нерухомого майна (крім земельних ділянок)
+        public List<OrganizationAnalyticOrganizationFEAModel> financialFEA { get; set; }                        // Аналіз ЗЕД (період рік)
+        public List<OrganizationAnalyticFinancialRisks> financialRisks { get; set; }                            // Аналіз фінансових ризиків (період рік) (відп.до довідника № 12) 
+        public List<OrganizationAnalyticEmployeesModel> employees { get; set; }                                 // Дані про кількість співробітників (період рік)
 
     }
 
 
-    public class OrganizationAnalyticEmployeesModel // Дані про кількість співробітників (період рік)
+    public class OrganizationAnalyticEmployeesModel                             // Дані про кількість співробітників (період рік)
     {
-        public int? year { get; set; }// Період (рік)
-        public int? count { get; set; }// К-ть співробітників
-        public int? differentPrevCount { get; set; }// Різниця в к-ті співробітників з попереднім періодом
+        public int? year { get; set; }                                          // Період (рік)
+        public int? count { get; set; }                                         // К-ть співробітників
+        public int? differentPrevCount { get; set; }                            // Різниця в к-ті співробітників з попереднім періодом
     }
 
 
-    public class OrganizationAnalyticFinancialRisks // Аналіз фінансових ризиків (період рік) (відп.до довідника № 12) 
+    public class OrganizationAnalyticFinancialRisks                             // Аналіз фінансових ризиків (період рік) (відп.до довідника № 12) 
     {
-        public int? year { get; set; }// Період (рік)
-        public int? kvedGroupNumb { get; set; }// Група за квед
-        public int? debtClass { get; set; }// Класс боржника
-        public int? metricsCount { get; set; }// Кількість показників
-        public int? risksCategoryInt { get; set; }// Категорія
+        public int? year { get; set; }                                          // Період (рік)
+        public int? kvedGroupNumb { get; set; }                                 // Група за квед
+        public int? debtClass { get; set; }                                     // Класс боржника
+        public int? metricsCount { get; set; }                                  // Кількість показників
+        public int? risksCategoryInt { get; set; }                              // Категорія
     }
 
     public class OrganizationAnalyticOrganizationFEAModel // Аналіз ЗЕД (період рік)

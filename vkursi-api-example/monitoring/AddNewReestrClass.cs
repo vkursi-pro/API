@@ -1,50 +1,63 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example.monitoring
 {
     public class AddNewReestrClass
     {
-        // 8.	Додати новий список контрагентів
-        // [POST] /api/1.0/monitoring/addNewReestr
+        /*
+         
+        8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
+        [POST] /api/1.0/monitoring/addNewReestr
+        
+
+        */
 
         public static string AddNewReestr(string reestrName, string token)
         {
-            if (String.IsNullOrEmpty(token))
-            {
+            if (string.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
-            }
 
-            link1:
+            string responseString = string.Empty;
 
-            string body = "{\"reestrName\": \""+ reestrName + "\"}";
-
-            RestClient client = new RestClient("https://vkursi-api.azurewebsites.net");
-            RestRequest request = new RestRequest("api/1.0/monitoring/addNewReestr", Method.POST);
-            request.AddHeader("ContentType", "application/json");
-            request.AddHeader("Authorization", "Bearer " + token);
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-
-            IRestResponse response = client.Execute(request);
-            var responseString = response.Content;
-
-            if (responseString == "Not found")
+            while (string.IsNullOrEmpty(responseString))
             {
-                Console.WriteLine("Not found");
+                AddNewReestrResponseModel AddNewReestrResponseModel = new AddNewReestrResponseModel
+                {
+                    reestrName = reestrName                                             // Назва нового списку (який буде створено)
+                };
+
+                string body = JsonConvert.SerializeObject(AddNewReestrResponseModel);   // Example body: {"reestrName":"Назва нового реєстру"}
+
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/monitoring/addnewreestr");
+                RestRequest request = new RestRequest(Method.POST);
+                request.AddHeader("ContentType", "application/json");
+                request.AddHeader("Authorization", "Bearer " + token);
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute(request);
+                responseString = response.Content;
+
+                if ((int)response.StatusCode == 401)
+                {
+                    Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
+                    token = AuthorizeClass.Authorize();
+                }
+                else if ((int)response.StatusCode != 200)
+                {
+                    Console.WriteLine("Запит не успішний");
+                    return null;
+                }
             }
 
-            if (responseString == "")
-            {
-                Console.WriteLine("Request is not correct");
-                token = AuthorizeClass.Authorize();
-                goto link1;
-            }
-
-            return responseString;
+            return responseString.Replace("\"","");                                     // В відповідь проходить системный id реєстру в сервісі VKursi
         }
+    }
+
+    public class AddNewReestrResponseModel                                              // Модель Body запиту
+    {
+        public string reestrName { get; set; }                                          // Назва нового списку (який буде створено)
     }
 }

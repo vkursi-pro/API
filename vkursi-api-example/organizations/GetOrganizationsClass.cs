@@ -16,7 +16,8 @@ namespace vkursi_api_example.organizations
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorganizations' \
         --header 'ContentType: application/json' \
         --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
-        --data-raw '{"code": ["40073472", "41462280"]}'
+        --header 'Content-Type: application/json' \
+        --data-raw '{"code": ["40073472"]}'
 
         */
 
@@ -37,7 +38,7 @@ namespace vkursi_api_example.organizations
                     }
                 };
 
-                string body = JsonConvert.SerializeObject(GORequestBody);   // Example body: {"code": ["40073472", "41462280"]}
+                string body = JsonConvert.SerializeObject(GORequestBody);   // Example body: {"code": ["40073472"]}
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorganizations");
                 RestRequest request = new RestRequest(Method.POST);
@@ -73,6 +74,41 @@ namespace vkursi_api_example.organizations
             return OrganizationsList;
         }
     }
+
+    /*
+        // Python - http.client example:
+
+        import http.client
+        import mimetypes
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = "{\"code\": [\"40073472\"]}"
+        headers = {
+          'ContentType': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...',
+          'Content-Type': 'application/json'
+        }
+        conn.request("POST", "/api/1.0/organizations/getorganizations", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
+
+
+        // Java - OkHttp example:
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"code\": [\"40073472\"]}");
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorganizations")
+          .method("POST", body)
+          .addHeader("ContentType", "application/json")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1Ni...")
+          .addHeader("Content-Type", "application/json")
+          .build();
+        Response response = client.newCall(request).execute();
+
+     */
 
     class GetOrganizationsRequestBodyModel                          // Модель Body запиту
     {

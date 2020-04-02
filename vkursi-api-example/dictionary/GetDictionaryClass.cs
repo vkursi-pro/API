@@ -11,16 +11,22 @@ namespace vkursi_api_example.dictionary
         /*
 
         31. Основні словники сервісу
-        [POST] /api/1.0/dictionary/getdictionary
+        [POST] /api/1.0/Dictionary/getdictionary
+
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/Dictionary/getdictionary' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"DictionaryName":"AllDictionaryDict"}'
          
         */
 
-        public static Dictionary<int, string> GetDictionary(ref string token)
+        public static GetDictionaryResponseModel GetDictionary(ref string token, int dictionaryCode)
         {
             Dictionary<int, string> AllDictionaryDict = new Dictionary<int, string>
             {
                 { 0, "AllDictionaryDict" },                 // Перелік всіх словників
-                { 1, "OrganizationStateDict" },             // Стан суб'єкта
+                { 1, "OrganizationStateDict" },             // Стан реєстрації суб'єкта
                 { 2, "NaisPersonRoleDict" },                // Роль по відношенню до пов'язаного суб'єкта
                 { 3, "FieldTypeDict" },                     // Типи змін
                 { 4, "RegulatorDict" },                     // Перевіряючий орган regulatorId
@@ -34,6 +40,8 @@ namespace vkursi_api_example.dictionary
                 { 12, "SanctionTypeDict" },                 // Тип санкцій
             };
 
+            string dictionaryName = AllDictionaryDict[dictionaryCode];
+
 
             if (String.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
@@ -44,10 +52,10 @@ namespace vkursi_api_example.dictionary
             {
                 GetDictionaryRequestBodyModel GDRequestBody = new GetDictionaryRequestBodyModel
                 {
-                    DictionaryName = "AllDictionaryDict"                    // Назва словника 
+                    DictionaryName = dictionaryName                         // Назва словника 
                 };
 
-                string body = JsonConvert.SerializeObject(GDRequestBody);   // Example body: {"DictionaryName":"AllDictionaryDict"}
+                string body = JsonConvert.SerializeObject(GDRequestBody);   // Example body: {"DictionaryName":"AllDictionaryDict"} - AllDictionaryDict перелік всіх словників
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/Dictionary/getdictionary");
                 RestRequest request = new RestRequest(Method.POST);
@@ -76,16 +84,59 @@ namespace vkursi_api_example.dictionary
                 }
             }
 
-            Dictionary<int, string> DResponseDict = new Dictionary<int, string>();
+            GetDictionaryResponseModel GDResponseModel = new GetDictionaryResponseModel();
 
-            DResponseDict = JsonConvert.DeserializeObject<Dictionary<int, string>>(responseString);
+            GDResponseModel = JsonConvert.DeserializeObject<GetDictionaryResponseModel>(responseString);
 
-            return DResponseDict;
+            return GDResponseModel;
         }
     }
+
+    /*
+        // Python - http.client example:
+
+        import http.client
+        import mimetypes
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = "{\"DictionaryName\":\"AllDictionaryDict\"}"
+        headers = {
+          'ContentType': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...',
+          'Content-Type': 'application/json'
+        }
+        conn.request("POST", "/api/1.0/Dictionary/getdictionary", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
+
+
+        // Java - OkHttp example:
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"DictionaryName\":\"AllDictionaryDict\"}");
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/Dictionary/getdictionary")
+          .method("POST", body)
+          .addHeader("ContentType", "application/json")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1Ni...")
+          .addHeader("Content-Type", "application/json")
+          .build();
+        Response response = client.newCall(request).execute();
+
+     */
 
     public class GetDictionaryRequestBodyModel                          // Модель Body запиту
     {
         public string DictionaryName { get; set; }                      // Назва словника
+    }
+
+    public class GetDictionaryResponseModel                             // Модель відповіді GetDictionary
+    {
+        public bool isSucces { get; set; }                              // Запит виконано успішно (true - так / false - ні)
+        public string succes { get; set; }                              // Статус відповіді
+        public Dictionary<int, string> data { get; set; }               // Зміст словника
+        public DateTime updateDate { get; set; }                        // Дата останнього оновлення словника
     }
 }
