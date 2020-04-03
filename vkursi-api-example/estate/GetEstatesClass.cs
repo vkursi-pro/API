@@ -3,6 +3,7 @@ using RestSharp;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using vkursi_api_example.token;
+
 namespace vkursi_api_example.estate
 {
     public class GetEstatesClass
@@ -21,7 +22,7 @@ namespace vkursi_api_example.estate
         */
         public static GetEstatesResponseModel GetEstates(string token, string edrpou, string ipn)
         {
-            if (String.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
 
             string responseString = string.Empty;

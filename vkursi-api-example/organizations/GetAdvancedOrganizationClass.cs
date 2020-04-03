@@ -1,10 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using System;
 using RestSharp;
-using System;
+using Newtonsoft.Json;
+using vkursi_api_example.token;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
-using vkursi_api_example.token;
 
 namespace vkursi_api_example.organizations
 {

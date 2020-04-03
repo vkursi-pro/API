@@ -152,7 +152,7 @@ namespace vkursi_api_example.organizations
         public List<Regions> regions { get; set; }                              // Юридична адресса
         public List<Ownership> ownership { get; set; }                          // Форма власності
         public List<Founders> founders { get; set; }                            // Аналітика по засновникам в розрізі країни
-        public TenderStatistic tenderStatistic { get; set; }                    // 
+        public TenderStatistic tenderStatistic { get; set; }                    // Статистика по тендерам в загальна
         public List<OrganizationAnalyticFinancialBKI> financial { get; set; }   // Фінансова аналітика (період рік)
         public OrganizationAnalyticTenderBidStatistics tenderBidStatistics { get; set; }                        // Аналіз участі в торгах 
         public OrganizationAnalyticTenderOrganizerStatistics tenderOrganizerStatistics { get; set; }            // Аналіз організованніх тендерів
@@ -493,15 +493,15 @@ namespace vkursi_api_example.organizations
 
     }
 
-    public class TenderStatistic
+    public class TenderStatistic                                                        // Статистика по тендерам в загальна
     {
-        public long? applicationsForParticipation { get; set; }
-        public long? avarage { get; set; }
-        public long? declaration { get; set; }
-        public long? inProcess { get; set; }
-        public long? lost { get; set; }
-        public long? summ { get; set; }
-        public long? win { get; set; }
+        public long? applicationsForParticipation { get; set; }                         // 
+        public long? avarage { get; set; }                                              // 
+        public long? declaration { get; set; }                                          // 
+        public long? inProcess { get; set; }                                            // 
+        public long? lost { get; set; }                                                 // 
+        public long? summ { get; set; }                                                 // 
+        public long? win { get; set; }                                                  // 
     }
 
     public class Declarations // Аналітика по деклараціям  (період рік)
