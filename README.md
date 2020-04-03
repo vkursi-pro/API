@@ -1,203 +1,203 @@
 # API
 
-// 1. Отримання токена авторизації
-// [POST] /api/1.0/token/authorize
+            // 1. Отримання токена авторизації
+            // [POST] /api/1.0/token/authorize
 
-token = AuthorizeClass.Authorize();
+            token = AuthorizeClass.Authorize();
 
-// 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
-// [POST] /api/1.0/organizations/getorganizations
+            // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
+            // [POST] /api/1.0/organizations/getorganizations
 
-GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
+            GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
 
-// 3. Запит на отримання коротких даних по ФОП за кодом ІПН
-// [POST] /api/1.0/organizations/getfops
+            // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
+            // [POST] /api/1.0/organizations/getfops
 
-GetFopsClass.GetFops("1841404820", token); // 3334800417
+            GetFopsClass.GetFops("1841404820", token); // 3334800417
 
-// 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
-// [POST] /api/1.0/organizations/getadvancedorganization
+            // 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
+            // [POST] /api/1.0/organizations/getadvancedorganization
 
-GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
+            GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
 
-// 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
-// [GET] /api/1.0/estate/getestatebycode
+            // 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
+            // [GET] /api/1.0/estate/getestatebycode
 
-GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+            GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 
-// 6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
-// [GET] /api/1.0/changes/getchanges
+            // 6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
+            // [GET] /api/1.0/changes/getchanges
 
-GetChangesClass.GetChanges("28.10.2019", token);
+            GetChangesClass.GetChanges("28.10.2019", token);
 
-// 7. Отримати перелік списків (які користувач створив на vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
-// [GET] /api/1.0/monitoring/getAllReestr
+            // 7. Отримати перелік списків (які користувач створив на vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
+            // [GET] /api/1.0/monitoring/getAllReestr
 
-GetAllReestrClass.GetAllReestr(token);
+            GetAllReestrClass.GetAllReestr(token);
 
-// 8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
-// [POST] /api/1.0/monitoring/addNewReestr
+            // 8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
+            // [POST] /api/1.0/monitoring/addNewReestr
 
-AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
+            AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
 
-// 9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ
-// [POST] /api/1.0/organizations/getanalytic
+            // 9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ
+            // [POST] /api/1.0/organizations/getanalytic
 
-GetAnalyticClass.GetAnalytic("00131305", token);
+            GetAnalyticClass.GetAnalytic("00131305", token);
 
-// 10. Запит на отримання переліку судових документів організації за критеріями (контент та параметри документа можна отримати в методі /api/1.0/courtdecision/getdecisionbyid)
-// [POST] /api/1.0/courtdecision/getdecisions
+            // 10. Запит на отримання переліку судових документів організації за критеріями (контент та параметри документа можна отримати в методі /api/1.0/courtdecision/getdecisionbyid)
+            // [POST] /api/1.0/courtdecision/getdecisions
 
-GetDecisionsClass.GetDecisions("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
+            GetDecisionsClass.GetDecisions("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
 
-// 11. Запит на отримання контенту судового рішення за id документа (id документа можна отримати в api/1.0/courtdecision/getdecisions)
-// [POST] /api/1.0/courtdecision/getcontent
+            // 11. Запит на отримання контенту судового рішення за id документа (id документа можна отримати в api/1.0/courtdecision/getdecisions)
+            // [POST] /api/1.0/courtdecision/getcontent
 
-GetContentClass.GetContent("84583482", token);
+            GetContentClass.GetContent("84583482", token);
 
-// 12. Додати контрагентів до списку (до списку vkursi.pro/eventcontrol#/reestr)
-// [POST] /api/1.0/Monitoring/addToControl
+            // 12. Додати контрагентів до списку (до списку vkursi.pro/eventcontrol#/reestr)
+            // [POST] /api/1.0/Monitoring/addToControl
 
            AddToControlClass.AddToControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
-// 13. Видалити контрагентів зі списку 
-// [POST] /api/1.0/Monitoring/removeFromControl
+            // 13. Видалити контрагентів зі списку 
+            // [POST] /api/1.0/Monitoring/removeFromControl
 
-RemoveFromControlClass.RemoveFromControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
+            RemoveFromControlClass.RemoveFromControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
-// 14. Отримання переліку кодів ЄДРПОУ або Id фізичних або юридичних осіб які знаходятся за певним КОАТУУ
-// [POST] /api/1.0/organizations/getinfobykoatuu
+            // 14. Отримання переліку кодів ЄДРПОУ або Id фізичних або юридичних осіб які знаходятся за певним КОАТУУ
+            // [POST] /api/1.0/organizations/getinfobykoatuu
 
-GetInfoByKoatuuClass.GetInfoByKoatuu("510900000", "1", token);
+            GetInfoByKoatuuClass.GetInfoByKoatuu("510900000", "1", token);
 
-// 15. Новий бізнес. Запит на отримання списку новозареєстрованих фізичних та юридичних осіб
-// [POST] /api/1.0/organizations/getnewregistration
+            // 15. Новий бізнес. Запит на отримання списку новозареєстрованих фізичних та юридичних осіб
+            // [POST] /api/1.0/organizations/getnewregistration
 
-GetNewRegistrationClass.GetNewRegistration("29.10.2019", "1", 0, 10, true, true, token);
+            GetNewRegistrationClass.GetNewRegistration("29.10.2019", "1", 0, 10, true, true, token);
 
-// 16. Видалити список контрагентів
-// [DELETE] /api/1.0/monitoring/removeReestr
+            // 16. Видалити список контрагентів
+            // [DELETE] /api/1.0/monitoring/removeReestr
 
-RemoveReestrClass.RemoveReestr("1c891112-b022-4a83-ad34-d1f976c60a0b", token);
+            RemoveReestrClass.RemoveReestr("1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
-// 17. Отримати перелік компаний які відібрані в модулі BI
-// [POST] /api/1.0/bi/getbidata
+            // 17. Отримати перелік компаний які відібрані в модулі BI
+            // [POST] /api/1.0/bi/getbidata
 
-GetBiDataClass.GetBiData(null, 1000, token);
+            GetBiDataClass.GetBiData(null, 1000, token);
 
-// 18. Отримати перелік Label доступних в модулі BI
-// [GET] /api/1.0/bi/getbiimportlabels
+            // 18. Отримати перелік Label доступних в модулі BI
+            // [GET] /api/1.0/bi/getbiimportlabels
 
-GetBiImportLabelsClass.GetBiImportLabels(token);
+            GetBiImportLabelsClass.GetBiImportLabels(token);
 
-// 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам 
-// [POST] /api/1.0/estate/estatecreatetaskapi
+            // 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам 
+            // [POST] /api/1.0/estate/estatecreatetaskapi
 
-EstateTaskApiClass.EstateCreateTaskApi(token);
+            EstateTaskApiClass.EstateCreateTaskApi(token);
 
-// 20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
-// [GET] /api/1.0/estate/getestatetasklist
+            // 20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
+            // [GET] /api/1.0/estate/getestatetasklist
 
-EstateTaskApiClass.GetEstateTaskList(token);
+            EstateTaskApiClass.GetEstateTaskList(token);
 
-// 21. Отримання інформації про виконання формування звіту та запитів до ДРРП, НГО, ДЗК за TaskId
-// [POST] /api/1.0/estate/estategettaskdataapi
+            // 21. Отримання інформації про виконання формування звіту та запитів до ДРРП, НГО, ДЗК за TaskId
+            // [POST] /api/1.0/estate/estategettaskdataapi
 
-EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId");
+            EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId");
 
-// 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
-// [POST] /api/1.0/movableLoads/getmovableloads
+            // 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
+            // [POST] /api/1.0/movableLoads/getmovableloads
 
-GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
+            GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
 
-// 23. ДРОРМ отримання витяга
-// [POST] /api/1.0/MovableLoads/getpaymovableloads
+            // 23. ДРОРМ отримання витяга
+            // [POST] /api/1.0/MovableLoads/getpaymovableloads
 
-GetPayMovableLoadsClass.GetPayMovableLoads(token, 17374040);
+            GetPayMovableLoadsClass.GetPayMovableLoads(token, 17374040);
 
-// 24. ДРРП отримання скороченных данных по ІПН / ЄДРПОУ
-// [POST] /api/1.0/Estate/GetEstates
+            // 24. ДРРП отримання скороченных данных по ІПН / ЄДРПОУ
+            // [POST] /api/1.0/Estate/GetEstates
 
-GetEstatesClass.GetEstates(token, "36679626", null);
+            GetEstatesClass.GetEstates(token, "36679626", null);
 
-// 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
-// [POST] /api/1.0/estate/getadvancedrrpreport
+            // 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
+            // [POST] /api/1.0/estate/getadvancedrrpreport
 
-GetAdvancedRrpReportClass.GetAdvancedRrpReport(token, 5001466269723, 68345530);
+            GetAdvancedRrpReportClass.GetAdvancedRrpReport(token, 5001466269723, 68345530);
 
-// 26. Рекізити судового документа
-// [POST] /api/1.0/courtdecision/getdecisionbyid
+            // 26. Рекізити судового документа
+            // [POST] /api/1.0/courtdecision/getdecisionbyid
 
-GetDecisionByIdClass.GetDecisionById("88234097", token);
+            GetDecisionByIdClass.GetDecisionById("88234097", token);
 
-// 27. Обьем ресурсів доспупних користувачу відповідно до тарифного плану
-// [GET] /api/1.0/token/gettariff
+            // 27. Обьем ресурсів доспупних користувачу відповідно до тарифного плану
+            // [GET] /api/1.0/token/gettariff
 
-GetTariffClass.GetTariff(token);
+            GetTariffClass.GetTariff(token);
 
-// 28. Метод АРІ, який віддає історію по компанії з можливістю обрати період.
-// [POST] /api/1.0/changes/getchangesbyCode
+            // 28. Метод АРІ, який віддає історію по компанії з можливістю обрати період.
+            // [POST] /api/1.0/changes/getchangesbyCode
 
-GetChangesByCodeClass.GetChangesByCode(token, "00131305", "20.11.2018", "25.11.2019", null);
+            GetChangesByCodeClass.GetChangesByCode(token, "00131305", "20.11.2018", "25.11.2019", null);
 
-// 29. Отримання інформації по фізичній особі
-// [POST] /api/1.0/person/checkperson
+            // 29. Отримання інформації по фізичній особі
+            // [POST] /api/1.0/person/checkperson
 
-CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ");
+            CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ");
 
-// 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
-// [POST] /api/1.0/movableloads/getexistedmovableloads
+            // 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
+            // [POST] /api/1.0/movableloads/getexistedmovableloads
 
-// 31. Основні словники сервісу
-// [POST] /api/1.0/dictionary/getdictionary
+            // 31. Основні словники сервісу
+            // [POST] /api/1.0/dictionary/getdictionary
 
-GetDictionaryClass.GetDictionary(ref token, 0);
+            GetDictionaryClass.GetDictionary(ref token, 0);
 
-// 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
-// [POST] /api/1.0/organizations/getorgvehicle
+            // 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
+            // [POST] /api/1.0/organizations/getorgvehicle
 
-GetOrgVehicleClass.GetOrgVehicle(ref token, "00131305");
+            GetOrgVehicleClass.GetOrgVehicle(ref token, "00131305");
 
-// 33. Список виконавчих проваджень по фізичним або юридичним особам за кодом ІПН / ЄДРПОУ
-// [POST] /api/1.0/organizations/getorgenforcements
+            // 33. Список виконавчих проваджень по фізичним або юридичним особам за кодом ІПН / ЄДРПОУ
+            // [POST] /api/1.0/organizations/getorgenforcements
 
-GetOrgEnforcementsClass.GetOrgEnforcements(ref token, "00131305");
+            GetOrgEnforcementsClass.GetOrgEnforcements(ref token, "00131305");
 
-// 34. Відомості про публікації (SMIDA, Банкрутство)
-// [POST] /api/1.0/organizations/getorgpubliicfunds
+            // 34. Відомості про публікації (SMIDA, Банкрутство)
+            // [POST] /api/1.0/organizations/getorgpubliicfunds
 
-GetOrgPubliicFundsClass.GetOrgPubliicFunds(ref token, "00131305");
+            GetOrgPubliicFundsClass.GetOrgPubliicFunds(ref token, "00131305");
 
-// 35. Фінансові ризики
-// [POST] /api/1.0/organizations/getorgFinancialRisks
+            // 35. Фінансові ризики
+            // [POST] /api/1.0/organizations/getorgFinancialRisks
 
-GetOrgFinancialRisksClass.GetOrgFinancialRisks(ref token, "00131305");
+            GetOrgFinancialRisksClass.GetOrgFinancialRisks(ref token, "00131305");
 
-// 36. Перелік декларантів повязаних з компаніями
-// [POST] /api/1.0/organizations/getdeclarationsinfo
+            // 36. Перелік декларантів повязаних з компаніями
+            // [POST] /api/1.0/organizations/getdeclarationsinfo
 
-GetDeclarationsInfoClass.GetDeclarationsInfo(ref token, "00131305");
+            GetDeclarationsInfoClass.GetDeclarationsInfo(ref token, "00131305");
 
-// 37. Перелік ліцензій, та дозволів
-// [POST] /api/1.0/organizations/getorglicensesinfo
+            // 37. Перелік ліцензій, та дозволів
+            // [POST] /api/1.0/organizations/getorglicensesinfo
 
-GetOrgLicensesInfoClass.GetOrgLicensesInfo(ref token, "00131305");
+            GetOrgLicensesInfoClass.GetOrgLicensesInfo(ref token, "00131305");
 
-// 38. Відомості про інтелектуальну власність (патенти, торгові марки, корисні моделі) які повязані по ПІБ з бенеціціарами підприємства
-// [POST] /api/1.0/organizations/getorgintellectualproperty
+            // 38. Відомості про інтелектуальну власність (патенти, торгові марки, корисні моделі) які повязані по ПІБ з бенеціціарами підприємства
+            // [POST] /api/1.0/organizations/getorgintellectualproperty
 
-GetOrgIntellectualPropertyClass.GetOrgIntellectualProperty(ref token, "00131305");
+            GetOrgIntellectualPropertyClass.GetOrgIntellectualProperty(ref token, "00131305");
 
-// 39. Відомості про власників пакетів акцій (від 5%)
-// [POST] /api/1.0/organizations/getorgshareholders
+            // 39. Відомості про власників пакетів акцій (від 5%)
+            // [POST] /api/1.0/organizations/getorgshareholders
 
-// 40. Частка державних коштів в доході
-// /api/1.0/organizations/getorgstatefundsstatistic
+            // 40. Частка державних коштів в доході
+            // /api/1.0/organizations/getorgstatefundsstatistic
 
-// ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
-// [inprogress]
+            // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
+            // [inprogress]
 
-// Судові рішення по ФО
-// [inprogress]
+            // Судові рішення по ФО
+            // [inprogress]
 
-// Перелік статусів відповідей API
+            // Перелік статусів відповідей API
