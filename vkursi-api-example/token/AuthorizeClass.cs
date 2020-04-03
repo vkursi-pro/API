@@ -21,8 +21,8 @@ namespace vkursi_api_example.token
             // Вкажіть ваш логін та пароль від сервісу vkursi.pro які ви вводиди при реєстрации облікового запису vkursi.pro/account/register
             AuthorizeRequestBodyModel AuthorizeRequestBody = new AuthorizeRequestBodyModel
             {
-                Email = "admin@admin.com",       // "test@testemail.com"
-                Password = "1qaz2wsx3EDC"            // 123456qwert
+                Email = "test@testemail.com",       // "test@testemail.com"
+                Password = "123456qwert"            // 123456qwert
             };
 
             string body = JsonConvert.SerializeObject(AuthorizeRequestBody);
