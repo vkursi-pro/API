@@ -122,7 +122,7 @@ namespace vkursi_api_example
             // 21. Отримання інформації про виконання формування звіту та запитів до ДРРП, НГО, ДЗК за TaskId
             // [POST] /api/1.0/estate/estategettaskdataapi
 
-            EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId");
+            EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId", "7424955100:04:001:0511");
 
             // 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
             // [POST] /api/1.0/movableLoads/getmovableloads

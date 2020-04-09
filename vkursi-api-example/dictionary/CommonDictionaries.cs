@@ -480,7 +480,6 @@ namespace vkursi_api_example.dictionary
         }
 
         // 13. Тип відношення 
-
         public static Dictionary<int, string> GetRelationTypeDict()
         {
             Dictionary<int, string> SanctionTypeDict = new Dictionary<int, string>
