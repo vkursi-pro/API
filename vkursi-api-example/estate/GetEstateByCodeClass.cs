@@ -12,6 +12,7 @@ namespace vkursi_api_example.estate
         /*
         
         5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
+        При першому запиті у відповідь приходять дані станом на поточний момент і ініціюється процедура поновлення. Якщо процедура відновлення не завершена у відповідь при повторному запиті (за тими ж паараметрами) буде приходити: Update in progress, total objects {общее количество} try again later. - Спробуйте повторити запит через 30 секунд. Після оновлення прийде стандартна відповідь.
         [GET] /api/1.0/estate/getestatebycode     
          
         curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatebycode?code=00131305' \
@@ -52,11 +53,17 @@ namespace vkursi_api_example.estate
                     Console.WriteLine("За вказаным кодом організації не знайдено");
                     return null;
                 }
+                else if ((int)response.StatusCode == 200 && responseString.Contains("Update in progress, total objects"))
+                {
+                    Console.WriteLine("Триває процес оновлення інформації за вказанними параметрами, спробуйте повторити запит через 30 секунд");
+                    return null;
+                }
                 else if ((int)response.StatusCode == 403 && responseString.Contains("Not enough cards to form a request"))
                 {
                     Console.WriteLine("Недостатньо ресурсів для виконання запиту, відповідно до вашого тарифу. Дізнатися об'єм доступних ресурсів - /api/1.0/token/gettariff");
                     return null;
                 }
+                // Update in progress, total objects
                 else if ((int)response.StatusCode != 200)
                 {
                     Console.WriteLine("Запит не успішний");

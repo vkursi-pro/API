@@ -478,5 +478,90 @@ namespace vkursi_api_example.dictionary
 
             return SanctionTypeDict;
         }
+
+        // 13. Тип відношення 
+
+        public static Dictionary<int, string> GetRelationTypeDict()
+        {
+            Dictionary<int, string> SanctionTypeDict = new Dictionary<int, string>
+            {
+                { 1, "Адреса"},
+                { 2, "Керівник"},
+                { 3, "Бенефіціар"},
+                { 4, "Попередня назва"},
+                { 5, "Попередній керівник"},
+                { 6, "Попередня адреса"},
+                { 7, "Попередній бенефіціар"},
+                { 8, "Філія"},
+                { 9, "Правонаступник"},
+                { 10, "Підписант"},
+                { 11, "Власник пакетів акцій"},
+            };
+
+            return SanctionTypeDict;
+        }
+
+
+        // 14. Довідник статусів власників речового майна StatusPropertyOwners
+
+        public static Dictionary<int?, string> GetStatusPropertyOwnersDict()
+        {
+            Dictionary<int?, string> StatusPropertyOwnersDict = new Dictionary<int?, string>
+            {
+                { null, "Власник"},
+                { 1, "Вся земля"},
+                { 3, "Обтяжувач"},
+                { 4, "Особа, майно"},
+                { 6, "Іпотекодержатель"},
+                { 7, "Майновий поручитель"},
+                { 8, "Іпотекодавець"},
+                { 9, "Боржник"},
+                { 10, "Особа, в інтересах якої встановлено обтяження"},
+                { 12, "Правонабувач"},
+                { 13, "Правокористувач"},
+                { 14, "Землевласник"},
+                { 15, "Землеволоділець"},
+                { 16, "Інший"},
+                { 17, "Наймач"},
+                { 18, "Орендар"},
+                { 19, "Наймодавець"},
+                { 20, "Орендодавець"},
+                { 21, "Управитель"},
+                { 22, "Вигодонабувач"},
+                { 23, "Установник"}
+            };
+
+            return StatusPropertyOwnersDict;
+        }
+
+        // 15. Довідник Перелік категорій власності (для GlobalTypeCount)
+
+        public static Dictionary<int, string> GetGlobalTypeCountDict()
+        {
+            Dictionary<int, string> GlobalTypeCountDict = new Dictionary<int, string>
+            {
+                { 1, "Інше право"},
+                { 2, "Власність"},
+                { 3, "Іпотека"},
+                { 4, "Обтяження"},
+            };
+
+            return GlobalTypeCountDict;
+        }
+
+
+        // 16. Довідник OwnershipCode
+
+        public static Dictionary<int, string> GetOwnershipCodeDict()
+        {
+            Dictionary<int, string> OwnershipCodeDict = new Dictionary<int, string>
+            {
+                { 100, "Приватна власність"},
+                { 200, "Комунальна власність"},
+                { 300, "Державна власність"}
+            };
+
+            return OwnershipCodeDict;
+        }
     }
 }

@@ -47,6 +47,7 @@ namespace vkursi_api_example.estate
                     IsNeedUpdateAll = false,            // Якщо true - оновлюємо всі дані в ДЗК і РРП
                     IsReport = true,                    // Якщо true - формуємо звіт, false / null - повертаємо тільки json
                     TaskName = "Назва задачі"           // Назва задачі
+                    // isDzkOnly                        // Перевірка ДЗК + НГО без РРП
                 };
 
                 string body = JsonConvert.SerializeObject(ECTARequestBodyRow);

@@ -126,7 +126,7 @@ namespace vkursi_api_example.organizations
         public string clearName { get; set; }
         public bool legalEntity { get; set; }                                   //Тип ЮО - true/ ФОП - false
         public string edrpou { get; set; }                                      // код ЄДРПОУ | ІПН
-        public int? stateInt { get; set; }                                      // Статус код ( 1 - зареєстровано, 2 - припинено, ... відп.до довідника № 3)
+        public int? stateInt { get; set; }                                      // Статус код ( 1 - зареєстровано, 2 - припинено, ... відп.до довідника № 1. Стан суб’єкта)
         public State state { get; set; }                                        // Статуc назва
         public double totalAmount { get; set; }                                 // Сума статутного капіталу
         public VatPayers vatPayers { get; set; }                                // ПДВ 

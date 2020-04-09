@@ -21,7 +21,7 @@ namespace vkursi_api_example.person
 
         */
 
-        public static CheckPersonResponseModel CheckPerson(string token, string personName)
+        public static CheckPersonResponseModel CheckPerson(string token, string personName, string ipn)
         {
             if (String.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
@@ -33,8 +33,8 @@ namespace vkursi_api_example.person
 
                 CheckPersonRequestBodyModel CheckPersonRequestBodyRow = new CheckPersonRequestBodyModel
                 {
-                    FullName = "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ",  // ПІБ
-                    Ipn = "2301715013"                          // ІПН
+                    FullName = personName,              // ПІБ (ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ)
+                    Ipn = ipn                           // ІПН (2301715013)
                 };
 
 

@@ -162,7 +162,7 @@ namespace vkursi_api_example
             // 29. Отримання інформації по фізичній особі
             // [POST] /api/1.0/person/checkperson
 
-            CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ");
+            CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ", "2301715013");
 
             // 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
             // [POST] /api/1.0/movableloads/getexistedmovableloads
@@ -205,13 +205,17 @@ namespace vkursi_api_example
             // 38. Відомості про інтелектуальну власність (патенти, торгові марки, корисні моделі) які повязані по ПІБ з бенеціціарами підприємства
             // [POST] /api/1.0/organizations/getorgintellectualproperty
 
-
+            GetOrgIntellectualPropertyClass.GetOrgIntellectualProperty(ref token, "00131305");
 
             // 39. Відомості про власників пакетів акцій (від 5%)
             // [POST] /api/1.0/organizations/getorgshareholders
 
             // 40. Частка державних коштів в доході
             // /api/1.0/organizations/getorgstatefundsstatistic
+
+            // 41. Отримати список пов'язаних осіб
+            // /api/1.0/organizations/getrelations
+            // [inprogress]
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress]
