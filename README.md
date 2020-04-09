@@ -21,7 +21,7 @@
             GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
 
             // 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
-            // [GET] /api/1.0/estate/getestatebycodenew
+            // [GET] /api/1.0/estate/getestatebycode
 
             GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 
@@ -156,16 +156,43 @@
             // 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
             // [POST] /api/1.0/organizations/getorgvehicle
 
+            GetOrgVehicleClass.GetOrgVehicle(ref token, "00131305");
 
-            // 33. Список воконавчич проваджень по фізичним або юридичним осібам за кодом ІПН / ЄДРПОУ
-            // [POST] api/1.0/organizations/getorgenforcements
+            // 33. Список виконавчих проваджень по фізичним або юридичним особам за кодом ІПН / ЄДРПОУ
+            // [POST] /api/1.0/organizations/getorgenforcements
+
+            GetOrgEnforcementsClass.GetOrgEnforcements(ref token, "00131305");
 
             // 34. Відомості про публікації (SMIDA, Банкрутство)
             // [POST] /api/1.0/organizations/getorgpubliicfunds
 
+            GetOrgPubliicFundsClass.GetOrgPubliicFunds(ref token, "00131305");
+
             // 35. Фінансові ризики
             // [POST] /api/1.0/organizations/getorgFinancialRisks
 
+            GetOrgFinancialRisksClass.GetOrgFinancialRisks(ref token, "00131305");
+
+            // 36. Перелік декларантів повязаних з компаніями
+            // [POST] /api/1.0/organizations/getdeclarationsinfo
+
+            GetDeclarationsInfoClass.GetDeclarationsInfo(ref token, "00131305");
+
+            // 37. Перелік ліцензій, та дозволів
+            // [POST] /api/1.0/organizations/getorglicensesinfo
+
+            GetOrgLicensesInfoClass.GetOrgLicensesInfo(ref token, "00131305");
+
+            // 38. Відомості про інтелектуальну власність (патенти, торгові марки, корисні моделі) які повязані по ПІБ з бенеціціарами підприємства
+            // [POST] /api/1.0/organizations/getorgintellectualproperty
+
+            GetOrgIntellectualPropertyClass.GetOrgIntellectualProperty(ref token, "00131305");
+
+            // 39. Відомості про власників пакетів акцій (від 5%)
+            // [POST] /api/1.0/organizations/getorgshareholders
+
+            // 40. Частка державних коштів в доході
+            // /api/1.0/organizations/getorgstatefundsstatistic
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress]
