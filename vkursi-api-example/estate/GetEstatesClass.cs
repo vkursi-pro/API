@@ -1,8 +1,8 @@
 ﻿using System;
 using RestSharp;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using vkursi_api_example.token;
+using System.Collections.Generic;
 
 namespace vkursi_api_example.estate
 {
@@ -29,9 +29,6 @@ namespace vkursi_api_example.estate
 
             while (string.IsNullOrEmpty(responseString))
             {
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/getestates");
-                RestRequest request = new RestRequest(Method.POST);
-
                 GetEstatesRequestBodyModel GERequestBodyRow = new GetEstatesRequestBodyModel
                 {
                     Edrpou = new List<string> {
@@ -41,6 +38,9 @@ namespace vkursi_api_example.estate
                         ipn                                                     // Масив кодів ІПН (обеження 1)
                     }
                 };
+
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/getestates");
+                RestRequest request = new RestRequest(Method.POST);
 
                 string body = JsonConvert.SerializeObject(GERequestBodyRow);    // Example Body: {"Edrpou":["36679626"],"Ipn":["3006679626"]}
 

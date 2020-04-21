@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using vkursi_api_example.bi;
 using vkursi_api_example.changes;
 using vkursi_api_example.courtdecision;
@@ -139,6 +140,8 @@ namespace vkursi_api_example
 
             GetEstatesClass.GetEstates(token, "36679626", null);
 
+            // [POST] /api/1.0/Estate/GetСadastrСoordinates
+
             // 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
             // [POST] /api/1.0/estate/getadvancedrrpreport
 
@@ -210,12 +213,22 @@ namespace vkursi_api_example
             // 39. Відомості про власників пакетів акцій (від 5%)
             // [POST] /api/1.0/organizations/getorgshareholders
 
-            // 40. Частка державних коштів в доході
-            // /api/1.0/organizations/getorgstatefundsstatistic
+            GetOrgShareholdersClass.GetOrgShareholders(token, "00131305");
 
-            // 41. Отримати список пов'язаних осіб
-            // /api/1.0/organizations/getrelations
-            // [inprogress]
+            // 40. Частка державних коштів в доході
+            // [POST] /api/1.0/organizations/getorgstatefundsstatistic
+
+            GetOrgStateFundsStatisticClass.GetOrgStateFundsStatistic(token, "00131305");
+
+            // 41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
+            // [POST] /api/1.0/organizations/getrelations
+
+            GetRelationsClass.GetRelations(ref token, "00131305", null);
+
+            // 42. Запит на отримання геопросторових даних ПККУ
+            // [POST] /api/1.0/Estate/GetСadastrСoordinates
+
+            GetСadastrСoordinatesClass.GetСadastrСoordinates(token, "0521685603:01:004:0001", "geoJson");
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress]

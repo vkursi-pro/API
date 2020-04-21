@@ -39,6 +39,8 @@ namespace vkursi_api_example.token
             
             string token = AuthorizeResponse.Token;
 
+            // token при запитах додається в header Authorization: Bearer "token"
+
             return token;
         }
     }
