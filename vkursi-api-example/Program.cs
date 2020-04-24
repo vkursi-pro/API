@@ -229,7 +229,7 @@ namespace vkursi_api_example
             // 42. Запит на отримання геопросторових даних ПККУ
             // [POST] /api/1.0/Estate/GetСadastrСoordinates
 
-            GetСadastrСoordinatesClass.GetСadastrСoordinates(token, "0521685603:01:004:0001", "geoJson");
+            GetСadastrСoordinatesClass.GetCadastrCoordinates(token, "0521685603:01:004:0001", "geoJson");
 
             // 43. Загальна характеристика по тендерам
             // [POST] /api/1.0/organizations/getorgtenderanalytic

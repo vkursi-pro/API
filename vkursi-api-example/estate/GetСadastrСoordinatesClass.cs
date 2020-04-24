@@ -22,7 +22,7 @@ namespace vkursi_api_example.estate
         --data-raw '{"СadNumb":["0521685603:01:004:0001"],"Format":"geoJson"}'
          
         */
-        public static string GetСadastrСoordinates(string token, string cadNumb, string format)
+        public static string GetCadastrCoordinates(string token, string cadNumb, string format)
         {
             // Опис авторизації: https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs
 
