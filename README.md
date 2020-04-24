@@ -165,7 +165,7 @@
 
 	GetOrgEnforcementsClass.GetOrgEnforcements(ref token, "00131305");
 
-	// 34. Відомості про публікації (SMIDA, Банкрутство)
+	// 34. Загальна статистики по Edata (по компанії)
 	// [POST] /api/1.0/organizations/getorgpubliicfunds
 
 	GetOrgPubliicFundsClass.GetOrgPubliicFunds(ref token, "00131305");
@@ -210,8 +210,18 @@
 
 	GetСadastrСoordinatesClass.GetСadastrСoordinates(token, "0521685603:01:004:0001", "geoJson");
 
+	// 43. Загальна характеристика по тендерам
+	// [POST] /api/1.0/organizations/getorgtenderanalytic
+
+	GetOrgTenderAnalyticClass.GetOrgTenderAnalytic(token, "00131305");
+
+	// 44. Офіційні повідомлення (ЄДР, SMIDA, Банкрутство)
+	// [POST] /api/1.0/organizations/getofficialnotices
+
+	GetOfficialNoticesClass.GetOfficialNotices(token, "00131305");
+
 	// ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
-	// [inprogress]
+	// [inprogress] estate/GetRrp
 
 	// Судові рішення по ФО
 	// [inprogress]
