@@ -8,9 +8,18 @@ namespace vkursi_api_example.estate
 {
     public class EstateTaskApiClass
     {
-        /* 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам. Частина перша додавання в чергу
-         * [POST] api/1.0/estate/estatecreatetaskapi
-         * 
+        /* 
+        
+        19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам. Частина перша додавання в чергу
+        [POST] api/1.0/estate/estatecreatetaskapi
+
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/estatecreatetaskapi' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --header 'Cookie: ARRAffinity=60c7763e47a70e864d73874a4687c10eb685afc08af8bda506303f7b37b172b8' \
+        --data-raw '{"Edrpous":["19124549"],"Ipns":["3083707142"],"Koatuus":["5621287500"],"Cadastrs":["5621287500:03:001:0019"],"СalculateСost":false,"IsNeedUpdateAll":false,"IsReport":true,"TaskName":"Назва задачі","DzkOnly":false}'
+
          */
 
         public static string EstateCreateTaskApi(string token)
@@ -52,7 +61,7 @@ namespace vkursi_api_example.estate
 
                 string body = JsonConvert.SerializeObject(ECTARequestBodyRow);
 
-                // Example Body: 
+                // Example Body: {"Edrpous":["19124549"],"Ipns":["3083707142"],"Koatuus":["5621287500"],"Cadastrs":["5621287500:03:001:0019"],"СalculateСost":false,"IsNeedUpdateAll":false,"IsReport":true,"TaskName":"Назва задачі","DzkOnly":false}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
@@ -91,12 +100,56 @@ namespace vkursi_api_example.estate
                  * ECTAResponseBody.status = "Unexpected server error" - непередвачувана помилка
                  */
             }
+
+            /*
+
+                // Python - http.client example:
+
+                import http.client
+                import mimetypes
+                conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+                payload = "{\"Edrpous\":[\"19124549\"],\"Ipns\":[\"3083707142\"],\"Koatuus\":[\"5621287500\"],\"Cadastrs\":[\"5621287500:03:001:0019\"],\"СalculateСost\":false,\"IsNeedUpdateAll\":false,\"IsReport\":true,\"TaskName\":\"Назва задачі\",\"DzkOnly\":false}"
+                headers = {
+                  'ContentType': 'application/json',
+                  'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...',
+                  'Content-Type': 'application/json',
+                  'Cookie': 'ARRAffinity=60c7763e47a70e864d73874a4687c10eb685afc08af8bda506303f7b37b172b8'
+                }
+                conn.request("POST", "/api/1.0/estate/estatecreatetaskapi", payload, headers)
+                res = conn.getresponse()
+                data = res.read()
+                print(data.decode("utf-8"))
+
+
+                // Java - OkHttp example:
+
+                OkHttpClient client = new OkHttpClient().newBuilder()
+                  .build();
+                MediaType mediaType = MediaType.parse("application/json");
+                RequestBody body = RequestBody.create(mediaType, "{\"Edrpous\":[\"19124549\"],\"Ipns\":[\"3083707142\"],\"Koatuus\":[\"5621287500\"],\"Cadastrs\":[\"5621287500:03:001:0019\"],\"СalculateСost\":false,\"IsNeedUpdateAll\":false,\"IsReport\":true,\"TaskName\":\"Назва задачі\",\"DzkOnly\":false}");
+                Request request = new Request.Builder()
+                  .url("https://vkursi-api.azurewebsites.net/api/1.0/estate/estatecreatetaskapi")
+                  .method("POST", body)
+                  .addHeader("ContentType", "application/json")
+                  .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1Ni...")
+                  .addHeader("Content-Type", "application/json")
+                  .build();
+                Response response = client.newCall(request).execute();
+
+            */
         }
 
 
-        /* 20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
-         * [GET] api/1.0/estate/getestatetasklist
-         * 
+        /* 
+        
+        20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
+        [GET] api/1.0/estate/getestatetasklist
+
+        curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatetasklist' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --data-raw ''
+
          */
 
         public static List<ApiTaskListEstateAnswerModel> GetEstateTaskList(string token)
@@ -223,6 +276,43 @@ namespace vkursi_api_example.estate
                  * EGTDAResponse.status = "Unexpected server error" - непередвачувана помилка
                  */
             }
+
+            /*
+
+                // Python - http.client example:
+
+                OkHttpClient client = new OkHttpClient().newBuilder()
+                  .build();
+                MediaType mediaType = MediaType.parse("application/json");
+                RequestBody body = RequestBody.create(mediaType, "{\"Edrpous\":[\"19124549\"],\"Ipns\":[\"3083707142\"],\"Koatuus\":[\"5621287500\"],\"Cadastrs\":[\"5621287500:03:001:0019\"],\"СalculateСost\":false,\"IsNeedUpdateAll\":false,\"IsReport\":true,\"TaskName\":\"Назва задачі\",\"DzkOnly\":false}");
+                Request request = new Request.Builder()
+                  .url("https://vkursi-api.azurewebsites.net/api/1.0/estate/estatecreatetaskapi")
+                  .method("POST", body)
+                  .addHeader("ContentType", "application/json")
+                  .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1Ni...")
+                  .addHeader("Content-Type", "application/json")
+                  .build();
+                Response response = client.newCall(request).execute();
+
+
+                // Java - OkHttp example:
+
+                import http.client
+                import mimetypes
+                conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+                payload = "{\"Edrpous\":[\"19124549\"],\"Ipns\":[\"3083707142\"],\"Koatuus\":[\"5621287500\"],\"Cadastrs\":[\"5621287500:03:001:0019\"],\"СalculateСost\":false,\"IsNeedUpdateAll\":false,\"IsReport\":true,\"TaskName\":\"Назва задачі\",\"DzkOnly\":false}"
+                headers = {
+                  'ContentType': 'application/json',
+                  'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...',
+                  'Content-Type': 'application/json'
+                }
+                conn.request("POST", "/api/1.0/estate/estatecreatetaskapi", payload, headers)
+                res = conn.getresponse()
+                data = res.read()
+                print(data.decode("utf-8"))
+
+            */
+
         }
     }
 
