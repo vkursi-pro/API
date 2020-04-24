@@ -6,7 +6,7 @@ using vkursi_api_example.token;
 
 namespace vkursi_api_example.estate
 {
-    public class GetСadastrСoordinatesClass
+    public class GetCadastrCoordinatesClass
     {
         /*
 
