@@ -14,13 +14,13 @@ namespace vkursi_api_example.codeExample
             // Читаемо перелік кодів ЄДРПОУ з файлу
             List<string> QueryUserId = new List<string>();
 
-            using (var sr = new StreamReader(@"D:\Users\Downloads\test.csv"))
+            using (var sr = new StreamReader(@"C:\Users\user\Downloads\relationIdList.txt"))
             {
                 string textLine = string.Empty;
 
                 while ((textLine = sr.ReadLine()) != null)
                 {
-                    textLine = textLine.PadLeft(8, '0');
+                    // textLine = textLine.PadLeft(8, '0');
                     QueryUserId.Add(textLine);
                 }
             }

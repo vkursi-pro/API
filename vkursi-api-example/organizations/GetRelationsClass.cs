@@ -32,14 +32,14 @@ namespace vkursi_api_example.organizations
             {
                 GetRelationsRequestBodyModel GRRequestBody = new GetRelationsRequestBodyModel
                 {
-                    Edrpou = new List<string>                                           // Перелік кодів ЄДРПОУ (обмеження 1)
+                    //Edrpou = new List<string>                                           // Перелік кодів ЄДРПОУ (обмеження 1)
+                    //{
+                    //    edrpou
+                    //}
+                    RelationId = new List<string>
                     {
                         edrpou
                     }
-                    //RelationId = new List<string>
-                    //{
-                    //    relationId
-                    //}              
                 };
 
                 string body = JsonConvert.SerializeObject(GRRequestBody);

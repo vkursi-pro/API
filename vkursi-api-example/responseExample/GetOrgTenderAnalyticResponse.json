@@ -1,0 +1,15 @@
+{
+   "isSucces":true,
+   "succes":"Дані успішно знайдено",
+   "data":[
+      {
+         "edrpou":"31115663",
+         "proposals":14,
+         "customers":3,
+         "wins":12,
+         "sum":3741410.01,
+         "competitions":2.0,
+         "disqualification":1
+      }
+   ]
+}

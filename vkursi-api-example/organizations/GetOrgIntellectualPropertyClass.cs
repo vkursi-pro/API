@@ -8,11 +8,16 @@ namespace vkursi_api_example.organizations
 {
     public class GetOrgIntellectualPropertyClass
     {
-
         /*
 
         38. Відомості про інтелектуальну власність (патенти, торгові марки, корисні моделі) які повязані по ПІБ з бенеціціарами підприємства
         [POST] /api/1.0/organizations/getorgintellectualproperty       
+
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorgintellectualproperty' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Edrpou":["22962627"],"SkipTradeMarks":null,"TakeTradeMarks":null,"SkipPatents":null,"TakePatents":null,"SkipUsefullModels":null,"TakeUsefullModels":null}'
          
         */
 
@@ -33,9 +38,9 @@ namespace vkursi_api_example.organizations
                     }
                 };
 
-                string body = JsonConvert.SerializeObject(GOIPRequestBody);      // Example body: {"Edrpou":["00131305"]}
+                string body = JsonConvert.SerializeObject(GOIPRequestBody);      // Example body: {"Edrpou":["22962627"],"SkipTradeMarks":null,"TakeTradeMarks":null,"SkipPatents":null,"TakePatents":null,"SkipUsefullModels":null,"TakeUsefullModels":null}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorgvehicle");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorgintellectualproperty");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
@@ -75,12 +80,52 @@ namespace vkursi_api_example.organizations
         }
     }
 
+    /*
+     
+        // Python - http.client example:
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"Edrpou\":[\"22962627\"],\"SkipTradeMarks\":null,\"TakeTradeMarks\":null,\"SkipPatents\":null,\"TakePatents\":null,\"SkipUsefullModels\":null,\"TakeUsefullModels\":null}");
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorgintellectualproperty")
+          .method("POST", body)
+          .addHeader("ContentType", "application/json")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1Ni...")
+          .addHeader("Content-Type", "application/json")
+          .build();
+        Response response = client.newCall(request).execute();
+
+
+        // Java - OkHttp example:
+        
+        import http.client
+        import mimetypes
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = "{\"Edrpou\":[\"22962627\"],\"SkipTradeMarks\":null,\"TakeTradeMarks\":null,\"SkipPatents\":null,\"TakePatents\":null,\"SkipUsefullModels\":null,\"TakeUsefullModels\":null}"
+        headers = {
+          'ContentType': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...',
+          'Content-Type': 'application/json'
+        }
+        conn.request("POST", "/api/1.0/organizations/getorgintellectualproperty", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
+
+    */
+
 
     public class GetOrgIntellectualPropertyRequestBodyModel                     // Модель Body запиту
     {
         public List<string> Edrpou { get; set; }                                // Перелік ЄДРПОУ / ІПН (обмеження 1)
-        public int? Take { get; set; }                                          // Кількість записів які будуть отримані
-        public int? Skip { get; set; }                                          // Кількість записів які будуть пропущені
+        public int? SkipTradeMarks { get; set; }                                // Кількість записів ТМ які будуть пропущені
+        public int? TakeTradeMarks { get; set; }                                // Кількість записів ТМ які будуть отримані
+        public int? SkipPatents { get; set; }                                   // Кількість записів патентів які будуть пропущені
+        public int? TakePatents { get; set; }                                   // Кількість записів патентів які будуть отримані
+        public int? SkipUsefullModels { get; set; }                             // Кількість записів кориснх моделей які будуть пропущені
+        public int? TakeUsefullModels { get; set; }                             // Кількість записів кориснх моделей які будуть отримані
     }
 
     public class GetOrgIntellectualPropertyResponseModel                        // Модель відповіді GetOrgVehicle
@@ -92,16 +137,29 @@ namespace vkursi_api_example.organizations
 
     public class OrgIntellectualPropertyApiAnswerModelData                      // Дані
     {
-        public string Edrpou { get; set; }                                      // 
-        public List<OrgIntellectualPropertyApiAnswerModelDataTradeMark> TradeMarks { get; set; }    // 
+        public string Edrpou { get; set; }                                      // Код ЄДРПОУ
+        public int TotalTradeMarksCount { get; set; }                                                   // Кількість торгових марок
+        public List<OrgIntellectualPropertyApiAnswerModelDataTradeMark> TradeMarks { get; set; }        // Торгові марки
+        public int TotalPatentsCount { get; set; }                                                      // Кількість патентів
+        public List<OrgIntellectualPropertyApiAnswerModelDataPatent> Patents { get; set; }              // Патенти
+        public int TotalUsefullModelsCount { get; set; }                                                // Кількість кориснх моделей
+        public List<OrgIntellectualPropertyApiAnswerModelDataPatent> UsefullModels { get; set; }        // Корисні моделі
     }
-    public class OrgIntellectualPropertyApiAnswerModelDataTradeMark             // 
+    public class OrgIntellectualPropertyApiAnswerModelDataTradeMark             // Торгові марки
     {
-        public string RegistrationNumber { get; set; }                          // 
-        public DateTime? RegistrationDate { get; set; }                         // 
+        public string RegistrationNumber { get; set; }                          // Реєстраційний номер
+        public DateTime? RegistrationDate { get; set; }                         // Дата реєстрації
         public string ApplicationNumber { get; set; }                           // 
         public DateTime? ApplicationDate { get; set; }                          // 
-        public string Owner { get; set; }                                       // 
-        public List<int> ICTPIndexes { get; set; }                              // 
+        public string Owner { get; set; }                                       // Власники
+        public List<int> ICTPIndexes { get; set; }                              // Індекс МКТП 
+    }
+
+    public class OrgIntellectualPropertyApiAnswerModelDataPatent                // Патенти / Корисні моделі
+    {
+        public string Number { get; set; }                                      // Реєстраційний номер
+        public string OwnerNames { get; set; }                                  // Власники
+        public string Name { get; set; }                                        // Назва (патента / корисної моделі)
+        public DateTime? RegistrationDate { get; set; }                         // Дата реєстрації
     }
 }
