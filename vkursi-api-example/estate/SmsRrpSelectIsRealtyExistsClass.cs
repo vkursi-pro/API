@@ -6,22 +6,22 @@ using System.Collections.Generic;
 
 namespace vkursi_api_example.estate
 {
-    public class EstateInCreaseMonitoringPeriodClass
+    public class SmsRrpSelectIsRealtyExistsClass
     {
         /*
-         
-        46. Змінити період (sms rrp) моніторингу нерухомості 
-        [POST]  /api/1.0/estate/estateincreasemonitoringperiod
+        
+        49. Перевірка наявності об'єкта за ОНМ (sms rrp)
+        [POST] /api/1.0/estate/smsrrpselectisrealtyexists
 
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/estateincreasemonitoringperiod' \
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/smsrrpselectisrealtyexists' \
         --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Authorization: Bearer eyJhbGciOiJIU...' \
         --header 'Content-Type: application/json' \
-        --data-raw '{"OnmNumbers":[1260724348000],"CadastrNumbers":null,"DateTimeEnd":"2020-11-30T00:00:00"}'
+        --data-raw '{"OnmNumbers":[1260724348000]}'
 
-         */
+        */
 
-        public static EstateInCreaseMonitoringPeriodResponseModel EstateInCreaseMonitoringPeriod(string token, long dateTimeEnd)
+        public static SmsRrpSelectIsRealtyExistsResponseModel SmsRrpSelectIsRealtyExists(string token, long onmNumber)
         {
             if (String.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
@@ -30,20 +30,19 @@ namespace vkursi_api_example.estate
 
             while (string.IsNullOrEmpty(responseString))
             {
-                EstateInCreaseMonitoringPeriodRequestBodyModel EICMPRequestBody = new EstateInCreaseMonitoringPeriodRequestBodyModel
+                SmsRrpSelectIsRealtyExistsRequestBodyModel SRSIRERequestBody = new SmsRrpSelectIsRealtyExistsRequestBodyModel
                 {
-                    DateTimeEnd = DateTime.Parse("30.11.2020"),
-                    OnmNumbers = new List<long>
+                    OnmNumbers = new List<long> 
                     {
                         1260724348000
                     }
                 };
 
-                string body = JsonConvert.SerializeObject(EICMPRequestBody);
+                string body = JsonConvert.SerializeObject(SRSIRERequestBody);
 
-                // Example Body: {"OnmNumbers":[1260724348000],"CadastrNumbers":null,"DateTimeEnd":"2020-11-30T00:00:00"}
+                // Example Body: 
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/estateincreasemonitoringperiod");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/smsrrpselectisrealtyexists");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
@@ -66,27 +65,28 @@ namespace vkursi_api_example.estate
                 }
             }
 
-            EstateInCreaseMonitoringPeriodResponseModel EICMPResponseRow = new EstateInCreaseMonitoringPeriodResponseModel();
+            SmsRrpSelectIsRealtyExistsResponseModel SRSIREResponseRow = new SmsRrpSelectIsRealtyExistsResponseModel();
 
-            EICMPResponseRow = JsonConvert.DeserializeObject<EstateInCreaseMonitoringPeriodResponseModel>(responseString);
+            SRSIREResponseRow = JsonConvert.DeserializeObject<SmsRrpSelectIsRealtyExistsResponseModel>(responseString);
 
-            return EICMPResponseRow;
+            return SRSIREResponseRow;
         }
     }
 
     /*
+     
         // Python - http.client example:
 
         import http.client
         import mimetypes
         conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
-        payload = "{\"OnmNumbers\":[1260724348000],\"CadastrNumbers\":null,\"DateTimeEnd\":\"2020-11-30T00:00:00\"}"
+        payload = "{\"OnmNumbers\":[1260724348000]}"
         headers = {
           'ContentType': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJWa3Vyc2kiLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiYTk4ZDUwMWYtOThmMi00NDk3LWIyNjMtOTY0YmY1ZTA0Y2RhIiwianRpIjoiNWUzNWMwMjEtMTM5OS00ZjYzLTgzMDItYjRlZTJmYjU5MWE0IiwiZXhwIjoxNTg4MTUyODM3LCJpc3MiOiJodHRwczovL3ZrdXJzaS5wcm8vIiwiYXVkIjoiaHR0cHM6Ly92a3Vyc2kucHJvLyJ9.g-PNEs6HsQx6xAu9MX3UaTzqbfb3qkkZReap9BYmVW0',
           'Content-Type': 'application/json'
         }
-        conn.request("POST", "/api/1.0/estate/estateincreasemonitoringperiod", payload, headers)
+        conn.request("POST", "/api/1.0/estate/smsrrpselectisrealtyexists", payload, headers)
         res = conn.getresponse()
         data = res.read()
         print(data.decode("utf-8"))
@@ -96,32 +96,28 @@ namespace vkursi_api_example.estate
 
         OkHttpClient client = new OkHttpClient().newBuilder()
           .build();
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\"OnmNumbers\":[1260724348000],\"CadastrNumbers\":null,\"DateTimeEnd\":\"2020-11-30T00:00:00\"}");
+        MediaType mediaType = MediaType.parse("application/json,text/plain");
+        RequestBody body = RequestBody.create(mediaType, "{\"OnmNumbers\":[1260724348000]}");
         Request request = new Request.Builder()
-          .url("https://vkursi-api.azurewebsites.net/api/1.0/estate/estateincreasemonitoringperiod")
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/estate/smsrrpselectisrealtyexists")
           .method("POST", body)
           .addHeader("ContentType", "application/json")
-          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1Ni...")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIUz...")
           .addHeader("Content-Type", "application/json")
           .build();
         Response response = client.newCall(request).execute();
 
-     */
+ */
 
-    public class EstateInCreaseMonitoringPeriodRequestBodyModel                         // Модель запиту 
+    public class SmsRrpSelectIsRealtyExistsRequestBodyModel                             // Модель запиту 
     {
         public List<long> OnmNumbers { get; set; }                                      // Перелік номерів ОНМ
-        public List<string> CadastrNumbers { get; set; }                                // Перелік кадастрових номерів
-        public DateTime DateTimeEnd { get; set; }                                       // Дата до якої діє моніторинг
     }
 
-
-    public class EstateInCreaseMonitoringPeriodResponseModel                            // Модель на відповідь
+    public class SmsRrpSelectIsRealtyExistsResponseModel                                // Модель на відповідь
     {
         public bool IsSuccess { get; set; }                                             // Чи успішний запит
         public string Status { get; set; }                                              // Статус відповіді по API
-        public List<string> NotFoundCadastrsOnMonitoring { get; set; }                  // Перелік не знайдених кадастрових номерів
         public List<string> NotFoundOnmOnMonitoring { get; set; }                       // Перелік не знайдених номерів ОНМ
     }
 }

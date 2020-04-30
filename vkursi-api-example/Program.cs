@@ -26,8 +26,6 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
-            EstateInCreaseMonitoringPeriodClass.EstateInCreaseMonitoringPeriod(token, "1260724348000");
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -251,16 +249,20 @@ namespace vkursi_api_example
             // 46. Змінити період моніторингу об'єкта нерухомості за номером ОНМ (sms rrp)
             // [POST] /api/1.0/estate/estateincreasemonitoringperiod
 
-            EstateInCreaseMonitoringPeriodClass.EstateInCreaseMonitoringPeriod(token, "1260724348000");
-
+            EstateInCreaseMonitoringPeriodClass.EstateInCreaseMonitoringPeriod(token, 1260724348000);
 
             // 47. Видалити об'єкт з мониторингу (sms rrp)
             // [POST] /api/1.0/estate/estateremovefrommonitoring
 
+            EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 1260724348000);
 
+            // 48. Отримати зміни по об'єкту шо на мониторингу (можлимо через webhook)
+            // [inprogress]
 
-            // 48. Получить изменения (можно через webhook)
-            // 
+            // 49.Перевірка наявності об'єкта за ОНМ (sms rrp)
+            // [POST] /api/1.0/estate/smsrrpselectisrealtyexists
+
+            SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000);
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp

@@ -10,7 +10,7 @@ namespace vkursi_api_example.estate
     {
         /*
 
-        45. Добавить на мониторинг
+        45. Додати об'єкт до моніторингу нерухомості за номером ОНМ (sms rrp) 
         [POST] /api/1.0/estate/estateputonmonitoring
 
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/estateputonmonitoring' \

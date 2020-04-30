@@ -19,6 +19,7 @@ namespace vkursi_api_example.token
         public static string Authorize()
         {
             // Вкажіть ваш логін та пароль від сервісу vkursi.pro які ви вводиди при реєстрации облікового запису vkursi.pro/account/register
+           
             AuthorizeRequestBodyModel AuthorizeRequestBody = new AuthorizeRequestBodyModel
             {
                 Email = "test@test.com",       // "test@testemail.com"

@@ -562,5 +562,21 @@ namespace vkursi_api_example.dictionary
 
             return OwnershipCodeDict;
         }
+
+        // 17. DcGroupType типи об'єктів нерухомого майна
+
+        public static Dictionary<int, string> GetDcGroupTypeDict()
+        {
+
+            Dictionary<int, string> DcGroupTypeDict = new Dictionary<int, string>
+            {
+                { 1, "Об'єкт нерухомого майна - будинок"},
+                { 2, "Земельна ділянка"},
+                { 3, "Об'єкт нерухомого майна - квартира"},
+                { 4, "Об'єкт нерухомого майна = інше"}
+            };
+
+            return DcGroupTypeDict;
+        }
     }
 }
