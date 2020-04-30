@@ -11,14 +11,13 @@ namespace vkursi_api_example.changes
     {
         /*
         
-        6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
+        6. Отримати дані щоденного моніторингу по фізичним, юриличним особам та об'єктам нерухомого майна які додані на моніторинг
         [GET] /api/1.0/changes/getchanges
 
         curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges?date=28.10.2019' \
         --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOi...' \
-        --header 'Content-Type: application/json' \
-        --data-raw '{"Code":"21560045"}'
+        --header 'Authorization: Bearer eyJhbGciOiJI...' \
+        --header 'Cookie: ARRAffinity=60c7763e47a70e864d73874a4687c10eb685afc08af8bda506303f7b37b172b8'
 
         */
 
@@ -72,11 +71,10 @@ namespace vkursi_api_example.changes
         import http.client
         import mimetypes
         conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
-        payload = "{\"Code\":\"21560045\"}"
+        payload = ''
         headers = {
           'ContentType': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5c...',
-          'Content-Type': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...'
         }
         conn.request("GET", "/api/1.0/changes/getchanges?date=28.10.2019", payload, headers)
         res = conn.getresponse()
@@ -92,8 +90,7 @@ namespace vkursi_api_example.changes
           .url("https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges?date=28.10.2019")
           .method("GET", null)
           .addHeader("ContentType", "application/json")
-          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIs...")
-          .addHeader("Content-Type", "application/json")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJ...")
           .build();
         Response response = client.newCall(request).execute();
 
