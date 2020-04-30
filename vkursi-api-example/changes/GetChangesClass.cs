@@ -17,7 +17,6 @@ namespace vkursi_api_example.changes
         curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges?date=28.10.2019' \
         --header 'ContentType: application/json' \
         --header 'Authorization: Bearer eyJhbGciOiJI...' \
-        --header 'Cookie: ARRAffinity=60c7763e47a70e864d73874a4687c10eb685afc08af8bda506303f7b37b172b8'
 
         */
 
