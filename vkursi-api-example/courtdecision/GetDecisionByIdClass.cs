@@ -94,81 +94,81 @@ namespace vkursi_api_example.courtdecision
 
     */
 
-    public class GetDecisionByIdResponseModel
+    public class GetDecisionByIdResponseModel                                           // Модель запиту 
     {
-        public bool IsSuccess { get; set; }
-        public string Status { get; set; }
-        public CourtDecisionElasticModel Data { get; set; }
+        public bool IsSuccess { get; set; }                                             // Чи успішний запит
+        public string Status { get; set; }                                              // Статус відповіді по API
+        public CourtDecisionElasticModel Data { get; set; }                             // Модель на відповідь
     }
 
-    public class CourtDecisionElasticModel
+    public class CourtDecisionElasticModel                                              // Модель на відповідь
     {
-        public DateTime AdjudicationDate { get; set; }
-        public DateTime DateCreated { get; set; }
-        public int CauseCategoryId { get; set; }
-        public Content Content { get; set; }
-        public int CourtId { get; set; }
-        public DateTime DatePublished { get; set; }
-        public int Id { get; set; }
-        public int InstanceId { get; set; }
-        public Judge Judge { get; set; }
-        public int JudgmentFormId { get; set; }
-        public int JusticeKindId { get; set; }
-        public string Number { get; set; }
-        public DateTime ReceiptDate { get; set; }
-        public int RegionId { get; set; }
-        public ResultPart ResultPart { get; set; }
-        public string Theme { get; set; }
-        public string Url { get; set; }
-        public int? SideKasType { get; set; }
-        public List<string> NPA { get; set; }
-        public int? IsCompressed { get; set; }
-        public AmountClime AmountClaim { get; set; }
-        public string[] CriminalNumb { get; set; }
-        public string[] CadastralNumb { get; set; }
+        public DateTime AdjudicationDate { get; set; }                                  // Дата ухвалення рішення 
+        public DateTime DateCreated { get; set; }                                       // Дата імпорту документа до сервісу
+        public int CauseCategoryId { get; set; }                                        // Категорія справи (додати довіник)
+        public Content Content { get; set; }                                            // Контент судового документа 
+        public int CourtId { get; set; }                                                // Id суду (додати довіник)
+        public DateTime DatePublished { get; set; }                                     // Дата офіційної публікації документа
+        public int Id { get; set; }                                                     // Id документа
+        public int InstanceId { get; set; }                                             // Id інстанції (1 - Касаційна, 2 - Апеляційна, 3 - Перша)
+        public Judge Judge { get; set; }                                                // Судді
+        public int JudgmentFormId { get; set; }                                         // Форма рішеня (1 - Вирок, 2 - Постанова, 3 - Рішення, 4 - Судовий наказ, 5 - Ухвала, 6 - Окрема ухвала, 10 - Окрема думка)
+        public int JusticeKindId { get; set; }                                          // null - all, 0 - "Iнше", 1 - "Цивільне", 2 - "Кримінальне", 3 - "Господарське", 4 - "Адміністративне", 5 - "Адмінправопорушення"
+        public string Number { get; set; }                                              // Номер документа
+        public DateTime ReceiptDate { get; set; }                                       // Дата надходження до реестра
+        public int RegionId { get; set; }                                               // Регіон
+        public ResultPart ResultPart { get; set; }                                      // Результат
+        public string Theme { get; set; }                                               // Тема засідання
+        public string Url { get; set; }                                                 // Посилання
+        public int? SideKasType { get; set; }                                           // Системний Id Vkursi
+        public List<string> NPA { get; set; }                                           // НПА в документі
+        public int? IsCompressed { get; set; }                                          // Системний Id Vkursi
+        public AmountClime AmountClaim { get; set; }                                    // Сума позову
+        public string[] CriminalNumb { get; set; }                                      // Криминальні провадження
+        public string[] CadastralNumb { get; set; }                                     // Кадастрові номери
 
-        public bool? ContainAppeal { get; set; }
-        public bool? ContainCassation { get; set; }
-        public List<SidesAllModel> SidesAllNested { get; set; }
+        public bool? ContainAppeal { get; set; }                                        // Наявність касацій (за номером документа)
+        public bool? ContainCassation { get; set; }                                     // Наявність апеляцій (за номером документа)
+        public List<SidesAllModel> SidesAllNested { get; set; }                         // Сторони в справи
     }
 
-    public class SidesAllModel
+    public class SidesAllModel                                                          // Сторони в справи
     {
-        public int Type { get; set; }
-        public bool IsActive { get; set; }
-        public int? FindParam { get; set; }
-        public int? KvedCodeInt { get; set; }
-        public int? WinnerState { get; set; }
-        public int? CategoryId { get; set; }
-        public int SidesType { get; set; }
-        public int? Error { get; set; }
-        public int? RegNumberInt { get; set; }
-        public string Name { get; set; }
+        public int Type { get; set; }                                                   // Тип (2 - фізична / 1 - юридична особа)
+        public bool IsActive { get; set; }                                              // Системний id Vkursi
+        public int? FindParam { get; set; }                                             // Системний id Vkursi
+        public int? KvedCodeInt { get; set; }                                           // Системний id Vkursi
+        public int? WinnerState { get; set; }                                           // Системний id Vkursi
+        public int? CategoryId { get; set; }                                            // Системний id Vkursi
+        public int SidesType { get; set; }                                              // Тип сторони (1 - Позивачі, 2 - Відповідачі, 3 - Касаційні позивачі, 4 - Інші сторони)
+        public int? RegNumberInt { get; set; }                                          // Код ЕДРПОУ (в int)
+        public string Name { get; set; }                                                // Назва сторони (якщо розпізнана)
+        public int? Error { get; set; }                                                 // Назва сторони (якщо не розпізнана)
     }
 
-    public class AmountClime
+    public class AmountClime                                                            // Сума позову
     {
-        public double Amount { get; set; }
-        public string Currency { get; set; }
+        public double Amount { get; set; }                                              // Сума
+        public string Currency { get; set; }                                            // Валюта
     }
 
-    public class ResultPart
+    public class ResultPart                                                             // Результат
     {
-        public string[] Result { get; set; }
-        public int Winner { get; set; }
+        public string[] Result { get; set; }                                            // Результат
+        public int Winner { get; set; }                                                 // Системний id Vkursi
     }
 
-    public class Judge
+    public class Judge                                                                  // Суді
     {
-        public string Name { get; set; }
-        public int Role { get; set; }
+        public string Name { get; set; }                                                // ПІБ судді
+        public int Role { get; set; }                                                   // Системний id Vkursi
     }
 
-    public class Content
+    public class Content                                                                // Контент
     {
-        public string Footer { get; set; }
-        public string Header { get; set; }
-        public string Middle { get; set; }
-        public string NotFound { get; set; }
+        public string Footer { get; set; }                                              // Розпізнана резолютивна частина
+        public string Header { get; set; }                                              // Розпізнана шапка судового документа
+        public string Middle { get; set; }                                              // Розпізнана мотивувальна
+        public string NotFound { get; set; }                                            // Не розпізнаний
     }
 }
