@@ -22,7 +22,7 @@ namespace vkursi_api_example.token
            
             AuthorizeRequestBodyModel AuthorizeRequestBody = new AuthorizeRequestBodyModel
             {
-                Email = "test@testemail.com",       // "test@testemail.com"
+                Email = "test@test.com",       // "test@testemail.com"
                 Password = "123456qwert"            // 123456qwert
             };
 

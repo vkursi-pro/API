@@ -6,22 +6,22 @@ using vkursi_api_example.token;
 
 namespace vkursi_api_example.bi
 {
-    class GetBiDataClass
+    class GetDataBiInfoClass
     {
         /*
          
-        17. Отримати перелік компаний які відібрані в модулі BI
-        [POST] /api/1.0/bi/getbidata
+        Отримати перелік компаний які відібрані в модулі BI
+        [POST] /api/1.0/bi/GetDataBiInfo
 
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/bi/getbidata' \
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiInfo' \
         --header 'ContentType: application/json' \
         --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...' \
         --header 'Content-Type: application/json' \
-        --data-raw '{"Label":null,"Size":10}'
-
+        --data-raw '{"LabelId":"1c891112-b022-4a83-ad34-d1f976c60a0b","Size":100,"DateStart":"2019-11-28T19:00:52.059"}'
+         
         */
 
-        public static GetBiDataResponseModel GetBiData(string label, int size, string token)
+        public static GetDataBiInfoRequestModel GetDataBiInfo(string labelId, int size, DateTime dateStart, string token)
         {
             if (string.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
@@ -30,16 +30,16 @@ namespace vkursi_api_example.bi
 
             while (string.IsNullOrEmpty(responseString))
             {
-                GetBiDataRequestBodyModel GBDRequestBody = new GetBiDataRequestBodyModel
+                GetDataBiInfoRequestBodyModel GBDRequestBody = new GetDataBiInfoRequestBodyModel
                 {
-                    Label = label,                                              // Назва збереженного списку (перелік можна в GET /api/1.0/BI/getbiimportlabels)
-                    Size = size,                                                // К-ть записів в відповіді. При кожному отриманні відповіді всі записи зберігаються з певним Pack id по значенню якого записи можуть бути отримані повторно.
-                    Pack = null                                                 // Отримати записи повторно по Pack id
+                    LabelId = labelId,                                              // Назва збереженного списку (перелік можна в GET /api/1.0/BI/getbiimportlabels)
+                    Size = size,                                                    // К-ть записів в відповіді. При кожному отриманні відповіді всі записи зберігаються з певним Pack id по значенню якого записи можуть бути отримані повторно.
+                    DateStart = dateStart                                           // Дата з якої почнеться відбір (відсортованій в порядку зменшення) від якої буде братись Size
                 };
 
-                string body = JsonConvert.SerializeObject(GBDRequestBody);      // Example Body: {"Label":null,"Size":10}
+                string body = JsonConvert.SerializeObject(GBDRequestBody);          // Example Body: {"LabelId":"1c891112-b022-4a83-ad34-d1f976c60a0b","Size":1000,"DateStart":"2019-11-28T19:00:52.059"}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/bi/getbidata");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiInfo");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
@@ -61,65 +61,31 @@ namespace vkursi_api_example.bi
                 }
             }
 
-            GetBiDataResponseModel GetBiDataList = new GetBiDataResponseModel();
+            GetDataBiInfoRequestModel GetBiDataList = new GetDataBiInfoRequestModel();
 
-            GetBiDataList = JsonConvert.DeserializeObject<GetBiDataResponseModel>(responseString);
+            GetBiDataList = JsonConvert.DeserializeObject<GetDataBiInfoRequestModel>(responseString);
 
             return GetBiDataList;
         }
     }
 
-    /*
-        // Python - http.client example:
-
-        import http.client
-        import mimetypes
-        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
-        payload = "{\"Label\":null,\"Size\":10}"
-        headers = {
-          'ContentType': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...',
-          'Content-Type': 'application/json'
-        }
-        conn.request("POST", "/api/1.0/bi/getbidata", payload, headers)
-        res = conn.getresponse()
-        data = res.read()
-        print(data.decode("utf-8"))
-
-
-        // Java - OkHttp example:
-
-        OkHttpClient client = new OkHttpClient().newBuilder()
-          .build();
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\"Label\":null,\"Size\":10}");
-        Request request = new Request.Builder()
-          .url("https://vkursi-api.azurewebsites.net/api/1.0/bi/getbidata")
-          .method("POST", body)
-          .addHeader("ContentType", "application/json")
-          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...")
-          .addHeader("Content-Type", "application/json")
-          .build();
-        Response response = client.newCall(request).execute();
-
-     */
-
-    class GetBiDataRequestBodyModel                                             // Модель Body запиту
+    public class GetDataBiInfoRequestBodyModel                                  // Модель Body запиту
     {
-        public string Label { get; set; }                                       // Назва збереженного списку (перелік можна в GET /api/1.0/BI/getbiimportlabels)
+        public string LabelId { get; set; }                                     // Назва збереженного списку
         public int Size { get; set; }                                           // Розмір списку (від 1 до 10000)
-        public int? Pack { get; set; }                                          // Для повторного отримання записів по Pack id
+        public DateTime? DateStart { get; set; }                                // Дата з якої почнеться відбір (відсортованій в порядку зменшення) від якої буде братись Size
     }
 
-    class GetBiDataResponseModel                                                // Модель відповіді GetBiData
+
+    class GetDataBiInfoRequestModel                                             // Модель відповіді GetBiData
     {
         public bool isSuccess { get; set; }                                     // Успішно виконано?
         public string status { get; set; }                                      // success, error, (Дані успішно знайдено. Pack: " + part)
         public int code { get; set; }                                           // 404, 200, ...
-        public List<ResponseModel> data { get; set; }                           // Перелік компаній
+        public List<GetDataCompanyModel> data { get; set; }                     // Перелік компаній
     }
 
-    public class ResponseModel                                                  // Перелік компаній
+    public class GetDataCompanyModel                                            // Перелік компаній
     {
         public string NazvaPidpriyemstva { get; set; }                          // Повне найменування підприємства
         public string KodYedrpou { get; set; }                                  // Код ЄДРПОУ

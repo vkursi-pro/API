@@ -106,6 +106,8 @@ namespace vkursi_api_example
 
             GetBiDataClass.GetBiData(null, 1000, token);
 
+            GetDataBiInfoClass.GetDataBiInfo("1c891112-b022-4a83-ad34-d1f976c60a0b", 1000, DateTime.Parse("2019-11-28 19:00:52.059"), token);
+
             // 18. Отримати перелік Label доступних в модулі BI
             // [GET] /api/1.0/bi/getbiimportlabels
 
