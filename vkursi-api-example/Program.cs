@@ -105,13 +105,19 @@ namespace vkursi_api_example
             // [POST] /api/1.0/bi/getbidata
 
             GetBiDataClass.GetBiData(null, 1000, token);
-
+            // New
             GetDataBiInfoClass.GetDataBiInfo("1c891112-b022-4a83-ad34-d1f976c60a0b", 1000, DateTime.Parse("2019-11-28 19:00:52.059"), token);
+            // New 
+            GetDataBiChangeInfoClass.GetDataBiChangeInfo(DateTime.Parse("2019-11-28 19:00:52.059"), "1c891112-b022-4a83-ad34-d1f976c60a0b", false, 100, token);
+            // New
+            GetDataBiOrganizationInfoClass.GetDataBiOrganizationInfo(new List<string> { "1c891112-b022-4a83-ad34-d1f976c60a0b" }, new List<string> { "00131305" }, token);
 
             // 18. Отримати перелік Label доступних в модулі BI
             // [GET] /api/1.0/bi/getbiimportlabels
 
             GetBiImportLabelsClass.GetBiImportLabels(token);
+            // New
+            GetBiLabelsClass.GetBiLabels(token);
 
             // 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам 
             // [POST] /api/1.0/estate/estatecreatetaskapi

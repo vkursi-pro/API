@@ -1,27 +1,36 @@
 ﻿using System;
 using RestSharp;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using vkursi_api_example.token;
+using System.Collections.Generic;
 
 namespace vkursi_api_example.bi
 {
-    class GetDataBiInfoClass
+    public class GetDataBiOrganizationInfoClass
     {
         /*
-         
-        Отримати перелік компаний які відібрані в модулі BI
-        [POST] /api/1.0/bi/GetDataBiInfo
+        
+        Отримання відомостей про організацію BI
+        [POST] /api/1.0/bi/GetDataBiOrganizationInfo
 
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiInfo' \
+        Приклад 1: без Body
+
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiOrganizationInfo?OrganizationsId=1c891112-b022-4a83-ad34-d1f976c60a0b,1c891112-b022-4a83-ad34-d1f976c60a0b&Codes=00131305,00131306' \
         --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...'
+
+
+        Приклад 2: з Body
+
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiOrganizationInfo' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'ContentType: application/json' \
         --header 'Content-Type: application/json' \
-        --data-raw '{"LabelId":"1c891112-b022-4a83-ad34-d1f976c60a0b","Size":100,"DateStart":"2019-11-28T19:00:52.059"}'
-         
+        --data-raw '{"OrganizationsId":["1c891112-b022-4a83-ad34-d1f976c60a0b"],"Codes":["00131305"]}'
+
         */
 
-        public static GetDataBiInfoRequestModel GetDataBiInfo(string labelId, int size, DateTime dateStart, string token)
+        public static GetDataBiOrganizationInfoRequestModel GetDataBiOrganizationInfo(List<string> organizationsId, List<string> codes, string token)
         {
             if (string.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
@@ -30,19 +39,16 @@ namespace vkursi_api_example.bi
 
             while (string.IsNullOrEmpty(responseString))
             {
-                GetDataBiInfoRequestBodyModel GBDRequestBody = new GetDataBiInfoRequestBodyModel
+                GetDataBiOrganizationInfoBodyModel GBDRequestBody = new GetDataBiOrganizationInfoBodyModel
                 {
-                    LabelId = labelId,                                              // Назва збереженного списку (перелік можна в GET /api/1.0/BI/getbiimportlabels)
-                    Size = size,                                                    // К-ть записів в відповіді. При кожному отриманні відповіді всі записи зберігаються з певним Pack id по значенню якого записи можуть бути отримані повторно.
-                    DateStart = dateStart                                           // Дата з якої почнеться відбір (відсортованій в порядку зменшення) від якої буде братись Size
+                    OrganizationsId = organizationsId,                              // Перелік id організацій
+                    Codes = codes,                                                  // Перелік кодів ЄДПРОУ організацій
                 };
 
-                string body = JsonConvert.SerializeObject(GBDRequestBody);          // Example Body: {"LabelId":"1c891112-b022-4a83-ad34-d1f976c60a0b","Size":1000,"DateStart":"2019-11-28T19:00:52.059"}
+                string body = JsonConvert.SerializeObject(GBDRequestBody);          // Example Body: {"OrganizationsId":["1c891112-b022-4a83-ad34-d1f976c60a0b"],"Codes":["00131305"]}
 
-                // 
-
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiInfo");
-                // https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiInfo?LabelId=1c891112-b022-4a83-ad34-d1f976c60a0b&Size=1000&DateStart=2019-11-28T19:00:52.059
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiOrganizationInfo");
+                // https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiOrganizationInfo?OrganizationsId=1c891112-b022-4a83-ad34-d1f976c60a0b,1c891112-b022-4a83-ad34-d1f976c60a0b&Codes=00131305,00131306
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
@@ -64,31 +70,29 @@ namespace vkursi_api_example.bi
                 }
             }
 
-            GetDataBiInfoRequestModel GetBiDataList = new GetDataBiInfoRequestModel();
+            GetDataBiOrganizationInfoRequestModel GetBiDataList = new GetDataBiOrganizationInfoRequestModel();
 
-            GetBiDataList = JsonConvert.DeserializeObject<GetDataBiInfoRequestModel>(responseString);
+            GetBiDataList = JsonConvert.DeserializeObject<GetDataBiOrganizationInfoRequestModel>(responseString);
 
             return GetBiDataList;
         }
     }
 
-    public class GetDataBiInfoRequestBodyModel                                  // Модель Body запиту
+    public class GetDataBiOrganizationInfoBodyModel                             // Модель Body запиту
     {
-        public string LabelId { get; set; }                                     // Назва збереженного списку
-        public int Size { get; set; }                                           // Розмір списку (від 1 до 10000)
-        public DateTime? DateStart { get; set; }                                // Дата з якої почнеться відбір (відсортованій в порядку зменшення) від якої буде братись Size
+        public List<string> OrganizationsId { get; set; }                       // Перелік id організацій
+        public List<string> Codes { get; set; }                                 // Перелік кодів ЄДПРОУ організацій
     }
 
-
-    class GetDataBiInfoRequestModel                                             // Модель відповіді GetBiData
+    public class GetDataBiOrganizationInfoRequestModel                          // Модель відповіді GetDataBiOrganizationInfo
     {
-        public bool isSuccess { get; set; }                                     // Успішно виконано?
-        public string status { get; set; }                                      // success, error, (Дані успішно знайдено. Pack: " + part)
-        public int code { get; set; }                                           // 404, 200, ...
-        public List<GetDataCompanyModel> data { get; set; }                     // Перелік компаній
+        public bool IsSuccess { get; set; }                                     // Успішно виконано?
+        public string Status { get; set; }                                      // success, error, (Дані успішно знайдено. Pack: " + part)
+        public int Code { get; set; }                                           // 404, 200, ...
+        public List<DataBiOrganizationInfoModel> Data { get; set; }             // Перелік компаній
     }
 
-    public class GetDataCompanyModel                                            // Перелік компаній
+    public class DataBiOrganizationInfoModel                                    // Перелік компаній
     {
         public string NazvaPidpriyemstva { get; set; }                          // Повне найменування підприємства
         public string KodYedrpou { get; set; }                                  // Код ЄДРПОУ
