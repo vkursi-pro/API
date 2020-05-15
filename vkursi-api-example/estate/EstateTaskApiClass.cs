@@ -52,10 +52,10 @@ namespace vkursi_api_example.estate
                 {
                     "3083707142"
                 },
-                    СalculateСost = false,              // Якщо тільки порахувати вартість
+                    СalculateСost = true,              // Якщо тільки порахувати вартість
                     IsNeedUpdateAll = false,            // Якщо true - оновлюємо всі дані в ДЗК і РРП
                     IsReport = true,                    // Якщо true - формуємо звіт, false / null - повертаємо тільки json
-                    TaskName = "Назва задачі"           // Назва задачі
+                    TaskName = "Назва задачі"           // Назва задачі (обов'язково)
                     // isDzkOnly                        // Перевірка ДЗК + НГО без РРП
                 };
 

@@ -33,9 +33,9 @@ namespace vkursi_api_example.estate
 
             while (string.IsNullOrEmpty(responseString))
             {
-                GetСadastrСoordinatesRequestBodyModel GССRequestBody = new GetСadastrСoordinatesRequestBodyModel
+                GetCadastrCoordinatesRequestBodyModel GCCRequestBody = new GetCadastrCoordinatesRequestBodyModel
                 {
-                    СadNumb = new List<string>                                  // Перелік кадастровых номерів
+                    CadNumb = new List<string>                                  // Перелік кадастровых номерів
                     {
                         cadNumb
                     },
@@ -45,7 +45,7 @@ namespace vkursi_api_example.estate
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/getcadastrcoordinates");
                 RestRequest request = new RestRequest(Method.POST);
 
-                string body = JsonConvert.SerializeObject(GССRequestBody);      // Example Body: {"СadNumb":["0521685603:01:004:0001"],"Format":"geoJson"}
+                string body = JsonConvert.SerializeObject(GCCRequestBody);      // Example Body: {"СadNumb":["0521685603:01:004:0001"],"Format":"geoJson"}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
@@ -107,9 +107,9 @@ namespace vkursi_api_example.estate
 
     */
 
-    public class GetСadastrСoordinatesRequestBodyModel                          // Модель Body запиту
+    public class GetCadastrCoordinatesRequestBodyModel                          // Модель Body запиту
     {
-        public List<string> СadNumb { get; set; }                               // Масив кадастрових номерів
+        public List<string> CadNumb { get; set; }                               // Масив кадастрових номерів
         public string Format { get; set; }                                      // Формат відповіді (geoJson, kml, shp)
     }
 }
