@@ -26,6 +26,8 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
+            GetCadastrCoordinatesClass.GetCadastrCoordinates(token, "0521685603:01:004:0001", "geojson");
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -149,7 +151,7 @@ namespace vkursi_api_example
 
             GetEstatesClass.GetEstates(token, "36679626", null);
 
-            // [POST] /api/1.0/Estate/GetСadastrСoordinates
+            // [POST] /api/1.0/Estate/GetCadastrCoordinates
 
             // 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
             // [POST] /api/1.0/estate/getadvancedrrpreport
@@ -235,9 +237,9 @@ namespace vkursi_api_example
             GetRelationsClass.GetRelations(ref token, "00131305", null);
 
             // 42. Запит на отримання геопросторових даних ПККУ
-            // [POST] /api/1.0/Estate/GetСadastrСoordinates
+            // [POST] /api/1.0/Estate/GetCadastrCoordinates
 
-            GetCadastrCoordinatesClass.GetCadastrCoordinates(token, "0521685603:01:004:0001", "geoJson");
+            GetCadastrCoordinatesClass.GetCadastrCoordinates(token, "0521685603:01:004:0001", "geojson");
 
             // 43. Загальна характеристика по тендерам
             // [POST] /api/1.0/organizations/getorgtenderanalytic

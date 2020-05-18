@@ -11,7 +11,7 @@ namespace vkursi_api_example.estate
         /*
 
         42. Запит на отримання геопросторових даних ПККУ
-        [POST] /api/1.0/Estate/GetСadastrСoordinates
+        [POST] /api/1.0/Estate/GetCadastrCoordinates
 
         Опис авторизації(отримання token для Authorization): https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs
 
@@ -19,7 +19,7 @@ namespace vkursi_api_example.estate
         --header 'ContentType: application/json' \
         --header 'Authorization: Bearer token' \
         --header 'Content-Type: application/json' \
-        --data-raw '{"СadNumb":["0521685603:01:004:0001"],"Format":"geoJson"}'
+        --data-raw '{"CadNumb":["3523681200:02:000:0230"],"Format":"geojson"}'
          
         */
         public static string GetCadastrCoordinates(string token, string cadNumb, string format)
@@ -45,7 +45,7 @@ namespace vkursi_api_example.estate
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/getcadastrcoordinates");
                 RestRequest request = new RestRequest(Method.POST);
 
-                string body = JsonConvert.SerializeObject(GCCRequestBody);      // Example Body: {"СadNumb":["0521685603:01:004:0001"],"Format":"geoJson"}
+                string body = JsonConvert.SerializeObject(GCCRequestBody);      // Example Body: {"CadNumb":["0521685603:01:004:0001"],"Format":"geojson"}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
