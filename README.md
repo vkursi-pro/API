@@ -84,11 +84,19 @@
 	// [POST] /api/1.0/bi/getbidata
 
 	GetBiDataClass.GetBiData(null, 1000, token);
+	// New
+	GetDataBiInfoClass.GetDataBiInfo("1c891112-b022-4a83-ad34-d1f976c60a0b", 1000, DateTime.Parse("2019-11-28 19:00:52.059"), token);
+	// New 
+	GetDataBiChangeInfoClass.GetDataBiChangeInfo(DateTime.Parse("2019-11-28 19:00:52.059"), "1c891112-b022-4a83-ad34-d1f976c60a0b", false, 100, token);
+	// New
+	GetDataBiOrganizationInfoClass.GetDataBiOrganizationInfo(new List<string> { "1c891112-b022-4a83-ad34-d1f976c60a0b" }, new List<string> { "00131305" }, token);
 
 	// 18. Отримати перелік Label доступних в модулі BI
 	// [GET] /api/1.0/bi/getbiimportlabels
 
 	GetBiImportLabelsClass.GetBiImportLabels(token);
+	// New
+	GetBiLabelsClass.GetBiLabels(token);
 
 	// 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам 
 	// [POST] /api/1.0/estate/estatecreatetaskapi
@@ -120,7 +128,7 @@
 
 	GetEstatesClass.GetEstates(token, "36679626", null);
 
-	// [POST] /api/1.0/Estate/GetСadastrСoordinates
+	// [POST] /api/1.0/Estate/GetCadastrCoordinates
 
 	// 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
 	// [POST] /api/1.0/estate/getadvancedrrpreport
@@ -206,9 +214,9 @@
 	GetRelationsClass.GetRelations(ref token, "00131305", null);
 
 	// 42. Запит на отримання геопросторових даних ПККУ
-	// [POST] /api/1.0/Estate/GetСadastrСoordinates
+	// [POST] /api/1.0/Estate/GetCadastrCoordinates
 
-	GetСadastrСoordinatesClass.GetСadastrСoordinates(token, "0521685603:01:004:0001", "geoJson");
+	GetCadastrCoordinatesClass.GetCadastrCoordinates(token, "0521685603:01:004:0001", "geojson");
 
 	// 43. Загальна характеристика по тендерам
 	// [POST] /api/1.0/organizations/getorgtenderanalytic
@@ -219,6 +227,29 @@
 	// [POST] /api/1.0/organizations/getofficialnotices
 
 	GetOfficialNoticesClass.GetOfficialNotices(token, "00131305");
+
+	// 45. Додати об'єкт до моніторингу нерухомості за номером ОНМ (sms rrp) 
+	// /api/1.0/estate/estateputonmonitoring
+
+	EstatePutOnMonitoringClass.EstatePutOnMonitoring(token, "1260724348000");
+
+	// 46. Змінити період моніторингу об'єкта нерухомості за номером ОНМ (sms rrp)
+	// [POST] /api/1.0/estate/estateincreasemonitoringperiod
+
+	EstateInCreaseMonitoringPeriodClass.EstateInCreaseMonitoringPeriod(token, 1260724348000);
+
+	// 47. Видалити об'єкт з мониторингу (sms rrp)
+	// [POST] /api/1.0/estate/estateremovefrommonitoring
+
+	EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 1260724348000);
+
+	// 48. Отримати зміни по об'єкту шо на мониторингу (можлимо через webhook)
+	// [inprogress]
+
+	// 49.Перевірка наявності об'єкта за ОНМ (sms rrp)
+	// [POST] /api/1.0/estate/smsrrpselectisrealtyexists
+
+	SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000);
 
 	// ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
 	// [inprogress] estate/GetRrp
