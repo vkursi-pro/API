@@ -15,6 +15,7 @@ namespace vkursi_api_example.estate
 
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/getadvancedrrpreport' \
         --header 'ContentType: application/json' \
+        --header 'Content-Type: application/json' \
         --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
         --data-raw '{"GroupId":5001466269723,"ObjectId":68345530}'
 
@@ -43,6 +44,7 @@ namespace vkursi_api_example.estate
                 // Example Body: {"GroupId":5001466269723,"ObjectId":68345530}
 
                 request.AddHeader("ContentType", "application/json");
+                request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
                 request.AddParameter("application/json", body, ParameterType.RequestBody);
 

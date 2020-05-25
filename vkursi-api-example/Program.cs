@@ -26,8 +26,6 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
-            GetCadastrCoordinatesClass.GetCadastrCoordinates(token, "0521685603:01:004:0001", "geojson");
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -116,6 +114,8 @@ namespace vkursi_api_example
 
             // 18. Отримати перелік Label доступних в модулі BI
             // [GET] /api/1.0/bi/getbiimportlabels
+
+            DateTime dateTime = DateTime.Now;
 
             GetBiImportLabelsClass.GetBiImportLabels(token);
             // New

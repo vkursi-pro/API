@@ -17,8 +17,7 @@ namespace vkursi_api_example.estate
         --header 'ContentType: application/json' \
         --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
         --header 'Content-Type: application/json' \
-        --header 'Cookie: ARRAffinity=60c7763e47a70e864d73874a4687c10eb685afc08af8bda506303f7b37b172b8' \
-        --data-raw '{"Edrpous":["19124549"],"Ipns":["3083707142"],"Koatuus":["5621287500"],"Cadastrs":["5621287500:03:001:0019"],"СalculateСost":false,"IsNeedUpdateAll":false,"IsReport":true,"TaskName":"Назва задачі","DzkOnly":false}'
+        --data-raw '{"Cadastrs":["5621287500:03:001:0019"],"CalculateCost":true,"IsNeedUpdateAll":false,"IsReport":true,"TaskName":"Назва задачі","DzkOnly":false}'
 
          */
 
@@ -52,16 +51,17 @@ namespace vkursi_api_example.estate
                 {
                     "3083707142"
                 },
-                    СalculateСost = true,              // Якщо тільки порахувати вартість
+                    CalculateCost = true,              // Якщо тільки порахувати вартість
                     IsNeedUpdateAll = false,            // Якщо true - оновлюємо всі дані в ДЗК і РРП
                     IsReport = true,                    // Якщо true - формуємо звіт, false / null - повертаємо тільки json
                     TaskName = "Назва задачі"           // Назва задачі (обов'язково)
                     // isDzkOnly                        // Перевірка ДЗК + НГО без РРП
                 };
 
+
                 string body = JsonConvert.SerializeObject(ECTARequestBodyRow);
 
-                // Example Body: {"Edrpous":["19124549"],"Ipns":["3083707142"],"Koatuus":["5621287500"],"Cadastrs":["5621287500:03:001:0019"],"СalculateСost":false,"IsNeedUpdateAll":false,"IsReport":true,"TaskName":"Назва задачі","DzkOnly":false}
+                // Example Body: {"Edrpous":["19124549"],"Ipns":["3083707142"],"Koatuus":["5621287500"],"Cadastrs":["5621287500:03:001:0019"],"CalculateCost":false,"IsNeedUpdateAll":false,"IsReport":true,"TaskName":"Назва задачі","DzkOnly":false}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
@@ -108,7 +108,7 @@ namespace vkursi_api_example.estate
                 import http.client
                 import mimetypes
                 conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
-                payload = "{\"Edrpous\":[\"19124549\"],\"Ipns\":[\"3083707142\"],\"Koatuus\":[\"5621287500\"],\"Cadastrs\":[\"5621287500:03:001:0019\"],\"СalculateСost\":false,\"IsNeedUpdateAll\":false,\"IsReport\":true,\"TaskName\":\"Назва задачі\",\"DzkOnly\":false}"
+                payload = "{\"Edrpous\":[\"19124549\"],\"Ipns\":[\"3083707142\"],\"Koatuus\":[\"5621287500\"],\"Cadastrs\":[\"5621287500:03:001:0019\"],\"CalculateCost\":false,\"IsNeedUpdateAll\":false,\"IsReport\":true,\"TaskName\":\"Назва задачі\",\"DzkOnly\":false}"
                 headers = {
                   'ContentType': 'application/json',
                   'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...',
@@ -126,7 +126,7 @@ namespace vkursi_api_example.estate
                 OkHttpClient client = new OkHttpClient().newBuilder()
                   .build();
                 MediaType mediaType = MediaType.parse("application/json");
-                RequestBody body = RequestBody.create(mediaType, "{\"Edrpous\":[\"19124549\"],\"Ipns\":[\"3083707142\"],\"Koatuus\":[\"5621287500\"],\"Cadastrs\":[\"5621287500:03:001:0019\"],\"СalculateСost\":false,\"IsNeedUpdateAll\":false,\"IsReport\":true,\"TaskName\":\"Назва задачі\",\"DzkOnly\":false}");
+                RequestBody body = RequestBody.create(mediaType, "{\"Edrpous\":[\"19124549\"],\"Ipns\":[\"3083707142\"],\"Koatuus\":[\"5621287500\"],\"Cadastrs\":[\"5621287500:03:001:0019\"],\"CalculateCost\":false,\"IsNeedUpdateAll\":false,\"IsReport\":true,\"TaskName\":\"Назва задачі\",\"DzkOnly\":false}");
                 Request request = new Request.Builder()
                   .url("https://vkursi-api.azurewebsites.net/api/1.0/estate/estatecreatetaskapi")
                   .method("POST", body)
@@ -199,11 +199,11 @@ namespace vkursi_api_example.estate
         --header 'ContentType: application/json' \
         --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...' \
         --header 'Content-Type: application/json' \
-        --data-raw '{"taskId":"","skip":0,"take":100,"сadastr":["7424955100:04:001:0511"]}'
+        --data-raw '{"taskId":"","skip":0,"take":100,"cadastr":["7424955100:04:001:0511"]}'
 
          */
 
-        public static List<EstateGetTaskDataApiDataModel> EstateGetTaskDataApi(string token, string taskId, string сadastr)
+        public static List<EstateGetTaskDataApiDataModel> EstateGetTaskDataApi(string token, string taskId, string cadastr)
         {
             if (String.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
@@ -217,13 +217,13 @@ namespace vkursi_api_example.estate
                     taskId = null,                                              // Id задачі (перелік доспупних taskId можна отриммати в  api/1.0/estate/getestatetasklist)
                     skip = 0,                                                   // К-ть записів які будуть пропущені
                     take = 100,                                                 // К-ть записів які будуть отримані (null - всі)
-                    сadastr = new List<string>                                  // Перелік кадастрових номерів
+                    cadastr = new List<string>                                  // Перелік кадастрових номерів
                     {
-                        сadastr
+                        cadastr
                     }
                 };
 
-                string body = JsonConvert.SerializeObject(EGTDARequestBody);    // Example Body: {"taskId":null,"skip":0,"take":100,"сadastr":["7424955100:04:001:0511"]}
+                string body = JsonConvert.SerializeObject(EGTDARequestBody);    // Example Body: {"taskId":null,"skip":0,"take":100,"cadastr":["7424955100:04:001:0511"]}
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/estategettaskdataapi");
                 RestRequest request = new RestRequest(Method.POST);
@@ -324,7 +324,7 @@ namespace vkursi_api_example.estate
         public List<string> Ipns { get; set; }                                  // ІПН-и
         public List<string> Koatuus { get; set; }                               // КОАТУУ
         public List<string> Cadastrs { get; set; }                              // Кадастрові номери
-        public bool? СalculateСost { get; set; }                                // Якщо тільки порахувати вартість
+        public bool? CalculateCost { get; set; }                                // Якщо тільки порахувати вартість
         public bool IsNeedUpdateAll { get; set; }                               // Якщо true - оновлюємо всі дані в ДЗК і РРП
         public bool IsReport { get; set; }                                      // Якщо true - формуємо звіт, false / null - повертаємо тільки json
         public string TaskName { get; set; }                                    // Назва задачі
@@ -358,7 +358,7 @@ namespace vkursi_api_example.estate
         public string taskId { get; set; }                                      // Id задачі
         public int? skip { get; set; }                                          // К-ть записів які будуть пропущені
         public int? take { get; set; }                                          // К-ть записів які будуть отримані (максимум MAX)
-        public List<string> сadastr { get; set; }                               // Перелік кодастрових номерів
+        public List<string> cadastr { get; set; }                               // Перелік кодастрових номерів
     }
 
 

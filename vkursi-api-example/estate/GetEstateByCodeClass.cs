@@ -15,11 +15,10 @@ namespace vkursi_api_example.estate
         При першому запиті у відповідь приходять дані станом на поточний момент і ініціюється процедура поновлення. Якщо процедура відновлення не завершена у відповідь при повторному запиті (за тими ж паараметрами) буде приходити: Update in progress, total objects {общее количество} try again later. - Спробуйте повторити запит через 30 секунд. Після оновлення прийде стандартна відповідь.
         [GET] /api/1.0/estate/getestatebycode     
          
-        curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatebycode?code=00131305' \
+        curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatebycode?code=3080213038' \
         --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGci...' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1...' \
         --header 'Content-Type: application/json' \
-        --data-raw '{"Code":"21560045"}'
 
          */
 
