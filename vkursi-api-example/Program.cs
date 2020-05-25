@@ -29,7 +29,7 @@ namespace vkursi_api_example
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
-            GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
+            GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472 
 
             // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
             // [POST] /api/1.0/organizations/getfops
