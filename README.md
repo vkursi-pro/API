@@ -1,260 +1,263 @@
-# API
+Перелік методів:
 
-	// 1. Отримання токена авторизації
-	// [POST] /api/1.0/token/authorize
 
-	token = AuthorizeClass.Authorize();
+// 1. Отримання токена авторизації
+[POST] /api/1.0/token/authorize
 
-	// 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
-	// [POST] /api/1.0/organizations/getorganizations
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/token/authorize</a></p>
 
-	GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
+token = AuthorizeClass.Authorize();
 
-	// 3. Запит на отримання коротких даних по ФОП за кодом ІПН
-	// [POST] /api/1.0/organizations/getfops
+// 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
 
-	GetFopsClass.GetFops("1841404820", token); // 3334800417
+GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
 
-	// 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
-	// [POST] /api/1.0/organizations/getadvancedorganization
+// 3. Запит на отримання коротких даних по ФОП за кодом ІПН
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getfops</a></p>
 
-	GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
+GetFopsClass.GetFops("1841404820", token); // 3334800417
 
-	// 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
-	// [GET] /api/1.0/estate/getestatebycode
+// 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getadvancedorganization</a></p>
 
-	GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
 
-	// 6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
-	// [GET] /api/1.0/changes/getchanges
+// 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[GET] /api/1.0/estate/getestatebycode</a></p>
 
-	GetChangesClass.GetChanges("28.10.2019", token);
+GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 
-	// 7. Отримати перелік списків (які користувач створив на vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
-	// [GET] /api/1.0/monitoring/getAllReestr
+// 6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[GET] /api/1.0/changes/getchanges</a></p>
 
-	GetAllReestrClass.GetAllReestr(token);
+GetChangesClass.GetChanges("28.10.2019", token);
 
-	// 8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
-	// [POST] /api/1.0/monitoring/addNewReestr
+// 7. Отримати перелік списків (які користувач створив на vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[GET] /api/1.0/monitoring/getAllReestr</a></p>
 
-	AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
+GetAllReestrClass.GetAllReestr(token);
 
-	// 9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ
-	// [POST] /api/1.0/organizations/getanalytic
+// 8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/monitoring/addNewReestr</a></p>
 
-	GetAnalyticClass.GetAnalytic("00131305", token);
+AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
 
-	// 10. Запит на отримання переліку судових документів організації за критеріями (контент та параметри документа можна отримати в методі /api/1.0/courtdecision/getdecisionbyid)
-	// [POST] /api/1.0/courtdecision/getdecisions
+// 9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getanalytic</a></p>
 
-	GetDecisionsClass.GetDecisions("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
+GetAnalyticClass.GetAnalytic("00131305", token);
 
-	// 11. Запит на отримання контенту судового рішення за id документа (id документа можна отримати в api/1.0/courtdecision/getdecisions)
-	// [POST] /api/1.0/courtdecision/getcontent
+// 10. Запит на отримання переліку судових документів організації за критеріями (контент та параметри документа можна отримати в методі /api/1.0/courtdecision/getdecisionbyid)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisions</a></p>
 
-	GetContentClass.GetContent("84583482", token);
+GetDecisionsClass.GetDecisions("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
 
-	// 12. Додати контрагентів до списку (до списку vkursi.pro/eventcontrol#/reestr)
-	// [POST] /api/1.0/Monitoring/addToControl
+// 11. Запит на отримання контенту судового рішення за id документа (id документа можна отримати в api/1.0/courtdecision/getdecisions)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getcontent</a></p>
 
-           AddToControlClass.AddToControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
+GetContentClass.GetContent("84583482", token);
 
-	// 13. Видалити контрагентів зі списку 
-	// [POST] /api/1.0/Monitoring/removeFromControl
+// 12. Додати контрагентів до списку (до списку vkursi.pro/eventcontrol#/reestr)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/Monitoring/addToControl</a></p>
 
-	RemoveFromControlClass.RemoveFromControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
+ddToControlClass.AddToControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
-	// 14. Отримання переліку кодів ЄДРПОУ або Id фізичних або юридичних осіб які знаходятся за певним КОАТУУ
-	// [POST] /api/1.0/organizations/getinfobykoatuu
+// 13. Видалити контрагентів зі списку 
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/Monitoring/removeFromControl</a></p>
 
-	GetInfoByKoatuuClass.GetInfoByKoatuu("510900000", "1", token);
+RemoveFromControlClass.RemoveFromControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
-	// 15. Новий бізнес. Запит на отримання списку новозареєстрованих фізичних та юридичних осіб
-	// [POST] /api/1.0/organizations/getnewregistration
+// 14. Отримання переліку кодів ЄДРПОУ або Id фізичних або юридичних осіб які знаходятся за певним КОАТУУ
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getinfobykoatuu</a></p>
 
-	GetNewRegistrationClass.GetNewRegistration("29.10.2019", "1", 0, 10, true, true, token);
+GetInfoByKoatuuClass.GetInfoByKoatuu("510900000", "1", token);
 
-	// 16. Видалити список контрагентів
-	// [DELETE] /api/1.0/monitoring/removeReestr
+// 15. Новий бізнес. Запит на отримання списку новозареєстрованих фізичних та юридичних осіб
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getnewregistration</a></p>
 
-	RemoveReestrClass.RemoveReestr("1c891112-b022-4a83-ad34-d1f976c60a0b", token);
+GetNewRegistrationClass.GetNewRegistration("29.10.2019", "1", 0, 10, true, true, token);
 
-	// 17. Отримати перелік компаний які відібрані в модулі BI
-	// [POST] /api/1.0/bi/getbidata
+// 16. Видалити список контрагентів
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[DELETE] /api/1.0/monitoring/removeReestr</a></p>
 
-	GetBiDataClass.GetBiData(null, 1000, token);
-	// New
-	GetDataBiInfoClass.GetDataBiInfo("1c891112-b022-4a83-ad34-d1f976c60a0b", 1000, DateTime.Parse("2019-11-28 19:00:52.059"), token);
-	// New 
-	GetDataBiChangeInfoClass.GetDataBiChangeInfo(DateTime.Parse("2019-11-28 19:00:52.059"), "1c891112-b022-4a83-ad34-d1f976c60a0b", false, 100, token);
-	// New
-	GetDataBiOrganizationInfoClass.GetDataBiOrganizationInfo(new List<string> { "1c891112-b022-4a83-ad34-d1f976c60a0b" }, new List<string> { "00131305" }, token);
+RemoveReestrClass.RemoveReestr("1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
-	// 18. Отримати перелік Label доступних в модулі BI
-	// [GET] /api/1.0/bi/getbiimportlabels
+// 17. Отримати перелік компаний які відібрані в модулі BI
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/bi/getbidata</a></p>
 
-	GetBiImportLabelsClass.GetBiImportLabels(token);
-	// New
-	GetBiLabelsClass.GetBiLabels(token);
+GetBiDataClass.GetBiData(null, 1000, token);
+// New
+GetDataBiInfoClass.GetDataBiInfo("1c891112-b022-4a83-ad34-d1f976c60a0b", 1000, DateTime.Parse("2019-11-28 19:00:52.059"), token);
+// New 
+GetDataBiChangeInfoClass.GetDataBiChangeInfo(DateTime.Parse("2019-11-28 19:00:52.059"), "1c891112-b022-4a83-ad34-d1f976c60a0b", false, 100, token);
+// New
+GetDataBiOrganizationInfoClass.GetDataBiOrganizationInfo(new List<string> { "1c891112-b022-4a83-ad34-d1f976c60a0b" }, new List<string> { "00131305" }, token);
 
-	// 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам 
-	// [POST] /api/1.0/estate/estatecreatetaskapi
+// 18. Отримати перелік Label доступних в модулі BI
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[GET] /api/1.0/bi/getbiimportlabels</a></p>
 
-	EstateTaskApiClass.EstateCreateTaskApi(token);
+GetBiImportLabelsClass.GetBiImportLabels(token);
+// New
+GetBiLabelsClass.GetBiLabels(token);
 
-	// 20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
-	// [GET] /api/1.0/estate/getestatetasklist
+// 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам 
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/estate/estatecreatetaskapi</a></p>
 
-	EstateTaskApiClass.GetEstateTaskList(token);
+EstateTaskApiClass.EstateCreateTaskApi(token);
 
-	// 21. Отримання інформації про виконання формування звіту та запитів до ДРРП, НГО, ДЗК за TaskId
-	// [POST] /api/1.0/estate/estategettaskdataapi
+// 20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[GET] /api/1.0/estate/getestatetasklist</a></p>
 
-	EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId", "7424955100:04:001:0511");
+EstateTaskApiClass.GetEstateTaskList(token);
 
-	// 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
-	// [POST] /api/1.0/movableLoads/getmovableloads
+// 21. Отримання інформації про виконання формування звіту та запитів до ДРРП, НГО, ДЗК за TaskId
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/estate/estategettaskdataapi</a></p>
 
-	GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
+EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId", "7424955100:04:001:0511");
 
-	// 23. ДРОРМ отримання витяга
-	// [POST] /api/1.0/MovableLoads/getpaymovableloads
+// 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/movableLoads/getmovableloads</a></p>
 
-	GetPayMovableLoadsClass.GetPayMovableLoads(token, 17374040);
+GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
 
-	// 24. ДРРП отримання скороченных данных по ІПН / ЄДРПОУ
-	// [POST] /api/1.0/Estate/GetEstates
+// 23. ДРОРМ отримання витяга
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/MovableLoads/getpaymovableloads</a></p>
 
-	GetEstatesClass.GetEstates(token, "36679626", null);
+GetPayMovableLoadsClass.GetPayMovableLoads(token, 17374040);
 
-	// [POST] /api/1.0/Estate/GetCadastrCoordinates
+// 24. ДРРП отримання скороченных данных по ІПН / ЄДРПОУ
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/Estate/GetEstates</a></p>
 
-	// 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
-	// [POST] /api/1.0/estate/getadvancedrrpreport
+GetEstatesClass.GetEstates(token, "36679626", null);
 
-	GetAdvancedRrpReportClass.GetAdvancedRrpReport(token, 5001466269723, 68345530);
+// [POST] /api/1.0/Estate/GetCadastrCoordinates
 
-	// 26. Рекізити судового документа
-	// [POST] /api/1.0/courtdecision/getdecisionbyid
+// 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/estate/getadvancedrrpreport</a></p>
 
-	GetDecisionByIdClass.GetDecisionById("88234097", token);
+GetAdvancedRrpReportClass.GetAdvancedRrpReport(token, 5001466269723, 68345530);
 
-	// 27. Обьем ресурсів доспупних користувачу відповідно до тарифного плану
-	// [GET] /api/1.0/token/gettariff
+// 26. Рекізити судового документа
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisionbyid</a></p>
 
-	GetTariffClass.GetTariff(token);
+GetDecisionByIdClass.GetDecisionById("88234097", token);
 
-	// 28. Метод АРІ, який віддає історію по компанії з можливістю обрати період.
-	// [POST] /api/1.0/changes/getchangesbyCode
+// 27. Обьем ресурсів доспупних користувачу відповідно до тарифного плану
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[GET] /api/1.0/token/gettariff</a></p>
 
-	GetChangesByCodeClass.GetChangesByCode(token, "00131305", "20.11.2018", "25.11.2019", null);
+GetTariffClass.GetTariff(token);
 
-	// 29. Отримання інформації по фізичній особі
-	// [POST] /api/1.0/person/checkperson
+// 28. Метод АРІ, який віддає історію по компанії з можливістю обрати період.
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/changes/getchangesbyCode</a></p>
 
-	CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ", "2301715013");
+GetChangesByCodeClass.GetChangesByCode(token, "00131305", "20.11.2018", "25.11.2019", null);
 
-	// 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
-	// [POST] /api/1.0/movableloads/getexistedmovableloads
+// 29. Отримання інформації по фізичній особі
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/person/checkperson</a></p>
 
-	// 31. Основні словники сервісу
-	// [POST] /api/1.0/dictionary/getdictionary
+CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ", "2301715013");
 
-	GetDictionaryClass.GetDictionary(ref token, 0);
+// 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/movableloads/getexistedmovableloads</a></p>
 
-	// 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
-	// [POST] /api/1.0/organizations/getorgvehicle
+// 31. Основні словники сервісу
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/dictionary/getdictionary</a></p>
 
-	GetOrgVehicleClass.GetOrgVehicle(ref token, "00131305");
+GetDictionaryClass.GetDictionary(ref token, 0);
 
-	// 33. Список виконавчих проваджень по фізичним або юридичним особам за кодом ІПН / ЄДРПОУ
-	// [POST] /api/1.0/organizations/getorgenforcements
+// 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorgvehicle</a></p>
 
-	GetOrgEnforcementsClass.GetOrgEnforcements(ref token, "00131305");
+GetOrgVehicleClass.GetOrgVehicle(ref token, "00131305");
 
-	// 34. Загальна статистики по Edata (по компанії)
-	// [POST] /api/1.0/organizations/getorgpubliicfunds
+// 33. Список виконавчих проваджень по фізичним або юридичним особам за кодом ІПН / ЄДРПОУ
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorgenforcements</a></p>
 
-	GetOrgPubliicFundsClass.GetOrgPubliicFunds(ref token, "00131305");
+GetOrgEnforcementsClass.GetOrgEnforcements(ref token, "00131305");
 
-	// 35. Фінансові ризики
-	// [POST] /api/1.0/organizations/getorgFinancialRisks
+// 34. Загальна статистики по Edata (по компанії)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorgpubliicfunds</a></p>
 
-	GetOrgFinancialRisksClass.GetOrgFinancialRisks(ref token, "00131305");
+GetOrgPubliicFundsClass.GetOrgPubliicFunds(ref token, "00131305");
 
-	// 36. Перелік декларантів повязаних з компаніями
-	// [POST] /api/1.0/organizations/getdeclarationsinfo
+// 35. Фінансові ризики
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorgFinancialRisks</a></p>
 
-	GetDeclarationsInfoClass.GetDeclarationsInfo(ref token, "00131305");
+GetOrgFinancialRisksClass.GetOrgFinancialRisks(ref token, "00131305");
 
-	// 37. Перелік ліцензій, та дозволів
-	// [POST] /api/1.0/organizations/getorglicensesinfo
+// 36. Перелік декларантів повязаних з компаніями
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getdeclarationsinfo</a></p>
 
-	GetOrgLicensesInfoClass.GetOrgLicensesInfo(ref token, "00131305");
+GetDeclarationsInfoClass.GetDeclarationsInfo(ref token, "00131305");
 
-	// 38. Відомості про інтелектуальну власність (патенти, торгові марки, корисні моделі) які повязані по ПІБ з бенеціціарами підприємства
-	// [POST] /api/1.0/organizations/getorgintellectualproperty
+// 37. Перелік ліцензій, та дозволів
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorglicensesinfo</a></p>
 
-	GetOrgIntellectualPropertyClass.GetOrgIntellectualProperty(ref token, "00131305");
+GetOrgLicensesInfoClass.GetOrgLicensesInfo(ref token, "00131305");
 
-	// 39. Відомості про власників пакетів акцій (від 5%)
-	// [POST] /api/1.0/organizations/getorgshareholders
+// 38. Відомості про інтелектуальну власність (патенти, торгові марки, корисні моделі) які повязані по ПІБ з бенеціціарами підприємства
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorgintellectualproperty</a></p>
 
-	GetOrgShareholdersClass.GetOrgShareholders(token, "00131305");
+GetOrgIntellectualPropertyClass.GetOrgIntellectualProperty(ref token, "00131305");
 
-	// 40. Частка державних коштів в доході
-	// [POST] /api/1.0/organizations/getorgstatefundsstatistic
+// 39. Відомості про власників пакетів акцій (від 5%)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorgshareholders</a></p>
 
-	GetOrgStateFundsStatisticClass.GetOrgStateFundsStatistic(token, "00131305");
+GetOrgShareholdersClass.GetOrgShareholders(token, "00131305");
 
-	// 41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
-	// [POST] /api/1.0/organizations/getrelations
+// 40. Частка державних коштів в доході
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorgstatefundsstatistic</a></p>
 
-	GetRelationsClass.GetRelations(ref token, "00131305", null);
+GetOrgStateFundsStatisticClass.GetOrgStateFundsStatistic(token, "00131305");
 
-	// 42. Запит на отримання геопросторових даних ПККУ
-	// [POST] /api/1.0/Estate/GetCadastrCoordinates
+// 41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getrelations</a></p>
 
-	GetCadastrCoordinatesClass.GetCadastrCoordinates(token, "0521685603:01:004:0001", "geojson");
+GetRelationsClass.GetRelations(ref token, "00131305", null);
 
-	// 43. Загальна характеристика по тендерам
-	// [POST] /api/1.0/organizations/getorgtenderanalytic
+// 42. Запит на отримання геопросторових даних ПККУ
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/Estate/GetCadastrCoordinates</a></p>
 
-	GetOrgTenderAnalyticClass.GetOrgTenderAnalytic(token, "00131305");
+GetCadastrCoordinatesClass.GetCadastrCoordinates(token, "0521685603:01:004:0001", "geojson");
 
-	// 44. Офіційні повідомлення (ЄДР, SMIDA, Банкрутство)
-	// [POST] /api/1.0/organizations/getofficialnotices
+// 43. Загальна характеристика по тендерам
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorgtenderanalytic</a></p>
 
-	GetOfficialNoticesClass.GetOfficialNotices(token, "00131305");
+GetOrgTenderAnalyticClass.GetOrgTenderAnalytic(token, "00131305");
 
-	// 45. Додати об'єкт до моніторингу нерухомості за номером ОНМ (sms rrp) 
-	// /api/1.0/estate/estateputonmonitoring
+// 44. Офіційні повідомлення (ЄДР, SMIDA, Банкрутство)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getofficialnotices</a></p>
 
-	EstatePutOnMonitoringClass.EstatePutOnMonitoring(token, "1260724348000");
+GetOfficialNoticesClass.GetOfficialNotices(token, "00131305");
 
-	// 46. Змінити період моніторингу об'єкта нерухомості за номером ОНМ (sms rrp)
-	// [POST] /api/1.0/estate/estateincreasemonitoringperiod
+// 45. Додати об'єкт до моніторингу нерухомості за номером ОНМ (sms rrp) 
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/estate/estateputonmonitoring</a></p>
 
-	EstateInCreaseMonitoringPeriodClass.EstateInCreaseMonitoringPeriod(token, 1260724348000);
+EstatePutOnMonitoringClass.EstatePutOnMonitoring(token, "1260724348000");
 
-	// 47. Видалити об'єкт з мониторингу (sms rrp)
-	// [POST] /api/1.0/estate/estateremovefrommonitoring
+// 46. Змінити період моніторингу об'єкта нерухомості за номером ОНМ (sms rrp)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/estate/estateincreasemonitoringperiod</a></p>
 
-	EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 1260724348000);
+EstateInCreaseMonitoringPeriodClass.EstateInCreaseMonitoringPeriod(token, 1260724348000);
 
-	// 48. Отримати зміни по об'єкту шо на мониторингу (можлимо через webhook)
-	// [inprogress]
+// 47. Видалити об'єкт з мониторингу (sms rrp)
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/estate/estateremovefrommonitoring</a></p>
 
-	// 49.Перевірка наявності об'єкта за ОНМ (sms rrp)
-	// [POST] /api/1.0/estate/smsrrpselectisrealtyexists
+EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 1260724348000);
 
-	SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000);
+// 48. Отримати зміни по об'єкту шо на мониторингу (можлимо через webhook)
+// [inprogress]
 
-	// ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
-	// [inprogress] estate/GetRrp
+// 49.Перевірка наявності об'єкта за ОНМ (sms rrp)
+// [POST] /api/1.0/estate/smsrrpselectisrealtyexists
 
-	// Судові рішення по ФО
-	// [inprogress]
+SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000);
 
-	// Перелік статусів відповідей API
+// ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
+// [inprogress] estate/GetRrp
+
+// Судові рішення по ФО
+// [inprogress]
+
+// Перелік статусів відповідей API
