@@ -31,10 +31,10 @@ namespace vkursi_api_example.changes
             {
                 GetChangesByCodeRequestBodyModel GCBCResponseBodyRow = new GetChangesByCodeRequestBodyModel
                 {
-                    Code = code,
-                    FromDate = fromDate,
-                    ToDate = toDate,
-                    FieldType = fieldType
+                    Code = code,                                                // Код ЄДРПОУ
+                    FromDate = fromDate,                                        // Дата (зміни) від (включно)
+                    ToDate = toDate,                                            // Дата (зміни) до (не включно)
+                    FieldType = fieldType                                       // Тип зміни (словник FieldTypeDict можна отритами в  - 31. Основні словники сервісу [POST] /api/1.0/Dictionary/getdictionary)
                 };
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/changes/getchangesbyCode");
@@ -94,28 +94,28 @@ namespace vkursi_api_example.changes
 
     */
 
-    public class GetChangesByCodeRequestBodyModel
+
+    public class GetChangesByCodeRequestBodyModel                               // Модель Body запиту
     {
-        public string Code { get; set; }
-        public string FromDate { get; set; }
-        public string ToDate { get; set; }
-        public int? FieldType { get; set; }
+        public string Code { get; set; }                                        // Код ЄДРПОУ
+        public string FromDate { get; set; }                                    // Дата від (включно)
+        public string ToDate { get; set; }                                      // Дата до (не включно)
+        public int? FieldType { get; set; }                                     // Тип зміни (словник FieldTypeDict можна отритами в  - 31. Основні словники сервісу [POST] /api/1.0/Dictionary/getdictionary)
     }
 
-
-    public class OwnerChangesInfoModel
+    public class GetChangesByCodeResponseModel                                  // Модель відповіді
     {
-        public string id { get; set; }
-        public int type { get; set; }
-        public string name { get; set; }
-        public string code { get; set; }
+        public DateTime dateOfChange { get; set; }                              // Дата зміни
+        public string changeType { get; set; }                                  // Тип зміни (текст)
+        public string change { get; set; }                                      // Текст зміни
+        public OwnerChangesInfoModel ownerChangesInfo { get; set; }             // Відомості про організацію 
     }
 
-    public class GetChangesByCodeResponseModel
+    public class OwnerChangesInfoModel                                          // Відомості про організацію                   
     {
-        public DateTime dateOfChange { get; set; }
-        public string changeType { get; set; }
-        public string change { get; set; }
-        public OwnerChangesInfoModel ownerChangesInfo { get; set; }
+        public string id { get; set; }                                          // Системий Id в сервісі Vkursi
+        public int type { get; set; }                                           // Тип (організація / ФОП)
+        public string name { get; set; }                                        // Назва 
+        public string code { get; set; }                                        // Код ЄДРПОУ
     }
 }

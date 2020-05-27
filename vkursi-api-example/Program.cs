@@ -151,8 +151,6 @@ namespace vkursi_api_example
 
             GetEstatesClass.GetEstates(token, "36679626", null);
 
-            // [POST] /api/1.0/Estate/GetCadastrCoordinates
-
             // 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
             // [POST] /api/1.0/estate/getadvancedrrpreport
 
