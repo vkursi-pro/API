@@ -185,6 +185,9 @@ GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
 
 GetPayMovableLoadsClass.GetPayMovableLoads(token, 17374040);
 
+<br>
+<br>
+
 <h3>24. ДРРП отримання скороченных данных по ІПН / ЄДРПОУ</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstatesClass.cs" target="_blank">[POST] /api/1.0/estate/GetEstates</a></p>
 
