@@ -172,6 +172,9 @@ EstateTaskApiClass.GetEstateTaskList(token);
 
 EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId", "7424955100:04:001:0511");
 
+<br>
+<br>
+
 <h3>22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/movableLoads/GetMovableLoadsClass.cs" target="_blank">[POST] /api/1.0/movableLoads/getmovableloads</a></p>
 
@@ -199,10 +202,10 @@ GetEstatesClass.GetEstates(token, "36679626", null);
 <h3>25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetAdvancedRrpReportClass.cs" target="_blank">[POST] /api/1.0/estate/getadvancedrrpreport</a></p>
 
-<br>
-<br>
-
 GetAdvancedRrpReportClass.GetAdvancedRrpReport(token, 5001466269723, 68345530);
+
+<br>
+<br>
 
 <h3>26. Рекізити судового документа</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionByIdClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisionbyid</a></p>
@@ -322,7 +325,7 @@ GetOrgStateFundsStatisticClass.GetOrgStateFundsStatistic(token, "00131305");
 <br>
 <br>
 
-// 41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій</h3>
+<h3>41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRelationsClass.cs" target="_blank">[POST] /api/1.0/organizations/getrelations</a></p>
 
 GetRelationsClass.GetRelations(ref token, "00131305", null);
@@ -385,12 +388,12 @@ EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 1260724348000)
 <br>
 
 <h3>49.Перевірка наявності об'єкта за ОНМ (sms rrp)</h3>
-// [POST] /api/1.0/estate/smsrrpselectisrealtyexists
-
-<br>
-<br>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/SmsRrpSelectIsRealtyExistsClass.cs" target="_blank">[POST] /api/1.0/estate/SmsRrpSelectIsRealtyExists</a></p>
 
 SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000);
+
+<br>
+<br>
 
 <h3>ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi</h3>
 // [inprogress] estate/GetRrp
