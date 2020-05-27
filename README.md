@@ -155,7 +155,7 @@ GetBiLabelsClass.GetBiLabels(token);
 <br>
 
 <h3>19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateCreateTaskApiClass.cs" target="_blank">[POST] /api/1.0/estate/estatecreatetaskapi</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateTaskApiClass.cs" target="_blank">[POST] /api/1.0/estate/estatecreatetaskapi</a></p>
 
 EstateTaskApiClass.EstateCreateTaskApi(token);
 
@@ -163,7 +163,7 @@ EstateTaskApiClass.EstateCreateTaskApi(token);
 <br>
 
 <h3>20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstateTaskListClass.cs" target="_blank">[GET] /api/1.0/estate/getestatetasklist</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateTaskApiClass.cs" target="_blank">[GET] /api/1.0/estate/getestatetasklist</a></p>
 
 EstateTaskApiClass.GetEstateTaskList(token);
 
@@ -171,7 +171,7 @@ EstateTaskApiClass.GetEstateTaskList(token);
 <br>
 
 <h3>21. Отримання інформації про виконання формування звіту та запитів до ДРРП, НГО, ДЗК за TaskId</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateGetTaskDataApiClass.cs" target="_blank">[POST] /api/1.0/estate/estategettaskdataapi</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateTaskApiClass.cs" target="_blank">[POST] /api/1.0/estate/estategettaskdataapi</a></p>
 
 EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId", "7424955100:04:001:0511");
 
@@ -179,7 +179,7 @@ EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId", "7424955100:04:001:0511
 <br>
 
 <h3>22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/movableLoads/GetMovableLoadsClass.cs" target="_blank">[POST] /api/1.0/movableLoads/getmovableloads</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/movableloads/GetMovableLoadsClass.cs" target="_blank">[POST] /api/1.0/movableLoads/getmovableloads</a></p>
 
 GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
 
@@ -187,7 +187,7 @@ GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
 <br>
 
 <h3>23. ДРОРМ отримання витяга</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/movableLoads/GetPayMovableLoadsClass.cs" target="_blank">[POST] /api/1.0/MovableLoads/getpaymovableloads</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/movableloads/GetPayMovableLoadsClass.cs" target="_blank">[POST] /api/1.0/MovableLoads/getpaymovableloads</a></p>
 
 GetPayMovableLoadsClass.GetPayMovableLoads(token, 17374040);
 
