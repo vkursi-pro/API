@@ -55,6 +55,9 @@ GetChangesClass.GetChanges("28.10.2019", token);
 
 GetAllReestrClass.GetAllReestr(token);
 
+<br>
+<br>
+
 <h3>8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/AddNewReestrClass.cs" target="_blank">[POST] /api/1.0/monitoring/addNewReestr</a></p>
 
