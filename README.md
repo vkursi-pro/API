@@ -11,7 +11,7 @@ token = AuthorizeClass.Authorize();
 <br>
 
 <h3>2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/getorganizationsClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationsClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
 
 GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
 
