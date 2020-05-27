@@ -11,7 +11,7 @@ token = AuthorizeClass.Authorize();
 <br>
 
 <h3>2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/getorganizationsClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
 
 GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
 
@@ -19,7 +19,7 @@ GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
 <br>
 
 <h3>3. Запит на отримання коротких даних по ФОП за кодом ІПН</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getfops</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/getfopsClass.cs" target="_blank">[POST] /api/1.0/organizations/getfops</a></p>
 
 GetFopsClass.GetFops("1841404820", token); // 3334800417
 
@@ -27,7 +27,7 @@ GetFopsClass.GetFops("1841404820", token); // 3334800417
 <br>
 
 <h3>4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН </h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getadvancedorganization</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/getadvancedorganizationClass.cs" target="_blank">[POST] /api/1.0/organizations/getadvancedorganization</a></p>
 
 GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
 
@@ -35,7 +35,7 @@ GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); /
 <br>
 
 <h3>5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[GET] /api/1.0/estate/getestatebycode</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/getestatebycodeClass.cs" target="_blank">[GET] /api/1.0/estate/getestatebycode</a></p>
 
 GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 
@@ -43,7 +43,7 @@ GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 <br>
 
 <h3>6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[GET] /api/1.0/changes/getchanges</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/changes/getchangesClass.cs" target="_blank">[GET] /api/1.0/changes/getchanges</a></p>
 
 GetChangesClass.GetChanges("28.10.2019", token);
 
@@ -51,12 +51,12 @@ GetChangesClass.GetChanges("28.10.2019", token);
 <br>
 
 <h3>7. Отримати перелік списків (які користувач створив на vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[GET] /api/1.0/monitoring/getAllReestr</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/getAllReestrClass.cs" target="_blank">[GET] /api/1.0/monitoring/getAllReestr</a></p>
 
 GetAllReestrClass.GetAllReestr(token);
 
 <h3>8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/monitoring/addNewReestr</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/addNewReestrClass.cs" target="_blank">[POST] /api/1.0/monitoring/addNewReestr</a></p>
 
 AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
 
@@ -64,7 +64,7 @@ AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
 <br>
 
 <h3>9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/organizations/getanalytic</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/getanalyticClass.cs" target="_blank">[POST] /api/1.0/organizations/getanalytic</a></p>
 
 GetAnalyticClass.GetAnalytic("00131305", token);
 
@@ -72,7 +72,7 @@ GetAnalyticClass.GetAnalytic("00131305", token);
 <br>
 
 <h3>10. Запит на отримання переліку судових документів організації за критеріями (контент та параметри документа можна отримати в методі /api/1.0/courtdecision/getdecisionbyid)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisions</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/getdecisionsClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisions</a></p>
 
 GetDecisionsClass.GetDecisions("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
 
@@ -80,7 +80,7 @@ GetDecisionsClass.GetDecisions("00131305", 0, 1, 2, new List<string>() { "F545D8
 <br>
 
 <h3>11. Запит на отримання контенту судового рішення за id документа (id документа можна отримати в api/1.0/courtdecision/getdecisions)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getcontent</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/getcontentClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getcontent</a></p>
 
 GetContentClass.GetContent("84583482", token);
 
