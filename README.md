@@ -175,10 +175,10 @@ EstateTaskApiClass.EstateGetTaskDataApi(token, "taskId", "7424955100:04:001:0511
 <h3>22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/movableLoads/GetMovableLoadsClass.cs" target="_blank">[POST] /api/1.0/movableLoads/getmovableloads</a></p>
 
-<br>
-<br>
-
 GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
+
+<br>
+<br>
 
 <h3>23. ДРОРМ отримання витяга</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/movableLoads/GetPayMovableLoadsClass.cs" target="_blank">[POST] /api/1.0/MovableLoads/getpaymovableloads</a></p>
