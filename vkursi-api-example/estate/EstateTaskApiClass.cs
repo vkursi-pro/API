@@ -53,7 +53,6 @@ namespace vkursi_api_example.estate
                 },
                     CalculateCost = true,              // Якщо тільки порахувати вартість
                     IsNeedUpdateAll = false,            // Якщо true - оновлюємо всі дані в ДЗК і РРП
-                    IsReport = true,                    // Якщо true - формуємо звіт, false / null - повертаємо тільки json
                     TaskName = "Назва задачі"           // Назва задачі (обов'язково)
                     // isDzkOnly                        // Перевірка ДЗК + НГО без РРП
                 };
@@ -152,7 +151,7 @@ namespace vkursi_api_example.estate
 
          */
 
-        public static List<ApiTaskListEstateAnswerModel> GetEstateTaskList(string token)
+        public static List<GetEstateTaskListResponseBodyModel> GetEstateTaskList(string token)
         {            
             if (String.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
@@ -182,17 +181,17 @@ namespace vkursi_api_example.estate
                 }
             }
 
-            List<ApiTaskListEstateAnswerModel> ApiTaskListEstateAnswerList = new List<ApiTaskListEstateAnswerModel>();
+            List<GetEstateTaskListResponseBodyModel> GETLResponseBody = new List<GetEstateTaskListResponseBodyModel>();
 
-            ApiTaskListEstateAnswerList = JsonConvert.DeserializeObject<List<ApiTaskListEstateAnswerModel>>(responseString);
+            GETLResponseBody = JsonConvert.DeserializeObject<List<GetEstateTaskListResponseBodyModel>>(responseString);
 
-            return ApiTaskListEstateAnswerList;
+            return GETLResponseBody;
         }
 
 
         /* 
 
-        21. Отримання інформації розшироної інформації по ДРРП, НГО, ДЗК за TaskId або переліком кадастрових номерів
+        21. Отримання розширеної інформації по ДРРП, НГО, ДЗК за TaskId або переліком кадастрових номерів
         [POST] api/1.0/estate/estategettaskdataapi
 
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/estategettaskdataapi' \
@@ -317,7 +316,7 @@ namespace vkursi_api_example.estate
     }
 
 
-    // 19.
+    // 19. EstateCreateTaskApi (Модель Body запиту)
     public class EstateCreateTaskApiRequestBodyModel                            // Модель Body запиту
     {
         public List<string> Edrpous { get; set; }                               // Коди ЄДРПОУ
@@ -326,11 +325,11 @@ namespace vkursi_api_example.estate
         public List<string> Cadastrs { get; set; }                              // Кадастрові номери
         public bool? CalculateCost { get; set; }                                // Якщо тільки порахувати вартість
         public bool IsNeedUpdateAll { get; set; }                               // Якщо true - оновлюємо всі дані в ДЗК і РРП
-        public bool IsReport { get; set; }                                      // Якщо true - формуємо звіт, false / null - повертаємо тільки json
         public string TaskName { get; set; }                                    // Назва задачі
         public bool DzkOnly { get; set; }                                       // Запити тільки по ДЗК
     }
 
+    // 19. EstateCreateTaskApi (Модель відповіді)
     public class EstateCreateTaskApiResponseBodyModel                           // Модель відповіді EstateCreateTaskApi
     {
         public bool isSuccess { get; set; }                                     // Запит віконано успішно
@@ -340,19 +339,18 @@ namespace vkursi_api_example.estate
         public double? cost { get; set; }                                       // Вартість виконання запиту
     }
 
-    // 20.
-    public class ApiTaskListEstateAnswerModel                                   // Модель Body запиту (перелік створенних задач (задачі на виконання запитів до ДРРП, НГО, ДЗК))
+    // 20. GetEstateTaskList (Модель відповіді)
+    public class GetEstateTaskListResponseBodyModel                             // Модель відповіді GetEstateTaskList (перелік створенних задач (задачі на виконання запитів до ДРРП, НГО, ДЗК))
     {
         public string Id { get; set; }                                          // Id задачі
         public string Name { get; set; }                                        // Назва задачі
         public DateTime DateStart { get; set; }                                 // Дата початку виконання
         public DateTime? DateEnd { get; set; }                                  // Дата закінчення виконання
         public bool Complete { get; set; }                                      // Задачу виконано (true - так / false - ні)
-        public bool WithReport { get; set; }                                    // Сформовано звіт в сервісі VkursiLand (true - так / false - ні)
+        public int State { get; set; }                                          // state = 0 отчет не готов, 1 готово ррп, 2 готово ррп + дзк, 3 готово ррп + дзк + нго
     }
 
-
-    // 21.
+    // 21.EstateGetTaskDataApi (Модель Body запиту)
     public class EstateGetTaskDataApiRequestBodyModel                           // Модель Body запиту
     {
         public string taskId { get; set; }                                      // Id задачі
@@ -361,19 +359,20 @@ namespace vkursi_api_example.estate
         public List<string> cadastr { get; set; }                               // Перелік кодастрових номерів
     }
 
-
+    // 21. EstateGetTaskDataApi (Модель відповіді)
     public class EstateGetTaskDataApiResponseModel                              // Модель відповіді EstateGetTaskDataApi
     {
         public bool isSuccess { get; set; }                                     // Запит віконано успішно
         public string status { get; set; }                                      // Повідомлення
-        public List<EstateGetTaskDataApiDataModel> data { get; set; }           // EstateGetTaskDataApiDataModel
+        public List<EstateGetTaskDataApiDataModel> data { get; set; }           // Перелік даних
     }
 
-    public class EstateGetTaskDataApiDataModel
+    public class EstateGetTaskDataApiDataModel                                  // Перелік даних
     {
         public string CadastrNumber { get; set; }                               // Кадастровий номер
         public ElasticPlot Plot { get; set; }                                   // ДЗК + ПКУУ (Просторові дані)
         public RealEstateAdvancedResponseModel RrpAdvanced { get; set; }        // РРП
+        public List<List<Coordinate>> geometry { get; set; }                    // Геопросторові координати ділянки
     }
 
     public class RealEstateAdvancedResponseModel                                // РРП
@@ -725,7 +724,7 @@ namespace vkursi_api_example.estate
     {
         public string complexNumber { get; set; }                               // Кадастровий номер
         public double? area { get; set; }                                       // Площа
-        public ElasticPlotGeometry geometry { get; set; }                       // Геопросторові координати ділянки
+        //public ElasticPlotGeometry geometry { get; set; }                     // Видалено. Геопросторові координати ділянки
         public bool? isCorrectRegion { get; set; }                              // Відповідність регіону
         public bool? isGeomValid { get; set; }                                  // Відповідність просторовим даним
         public string koatuu { get; set; }                                      // Код за КОАТУУ
