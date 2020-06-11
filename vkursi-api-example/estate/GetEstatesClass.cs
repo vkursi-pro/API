@@ -33,16 +33,18 @@ namespace vkursi_api_example.estate
                 {
                     Edrpou = new List<string> {
                         edrpou                                                  // Масив кодів ЄДРПОУ (обеження 1)
-                    },
-                    Ipn = new List<string> {
-                        ipn                                                     // Масив кодів ІПН (обеження 1)
                     }
+                    //Ipn = new List<string> {
+                    //    ipn                                                     // Масив кодів ІПН (обеження 1)
+                    //}
                 };
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/getestates");
                 RestRequest request = new RestRequest(Method.POST);
 
-                string body = JsonConvert.SerializeObject(GERequestBodyRow);    // Example Body: {"Edrpou":["36679626"],"Ipn":["3006679626"]}
+                string body = JsonConvert.SerializeObject(GERequestBodyRow);    // Example Body: {"Edrpou":["26444836"]}
+
+                //body = "{\"Edrpou\":[\"26444836\"],\"EstateType\": 11}";
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);

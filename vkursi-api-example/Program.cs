@@ -149,7 +149,7 @@ namespace vkursi_api_example
             // 24. ДРРП отримання скороченных данных по ІПН / ЄДРПОУ
             // [POST] /api/1.0/Estate/GetEstates
 
-            GetEstatesClass.GetEstates(token, "36679626", null);
+            GetEstatesClass.GetEstates(token, "21326462", null);
 
             // 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
             // [POST] /api/1.0/estate/getadvancedrrpreport

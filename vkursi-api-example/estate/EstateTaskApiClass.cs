@@ -456,6 +456,7 @@ namespace vkursi_api_example.estate
         public string registrar { get; set; }                                   // -
         public List<object> entityLinks { get; set; }                           // -
         public string operationReason { get; set; }                             // -
+        public string prCommonKind { get; set; }                                // Вид спільної власності приймає значення числового коду:  (1 - спільна сумісна | 2 - спільна часткова)
     }
 
     public class Subject                                                        // Масив об’єктів. Об’єкти у складі масиву описують відомості про суб'єктів обтяження (1..n)
@@ -497,6 +498,9 @@ namespace vkursi_api_example.estate
         public List<Subject> subjects { get; set; }                             // Масив об’єктів. Об’єкти у складі масиву описують відомості про суб'єктів обтяження (1..n)
         public List<CauseDocument> causeDocuments { get; set; }                 // Масив об’єктів. Об’єкти у складі масиву описують відомості про документи-підстави обтяження (1..n)
         public List<Obligations> obligations { get; set; }                      // Масив об’єктів. Об’єкти у складі масиву описують відомості про зобов’язання (1..n)
+        public string parentIrpRnNum { get; set; }                              // Перенесено із запису
+        public string parentIrpOpID { get; set; }                               // Попередній номер запису про інше речове право
+        public string moveDate { get; set; }                                    // Дата перенесення запису
         public string irpSort { get; set; }                                     // Вид іншого речового права 
         public string irpState { get; set; }                                    // - 
         public string mgState { get; set; }                                     // Стан іпотеки
@@ -748,7 +752,7 @@ namespace vkursi_api_example.estate
     }
 
 
-    public class RrpLandInfo                                                    // Системна інформація Vkursi
+    public class RrpLandInfo                                                    // Основні скорочені дані з РРП
     {
         public string purpose { get; set; }                                     // realty.groundArea.targetPurpose
         public double? area { get; set; }                                       // realty.groundArea.area через метод GetAreaFromRealEstateAdvice(StateRegisterRealEstateModel realEstate)
