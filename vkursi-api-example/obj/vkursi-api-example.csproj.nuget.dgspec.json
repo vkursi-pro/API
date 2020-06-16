@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj": {}
+    "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj": {
+    "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+        "projectUniqueName": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
         "projectName": "vkursi-api-example",
-        "projectPath": "C:\\Users\\user\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\obj\\",
+        "projectPath": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+        "packagesPath": "C:\\Users\\vadim\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\API\\vkursi-api-example\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vadim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -26,6 +26,10 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
+            GetAllReestrClass.GetAllReestr(token);
+
+            RemoveReestrClass.RemoveReestr("184afdc7-4987-4da8-91fc-1d31188159e4", token);
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 

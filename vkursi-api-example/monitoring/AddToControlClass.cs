@@ -11,7 +11,7 @@ namespace vkursi_api_example.monitoring
     {
         /*
          
-         12. Додавання фізичних та юридичних осіб до списку(реєстру) та ммоніторингу
+         12. Додавання фізичних та юридичних осіб до списку(реєстру) та моніторингу
          [POST] api/1.0/Monitoring/addToControl
 
          curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/Monitoring/addToControl' \

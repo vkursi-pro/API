@@ -14,7 +14,7 @@ namespace vkursi_api_example.monitoring
         16. Видалити список контрагентів
         [DELETE] /api/1.0/monitoring/removeReestr
 
-        curl --location --request DELETE 'https://vkursi-api.azurewebsites.net/api/1.0/monitoring/addNewReestr' \
+        curl --location --request DELETE 'https://vkursi-api.azurewebsites.net/api/1.0/monitoring/removeReestr' \
         --header 'ContentType: application/json' \
         --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...' \
         --header 'Content-Type: application/json' \
@@ -38,7 +38,7 @@ namespace vkursi_api_example.monitoring
 
                 string body = JsonConvert.SerializeObject(RRRequestBody);       // Example body: {"reestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b"}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/monitoring/addNewReestr");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/monitoring/removeReestr");
                 RestRequest request = new RestRequest(Method.DELETE);
 
                 request.AddHeader("ContentType", "application/json");
@@ -81,7 +81,7 @@ namespace vkursi_api_example.monitoring
           'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...',
           'Content-Type': 'application/json'
         }
-        conn.request("DELETE", "/api/1.0/monitoring/addNewReestr", payload, headers)
+        conn.request("DELETE", "/api/1.0/monitoring/removeReestr", payload, headers)
         res = conn.getresponse()
         data = res.read()
         print(data.decode("utf-8"))
@@ -94,7 +94,7 @@ namespace vkursi_api_example.monitoring
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "{\"reestrId\":\"1c891112-b022-4a83-ad34-d1f976c60a0b\"}");
         Request request = new Request.Builder()
-          .url("https://vkursi-api.azurewebsites.net/api/1.0/monitoring/addNewReestr")
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/monitoring/removeReestr")
           .method("DELETE", body)
           .addHeader("ContentType", "application/json")
           .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...")
