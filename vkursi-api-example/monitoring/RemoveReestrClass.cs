@@ -33,7 +33,7 @@ namespace vkursi_api_example.monitoring
             {
                 RemoveReestrRequestBodyModel RRRequestBody = new RemoveReestrRequestBodyModel
                 {
-                    reestrId = reestrId                                         // Id реєстра який буде видалено (перелік всіх реєстрів можа отримати на api/1.0/monitoring/getAllReestr)
+                    reestrId = reestrId                                         // Id реєстра який буде видалено (перелік всіх реєстрів можа отримати на api/1.0/monitoring/getAllReestr) // getAllReestr
                 };
 
                 string body = JsonConvert.SerializeObject(RRRequestBody);       // Example body: {"reestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b"}
