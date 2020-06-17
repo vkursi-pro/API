@@ -454,7 +454,7 @@ namespace vkursi_api_example.estate
         public string prType { get; set; }                                      // Форма власності 
         public string prState { get; set; }                                     // Стан
         public string registrar { get; set; }                                   // -
-        public List<object> entityLinks { get; set; }                           // -
+        public List<EntityLink> entityLinks { get; set; }                       // Зв’язок з записом з реєстрами до 2013 р.
         public string operationReason { get; set; }                             // -
         public string prCommonKind { get; set; }                                // Вид спільної власності приймає значення числового коду:  (1 - спільна сумісна | 2 - спільна часткова)
     }
@@ -505,7 +505,7 @@ namespace vkursi_api_example.estate
         public string irpState { get; set; }                                    // - 
         public string mgState { get; set; }                                     // Стан іпотеки
         public string registrar { get; set; }                                   // -
-        public List<object> entityLinks { get; set; }                           // -
+        public List<EntityLink> entityLinks { get; set; }                       // Зв’язок з записом з реєстрами до 2013 р.
         public string operationReason { get; set; }                             // -
 
         [JsonProperty("holderObj")]                                             // Організація, що зареєструвала інше речове право
@@ -537,6 +537,18 @@ namespace vkursi_api_example.estate
 
         public Realty realty { get; set; }                                      // Масив об’єктів. Об’єкти у складі масиву описують відомості про ОНМ
     }
+
+    public class EntityLink                                                     // Зв’язок з записом з реєстрами до 2013 р.
+    {
+        [JsonProperty("rpvnReID")]                                              // Номер
+        public string rpvnReID { get; set; }
+
+        [JsonProperty("regDate")]                                               // Дата запису
+        public string regDate { get; set; }
+
+        [JsonProperty("registryType")]                                          // Назва реєстру
+        public string registryType { get; set; }
+    } 
 
     public class Obligations                                                    // Відомості про зобов’язання 
     {
