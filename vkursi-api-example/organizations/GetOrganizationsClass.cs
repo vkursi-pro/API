@@ -118,13 +118,13 @@ namespace vkursi_api_example.organizations
     public class GetOrganizationsResponseModel                      // Модель відповіді GetOrganizations
     {
         public Guid Id { get; set; }                                // Системний Id організації
-        public string Name { get; set; }                            // Повна назва організації
-        public string ShortName { get; set; }                       // Скорочена назва організації
-        public string Edrpou { get; set; }                          // Код ЄДРПОУ
-        public string ChiefName { get; set; }                       // ПІБ Керівника
+        public string Name { get; set; }                            // Повна назва організації (maxLength:512)
+        public string ShortName { get; set; }                       // Скорочена назва організації (maxLength:512)
+        public string Edrpou { get; set; }                          // Код ЄДРПОУ (maxLength:8)
+        public string ChiefName { get; set; }                       // ПІБ Керівника (maxLength:256)
         public string State { get; set; }                           // Статус реєстрації
         public DateTime? DateRegInn { get; set; }                   // Дата реєстрації платником ПДВ
-        public string Inn { get; set; }                             // Код ІПН (ПДВ)
+        public string Inn { get; set; }                             // Код ІПН (ПДВ) (maxLength:12)
         public DateTime? DateCanceledInn { get; set; }              // Дата анулючання свідоцтва платника ПДВ
         public bool? HasBorg { get; set; }                          // Наявний податковий борг (true - так / false - ні)
         public bool? InSanctions { get; set; }                      // Наявні санкції (true - так / false - ні)
@@ -137,8 +137,8 @@ namespace vkursi_api_example.organizations
             public DateTime dateStart { get; set; }                 // Дата реєстрації платником ЄП
             public double rate { get; set; }                        // Ставка
             public int group { get; set; }                          // Група
-            public object dateEnd { get; set; }                     // Дата анулювання
-            public string kindOfActivity { get; set; }              // Вид діяльності
+            public DateTime? dateEnd { get; set; }                  // Дата анулювання
+            public string kindOfActivity { get; set; }              // Вид діяльності (maxLength:256)
             public bool status { get; set; }                        // Статус (true - платник ЄП / false - не платник ЄП)
         }
     }

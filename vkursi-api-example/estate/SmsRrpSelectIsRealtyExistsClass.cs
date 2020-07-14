@@ -34,7 +34,7 @@ namespace vkursi_api_example.estate
                 {
                     OnmNumbers = new List<long> 
                     {
-                        1260724348000
+                        onmNumber
                     }
                 };
 

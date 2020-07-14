@@ -507,7 +507,7 @@ namespace vkursi_api_example.dictionary
         {
             Dictionary<int?, string> StatusPropertyOwnersDict = new Dictionary<int?, string>
             {
-                { null, "Власник"},
+                { 11, "Власник"},
                 { 1, "Вся земля"},
                 { 3, "Обтяжувач"},
                 { 4, "Особа, майно"},
@@ -527,7 +527,8 @@ namespace vkursi_api_example.dictionary
                 { 20, "Орендодавець"},
                 { 21, "Управитель"},
                 { 22, "Вигодонабувач"},
-                { 23, "Установник"}
+                { 23, "Установник"},
+                { 25, "Довірчій власник"}
             };
 
             return StatusPropertyOwnersDict;

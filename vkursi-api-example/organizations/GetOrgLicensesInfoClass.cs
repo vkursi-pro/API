@@ -77,20 +77,21 @@ namespace vkursi_api_example.organizations
     public class GetOrgLicensesInfoResponseModel                                // Модель відповіді GetOrgLicensesInfo
     {
         public bool IsSucces { get; set; }                                      // Статус відповіді по API
-        public string Status { get; set; }                                      // Чи успішний запит
+        public string Status { get; set; }                                      // Чи успішний запит (maxLength:128)
         public List<OrgLicensesApiApiAnswerModelData> Data { get; set; }        // Дані
     }
 
     public class OrgLicensesApiApiAnswerModelData                               // Дані
     {
-        public string Edrpou { get; set; }                                      // ЄДРПОУ / ІПН 
+        public string Edrpou { get; set; }                                      // ЄДРПОУ / ІПН (maxLength:12)
         public List<OrgLicensesApiApiAnswerModelDataObject> Licenses { get; set; }      // Перелік ліцензій
     }
     public class OrgLicensesApiApiAnswerModelDataObject                         // Перелік ліцензій
     {
-        public string Name { get; set; }                                        // Назва
-        public string Number { get; set; }                                      // Номер
-        public DateTime? DateEnd { get; set; }                                  // Дата початку
-        public string State { get; set; }                                       // Дата закінчення
+        public string Name { get; set; }                                        // Назва (maxLength:256)
+        public string Number { get; set; }                                      // Номер (maxLength:64)
+        public DateTime? DateEnd { get; set; }                                  // Дата закінчення
+        public DateTime? DateStart { get; set; }                                // Дата початку
+        public string State { get; set; }                                       // Стан (maxLength:32)
     }
 }

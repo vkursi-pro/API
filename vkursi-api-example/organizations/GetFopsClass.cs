@@ -83,10 +83,10 @@ namespace vkursi_api_example.organizations
     public class GetFopsResponseModel                               // Модель відповіді
     {
         public Guid Id { get; set; }                                // Системний Id Fop
-        public string Name { get; set; }                            // ПІБ ФОПа
-        public string State { get; set; }                           // Статус реєстрації
-        public string Code { get; set; }                            // Код ІПН
-        public string Inn { get; set; }                             // Код ІПН (ПДВ)
+        public string Name { get; set; }                            // ПІБ ФОПа (maxLength:256)
+        public string State { get; set; }                           // Статус реєстрації (maxLength:64)
+        public string Code { get; set; }                            // Код ІПН (maxLength:10)
+        public string Inn { get; set; }                             // Код ІПН (ПДВ) (maxLength:10)
         public DateTime? DateCanceledInn { get; set; }              // Дата анулючання свідоцтва платника ПДВ
         public DateTime? DateRegInn { get; set; }                   // Дата реєстрації платником ПДВ
         public int? Introduction { get; set; }                      // Наявні виконавчі провадження
@@ -100,8 +100,8 @@ namespace vkursi_api_example.organizations
         public DateTime dateStart { get; set; }                     // Дата реєстрації платником ЄП
         public double rate { get; set; }                            // Ставка
         public int group { get; set; }                              // Група
-        public object dateEnd { get; set; }                         // Дата анулювання
-        public string kindOfActivity { get; set; }                  // Вид діяльності
+        public DateTime? dateEnd { get; set; }                      // Дата анулювання
+        public string kindOfActivity { get; set; }                  // Вид діяльності (maxLength:256)
         public bool status { get; set; }                            // Статус (true - платник ЄП / false - не платник ЄП)
     }
 }

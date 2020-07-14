@@ -120,13 +120,13 @@ namespace vkursi_api_example.organizations
     public class GetOrgTenderAnalyticResponseModel                                      // Модель на відповідь
     {
         public bool IsSucces { get; set; }                                              // Статус відповіді по API
-        public string Succes { get; set; }                                              // Чи успішний запит
+        public string Succes { get; set; }                                              // Чи успішний запит (maxLength:128)
         public List<OrgTenderAnalyticApiAnswerModelData> Data { get; set; }             // Перелік даних
     }
 
     public class OrgTenderAnalyticApiAnswerModelData                                    // Перелік даних
     {
-        public string Edrpou { get; set; }                                              // Код ЄДРПОУ 
+        public string Edrpou { get; set; }                                              // Код ЄДРПОУ (maxLength:12)
         public int Proposals { get; set; }                                              // Подано заявок
         public int Customers { get; set; }                                              // Замовники
         public int Wins { get; set; }                                                   // Перемоги

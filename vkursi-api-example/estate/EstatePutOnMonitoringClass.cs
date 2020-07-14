@@ -22,7 +22,7 @@ namespace vkursi_api_example.estate
 
         */
 
-        public static EstatePutOnMonitoringResponseModel EstatePutOnMonitoring(string token, string dateTimeEnd)
+        public static EstatePutOnMonitoringResponseModel EstatePutOnMonitoring(string token, string dateTimeEnd, List<long> onmNumbers)
         {
             if (String.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
@@ -33,11 +33,8 @@ namespace vkursi_api_example.estate
             {
                 EstatePutOnMonitoringRequestBodyModel EPOMRequestBody = new EstatePutOnMonitoringRequestBodyModel
                 {
-                    DateTimeEnd = DateTime.Parse("31.10.2020"),
-                    OnmNumbers = new List<long>
-                    {
-                        1260724348000
-                    }
+                    DateTimeEnd = DateTime.Parse(dateTimeEnd),
+                    OnmNumbers = onmNumbers
                 };
 
                 string body = JsonConvert.SerializeObject(EPOMRequestBody);

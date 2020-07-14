@@ -115,7 +115,7 @@ namespace vkursi_api_example.estate
     {
         public EstateTotalApi Total { get; set; }                               // Загальна статистика по об'єктам нерухомого майна (НМ)
         public List<EstateApi> Estates { get; set; }                            // Об'єкти НМ
-        public string Code { get; set; }                                        // Код ЄДРПОУ / ІПН
+        public string Code { get; set; }                                        // Код ЄДРПОУ / ІПН (maxLength:10)
     }
 
     public class EstateTotalApi
@@ -135,7 +135,7 @@ namespace vkursi_api_example.estate
     public class EstateApi                                                      // 
     {
         public Guid Id { get; set; }                                            // 
-        public string EstateObjectName { get; set; }                            // Назва об'єкта | кадастровий номер
+        public string EstateObjectName { get; set; }                            // Назва об'єкта | кадастровий номер  (maxLength:256)
         public EstateCoordinates Location { get; set; }                         // Центральна координата 
         public bool Land { get; set; }                                          // Тип об'єкта (true - земля)
         public DateTime? DateEnd { get; set; }                                  // Дата відчуження 
@@ -157,16 +157,16 @@ namespace vkursi_api_example.estate
         public int? zona { get; set; }                                          // Зона
         public int? kvartal { get; set; }                                       // Квартал
         public int? parcel { get; set; }                                        // Парсель
-        public string cadnum { get; set; }                                      // Кадастровый номер
+        public string cadnum { get; set; }                                      // Кадастровый номер (maxLength:64)
         public int? ownershipcode { get; set; }                                 // Тип власності (100 Приватна власність | 200 Комунальна власність | 300 Державна власність)
-        public string purpose { get; set; }                                     // Цільове призначення
-        public string use { get; set; }                                         // Використання
-        public string area { get; set; }                                        // Площа
-        public string unit_area { get; set; }                                   // Одиниця площі
-        public string ownershipvalue { get; set; }                              // Тип власності (назва)
+        public string purpose { get; set; }                                     // Цільове призначення (maxLength:256)
+        public string use { get; set; }                                         // Використання (maxLength:256)
+        public string area { get; set; }                                        // Площа (maxLength:64)
+        public string unit_area { get; set; }                                   // Одиниця площі (maxLength:64)
+        public string ownershipvalue { get; set; }                              // Тип власності (назва) (maxLength:64)
         public int? id_office { get; set; }                                     // Офіс реїстрації
-        public string region { get; set; }                                      // Область 
-        public string district { get; set; }                                    // Район 
+        public string region { get; set; }                                      // Область (maxLength:64)
+        public string district { get; set; }                                    // Район (maxLength:64)
     }
 }
 

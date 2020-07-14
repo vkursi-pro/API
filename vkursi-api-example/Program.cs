@@ -252,17 +252,17 @@ namespace vkursi_api_example
             // 45. Додати об'єкт до моніторингу нерухомості за номером ОНМ (sms rrp) 
             // /api/1.0/estate/estateputonmonitoring
 
-            EstatePutOnMonitoringClass.EstatePutOnMonitoring(token, "1260724348000");
+            EstatePutOnMonitoringClass.EstatePutOnMonitoring(token, "31.10.2020", new List<long> { 7248532000 });
 
             // 46. Змінити період моніторингу об'єкта нерухомості за номером ОНМ (sms rrp)
             // [POST] /api/1.0/estate/estateincreasemonitoringperiod
 
-            EstateInCreaseMonitoringPeriodClass.EstateInCreaseMonitoringPeriod(token, 1260724348000);
+            EstateInCreaseMonitoringPeriodClass.EstateInCreaseMonitoringPeriod(token, 7248532000);
 
             // 47. Видалити об'єкт з мониторингу (sms rrp)
             // [POST] /api/1.0/estate/estateremovefrommonitoring
 
-            EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 1260724348000);
+            EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 7248532000);
 
             // 48. Отримати зміни по об'єкту шо на мониторингу (можлимо через webhook)
             // [inprogress]
@@ -270,7 +270,11 @@ namespace vkursi_api_example
             // 49.Перевірка наявності об'єкта за ОНМ (sms rrp)
             // [POST] /api/1.0/estate/smsrrpselectisrealtyexists
 
-            SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000);
+            SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 7248532000);
+
+            // 50. 
+            // [GET] /api/1.0/estate/estateCurrentOnMoniting
+
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp

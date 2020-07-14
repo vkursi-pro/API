@@ -118,13 +118,13 @@ namespace vkursi_api_example.organizations
     public class GetOfficialNoticesResponseModel                                        // Модель на відповідь
     {
         public bool IsSucces { get; set; }                                              // Статус відповіді по API
-        public string Succes { get; set; }                                              // Чи успішний запит
+        public string Succes { get; set; }                                              // Чи успішний запит (maxLength:128)
         public List<GetOfficialNoticesResponseModelData> Data { get; set; }             // Перелік даних
     }
 
     public class GetOfficialNoticesResponseModelData                                    // Перелік даних
     {
-        public string Edrpou { get; set; }                                              // Код ЄДРПОУ 
+        public string Edrpou { get; set; }                                              // Код ЄДРПОУ (maxLength:12)
         public List<ApiOrganizationMessageAnswerModelDataVgsu> Vgsu { get; set; }       // Дані ВГСУ
         public List<ApiOrganizationMessageAnswerModelDataEdr> Edr { get; set; }         // Дані ЄДР
         public List<ApiOrganizationMessageAnswerModelDataSMIDA> Smida { get; set; }     // Дані SMIDA
@@ -132,41 +132,41 @@ namespace vkursi_api_example.organizations
 
     public class ApiOrganizationMessageAnswerModelDataVgsu                              // Дані ВГСУ
     {
-        public string CaseNumber { get; set; }                                          // Номер судового рішення
-        public string CourtName { get; set; }                                           // Назва суду
+        public string CaseNumber { get; set; }                                          // Номер судового рішення (maxLength:64)
+        public string CourtName { get; set; }                                           // Назва суду (maxLength:256)
         public DateTime? DateProclamation { get; set; }                                 // Дата пудлікації
-        public string Edrpou { get; set; }                                              // 
+        public string Edrpou { get; set; }                                              // (maxLength:64)
         public DateTime? EndDate { get; set; }                                          // 
-        public string Link { get; set; }                                                // Посилання на ВГСУ
-        public string NameDebtor { get; set; }                                          // 
-        public string NumberAdvert { get; set; }                                        // 
-        public string PublicationType { get; set; }                                     // Тип інформації
+        public string Link { get; set; }                                                // Посилання на ВГСУ (maxLength:256)
+        public string NameDebtor { get; set; }                                          // (maxLength:512)
+        public string NumberAdvert { get; set; }                                        // (maxLength:64)
+        public string PublicationType { get; set; }                                     // Тип інформації (maxLength:128)
         public DateTime? StartDate { get; set; }                                        // 
     }
 
     public class ApiOrganizationMessageAnswerModelDataEdr                               // Дані ЄДР
     {
-        public string RegistrationAction { get; set; }                                  // Тип події
+        public string RegistrationAction { get; set; }                                  // Тип події (maxLength:256)
         public DateTime? DateActual { get; set; }                                       // Дата події
-        public string ReorganizationType { get; set; }                                  // Тип реорганізаційної події
-        public string NameLiquidator { get; set; }                                      // 
-        public string NameLiquidationCommission { get; set; }                           // 
+        public string ReorganizationType { get; set; }                                  // Тип реорганізаційної події (maxLength:128)
+        public string NameLiquidator { get; set; }                                      // (maxLength:256)
+        public string NameLiquidationCommission { get; set; }                           // (maxLength:256)
         public DateTime? CreateDate { get; set; }                                       // 
     }
 
     public class ApiOrganizationMessageAnswerModelDataSMIDA                             // Дані SMIDA
     {
-        public string Edrpou { get; set; }                                              // Код ЄДРПОУ 
-        public string Name { get; set; }                                                // Назва
+        public string Edrpou { get; set; }                                              // Код ЄДРПОУ (maxLength:12)
+        public string Name { get; set; }                                                // Назва (maxLength:512)
         public DateTime? Std { get; set; }                                              // 
         public DateTime? Fid { get; set; }                                              // 
         public bool Nreg { get; set; }                                                  // 
-        public string Ttype { get; set; }                                               // 
+        public string Ttype { get; set; }                                               // (maxLength:64)
         public int? IdRow { get; set; }                                                 // 
         public DateTime? Timestamp { get; set; }                                        // Дата виникнення події
-        public string Href { get; set; }                                                // 
-        public string InformationType { get; set; }                                     // Тип інформації
-        public string Period { get; set; }                                              // Періодичність подання
+        public string Href { get; set; }                                                // Посинання на SMIDA (maxLength:256)
+        public string InformationType { get; set; }                                     // Тип інформації (maxLength:256)
+        public string Period { get; set; }                                              // Періодичність подання (maxLength:64)
     }
 
 }

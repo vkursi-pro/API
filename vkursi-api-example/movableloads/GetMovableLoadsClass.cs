@@ -118,33 +118,33 @@ namespace vkursi_api_example.movableloads
     public class GetMovableLoadsResponseModel       // Відповідь на запит
     {
         public bool isSuccess { get; set; }         // Запит виконано успішно (true - так / false - ні)
-        public string status { get; set; }          // Спапус запиту
+        public string status { get; set; }          // Спапус запиту (maxLength:128)
         public List<Datum> data { get; set; }       // Перелік обтяжень
     }
 
     public class SidesBurdenList                    // Перелік обтяжувачів
     {
-        public string sideId { get; set; }          // Системний id vkursi
-        public string burdenName { get; set; }      // Назва
-        public string burdenCode { get; set; }      // Код
+        public string sideId { get; set; }          // Системний id vkursi (maxLength:64)
+        public string burdenName { get; set; }      // Назва (maxLength:512)
+        public string burdenCode { get; set; }      // Код (maxLength:10)
     }
 
     public class SidesDebtorList                    // Перелік боржників
     {
-        public string sideId { get; set; }          // Системний id vkursi
-        public string debtorName { get; set; }      // Назва
-        public string debtorCode { get; set; }      // Код
+        public string sideId { get; set; }          // Системний id vkursi (maxLength:64)
+        public string debtorName { get; set; }      // Назва (maxLength:512)
+        public string debtorCode { get; set; }      // Код (maxLength:10)
         public List<string> organizationIdList { get; set; }        // Системний id vkursi
         public object personCardIdList { get; set; }                // Системний id vkursi
     }
 
     public class Datum                              // Перелік обтяжень
     {
-        public string number { get; set; }          // Номер обтяження
+        public string number { get; set; }          // Номер обтяження  (maxLength:32)
         public DateTime regDate { get; set; }       // Дата реєстрації обтяження
         public bool isActive { get; set; }          // Діюче (true - так / false - ні)
         public List<SidesBurdenList> sidesBurdenList { get; set; }  // Перелік обтяжувачів
         public List<SidesDebtorList> sidesDebtorList { get; set; }  // Перелік боржників
-        public string property { get; set; }        // Опис майна
+        public string property { get; set; }        // Опис майна (maxLength:512)
     }
 }

@@ -127,13 +127,13 @@ namespace vkursi_api_example.organizations
     public class GetOrgEnforcementsResponseModel                                // Модель відповіді GetOrgEnforcements
     {
         public bool IsSucces { get; set; }                                      // Успашний запит (true - так / false - ні)
-        public string Succes { get; set; }                                      // Статус відповіді
+        public string Succes { get; set; }                                      // Статус відповіді (maxLength:128)
         public OrgEnforcementApiAnswerModelData Data { get; set; }              // Дані
     }
 
     public class OrgEnforcementApiAnswerModelData                               // Дані
     {
-        public string Edrpou { get; set; }                                      // Код ЄДРПОУ (за яким бувВП запит)
+        public string Edrpou { get; set; }                                      // Код ЄДРПОУ (за яким бувВП запит) (maxLength:12)
         public int TotalCount { get; set; }                                     // Загальна кількість 
         public List<OrgEnforcementApiEnforcementsList> Enforcements { get; set; } // Пелелік виконавчих проваджень
     }
@@ -141,11 +141,11 @@ namespace vkursi_api_example.organizations
     public class OrgEnforcementApiEnforcementsList                              // Пелелік виконавчих проваджень
     {
         public DateTime? DateOpen { get; set; }                                 // Дата відкриття ВП
-        public string VpNumber { get; set; }                                    // Номер ВП
-        public string Status { get; set; }                                      // Статус ВП (Приклад: Боржник, Стягувач, ...)
-        public string Category { get; set; }                                    // Категорія ВП
-        public string State { get; set; }                                       // Стан (Приклад: Завершено, Примусове виконання, ...)
-        public string Contractor { get; set; }                                  // Інша сторона (Приклад: Київське міжрегіональне управління укртрансбезпеки Код ЄДРПОУ: 37995466)
+        public string VpNumber { get; set; }                                    // Номер ВП (maxLength:32)
+        public string Status { get; set; }                                      // Статус ВП (Приклад: Боржник, Стягувач, ...) (maxLength:128)
+        public string Category { get; set; }                                    // Категорія ВП (maxLength:256)
+        public string State { get; set; }                                       // Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)
+        public string Contractor { get; set; }                                  // Інша сторона (Приклад: Київське міжрегіональне управління укртрансбезпеки Код ЄДРПОУ: 37995466) (maxLength:512)
     }
 
 }

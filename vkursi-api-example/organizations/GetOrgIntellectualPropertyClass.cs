@@ -131,13 +131,13 @@ namespace vkursi_api_example.organizations
     public class GetOrgIntellectualPropertyResponseModel                        // Модель відповіді GetOrgVehicle
     {
         public bool IsSucces { get; set; }                                      // Чи успішний запит
-        public string Status { get; set; }                                      // Статус відповіді по API
+        public string Status { get; set; }                                      // Статус відповіді по API (maxLength:128)
         public List<OrgIntellectualPropertyApiAnswerModelData> Data { get; set; }   // Дані
     }
 
     public class OrgIntellectualPropertyApiAnswerModelData                      // Дані
     {
-        public string Edrpou { get; set; }                                      // Код ЄДРПОУ
+        public string Edrpou { get; set; }                                      // Код ЄДРПОУ (maxLength:12)
         public int TotalTradeMarksCount { get; set; }                                                   // Кількість торгових марок
         public List<OrgIntellectualPropertyApiAnswerModelDataTradeMark> TradeMarks { get; set; }        // Торгові марки
         public int TotalPatentsCount { get; set; }                                                      // Кількість патентів
@@ -147,19 +147,19 @@ namespace vkursi_api_example.organizations
     }
     public class OrgIntellectualPropertyApiAnswerModelDataTradeMark             // Торгові марки
     {
-        public string RegistrationNumber { get; set; }                          // Реєстраційний номер
+        public string RegistrationNumber { get; set; }                          // Реєстраційний номер (maxLength:64)
         public DateTime? RegistrationDate { get; set; }                         // Дата реєстрації
-        public string ApplicationNumber { get; set; }                           // 
+        public string ApplicationNumber { get; set; }                           // (maxLength:64)
         public DateTime? ApplicationDate { get; set; }                          // 
-        public string Owner { get; set; }                                       // Власники
+        public string Owner { get; set; }                                       // Власники (maxLength:512)
         public List<int> ICTPIndexes { get; set; }                              // Індекс МКТП 
     }
 
     public class OrgIntellectualPropertyApiAnswerModelDataPatent                // Патенти / Корисні моделі
     {
-        public string Number { get; set; }                                      // Реєстраційний номер
-        public string OwnerNames { get; set; }                                  // Власники
-        public string Name { get; set; }                                        // Назва (патента / корисної моделі)
+        public string Number { get; set; }                                      // Реєстраційний номер  (maxLength:256)
+        public string OwnerNames { get; set; }                                  // Власники (maxLength:512)
+        public string Name { get; set; }                                        // Назва (патента / корисної моделі) (maxLength:512)
         public DateTime? RegistrationDate { get; set; }                         // Дата реєстрації
     }
 }

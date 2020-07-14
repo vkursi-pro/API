@@ -116,16 +116,16 @@ namespace vkursi_api_example.organizations
 
     public class GetAnalyticRequestBodyModel                                    // Модель Body запиту
     {
-        public string code { get; set; }                                        // Код ЄДРПОУ / ІПН
+        public string code { get; set; }                                        // Код ЄДРПОУ / ІПН (maxLength:10)
     }
 
     public class GetAnalyticResponseModel                                       // Модель відповіді GetAnalytic
     {
-        public string orgId { get; set; }                                       // Id організації 
-        public string name { get; set; }                                        // Назва ЮО / ФОП
-        public string clearName { get; set; }
-        public bool legalEntity { get; set; }                                   //Тип ЮО - true/ ФОП - false
-        public string edrpou { get; set; }                                      // код ЄДРПОУ | ІПН
+        public string orgId { get; set; }                                       // Id організації (maxLength:64)
+        public string name { get; set; }                                        // Назва ЮО / ФОП (maxLength:512)
+        public string clearName { get; set; }                                   // (maxLength:512)
+        public bool legalEntity { get; set; }                                   // Тип ЮО - true/ ФОП - false
+        public string edrpou { get; set; }                                      // код ЄДРПОУ | ІПН (maxLength:10)
         public int? stateInt { get; set; }                                      // Статус код ( 1 - зареєстровано, 2 - припинено, ... відп.до довідника № 1. Стан суб’єкта)
         public State state { get; set; }                                        // Статуc назва
         public double totalAmount { get; set; }                                 // Сума статутного капіталу
@@ -526,8 +526,8 @@ namespace vkursi_api_example.organizations
 
     public class Patents
     {
-        public string name { get; set; }
-        public string type { get; set; }
+        public string name { get; set; }                                                // (maxLength:512)
+        public string type { get; set; }                                                // (maxLength:128)
         public DateTime? dateReg { get; set; }
         public DateTime? dateAnul { get; set; }
         public List<string> mktp { get; set; }
@@ -569,31 +569,31 @@ namespace vkursi_api_example.organizations
 
     public class State
     {
-        public string orgState { get; set; }
-        public string bankruptcyState { get; set; }
-        public string canceledState { get; set; }
+        public string orgState { get; set; }                                                    // (maxLength:64)
+        public string bankruptcyState { get; set; }                                             // (maxLength:128)
+        public string canceledState { get; set; }                                               // (maxLength:128)
     }
 
     public class Regions // Юридична адреса
     {
-        public string code { get; set; }
-        public string country { get; set; }
-        public string countryId { get; set; }
-        public string region { get; set; }
-        public string regionId { get; set; }
-        public string district { get; set; }
-        public string districtId { get; set; }
-        public string city { get; set; }
-        public string cityId { get; set; }
-        public string street { get; set; }
-        public string house { get; set; }
-        public string room { get; set; }
+        public string code { get; set; }                                                        // (maxLength:32)
+        public string country { get; set; }                                                     // (maxLength:128)
+        public string countryId { get; set; }                                                   // (maxLength:64)
+        public string region { get; set; }                                                      // (maxLength:128)
+        public string regionId { get; set; }                                                    // (maxLength:64)
+        public string district { get; set; }                                                    // (maxLength:128)
+        public string districtId { get; set; }                                                  // (maxLength:64)
+        public string city { get; set; }                                                        // (maxLength:128)
+        public string cityId { get; set; }                                                      // (maxLength:64)
+        public string street { get; set; }                                                      // (maxLength:128)
+        public string house { get; set; }                                                       // (maxLength:64)
+        public string room { get; set; }                                                        // (maxLength:64)
     }
 
-    public class Ownership
+    public class Ownership                                                                      // 
     {
         public long Id { get; set; }
-        public string form { get; set; }
+        public string form { get; set; }                                                        // (maxLength:256)
         public int? olf_code { get; set; }
     }
 
@@ -603,18 +603,6 @@ namespace vkursi_api_example.organizations
         public int? typeOfLicenseInt { get; set; }// Тип ліцензії (відп.до довідника № 7)
         public long? actualCount { get; set; }// К-ть не актуальних ліцензій
         public long? nonActualCount { get; set; }// К-ть актуальних ліцензій
-    }
-
-    public class Info
-    {
-        public string part1 { get; set; }
-        public string part2 { get; set; }
-        public string part3 { get; set; }
-        public string part4 { get; set; }
-        public string name_part1 { get; set; }
-        public string name_part2 { get; set; }
-        public string name_part3 { get; set; }
-        public string name_part4 { get; set; }
     }
 
     public class ChangeHistory// Історія реєстрацийних змін
@@ -644,7 +632,7 @@ namespace vkursi_api_example.organizations
         public bool? isPlanned { get; set; }// Запранована перевірка (так - true / ні - false)
         public int? regulatorId { get; set; }// Перевіряючий орган код (відп.до довідника № 4))
         public int? statusInt { get; set; }// Статус перевірки (відп.до довідника № 5)
-        public string sanctionType { get; set; }// Тип штрафних санкцій
+        public string sanctionType { get; set; }                                                // Тип штрафних санкцій (maxLength:256)
         public double? sanctionAmount { get; set; }// Сума штрафу
 
     }

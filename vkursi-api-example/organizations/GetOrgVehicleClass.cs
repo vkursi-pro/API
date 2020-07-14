@@ -81,24 +81,24 @@ namespace vkursi_api_example.organizations
 
     public class GetOrgVehicleResponseModel                                     // Модель відповіді GetOrgVehicle
     {
-        public string Status { get; set; }                                      // Статус відповіді по API
+        public string Status { get; set; }                                      // Статус відповіді по API (maxLength:128)
         public bool IsSucces { get; set; }                                      // Чи успішний запит
         public VehicleOrgApiAnswerModelData Data { get; set; }                  // Дані
     }
 
     public class VehicleOrgApiAnswerModelData                                   // Дані
     {
-        public string Edrpou { get; set; }                                      // ЄДРПОУ / ІПН 
+        public string Edrpou { get; set; }                                      // ЄДРПОУ / ІПН (maxLength:12)
         public List<VehicleOrgApiAnswerModelDataVehicle> Vehicles { get; set; } // Перелік ТЗ (транспортних засобів)
     }
 
     public class VehicleOrgApiAnswerModelDataVehicle                            // Перелік ТЗ (транспортних засобів)
     {
-        public string Brand { get; set; }                                       // Марка ТЗ
-        public string Name { get; set; }                                        // Модель
+        public string Brand { get; set; }                                       // Марка ТЗ (maxLength:128)
+        public string Name { get; set; }                                        // Модель (maxLength:128)
         public int? ReleaseYear { get; set; }                                   // Год випуска
-        public int? Capacity { get; set; }                                      // Об'єм двигуна
+        public int? Capacity { get; set; }                                      // Об'єм двигуна 
         public DateTime? RegDate { get; set; }                                  // Дата реєстраційної дії
-        public string OperationName { get; set; }                               // Тип реєстраційної дії
+        public string OperationName { get; set; }                               // Тип реєстраційної дії (maxLength:512)
     }
 }
