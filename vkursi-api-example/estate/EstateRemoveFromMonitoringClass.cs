@@ -124,6 +124,6 @@ namespace vkursi_api_example.estate
         public bool IsSuccess { get; set; }                                             // Чи успішний запит
         public string Status { get; set; }                                              // Статус відповіді по API
         public List<string> NotFoundCadastrsOnMonitoring { get; set; }                  // Перелік не знайдених кадастрових номерів
-        public List<long> NotFoundOnmOnMonitoring { get; set; }                       // Перелік не знайдених номерів ОНМ
+        public List<long> NotFoundOnmOnMonitoring { get; set; }                         // Перелік не знайдених номерів ОНМ
     }
 }

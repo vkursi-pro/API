@@ -26,6 +26,8 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
+            GetStanRozgliaduSpravClass.GetStanRozgliaduSprav(ref token);
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -275,6 +277,10 @@ namespace vkursi_api_example
             // 50. 
             // [GET] /api/1.0/estate/estateCurrentOnMoniting
 
+            // 51. Судові документі по ЮО/ФО
+            // [POST] api/1.0/CourtDecision/getStanRozgliaduSprav
+
+            GetStanRozgliaduSpravClass.GetStanRozgliaduSprav(ref token);
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp

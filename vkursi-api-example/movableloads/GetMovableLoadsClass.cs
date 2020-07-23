@@ -38,9 +38,9 @@ namespace vkursi_api_example.movableloads
                     Edrpou = new List<string> {
                         edrpou
                     },
-                    Ipn = new List<string> {
-                        ipn
-                    }
+                    //Ipn = new List<string> {
+                    //    ipn
+                    //}
                 };
 
                 string body = JsonConvert.SerializeObject(GMLRequestBodyRow);
