@@ -11,7 +11,7 @@ namespace vkursi_api_example.courtdecision
 
         /*
 
-        // 51. Судові документі по ЮО/ФО
+        // 51. Судові документи по ЮО/ФО
         // [POST] api/1.0/CourtDecision/getStanRozgliaduSprav
 
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/CourtDecision/getStanRozgliaduSprav' \

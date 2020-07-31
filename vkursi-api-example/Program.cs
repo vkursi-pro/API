@@ -26,8 +26,6 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
-            GetStanRozgliaduSpravClass.GetStanRozgliaduSprav(ref token);
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -281,6 +279,11 @@ namespace vkursi_api_example
             // [POST] api/1.0/CourtDecision/getStanRozgliaduSprav
 
             GetStanRozgliaduSpravClass.GetStanRozgliaduSprav(ref token);
+
+            // 52. Оригінальний метод пошуку нерухомості Nais (короткі дані) 
+            // [POST] api/1.0/Estate/GetEstatesAdvancedSearch
+
+            GetEstatesAdvancedSearchClass.GetEstatesAdvancedSearch(token);
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp
