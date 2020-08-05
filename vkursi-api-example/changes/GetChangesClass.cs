@@ -101,6 +101,8 @@ namespace vkursi_api_example.changes
         public string changeType { get; set; }                      // Тип зміни
         public string change { get; set; }                          // Опис інформмації по зміну
         public OwnerChangesInfo ownerChangesInfo { get; set; }      // Інформация про організацію / ФОП по якому відбулась зміна
+        public Guid? ReestrId { get; set; }                         // Id списку
+        public string ReestrName { get; set; }                      // Назва списку
     }
 
     public class OwnerChangesInfo                                   // Інформация про організацію / ФОП по якому відбулась зміна
