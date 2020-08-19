@@ -37,6 +37,8 @@ GetFopsClass.GetFops("1841404820", token); // 3334800417
 
 GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
 
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetAdvancedOrganizationResponse.json" target="_blank">GetAdvancedOrganizationResponse.json</a></p>
+
 <br>
 <br>
 
@@ -45,6 +47,8 @@ GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); /
 
 GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetRealEstateRightsResponse.json" target="_blank">GetRealEstateRightsResponse.json</a></p>
+
 <br>
 <br>
 
@@ -52,6 +56,8 @@ GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/changes/GetChangesClass.cs" target="_blank">[GET] /api/1.0/changes/getchanges</a></p>
 
 GetChangesClass.GetChanges("28.10.2019", token);
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetChangesResponse.json" target="_blank">GetChangesResponse.json</a></p>
 
 <br>
 <br>
