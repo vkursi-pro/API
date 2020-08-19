@@ -393,6 +393,8 @@ EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 1260724348000)
 <h3>49.Перевірка наявності об'єкта за ОНМ (sms rrp)</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/SmsRrpSelectIsRealtyExistsClass.cs" target="_blank">[POST] /api/1.0/estate/SmsRrpSelectIsRealtyExists</a></p>
 
+SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000);
+
 <br>
 <br>
 
@@ -417,13 +419,13 @@ EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 1260724348000)
 <h3>54. Фінансовий моніторинг пов'язаних осіб частина 2. Отримуємо результат виконання задачі</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetTaskCompanyDeclarationsAndCourtsClass.cs" target="_blank">[POST] api/1.0/Organizations/GetTaskCompanyDeclarationsAndCourts</a></p>
 
+GetTaskCompanyDeclarationsAndCourtsClass.GetTaskCompanyDeclarationsAndCourts(ref token, Guid.Parse("691e940c-b61e-4feb-ad1f-fa22c365633f"));
+
+<b>Приклад відповіді: </b> <p><a href="https://raw.githubusercontent.com/vkursi-pro/API/master/vkursi-api-example/responseExample/GetTaskCompanyDeclarationsAndCourtsResponse.json" target="_blank">GetTaskCompanyDeclarationsAndCourtsResponse.json</a></p>
+
 <br>
 <br>
 
-SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000);
-
-<br>
-<br>
 
 <h3>ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi</h3>
 // [inprogress] estate/GetRrp
