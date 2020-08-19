@@ -26,6 +26,8 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
+            GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 

@@ -1,0 +1,25 @@
+[
+   {
+      "id":"5b73ee55-f6ea-4ba8-a6b0-04bebb8df8d0",
+      "name":"КАПАНІСТА ЛАРИСА ВАСИЛІВНА",
+      "state":"зареєстровано",
+      "code":"1841404820",
+      "inn":null,
+      "dateCanceledInn":null,
+      "dateRegInn":null,
+      "introduction":0,
+      "expressScore":null,
+      "hasBorg":false,
+      "inSanctions":false,
+      "address":"02154, м.Київ, Дніпровський район, РУСАНІВСЬКА НАБЕРЕЖНА, будинок 8/1, квартира 164",
+      "kved":"96.01 Прання та хімічне чищення текстильних і хутряних виробів",
+      "singleTaxPayer":{
+         "dateStart":"2012-01-01T00:00:00",
+         "rate":20.0,
+         "group":2,
+         "dateEnd":null,
+         "kindOfActivity":"93.01.193.01.2",
+         "status":true
+      }
+   }
+]
