@@ -116,6 +116,12 @@ namespace vkursi_api_example.estate
         public EstateTotalApi Total { get; set; }                               // Загальна статистика по об'єктам нерухомого майна (НМ)
         public List<EstateApi> Estates { get; set; }                            // Об'єкти НМ
         public string Code { get; set; }                                        // Код ЄДРПОУ / ІПН (maxLength:10)
+
+        [JsonProperty("actualDate")]
+        public DateTimeOffset ActualDate { get; set; }
+
+        [JsonProperty("groupRequestId")]
+        public long GroupRequestId { get; set; }
     }
 
     public class EstateTotalApi

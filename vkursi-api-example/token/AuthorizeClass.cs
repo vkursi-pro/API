@@ -26,7 +26,7 @@ namespace vkursi_api_example.token
                 Password = "123456qwert"            // 123456qwert
             };
 
-            string body = JsonConvert.SerializeObject(AuthorizeRequestBody);
+            string body = JsonConvert.SerializeObject(AuthorizeRequestBody); // Example: {"email":"admin@admin.com","password":"1qaz2wsx3EDC"}
             RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/token/authorize");
             RestRequest request = new RestRequest(Method.POST);
 

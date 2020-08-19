@@ -47,17 +47,17 @@ namespace vkursi_api_example.codeExample
 
                 if (GRResponse != null && GRResponse.Data != null)
                 {
-                    foreach (var itemData in GRResponse.Data)
-                    {
-                        string textLine = item +
-                            "\t" + itemData.Id +
-                            "\t" + itemData.DirectionIn +
-                            "\t" + itemData.Type +
-                            "\t" + itemData.Name +
-                            "\t" + itemData.Edrpou;
+                    //foreach (var itemData in GRResponse.Data)
+                    //{
+                    //    string textLine = item +
+                    //        "\t" + itemData.Id +
+                    //        "\t" + itemData.DirectionIn +
+                    //        "\t" + itemData.Type +
+                    //        "\t" + itemData.Name +
+                    //        "\t" + itemData.Edrpou;
 
-                        TextLineList.Add(textLine);
-                    }
+                    //    TextLineList.Add(textLine);
+                    //}
                 }
                 else
                 {

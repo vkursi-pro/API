@@ -33,7 +33,7 @@ namespace vkursi_api_example.courtdecision
             {
              GetStanRozgliaduSpravBodyModel GSRSBody = new GetStanRozgliaduSpravBodyModel
                 {
-                    CompanyEdrpou = "42721869",
+                    CompanyEdrpou = "31729918",
                     Size = 100,    
                     //DateStart = DateTime.Parse("2020-04-13T00:00:00.000Z")
                 };

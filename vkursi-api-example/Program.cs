@@ -285,6 +285,16 @@ namespace vkursi_api_example
 
             GetEstatesAdvancedSearchClass.GetEstatesAdvancedSearch(token);
 
+            // 53. Фінансовий моніторинг пов'язаних осіб частина 1. Створення задачі
+            // [POST] api/1.0/Organizations/SetTaskCompanyDeclarationsAndCourts
+
+            SetTaskCompanyDeclarationsAndCourtsClass.SetTaskCompanyDeclarationsAndCourts(ref token, "00131305");
+
+            // 54. Фінансовий моніторинг пов'язаних осіб частина 2. Отримуємо результат виконання задачі
+            // [POST] api/1.0/Organizations/GetTaskCompanyDeclarationsAndCourts
+
+            GetTaskCompanyDeclarationsAndCourtsClass.GetTaskCompanyDeclarationsAndCourts(ref token, Guid.Parse("691e940c-b61e-4feb-ad1f-fa22c365633f"));
+
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp
 

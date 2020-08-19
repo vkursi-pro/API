@@ -1,9 +1,8 @@
 ﻿using System;
 using RestSharp;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using vkursi_api_example.token;
-using vkursi_api_example.organizations;
+using System.Collections.Generic;
 
 namespace vkursi_api_example.organizations
 {
@@ -117,22 +116,27 @@ namespace vkursi_api_example.organizations
     {
         public List<string> Edrpou { get; set; }                                        // Перелік кодів ЄДРПОУ (обмеження 1)
         public List<string> RelationId { get; set; }                                    // Перелік id зв'язків
+        public int MaxRelationLevel { get; set; }                                       // К-ть рівнів
     }
 
     public class GetRelationsResponseModel                                              // Модель на відповідь
     {
-        public bool IsSucces { get; set; }                                              // Статус відповіді по API
-        public string Status { get; set; }                                              // Чи успішний запит
+        public bool IsSucces { get; set; }                                              // Чи успішний запит
+        public string Status { get; set; }                                              // Статус відповіді по API
         public List<GetRelationApiModelAnswerData> Data { get; set; }                   // Перелік даних
     }
 
     public class GetRelationApiModelAnswerData                                          // Перелік даних
     {
-        public string Id { get; set; }                                                  // Id зв'язку
-        public bool DirectionIn { get; set; }                                           // Напрямок зв'язку (true - вхідний / false - вихідний)
-        public string Name { get; set; }                                                // Назва зв'язку
-        public string Edrpou { get; set; }                                              // Код ЄДРПОУ
-        public int? RelationCount { get; set; }                                         // Кількість зв'язків
+        public string ParentId { get; set; }                                            // Id зв'язку
+        public string ChildId { get; set; }                                             // Id дочірнього зв'язку 
+        public string ParentName { get; set; }                                          // Назва зв'язку (керівник, бенефіціар)
+        public string ParentEdrpou { get; set; }                                        // ЄДРПОУ зв'язку
+        public string ChildName { get; set; }                                           // Назва дочірнього зв'язку
+        public string ChildEdrpou { get; set; }                                         // ЄДРПОУ дочірнього зв'язку
+        public List<int> ParentSanctions { get; set; }                                  // Санкції
+        public List<int> ChildSanctions { get; set; }                                   // Санкції дочірнього зв'язку
+        public int? RelationLevel { get; set; }                                         // Рівень зв'язків
         public string Type { get; set; }                                                // Тип зв'язку (керівник, бенефіціар)
 
                                                                                         // FounderType Бенефіціар
@@ -145,6 +149,5 @@ namespace vkursi_api_example.organizations
                                                                                         // Branch Філія
                                                                                         // Shareholder Власники пакетів акцій
                                                                                         // Assignee Правонаступник
-
     }
 }
