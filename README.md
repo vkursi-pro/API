@@ -393,6 +393,33 @@ EstateRemoveFromMonitoringClass.EstateRemoveFromMonitoring(token, 1260724348000)
 <h3>49.Перевірка наявності об'єкта за ОНМ (sms rrp)</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/SmsRrpSelectIsRealtyExistsClass.cs" target="_blank">[POST] /api/1.0/estate/SmsRrpSelectIsRealtyExists</a></p>
 
+<br>
+<br>
+
+<h3>51. Судові документі по ЮО/ФО</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetStanRozgliaduSpravClass.cs" target="_blank">[POST] api/1.0/CourtDecision/getStanRozgliaduSprav</a></p>
+
+<br>
+<br>
+
+<h3>52. Оригінальний метод пошуку нерухомості Nais (короткі дані) </h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstatesAdvancedSearchClass.cs" target="_blank">[POST] api/1.0/Estate/GetEstatesAdvancedSearch</a></p>
+
+<br>
+<br>
+
+<h3>53. Фінансовий моніторинг пов'язаних осіб частина 1. Створення задачі</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/SetTaskCompanyDeclarationsAndCourtsClass.cs" target="_blank">[POST] api/1.0/Organizations/SetTaskCompanyDeclarationsAndCourts</a></p>
+
+<br>
+<br>
+
+<h3>54. Фінансовий моніторинг пов'язаних осіб частина 2. Отримуємо результат виконання задачі</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetTaskCompanyDeclarationsAndCourtsClass.cs" target="_blank">[POST] api/1.0/Organizations/GetTaskCompanyDeclarationsAndCourts</a></p>
+
+<br>
+<br>
+
 SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000);
 
 <br>
