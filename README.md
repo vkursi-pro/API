@@ -5,7 +5,9 @@
 
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/token/authorize</a></p>
 
-token = AuthorizeClass.Authorize();
+AuthorizeClass.Authorize();
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/AuthorizeResponse.json" target="_blank">AuthorizeResponse.json</a></p>
 
 <br>
 <br>
@@ -15,6 +17,8 @@ token = AuthorizeClass.Authorize();
 
 GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
 
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrganizationsResponse.json" target="_blank">GetOrganizationsResponse.json</a></p>
+
 <br>
 <br>
 
@@ -22,6 +26,8 @@ GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFopsClass.cs" target="_blank">[POST] /api/1.0/organizations/getfops</a></p>
 
 GetFopsClass.GetFops("1841404820", token); // 3334800417
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetFopsResponse.json" target="_blank">GetFopsResponse.json</a></p>
 
 <br>
 <br>
@@ -429,12 +435,6 @@ GetTaskCompanyDeclarationsAndCourtsClass.GetTaskCompanyDeclarationsAndCourts(ref
 
 <h3>ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi</h3>
 // [inprogress] estate/GetRrp
-
-<br>
-<br>
-
-<h3>Судові рішення по ФО</h3>
-// [inprogress]
 
 <br>
 <br>
