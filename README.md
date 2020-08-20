@@ -3,9 +3,18 @@
 
 <h3>1. Авторизація (отримання токена авторизації)</h3>
 
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/token/authorize</a></p>
+<p><b>Дані методу: </b>Токен авторизації</p>
 
-AuthorizeClass.Authorize();
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/token/authorize' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"email":"test@testemail.com","password":"123456qwert"}'
+</code></pre>
+
+<p><i>* Вкажіть ваш логін та пароль від сервісу vkursi.pro які ви вводиди при реєстрации облікового запису vkursi.pro/account/register</i></p>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/token/authorize</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs#L81" target="_blank">AuthorizeResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/AuthorizeResponse.json" target="_blank">AuthorizeResponse.json</a></p>
 
@@ -14,7 +23,7 @@ AuthorizeClass.Authorize();
 
 <h3>2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ</h3>
 
-<p><b>Дані: </b>Назва організації, Код ЄДРПОУ, ПІБ Керівника, Статус реєстрації, Дані про реєстрацію платником ПДВ, Наявний податковий борг, Наявні санкції, Наявні виконавчі провадження, Express score, Відомості про платника ЄП</p>
+<p><b>Дані методу: </b>Назва організації, Код ЄДРПОУ, ПІБ Керівника, Статус реєстрації, Дані про реєстрацію платником ПДВ, Наявний податковий борг, Наявні санкції, Наявні виконавчі провадження, Express score, Відомості про платника ЄП</p>
 
 <pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorganizations' \
         --header 'ContentType: application/json' \
