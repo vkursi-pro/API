@@ -13,9 +13,18 @@ AuthorizeClass.Authorize();
 <br>
 
 <h3>2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationsClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
 
 <p><b>Дані: </b>Назва організації, Код ЄДРПОУ, ПІБ Керівника, Статус реєстрації, Дані про реєстрацію платником ПДВ, Наявний податковий борг, Наявні санкції, Наявні виконавчі провадження, Express score, Відомості про платника ЄП</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorganizations' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"code": ["40073472"]}'</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationsClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationsClass.cs#L118" target="_blank">GetOrganizationsResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrganizationsResponse.json" target="_blank">GetOrganizationsResponse.json</a></p>
 
