@@ -41,19 +41,37 @@
 <br>
 
 <h3>3. Запит на отримання коротких даних по ФОП за кодом ІПН</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFopsClass.cs" target="_blank">[POST] /api/1.0/organizations/getfops</a></p>
 
-GetFopsClass.GetFops("1841404820", token); // 3334800417
+<p><b>Дані методу: </b>ПІБ ФОП-а, Код, Статус реєстрації, Дані про реєстрацію платником ПДВ, Наявний податковий борг, Наявні санкції, Наявні виконавчі провадження, Express score, Відомості про платника ЄП</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getfops' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJI...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"code": ["3334800417"]}'</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFopsClass.cs" target="_blank">[POST] /api/1.0/organizations/getfops</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFopsClass.cs#L96" target="_blank">GetFopsResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetFopsResponse.json" target="_blank">GetFopsResponse.json</a></p>
 
 <br>
 <br>
 
-<h3>4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН </h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs" target="_blank">[POST] /api/1.0/organizations/getadvancedorganization</a></p>
+<h3>4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН</h3>
 
-GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
+<p><b>Дані методу: </b>Повні реєстраційні дані по фізичній / юридичній особі: Назва, ЄДРПОУ / ІПН, Дата реєстрації, Адреса, КВЕДи, Засновники, Бенефіціари, Правонаступники, Керівники, Підписанти, Дані про розмір статутного капіталу, Контактні дані, Дані про перебування юридичної особи в процесі провадження у справі про банкрутство, санації, Дата та номер запису про державну реєстрацію припинення</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getadvancedorganization' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Code":"21560045"}'</code></pre>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs" target="_blank">[POST] /api/1.0/organizations/getadvancedorganization</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L121" target="_blank">GetAdvancedOrganizationResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetAdvancedOrganizationResponse.json" target="_blank">GetAdvancedOrganizationResponse.json</a></p>
 
