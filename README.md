@@ -1,7 +1,7 @@
 <h2>Перелік методів Vkusi API:</h2>
 <br>
 
-<h3>1. Отримання токена авторизації</h3>
+<h3>1. Авторизація (отримання токена авторизації)</h3>
 
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/token/authorize</a></p>
 
@@ -15,7 +15,7 @@ AuthorizeClass.Authorize();
 <h3>2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationsClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
 
-GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
+<p><b>Дані: </b>Назва організації, Код ЄДРПОУ, ПІБ Керівника, Статус реєстрації, Дані про реєстрацію платником ПДВ, Наявний податковий борг, Наявні санкції, Наявні виконавчі провадження, Express score, Відомості про платника ЄП</p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrganizationsResponse.json" target="_blank">GetOrganizationsResponse.json</a></p>
 
