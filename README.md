@@ -79,9 +79,17 @@
 <br>
 
 <h3>5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstateByCodeClass.cs" target="_blank">[GET] /api/1.0/estate/getestatebycode</a></p>
 
-GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+<p><b>Дані методу: </b>Перелік об'єктів нерухомого майна(об'єкти нерухомого майна, зелельні ділянки), Тип речового права (Інше право, Власність, Іпотека, Обтяження), Роль суб’єкта (Власник, Орендар, Іпотекодержатель, Правонабувач, ...), Адреса, Площа ділянки, Тип власності, Координати, Цільове призначення</p>
+
+<pre><code>curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatebycode?code=3080213038' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1...' \
+        --header 'Content-Type: application/json' \</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstateByCodeClass.cs" target="_blank">[GET] /api/1.0/estate/getestatebycode</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstateByCodeClass.cs#L114" target="_blank">GetRealEstateRightsResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetRealEstateRightsResponse.json" target="_blank">GetRealEstateRightsResponse.json</a></p>
 
@@ -89,9 +97,16 @@ GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 <br>
 
 <h3>6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/changes/GetChangesClass.cs" target="_blank">[GET] /api/1.0/changes/getchanges</a></p>
 
-GetChangesClass.GetChanges("28.10.2019", token);
+<p><b>Дані методу: </b>Опис інформації по змінам які відбулись по суб'єкту (ЮО/ФОП/ФО/ОНМ), Дата зміни, Найменування суб'єкта, Тип зміни, Тип (1 - організация | 2 - фізична особа, ..), Id списку</p>
+
+<pre><code>curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges?date=28.10.2019' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJI...' \</pre></code>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/changes/GetChangesClass.cs" target="_blank">[GET] /api/1.0/changes/getchanges</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/changes/GetChangesClass.cs#L98" target="_blank">GetChangesResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetChangesResponse.json" target="_blank">GetChangesResponse.json</a></p>
 
@@ -99,9 +114,19 @@ GetChangesClass.GetChanges("28.10.2019", token);
 <br>
 
 <h3>7. Отримати перелік списків (які користувач створив на vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/GetAllReestrClass.cs" target="_blank">[GET] /api/1.0/monitoring/getAllReestr</a></p>
 
-GetAllReestrClass.GetAllReestr(token);
+<p><b>Дані методу: </b>Назва списку, Id списку</p>
+
+<pre><code>curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/monitoring/getallreestr' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cC...' \
+        --header 'Content-Type: application/json' \</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/GetAllReestrClass.cs" target="_blank">[GET] /api/1.0/monitoring/getAllReestr</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/GetAllReestrClass.cs#L94" target="_blank">GetAllReestrResponse</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetAllReestrResponse.json" target="_blank">GetAllReestrResponse.json</a></p>
 
 <br>
 <br>
