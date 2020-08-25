@@ -166,10 +166,21 @@
 <br>
 <br>
 
-<h3>10. Запит на отримання переліку судових документів організації за критеріями (контент та параметри документа можна отримати в методі /api/1.0/courtdecision/getdecisionbyid)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionsClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisions</a></p>
+<h3>10. Запит на отримання переліку судових документів організації за критеріями: Тип сторони (Позивач, Відповідач, Інша сторона), Фора судочинства (Цивільне, Кримінальне, Господарське, Адміністративне, Адмінправопорушення), За статтями НПА (закони, кодекси, ...)(контент та параметри документа э можливість отримати в методі /api/1.0/courtdecision/getdecisionbyid)</h3>
 
-GetDecisionsClass.GetDecisions("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
+<p><b>Дані методу: </b>Id документа, Дата судового документу</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getdecisions' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cC...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Edrpou":"14360570","Skip":0,"TypeSide":null,"JusticeKindId":null,"Npas":["F545D851-6015-455D-BFE7-01201B629774"]}'</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionsClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisions</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionsClass.cs#L129" target="_blank">GetDecisionsResponseModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetDecisionsResponse.json" target="_blank">GetDecisionsResponse.json</a></p>
 
 <br>
 <br>
