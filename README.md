@@ -131,18 +131,37 @@
 <br>
 <br>
 
-<h3>8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/AddNewReestrClass.cs" target="_blank">[POST] /api/1.0/monitoring/addNewReestr</a></p>
+<h3>8. Додати новий список контрагентів (список також можливо створити з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок</h3>
 
-AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
+<p><b>Дані методу: </b>Id списку новостворенного списку</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/monitoring/addNewReestr' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR...' \
+        --data-raw '{"reestrName":"Назва нового реєстру"}'</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/AddNewReestrClass.cs" target="_blank">[POST] /api/1.0/monitoring/addNewReestr</a></p>
+
+<p><b>Приклад відповіді: </b>"453449dc-9288-4bb6-9831-754485173339"</p>
 
 <br>
 <br>
 
 <h3>9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAnalyticClass.cs" target="_blank">[POST] /api/1.0/organizations/getanalytic</a></p>
 
-GetAnalyticClass.GetAnalytic("00131305", token);
+<p><b>Дані методу: </b>Аналіз тендерів в розрізі період, Патенти, торгові марки, Аналітика по деклараціям, Загальна аналітика по судовим рішенням, Аналітика по справам призначенним до розгляду в розрізі місяця, Виконавчі провадження, Публікації ВГСУ про банкрутство, Аналітика по Edata, Аналітика по перевіркам, Динаміка податкового боргу, Історія реєстрацийних змін, Аналіз ліцензій, Дані експрес перевірки, Відомості про наявні санкції, Аналітика по засновникам в розрізі країни, Фінансова аналітика, Аналіз участі в тендерах в розрізі CPV, Аналіз земельних ділянок, Аналіз об'єктів нерухомого майна, Аналіз ЗЕД, Аналіз фінансових ризиків, Дані про кількість співробітників</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getanalytic' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"code":"00131305"}'</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAnalyticClass.cs" target="_blank">[POST] /api/1.0/organizations/getanalytic</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAnalyticClass.cs#L122" target="_blank">GetAnalyticResponseModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetAnalyticResponse.json" target="_blank">GetAnalyticResponse.json</a></p>
 
 <br>
 <br>
