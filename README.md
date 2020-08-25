@@ -186,9 +186,16 @@
 <br>
 
 <h3>11. Запит на отримання контенту судового рішення за id документа (id документа можна отримати в api/1.0/courtdecision/getdecisions)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetContentClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getcontent</a></p>
 
-GetContentClass.GetContent("84583482", token);
+<p><b>Дані методу: </b>Контент судового документа</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getcontent' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5c...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '"84583482"'</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetContentClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getcontent</a></p>
 
 <br>
 <br>
