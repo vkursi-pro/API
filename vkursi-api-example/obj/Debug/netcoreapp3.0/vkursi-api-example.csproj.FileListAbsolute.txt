@@ -47,3 +47,4 @@ D:\Users\API\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.cspro
 D:\Users\API\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.dll
 D:\Users\API\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.pdb
 D:\Users\API\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.genruntimeconfig.cache
+D:\Users\API\vkursi-api-example\obj\Debug\netcoreapp3.0\vkursi-api-example.csprojAssemblyReference.cache

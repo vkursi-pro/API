@@ -126,7 +126,7 @@ namespace vkursi_api_example.organizations
 
     public class GetOrgEnforcementsResponseModel                                // Модель відповіді GetOrgEnforcements
     {
-        public bool IsSucces { get; set; }                                      // Успашний запит (true - так / false - ні)
+        public bool IsSucces { get; set; }                                      // Успішний запит (true - так / false - ні)
         public string Succes { get; set; }                                      // Статус відповіді (maxLength:128)
         public OrgEnforcementApiAnswerModelData Data { get; set; }              // Дані
     }

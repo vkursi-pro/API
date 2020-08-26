@@ -12,6 +12,11 @@ namespace vkursi_api_example.monitoring
         8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
         [POST] /api/1.0/monitoring/addNewReestr
         
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/monitoring/addNewReestr' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR...' \
+        --data-raw '{"reestrName":"Назва нового реєстру"}'
+
 
         */
 
@@ -55,6 +60,41 @@ namespace vkursi_api_example.monitoring
             return responseString.Replace("\"","");                                     // В відповідь проходить системный id реєстру в сервісі VKursi
         }
     }
+
+    /*
+     
+        // Python - http.client example:
+
+        import http.client
+        import mimetypes
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = "{\"reestrName\":\"Назва нового реєстру\"}"
+        headers = {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer  eyJhbGciOiJIUzI1NiIsIn...'
+        }
+        conn.request("POST", "/api/1.0/monitoring/addNewReestr", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
+
+
+        // Java - OkHttp example:
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"reestrName\":\"Назва нового реєстру\"}");
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/monitoring/addNewReestr")
+          .method("POST", body)
+          .addHeader("Content-Type", "application/json")
+          .addHeader("Authorization", "Bearer  eyJhbGciOiJIUzI1NiIsIn...")
+          .build();
+        Response response = client.newCall(request).execute();
+
+     
+    */
 
     public class AddNewReestrResponseModel                                              // Модель Body запиту
     {

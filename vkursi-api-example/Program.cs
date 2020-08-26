@@ -26,8 +26,6 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
-            GetEstateByCodeClass.GetRealEstateRights("00131305", token);
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -191,7 +189,7 @@ namespace vkursi_api_example
 
             GetOrgVehicleClass.GetOrgVehicle(ref token, "00131305");
 
-            // 33. Список виконавчих проваджень по фізичним або юридичним особам за кодом ІПН / ЄДРПОУ
+            // 33. Список виконавчих проваджень по юридичним особам за кодом ЄДРПОУ (55. Список виконавчих проваджень по фізичним особам за кодом ІПН)
             // [POST] /api/1.0/organizations/getorgenforcements
 
             GetOrgEnforcementsClass.GetOrgEnforcements(ref token, "00131305");
@@ -278,24 +276,32 @@ namespace vkursi_api_example
             // [GET] /api/1.0/estate/estateCurrentOnMoniting
 
             // 51. Судові документі по ЮО/ФО
-            // [POST] api/1.0/CourtDecision/getStanRozgliaduSprav
+            // [POST] /api/1.0/CourtDecision/getStanRozgliaduSprav
 
             GetStanRozgliaduSpravClass.GetStanRozgliaduSprav(ref token);
 
             // 52. Оригінальний метод пошуку нерухомості Nais (короткі дані) 
-            // [POST] api/1.0/Estate/GetEstatesAdvancedSearch
+            // [POST] /api/1.0/Estate/GetEstatesAdvancedSearch
 
             GetEstatesAdvancedSearchClass.GetEstatesAdvancedSearch(token);
 
             // 53. Фінансовий моніторинг пов'язаних осіб частина 1. Створення задачі
-            // [POST] api/1.0/Organizations/SetTaskCompanyDeclarationsAndCourts
+            // [POST] /api/1.0/Organizations/SetTaskCompanyDeclarationsAndCourts
 
             SetTaskCompanyDeclarationsAndCourtsClass.SetTaskCompanyDeclarationsAndCourts(ref token, "00131305");
 
             // 54. Фінансовий моніторинг пов'язаних осіб частина 2. Отримуємо результат виконання задачі
-            // [POST] api/1.0/Organizations/GetTaskCompanyDeclarationsAndCourts
+            // [POST] /api/1.0/Organizations/GetTaskCompanyDeclarationsAndCourts
 
             GetTaskCompanyDeclarationsAndCourtsClass.GetTaskCompanyDeclarationsAndCourts(ref token, Guid.Parse("691e940c-b61e-4feb-ad1f-fa22c365633f"));
+
+            // 55. Список виконавчих проваджень по фізичним особам за кодом ІПН
+            // [POST] /api/1.0/person/GetPersonEnforcements
+
+            GetPersonEnforcementsClass.GetPersonEnforcements(ref token, "3015301315", "СТЕЛЬМАЩУК", "АНДРІЙ", "ВАСИЛЬОВИЧ");
+
+            // 56. 
+            // api/1.0/organizations/GetStatutnuyFileUrl
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp

@@ -1,0 +1,36 @@
+{
+   "isSucces":true,
+   "status":"Дані успішно знайдено",
+   "data":[
+      {
+         "edrpou":"3015301315",
+         "totalCount":3,
+         "enforcements":[
+            {
+               "dateOpen":"2017-11-15T00:00:00",
+               "vpNumber":"55118502",
+               "status":null,
+               "category":null,
+               "state":"ЗАВЕРШЕНО",
+               "contractor":"ЗАВЕРШЕНО Держава:  Держава "
+            },
+            {
+               "dateOpen":"2018-06-06T00:00:00",
+               "vpNumber":"56543956",
+               "status":"зареєстровано",
+               "category":null,
+               "state":"ЗАВЕРШЕНО",
+               "contractor":"ЗАВЕРШЕНО Держава:  УПП у м. Києві Код: 40109147"
+            },
+            {
+               "dateOpen":"2018-12-21T00:00:00",
+               "vpNumber":"57964387",
+               "status":"зареєстровано",
+               "category":null,
+               "state":"ЗАВЕРШЕНО",
+               "contractor":"ЗАВЕРШЕНО Юридична особа:  ТОВ \"ЕСТА ХОЛДИНГ\" Код: 34435248"
+            }
+         ]
+      }
+   ]
+}
