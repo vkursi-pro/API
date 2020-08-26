@@ -1,11 +1,20 @@
 <h2>Перелік методів Vkusi API:</h2>
 <br>
 
-<h3>1. Отримання токена авторизації</h3>
+<h3>1. Авторизація (отримання токена авторизації)</h3>
 
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/token/authorize</a></p>
+<p><b>Дані методу: </b>Токен авторизації</p>
 
-AuthorizeClass.Authorize();
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/token/authorize' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"email":"test@testemail.com","password":"123456qwert"}'
+</code></pre>
+
+<p><i>* Вкажіть ваш логін та пароль від сервісу vkursi.pro які ви вводиди при реєстрации облікового запису vkursi.pro/account/register</i></p>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs" target="_blank">[POST] /api/1.0/token/authorize</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/token/AuthorizeClass.cs#L81" target="_blank">AuthorizeResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/AuthorizeResponse.json" target="_blank">AuthorizeResponse.json</a></p>
 
@@ -13,9 +22,18 @@ AuthorizeClass.Authorize();
 <br>
 
 <h3>2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationsClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
 
-GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
+<p><b>Дані методу: </b>Назва організації, Код ЄДРПОУ, ПІБ Керівника, Статус реєстрації, Дані про реєстрацію платником ПДВ, Наявний податковий борг, Наявні санкції, Наявні виконавчі провадження, Express score, Відомості про платника ЄП</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorganizations' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"code": ["40073472"]}'</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationsClass.cs" target="_blank">[POST] /api/1.0/organizations/getorganizations</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationsClass.cs#L118" target="_blank">GetOrganizationsResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrganizationsResponse.json" target="_blank">GetOrganizationsResponse.json</a></p>
 
@@ -23,19 +41,37 @@ GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472
 <br>
 
 <h3>3. Запит на отримання коротких даних по ФОП за кодом ІПН</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFopsClass.cs" target="_blank">[POST] /api/1.0/organizations/getfops</a></p>
 
-GetFopsClass.GetFops("1841404820", token); // 3334800417
+<p><b>Дані методу: </b>ПІБ ФОП-а, Код, Статус реєстрації, Дані про реєстрацію платником ПДВ, Наявний податковий борг, Наявні санкції, Наявні виконавчі провадження, Express score, Відомості про платника ЄП</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getfops' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJI...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"code": ["3334800417"]}'</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFopsClass.cs" target="_blank">[POST] /api/1.0/organizations/getfops</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFopsClass.cs#L96" target="_blank">GetFopsResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetFopsResponse.json" target="_blank">GetFopsResponse.json</a></p>
 
 <br>
 <br>
 
-<h3>4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН </h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs" target="_blank">[POST] /api/1.0/organizations/getadvancedorganization</a></p>
+<h3>4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН</h3>
 
-GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
+<p><b>Дані методу: </b>Повні реєстраційні дані по фізичній / юридичній особі: Назва, ЄДРПОУ / ІПН, Дата реєстрації, Адреса, КВЕДи, Засновники, Бенефіціари, Правонаступники, Керівники, Підписанти, Дані про розмір статутного капіталу, Контактні дані, Дані про перебування юридичної особи в процесі провадження у справі про банкрутство, санації, Дата та номер запису про державну реєстрацію припинення</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getadvancedorganization' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Code":"21560045"}'</code></pre>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs" target="_blank">[POST] /api/1.0/organizations/getadvancedorganization</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L121" target="_blank">GetAdvancedOrganizationResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetAdvancedOrganizationResponse.json" target="_blank">GetAdvancedOrganizationResponse.json</a></p>
 
@@ -43,9 +79,17 @@ GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); /
 <br>
 
 <h3>5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstateByCodeClass.cs" target="_blank">[GET] /api/1.0/estate/getestatebycode</a></p>
 
-GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+<p><b>Дані методу: </b>Перелік об'єктів нерухомого майна(об'єкти нерухомого майна, зелельні ділянки), Тип речового права (Інше право, Власність, Іпотека, Обтяження), Роль суб’єкта (Власник, Орендар, Іпотекодержатель, Правонабувач, ...), Адреса, Площа ділянки, Тип власності, Координати, Цільове призначення</p>
+
+<pre><code>curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatebycode?code=3080213038' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1...' \
+        --header 'Content-Type: application/json' \</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstateByCodeClass.cs" target="_blank">[GET] /api/1.0/estate/getestatebycode</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstateByCodeClass.cs#L114" target="_blank">GetRealEstateRightsResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetRealEstateRightsResponse.json" target="_blank">GetRealEstateRightsResponse.json</a></p>
 
@@ -53,9 +97,16 @@ GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 <br>
 
 <h3>6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/changes/GetChangesClass.cs" target="_blank">[GET] /api/1.0/changes/getchanges</a></p>
 
-GetChangesClass.GetChanges("28.10.2019", token);
+<p><b>Дані методу: </b>Опис інформації по змінам які відбулись по суб'єкту (ЮО/ФОП/ФО/ОНМ), Дата зміни, Найменування суб'єкта, Тип зміни, Тип (1 - організация | 2 - фізична особа, ..), Id списку</p>
+
+<pre><code>curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges?date=28.10.2019' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJI...' \</pre></code>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/changes/GetChangesClass.cs" target="_blank">[GET] /api/1.0/changes/getchanges</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/changes/GetChangesClass.cs#L98" target="_blank">GetChangesResponseModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetChangesResponse.json" target="_blank">GetChangesResponse.json</a></p>
 
@@ -63,41 +114,88 @@ GetChangesClass.GetChanges("28.10.2019", token);
 <br>
 
 <h3>7. Отримати перелік списків (які користувач створив на vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/GetAllReestrClass.cs" target="_blank">[GET] /api/1.0/monitoring/getAllReestr</a></p>
 
-GetAllReestrClass.GetAllReestr(token);
+<p><b>Дані методу: </b>Назва списку, Id списку</p>
+
+<pre><code>curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/monitoring/getallreestr' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cC...' \
+        --header 'Content-Type: application/json' \</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/GetAllReestrClass.cs" target="_blank">[GET] /api/1.0/monitoring/getAllReestr</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/GetAllReestrClass.cs#L94" target="_blank">GetAllReestrResponse</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetAllReestrResponse.json" target="_blank">GetAllReestrResponse.json</a></p>
 
 <br>
 <br>
 
-<h3>8. Додати новий список контрагентів (список також можна створиты з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/AddNewReestrClass.cs" target="_blank">[POST] /api/1.0/monitoring/addNewReestr</a></p>
+<h3>8. Додати новий список контрагентів (список також можливо створити з інтерфейсу на сторінці vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок</h3>
 
-AddNewReestrClass.AddNewReestr("Назва нового реєстру", token);
+<p><b>Дані методу: </b>Id списку новостворенного списку</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/monitoring/addNewReestr' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR...' \
+        --data-raw '{"reestrName":"Назва нового реєстру"}'</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/monitoring/AddNewReestrClass.cs" target="_blank">[POST] /api/1.0/monitoring/addNewReestr</a></p>
+
+<p><b>Приклад відповіді: </b>"453449dc-9288-4bb6-9831-754485173339"</p>
 
 <br>
 <br>
 
 <h3>9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAnalyticClass.cs" target="_blank">[POST] /api/1.0/organizations/getanalytic</a></p>
 
-GetAnalyticClass.GetAnalytic("00131305", token);
+<p><b>Дані методу: </b>Аналіз тендерів в розрізі період, Патенти, торгові марки, Аналітика по деклараціям, Загальна аналітика по судовим рішенням, Аналітика по справам призначенним до розгляду в розрізі місяця, Виконавчі провадження, Публікації ВГСУ про банкрутство, Аналітика по Edata, Аналітика по перевіркам, Динаміка податкового боргу, Історія реєстрацийних змін, Аналіз ліцензій, Дані експрес перевірки, Відомості про наявні санкції, Аналітика по засновникам в розрізі країни, Фінансова аналітика, Аналіз участі в тендерах в розрізі CPV, Аналіз земельних ділянок, Аналіз об'єктів нерухомого майна, Аналіз ЗЕД, Аналіз фінансових ризиків, Дані про кількість співробітників</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getanalytic' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"code":"00131305"}'</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAnalyticClass.cs" target="_blank">[POST] /api/1.0/organizations/getanalytic</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAnalyticClass.cs#L122" target="_blank">GetAnalyticResponseModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetAnalyticResponse.json" target="_blank">GetAnalyticResponse.json</a></p>
 
 <br>
 <br>
 
-<h3>10. Запит на отримання переліку судових документів організації за критеріями (контент та параметри документа можна отримати в методі /api/1.0/courtdecision/getdecisionbyid)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionsClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisions</a></p>
+<h3>10. Запит на отримання переліку судових документів організації за критеріями: Тип сторони (Позивач, Відповідач, Інша сторона), Фора судочинства (Цивільне, Кримінальне, Господарське, Адміністративне, Адмінправопорушення), За статтями НПА (закони, кодекси, ...)(контент та параметри документа э можливість отримати в методі /api/1.0/courtdecision/getdecisionbyid)</h3>
 
-GetDecisionsClass.GetDecisions("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
+<p><b>Дані методу: </b>Id документа, Дата судового документу</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getdecisions' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cC...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Edrpou":"14360570","Skip":0,"TypeSide":null,"JusticeKindId":null,"Npas":["F545D851-6015-455D-BFE7-01201B629774"]}'</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionsClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisions</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionsClass.cs#L129" target="_blank">GetDecisionsResponseModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetDecisionsResponse.json" target="_blank">GetDecisionsResponse.json</a></p>
 
 <br>
 <br>
 
 <h3>11. Запит на отримання контенту судового рішення за id документа (id документа можна отримати в api/1.0/courtdecision/getdecisions)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetContentClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getcontent</a></p>
 
-GetContentClass.GetContent("84583482", token);
+<p><b>Дані методу: </b>Контент судового документа</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getcontent' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5c...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '"84583482"'</pre></code>
+        
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetContentClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getcontent</a></p>
 
 <br>
 <br>
