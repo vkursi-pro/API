@@ -395,6 +395,11 @@ namespace vkursi_api_example.person
         public bool CorporateRights { get; set; }                                       // Наявні корморативні права (true - так / false - ні)
         public bool Intangible { get; set; }                                            // Наявні нематеріальні активи (true - так / false - ні)
         public bool Income { get; set; }                                                // Наявні відомості про доходи (true - так / false - ні)
+
+        public int? PublicStatus { get; set; }                                          // Статус ПЕП:
+                                                                                        // 0 - Не публічна особа (ПІБ вказано в декларації і він не ПЕП) 
+                                                                                        // 1 - Особа яку вказано в декларації публічної особи (ПІБ вказано в декларації особи яка є ПЕП)
+                                                                                        // 2 - Публічна особа (ПІБ вказано в декларації і він є ПЕП)
     }
 
     public class PersonInLicenses                                                       // Ліцензії, дозволи, реєстри
