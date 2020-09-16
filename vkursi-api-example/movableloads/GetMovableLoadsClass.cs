@@ -18,6 +18,8 @@ namespace vkursi_api_example.movableloads
         --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
         --header 'Content-Type: application/json' \
         --data-raw '{"Edrpou":["36679626"],"Ipn":["1841404820"]}'
+
+        *Важливо: повертає тільки відкриті обтяження
         
         */
 
@@ -35,17 +37,19 @@ namespace vkursi_api_example.movableloads
 
                 GetMovableLoadsRequestBodyModel GMLRequestBodyRow = new GetMovableLoadsRequestBodyModel
                 {
-                    Edrpou = new List<string> {
-                        edrpou
-                    },
-                    //Ipn = new List<string> {
-                    //    ipn
-                    //}
+                    //Edrpou = new List<string> {
+                    //    edrpou
+                    //},
+                    Ipn = new List<string> {
+                        ipn
+                    }
                 };
 
                 string body = JsonConvert.SerializeObject(GMLRequestBodyRow);
 
-                // Example Body: 
+                //body = "{\"Ipn\":[\"2333700948\"]}";
+
+                // Example Body: {"Ipn":["2333700948"]}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
@@ -135,7 +139,7 @@ namespace vkursi_api_example.movableloads
         public string debtorName { get; set; }      // Назва (maxLength:512)
         public string debtorCode { get; set; }      // Код (maxLength:10)
         public List<string> organizationIdList { get; set; }        // Системний id vkursi
-        public object personCardIdList { get; set; }                // Системний id vkursi
+        public List<string> personCardIdList { get; set; }                // Системний id vkursi
     }
 
     public class Datum                              // Перелік обтяжень

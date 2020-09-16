@@ -26,6 +26,8 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
+            GetOrgFinanceClass.GetOrgFinance(ref token, "00131305");
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -298,10 +300,15 @@ namespace vkursi_api_example
             // 55. Список виконавчих проваджень по фізичним особам за кодом ІПН
             // [POST] /api/1.0/person/GetPersonEnforcements
 
-            GetPersonEnforcementsClass.GetPersonEnforcements(ref token, "3015301315", "СТЕЛЬМАЩУК", "АНДРІЙ", "ВАСИЛЬОВИЧ");
+            GetPersonEnforcementsClass.GetPersonEnforcements(ref token, "2951907234", "ЗАЙЧЕНКО", "МАКСИМ", "ВОЛОДИМИРОВИЧ");
 
             // 56. 
             // api/1.0/organizations/GetStatutnuyFileUrl
+
+            // 57. Аналіз фінансових показників підприємства за кодом ЄДРПОУ
+            // api/1.0/organizations/GetOrgFinance
+
+            GetOrgFinanceClass.GetOrgFinance(ref token, "00131305");
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp

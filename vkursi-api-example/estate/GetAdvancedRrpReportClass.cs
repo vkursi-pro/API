@@ -139,6 +139,6 @@ namespace vkursi_api_example.estate
     public class AllAdress
     {
         public string name { get; set; }
-        public object regTime { get; set; }
+        public string regTime { get; set; }
     }
 }

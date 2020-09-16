@@ -136,5 +136,11 @@ namespace vkursi_api_example.person
         public string Category { get; set; }                                            // Категорія ВП (maxLength:256)
         public string State { get; set; }                                               // Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)
         public string Contractor { get; set; }                                          // Інша сторона (Приклад: Київське міжрегіональне управління укртрансбезпеки Код ЄДРПОУ: 37995466) (maxLength:512)
+        public string Publisher { get; set; }                                           // Документ виданий
+        public string DepartmentName { get; set; }                                      // Зв'язок з виконавцем: Назва виконавця
+        public string DepartmentPhone { get; set; }                                     // Зв'язок з виконавцем: Номер телефону виконавця
+        public string Executor { get; set; }                                            // ПІБ виконавця
+        public string ExecutorPhone { get; set; }                                       // Номер телефону виконавця
+        public string ExecutorEmail { get; set; }                                       // Email виконавця
     }
 }

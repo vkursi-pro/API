@@ -37,7 +37,7 @@ namespace vkursi_api_example.organizations
                         code
                     },
                     Take = 3,                                                 // Кількість записів (ВП) які будуть отримані
-                    Skip = 3                                                    // Кількість записів (ВП) які будуть пропущені
+                    Skip = 0                                                   // Кількість записів (ВП) які будуть пропущені
                 };
 
                 string body = JsonConvert.SerializeObject(GOERequestBody);      // Example Body: {"Edrpou":["00131305"],"Take":100,"Skip":0}

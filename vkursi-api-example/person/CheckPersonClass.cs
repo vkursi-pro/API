@@ -148,6 +148,7 @@ namespace vkursi_api_example.person
         public List<PersonLostDoc> LostDocuments { get; set; }                          // Відомості про втрачені документи
         public CourtDecisionAggregationModel CourtAnalytic { get; set; }                // Судові рішення (призначені по розгляду)
         public List<PersonInBancrutcy> Bancrutcy { get; set; }                          // Відомості про банкрутство
+        public List<int> Sanctions { get; set; }                                        // Санкції
     }
 
     public class PersonsInBorgModel                                                     // Відомості про наявність боргу

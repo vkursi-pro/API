@@ -138,27 +138,27 @@ namespace vkursi_api_example.movableloads
         public string opStatus { get; set; }
         public string opType { get; set; }
         public DateTime actTerm { get; set; }
-        public object archiveDate { get; set; }
+        public string archiveDate { get; set; }
         public DateTime execTerm { get; set; }
-        public object prevRegistration { get; set; }
+        public string prevRegistration { get; set; }
         public int reqReqID { get; set; }
-        public object bnBnID { get; set; }
+        public string bnBnID { get; set; }
         public string regNum { get; set; }
         public string contractSum { get; set; }
         public string checkSum { get; set; }
-        public object archiveNum { get; set; }
-        public object penaltyInit { get; set; }
+        public string archiveNum { get; set; }
+        public string penaltyInit { get; set; }
         public string currencyType { get; set; }
         public string lmSort { get; set; }
         public string alPossible { get; set; }
-        public object lmTypeExtension { get; set; }
+        public string lmTypeExtension { get; set; }
         public string additional { get; set; }
-        public object archRegName { get; set; }
+        public string archRegName { get; set; }
         public DateTime regDate { get; set; }
         public int currentObjID { get; set; }
-        public object startDay { get; set; }
-        public object startMonth { get; set; }
-        public object startYear { get; set; }
+        public string startDay { get; set; }
+        public string startMonth { get; set; }
+        public string startYear { get; set; }
         public double validContractSum { get; set; }
         public List<Property> properties { get; set; }
         public List<Subject> subjects { get; set; }
@@ -170,7 +170,7 @@ namespace vkursi_api_example.movableloads
         public string lmStateName { get; set; }
         public string currentObjName { get; set; }
         public string currentRegistrar { get; set; }
-        public object penalty { get; set; }
+        public string penalty { get; set; }
     }
 
     public class PrTypeAttr
@@ -193,37 +193,37 @@ namespace vkursi_api_example.movableloads
     {
         public int id { get; set; }
         public int? prParentID { get; set; }
-        public object prPrID { get; set; }
+        public string prPrID { get; set; }
         public int opOpID { get; set; }
-        public object adAdID { get; set; }
-        public object reReID { get; set; }
-        public object reLandRegNumHash { get; set; }
-        public object reLetterHash { get; set; }
-        public object reCadNumHash { get; set; }
+        public string adAdID { get; set; }
+        public string reReID { get; set; }
+        public string reLandRegNumHash { get; set; }
+        public string reLetterHash { get; set; }
+        public string reCadNumHash { get; set; }
         public string mvRegNum { get; set; }
         public string prType { get; set; }
-        public object reLandRegNum { get; set; }
-        public object reLandType { get; set; }
-        public object reLetter { get; set; }
-        public object reCadNum { get; set; }
+        public string reLandRegNum { get; set; }
+        public string reLandType { get; set; }
+        public string reLetter { get; set; }
+        public string reCadNum { get; set; }
         public string changeType { get; set; }
         public string prCategory { get; set; }
         public string mvSrNum { get; set; }
-        public object otherRegNum { get; set; }
+        public string otherRegNum { get; set; }
         public string mvSrNumHash { get; set; }
         public string mvRegNumHash { get; set; }
-        public object otherRegNumHash { get; set; }
-        public object additional { get; set; }
+        public string otherRegNumHash { get; set; }
+        public string additional { get; set; }
         public string prTypeExtension { get; set; }
-        public object reLandTypeExtension { get; set; }
-        public object otherRegNumNID { get; set; }
-        public object isArchive { get; set; }
-        public object prRegNum { get; set; }
-        public object prRegNumNID { get; set; }
-        public object driRegDate { get; set; }
-        public object driRegNum { get; set; }
+        public string reLandTypeExtension { get; set; }
+        public string otherRegNumNID { get; set; }
+        public string isArchive { get; set; }
+        public string prRegNum { get; set; }
+        public string prRegNumNID { get; set; }
+        public string driRegDate { get; set; }
+        public string driRegNum { get; set; }
         public string fullExtension { get; set; }
-        public List<object> prAttr { get; set; }
+        public List<string> prAttr { get; set; }
         public List<PrTypeAttr> prTypeAttr { get; set; }
         public string addProperties { get; set; }
     }
@@ -232,41 +232,41 @@ namespace vkursi_api_example.movableloads
     {
         public int id { get; set; }
         public string sbjType { get; set; }
-        public object subjectParentID { get; set; }
-        public object rusNID { get; set; }
-        public object atuAtuID { get; set; }
-        public object cnCnID { get; set; }
+        public string subjectParentID { get; set; }
+        public string rusNID { get; set; }
+        public string atuAtuID { get; set; }
+        public string cnCnID { get; set; }
         public int rlRlID { get; set; }
         public int opOpID { get; set; }
         public int ukrNID { get; set; }
-        public object foreignSubject { get; set; }
-        public object birthMonth { get; set; }
+        public string foreignSubject { get; set; }
+        public string birthMonth { get; set; }
         public string codeAbsence { get; set; }
         public string code { get; set; }
         public string changeType { get; set; }
-        public object birthYear { get; set; }
-        public object birthDay { get; set; }
-        public object addressIndex { get; set; }
-        public object additional { get; set; }
-        public object birthPlace { get; set; }
+        public string birthYear { get; set; }
+        public string birthDay { get; set; }
+        public string addressIndex { get; set; }
+        public string additional { get; set; }
+        public string birthPlace { get; set; }
         public string name { get; set; }
         public string simpleAddress { get; set; }
-        public object addressDetails { get; set; }
-        public object document { get; set; }
-        public object rusName { get; set; }
+        public string addressDetails { get; set; }
+        public string document { get; set; }
+        public string rusName { get; set; }
         public string fullName { get; set; }
-        public object dcCountry { get; set; }
-        public object room { get; set; }
+        public string dcCountry { get; set; }
+        public string room { get; set; }
         public string dcRoomType { get; set; }
         public string dcBuildingType { get; set; }
-        public object building { get; set; }
+        public string building { get; set; }
         public string dcObjectNumType { get; set; }
-        public object objectNum { get; set; }
+        public string objectNum { get; set; }
         public string dcHouseType { get; set; }
-        public object house { get; set; }
-        public object streetAtuID { get; set; }
-        public object phone { get; set; }
-        public object atuAtuStr { get; set; }
+        public string house { get; set; }
+        public string streetAtuID { get; set; }
+        public string phone { get; set; }
+        public string atuAtuStr { get; set; }
         public string rlName { get; set; }
         public string addSubject { get; set; }
     }
@@ -278,10 +278,10 @@ namespace vkursi_api_example.movableloads
         public DateTime pubDate { get; set; }
         public string cdType { get; set; }
         public string serNum { get; set; }
-        public object additional { get; set; }
+        public string additional { get; set; }
         public string publisher { get; set; }
         public string cdTypeExtension { get; set; }
-        public object cdParentID { get; set; }
+        public string cdParentID { get; set; }
         public string changeType { get; set; }
         public string causeDocumentInfo { get; set; }
     }
@@ -295,7 +295,7 @@ namespace vkursi_api_example.movableloads
         public string docType { get; set; }
         public string generateddocument { get; set; }
         public DateTime regDate { get; set; }
-        public object seSeID { get; set; }
+        public string seSeID { get; set; }
         public string docState { get; set; }
         public string docTypeName { get; set; }
         public string empFullName { get; set; }

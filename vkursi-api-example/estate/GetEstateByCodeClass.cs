@@ -3,6 +3,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example.estate
@@ -53,6 +54,11 @@ namespace vkursi_api_example.estate
                     return null;
                 }
                 else if ((int)response.StatusCode == 200 && responseString.Contains("Update in progress, total objects"))
+                {
+                    Console.WriteLine("Триває процес оновлення інформації за вказанними параметрами, спробуйте повторити запит через 30 секунд");
+                    return null;
+                }
+                else if ((int)response.StatusCode == 200 && responseString.Contains("Update in progress, try again later"))
                 {
                     Console.WriteLine("Триває процес оновлення інформації за вказанними параметрами, спробуйте повторити запит через 30 секунд");
                     return null;
@@ -113,52 +119,98 @@ namespace vkursi_api_example.estate
 
     public class GetRealEstateRightsResponseModel                               // Модель відповіді GetRealEstateRights
     {
+        [JsonPropertyName("total")]
         public EstateTotalApi Total { get; set; }                               // Загальна статистика по об'єктам нерухомого майна (НМ)
+        
+        [JsonPropertyName("estates")]
         public List<EstateApi> Estates { get; set; }                            // Об'єкти НМ
+        
+        [JsonPropertyName("code")]
         public string Code { get; set; }                                        // Код ЄДРПОУ / ІПН (maxLength:10)
+        
+        [JsonPropertyName("actualDate")]
+        public DateTime? ActualDate { get; set; }                               // 
 
-        [JsonProperty("actualDate")]
-        public DateTimeOffset ActualDate { get; set; }
-
-        [JsonProperty("groupRequestId")]
-        public long GroupRequestId { get; set; }
+        [JsonPropertyName("groupRequestId")]
+        public long? GroupRequestId { get; set; }                               // 
     }
 
     public class EstateTotalApi
     {
+        [JsonPropertyName("landsCount")]
         public int LandsCount { get; set; }                                     // К-ть участків
+        
+        [JsonPropertyName("housesCount")]
         public int HousesCount { get; set; }                                    // К-ть об'єктів НМ
+        
+        [JsonPropertyName("typeCount")]
         public List<EstateTypeTotal> TypeCount { get; set; }                    // Об'єкти за типами
+        
+        [JsonPropertyName("globalTypeCount")]
         public List<EstateTypeTotal> GlobalTypeCount { get; set; }              // Об'єкти за категоріями
     }
 
     public class EstateTypeTotal                                                // Об'єкти за типами
     {
+        [JsonPropertyName("type")]
         public int Type { get; set; }                                           // Id типу відповідно таблиці № 1
+        
+        [JsonPropertyName("count")]
         public int Count { get; set; }                                          // К-ть об'ектів (указаногго типу)
     }
 
     public class EstateApi                                                      // 
     {
+        [JsonPropertyName("id")]
         public Guid Id { get; set; }                                            // 
+        
+        [JsonPropertyName("estateObjectName")]
         public string EstateObjectName { get; set; }                            // Назва об'єкта | кадастровий номер  (maxLength:256)
+        
+        [JsonPropertyName("location")]
         public EstateCoordinates Location { get; set; }                         // Центральна координата 
+        
+        [JsonPropertyName("land")]
         public bool Land { get; set; }                                          // Тип об'єкта (true - земля)
+        
+        [JsonPropertyName("dateEnd")]
         public DateTime? DateEnd { get; set; }                                  // Дата відчуження 
+        
+        [JsonPropertyName("dateStart")]
         public DateTime? DateStart { get; set; }                                // Дата створення запису по об'єкт (сервісне полк Vkursi)
+
+        [JsonPropertyName("dateModified")]
         public DateTime DateModified { get; set; }                              // Дата модицікації (сервісне поле Vkursi)
+        
+        [JsonPropertyName("typeArray")]
         public List<int> TypeArray { get; set; }                                // Тип власності (Власник / Правонабувач / ... )
+        
+        [JsonPropertyName("globalTypeArray")]
         public List<int> GlobalTypeArray { get; set; }                          // Об'єкти за категоріями
+
+        [JsonPropertyName("detailedCadastrInfo")]
         public DetailsJObjectEstate DetailedCadastrInfo { get; set; }           // Детальна інформмація з ДЗК (Державного земельного кадастру)
+        
+        [JsonPropertyName("courtCount")]
         public int? CourtCount { get; set; }                                    // К-ть судових рішень
+
+        [JsonPropertyName("objectId")]
+        public int? ObjectId { get; set; }                                      // Id об'єкта Nais (для отримання витяга)
+        public string Code { get; set; }                                        // Код ЄДРПОУ / ІПН (maxLength:10)
     }
+
     public class EstateCoordinates                                              // Центральна координата 
     {
+        [JsonPropertyName("longtitude")]
         public decimal Longtitude { get; set; }                                 // Довгота
+
+        [JsonPropertyName("latitude")]
         public decimal Latitude { get; set; }                                   // Широта
     }
+
     public class DetailsJObjectEstate                                           // Детальна інформмація з ДЗК (Державного земельного кадастру)
     {
+        [JsonPropertyName("koatuu")]
         public long? koatuu { get; set; }                                       // КОАТУУ
         public int? zona { get; set; }                                          // Зона
         public int? kvartal { get; set; }                                       // Квартал
@@ -175,27 +227,25 @@ namespace vkursi_api_example.estate
         public string district { get; set; }                                    // Район (maxLength:64)
     }
 }
-
-
-// Таблиця № 1
-// 1, //Вся земля
-// null, //Власник
-// 12, //Правонабувач
-// 13, //Правокористувач
-// 14, //Землевласник
-// 15, //Землеволоділець
-// 16, //Інший
-// 17, //Наймач
-// 18, //Орендар
-// 19, //Наймодавець
-// 20, //Орендодавець
-// 21, //Управитель
-// 22, //Вигодонабувач
-// 23, //Установник
-// 6, //Іпотекодержатель
-// 7, //Майновий поручитель
-// 8, //Іпотекодавець
-// 9, //Боржник
-// 3, //Обтяжувач
-// 4, //Особа, майно/права якої обтяжуються
-// 10 //Особа, в інтересах якої встановлено обтяження
+                                                                                // Таблиця № 1
+                                                                                // 1, //Вся земля
+                                                                                // null, //Власник
+                                                                                // 12, //Правонабувач
+                                                                                // 13, //Правокористувач
+                                                                                // 14, //Землевласник
+                                                                                // 15, //Землеволоділець
+                                                                                // 16, //Інший
+                                                                                // 17, //Наймач
+                                                                                // 18, //Орендар
+                                                                                // 19, //Наймодавець
+                                                                                // 20, //Орендодавець
+                                                                                // 21, //Управитель
+                                                                                // 22, //Вигодонабувач
+                                                                                // 23, //Установник
+                                                                                // 6, //Іпотекодержатель
+                                                                                // 7, //Майновий поручитель
+                                                                                // 8, //Іпотекодавець
+                                                                                // 9, //Боржник
+                                                                                // 3, //Обтяжувач
+                                                                                // 4, //Особа, майно/права якої обтяжуються
+                                                                                // 10 //Особа, в інтересах якої встановлено обтяження

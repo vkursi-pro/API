@@ -35,22 +35,22 @@ namespace vkursi_api_example.estate
 
                 EstateCreateTaskApiRequestBodyModel ECTARequestBodyRow = new EstateCreateTaskApiRequestBodyModel
                 {
-                    Cadastrs = new List<string>         // Кадастрові номери
-                {
-                    "5621287500:03:001:0019"
-                },
-                    Koatuus = new List<string>          // КОАТУУ (обмеження 10)
-                {
-                    "5621287500"
-                },
+                //    Cadastrs = new List<string>         // Кадастрові номери
+                //{
+                //    "5621287500:03:001:0019"
+                //},
+                //    Koatuus = new List<string>          // КОАТУУ (обмеження 10)
+                //{
+                //    "5621287500"
+                //},
                     Edrpous = new List<string>          // Коди ЄДРПОУ (обмеження 10)
                 {
-                    "19124549"
+                    "33768131"
                 },
-                    Ipns = new List<string>             // Коди ІПН-и (обмеження 10)
-                {
-                    "3083707142"
-                },
+                //    Ipns = new List<string>             // Коди ІПН-и (обмеження 10)
+                //{
+                //    "3083707142"
+                //},
                     CalculateCost = true,              // Якщо тільки порахувати вартість
                     IsNeedUpdateAll = false,            // Якщо true - оновлюємо всі дані в ДЗК і РРП
                     TaskName = "Назва задачі"           // Назва задачі (обов'язково)
@@ -59,6 +59,8 @@ namespace vkursi_api_example.estate
 
 
                 string body = JsonConvert.SerializeObject(ECTARequestBodyRow);
+
+                //body = "{\"Edrpous\":[\"33768131\"]}";
 
                 // Example Body: {"Edrpous":["19124549"],"Ipns":["3083707142"],"Koatuus":["5621287500"],"Cadastrs":["5621287500:03:001:0019"],"CalculateCost":false,"IsNeedUpdateAll":false,"IsReport":true,"TaskName":"Назва задачі","DzkOnly":false}
 
