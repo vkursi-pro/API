@@ -14,8 +14,8 @@ namespace vkursi_api_example.courtdecision
         [POST] /api/1.0/courtdecision/getdecisionbyid
 
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getdecisionbyid' \
-        --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Authorization: Bearer eyJhbGciOiJ...' \
+        --header 'Content-Type: application/json' \
         --data-raw '"88234097"'
 
         */
@@ -80,17 +80,18 @@ namespace vkursi_api_example.courtdecision
         
         // Java - OkHttp example:
 
-        OkHttpClient client = new OkHttpClient().newBuilder()
-          .build();
-        MediaType mediaType = MediaType.parse("text/plain");
-        RequestBody body = RequestBody.create(mediaType, "\"88234097\"");
-        Request request = new Request.Builder()
-          .url("https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getdecisionbyid")
-          .method("POST", body)
-          .addHeader("ContentType", "application/json")
-          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1Ni...")
-          .build();
-        Response response = client.newCall(request).execute();
+        import http.client
+        import mimetypes
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = "88234097"
+        headers = {
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cC...',
+          'Content-Type': 'application/json'
+        }
+        conn.request("POST", "/api/1.0/courtdecision/getdecisionbyid", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
 
     */
 

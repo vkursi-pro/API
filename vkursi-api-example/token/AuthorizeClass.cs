@@ -12,9 +12,9 @@ namespace vkursi_api_example.token
             
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/token/authorize' \
         --header 'Content-Type: application/json' \
-        --data-raw '{"email":"test@testemail.com","password":"123456qwert"}'
+        --data-raw '{"email":"test@testemail.com","password":"123456"}'
 
-         */
+        */
 
         public static string Authorize()
         {
@@ -22,8 +22,8 @@ namespace vkursi_api_example.token
            
             AuthorizeRequestBodyModel AuthorizeRequestBody = new AuthorizeRequestBodyModel
             {
-                Email = "test@testemail.com",       // "test@testemail.com"
-                Password = "123456qwert"            // 123456qwert
+                Email = "test@testemail.com",       // Логін (Email)
+                Password = "123456qwert"            // Пароль
             };
 
             string body = JsonConvert.SerializeObject(AuthorizeRequestBody); // Example: {"email":"admin@admin.com","password":"1qaz2wsx3EDC"}

@@ -151,7 +151,7 @@ namespace vkursi_api_example.organizations
         public List<Active> NetProfit { get; set; }
 
         [JsonProperty("balance_small")]
-        public List<BalanceNormal> BalanceSmall { get; set; }
+        public List<BalanceSmall> BalanceSmall { get; set; }
 
         [JsonProperty("balance_normal")]
         public List<BalanceNormal> BalanceNormal { get; set; }

@@ -14,7 +14,7 @@ namespace vkursi_api_example.changes
         6. Отримати дані щоденного моніторингу по фізичним, юриличним особам та об'єктам нерухомого майна які додані на моніторинг
         [GET] /api/1.0/changes/getchanges
 
-        curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges?date=28.10.2019' \
+        curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges?addDate=25.09.2020' \
         --header 'ContentType: application/json' \
         --header 'Authorization: Bearer eyJhbGciOiJI...' \
 
@@ -32,7 +32,7 @@ namespace vkursi_api_example.changes
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges");
                 RestRequest request = new RestRequest(Method.GET);
 
-                request.AddParameter("date", date);                 // Дата в яку сервіс Vkursi виявив зміни
+                request.AddParameter("addDate", date);                 // Дата в яку сервіс Vkursi виявив зміни
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
 

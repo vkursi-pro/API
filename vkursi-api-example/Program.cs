@@ -26,8 +26,6 @@ namespace vkursi_api_example
 
             token = AuthorizeClass.Authorize();
 
-            GetOrgFinanceClass.GetOrgFinance(ref token, "00131305");
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -310,6 +308,10 @@ namespace vkursi_api_example
 
             GetOrgFinanceClass.GetOrgFinance(ref token, "00131305");
 
+            // 58.
+
+            FreeNaisClass.FreeNais(ref token, "00131305");
+
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp
 
@@ -317,6 +319,9 @@ namespace vkursi_api_example
             // [inprogress]
 
             // Перелік статусів відповідей API
+
+
+
         }
     }
 }
