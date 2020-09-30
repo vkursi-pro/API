@@ -159,7 +159,7 @@ namespace vkursi_api_example
             // 26. Рекізити судового документа
             // [POST] /api/1.0/courtdecision/getdecisionbyid
 
-            GetDecisionByIdClass.GetDecisionById("88234097", token);
+            GetDecisionByIdClass.GetDecisionById(88234097, token);
 
             // 27. Обьем ресурсів доспупних користувачу відповідно до тарифного плану
             // [GET] /api/1.0/token/gettariff

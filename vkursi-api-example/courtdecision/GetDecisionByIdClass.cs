@@ -14,12 +14,12 @@ namespace vkursi_api_example.courtdecision
         [POST] /api/1.0/courtdecision/getdecisionbyid
 
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getdecisionbyid' \
-        --header 'Authorization: Bearer eyJhbGciOiJ...' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni' \
         --header 'Content-Type: application/json' \
-        --data-raw '"88234097"'
+        --data-raw '{"Id":88234097}'
 
         */
-        public static GetDecisionByIdResponseModel GetDecisionById(string courtDecisionId, string token)
+        public static GetDecisionByIdResponseModel GetDecisionById(long courtDecisionId, string token)
         {
             if (String.IsNullOrEmpty(token))
                 token = AuthorizeClass.Authorize();
@@ -31,7 +31,14 @@ namespace vkursi_api_example.courtdecision
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getdecisionbyid");
                 RestRequest request = new RestRequest(Method.POST);
 
-                string body = "\"" + courtDecisionId + "\"";
+                GetDecisionByIdBodyModel GDBIBody = new GetDecisionByIdBodyModel
+                {
+                    Id = courtDecisionId                                                // Id судового документа
+                };
+
+                string body = JsonConvert.SerializeObject(GDBIBody);
+
+                // Example Body: {"Id":88234097}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
@@ -67,10 +74,10 @@ namespace vkursi_api_example.courtdecision
         import http.client
         import mimetypes
         conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
-        payload = "\"88234097\""
+        payload = "{\"Id\":88234097}"
         headers = {
-          'ContentType': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...'
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1...',
+          'Content-Type': 'application/json'
         }
         conn.request("POST", "/api/1.0/courtdecision/getdecisionbyid", payload, headers)
         res = conn.getresponse()
@@ -80,29 +87,34 @@ namespace vkursi_api_example.courtdecision
         
         // Java - OkHttp example:
 
-        import http.client
-        import mimetypes
-        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
-        payload = "88234097"
-        headers = {
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cC...',
-          'Content-Type': 'application/json'
-        }
-        conn.request("POST", "/api/1.0/courtdecision/getdecisionbyid", payload, headers)
-        res = conn.getresponse()
-        data = res.read()
-        print(data.decode("utf-8"))
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"Id\":88234097}");
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getdecisionbyid")
+          .method("POST", body)
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiI...")
+          .addHeader("Content-Type", "application/json")
+          .build();
+        Response response = client.newCall(request).execute();
 
     */
 
-    public class GetDecisionByIdResponseModel                                           // Модель запиту 
+
+    public class GetDecisionByIdBodyModel                                               // Модель запиту 
+    {
+        public long Id { get; set; }                                                    // Id судового документа
+    }
+
+    public class GetDecisionByIdResponseModel                                           // Модель на відповідь
     {
         public bool IsSuccess { get; set; }                                             // Чи успішний запит
         public string Status { get; set; }                                              // Статус відповіді по API
-        public CourtDecisionElasticModel Data { get; set; }                             // Модель на відповідь
+        public CourtDecisionElasticModel Data { get; set; }                             // Дані судового документа
     }
 
-    public class CourtDecisionElasticModel                                              // Модель на відповідь
+    public class CourtDecisionElasticModel                                              // Дані судового документа
     {
         public DateTime AdjudicationDate { get; set; }                                  // Дата ухвалення рішення 
         public DateTime DateCreated { get; set; }                                       // Дата імпорту документа до сервісу
