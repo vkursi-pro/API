@@ -3,6 +3,7 @@ using RestSharp;
 using Newtonsoft.Json;
 using vkursi_api_example.token;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace vkursi_api_example.person
 {
@@ -35,9 +36,14 @@ namespace vkursi_api_example.person
                     LastName = LastName,                                                // Прізвище 
                     FirstName = FirstName,                                              // Ім'я
                     SecondName = SecondName                                             // По батькові
+                    // FilterStatusList                                                 // Стан ВП (Приклад: Завершено, Примусове виконання, ...)
                 };
 
                 string body = JsonConvert.SerializeObject(GPEBody);
+
+                //body = "{\"Code\":\"2951907234\",\"LastName\":null,\"FirstName\":null,\"SecondName\":null}";
+
+                // {"Code":"2951907234","LastName":null,"FirstName":null,"SecondName":null,"FilterStatusList":null}
 
                 // Example Body: {"Code":"3015301315","LastName":"СТЕЛЬМАЩУК","FirstName":"АНДРІЙ","SecondName":"ВАСИЛЬОВИЧ"}
 
@@ -112,6 +118,37 @@ namespace vkursi_api_example.person
         public string LastName { get; set; }                                            // Прізвище 
         public string FirstName { get; set; }                                           // Ім'я
         public string SecondName { get; set; }                                          // По батькові
+        public List<int> FilterStatusList { get; set; }                                 // Стан ВП (Приклад: Завершено, Примусове виконання, ...) enum - FilterStatusList
+    }
+
+    public enum FilterStatusList
+    {
+        [Display(Name = "Відкрито")]
+        Opened = 0,
+
+        [Display(Name = "Завершено")]
+        Ended = 1,
+
+        [Display(Name = "Зупинено")]
+        Stoped = 2,
+
+        [Display(Name = "Примусове виконання")]
+        Forced = 3,
+
+        [Display(Name = "Відмовлено у відкритті")]
+        Canceled = 4,
+
+        [Display(Name = "Закінчено")]
+        EndedToo = 5,
+
+        [Display(Name = "Завершено мінюст")]
+        EndedMinjust = 6,
+
+        [Display(Name = "Інше")]
+        Other = 100,
+
+        [Display(Name = "Нема кредитора")]
+        NoCreditor = 101
     }
 
     public class GetPersonEnforcementsResponseModel                                     // Модель на відповідь
@@ -142,5 +179,29 @@ namespace vkursi_api_example.person
         public string Executor { get; set; }                                            // ПІБ виконавця
         public string ExecutorPhone { get; set; }                                       // Номер телефону виконавця
         public string ExecutorEmail { get; set; }                                       // Email виконавця
+
+        [JsonProperty("creditorType")]
+        public string CreditorType { get; set; }                                        // Тип стягувача (Фізична / Юридична / Держава / ...)
+
+        [JsonProperty("creditorName")]
+        public string CreditorName { get; set; }                                        // Назва стягувача
+
+        [JsonProperty("creditorBithday")]
+        public object CreditorBithday { get; set; }                                     // Дата народження стягувача (якщо ФО)
+
+        [JsonProperty("debtorName")]
+        public string DebtorName { get; set; }                                          // Назва боржника
+
+        [JsonProperty("debtorCode")]
+        public object DebtorCode { get; set; }                                          // Код боржника
+
+        [JsonProperty("debtorType")]
+        public string DebtorType { get; set; }                                          // Тип боржника (Фізична / Юридична / Держава / ...)
+
+        [JsonProperty("debtorBithday")]
+        public DateTimeOffset DebtorBithday { get; set; }                               // Дата народження боржника (якщо ФО)
+
+        [JsonProperty("requestDate")]
+        public DateTimeOffset RequestDate { get; set; }                                 // Час запиту
     }
 }
