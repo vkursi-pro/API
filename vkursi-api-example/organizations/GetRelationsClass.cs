@@ -22,8 +22,7 @@ namespace vkursi_api_example.organizations
         */
         public static GetRelationsResponseModel GetRelations(ref string token, string edrpou, string relationId)
         {
-            if (String.IsNullOrEmpty(token))
-                token = AuthorizeClass.Authorize();
+            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
             string responseString = string.Empty;
 
@@ -34,7 +33,9 @@ namespace vkursi_api_example.organizations
                     Edrpou = new List<string>                                           // Перелік кодів ЄДРПОУ (обмеження 1)
                     {
                         edrpou
-                    }
+                    },
+                    MaxRelationLevel = 3
+
                     //RelationId = new List<string>
                     //{
                     //    edrpou
@@ -58,7 +59,8 @@ namespace vkursi_api_example.organizations
                 if ((int)response.StatusCode == 401)
                 {
                     Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
-                    token = AuthorizeClass.Authorize();
+                    AuthorizeClass _authorize = new AuthorizeClass();
+                    token = _authorize.Authorize();
                 }
 
                 else if ((int)response.StatusCode != 200 || response.ErrorMessage == "The operation has timed out.")
@@ -116,7 +118,7 @@ namespace vkursi_api_example.organizations
     {
         public List<string> Edrpou { get; set; }                                        // Перелік кодів ЄДРПОУ (обмеження 1)
         public List<string> RelationId { get; set; }                                    // Перелік id зв'язків
-        public int MaxRelationLevel { get; set; }                                       // К-ть рівнів
+        public int? MaxRelationLevel { get; set; }                                       // К-ть рівнів
     }
 
     public class GetRelationsResponseModel                                              // Модель на відповідь

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bgtFUqz0u7Gz1vsezR2/b7jqyk6g25Ji7Z+/J+uemjZB20P9fKIqaLQFTRDxXrlfV1yPPAHsFmCdObizRGxJ3g==",
+  "dgSpecHash": "2ye6wsSdM3h658oboaXwVPaGkKrowXSxBtNs4znEBTolJkVE/Br5T20P5sdC+Uzm/2N+ghidIXZvcVqvxBAo8w==",
   "success": true,
   "projectFilePath": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
   "expectedPackageFiles": [
@@ -62,11 +62,7 @@
     "C:\\Users\\vadim\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\vadim\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\vadim\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512"
+    "C:\\Users\\vadim\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

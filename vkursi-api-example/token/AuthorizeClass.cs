@@ -16,33 +16,52 @@ namespace vkursi_api_example.token
 
         */
 
-        public static string Authorize()
+        public string Authorize()
         {
             // Вкажіть ваш логін та пароль від сервісу vkursi.pro які ви вводиди при реєстрации облікового запису vkursi.pro/account/register
            
-            AuthorizeRequestBodyModel AuthorizeRequestBody = new AuthorizeRequestBodyModel
+            AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
                 Email = "test@testemail.com",       // Логін (Email)
-                Password = "123456qwert"            // Пароль
+                Password = "123456"            // Пароль
             };
 
-            string body = JsonConvert.SerializeObject(AuthorizeRequestBody); // Example: {"email":"admin@admin.com","password":"1qaz2wsx3EDC"}
+            AuthorizeResponseModel AuthorizeResponse = new AuthorizeResponseModel();
+
+            AuthorizeResponse = GetRequest(ARBody);
+
+            return AuthorizeResponse.Token;
+        }
+
+        public AuthorizeResponseModel GetRequest(AuthorizeRequestBodyModel ARBody)
+        {
+            string body = JsonConvert.SerializeObject(ARBody); // Example: {"email":"test@testemail.com","password":"123456"}
             RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/token/authorize");
             RestRequest request = new RestRequest(Method.POST);
 
             request.AddHeader("ContentType", "application/json");
+            request.AddHeader("Content-Type", "application/json");
             request.AddParameter("application/json", body, ParameterType.RequestBody);
 
             IRestResponse response = client.Execute(request);
             string responseString = response.Content;
 
             AuthorizeResponseModel AuthorizeResponse = JsonConvert.DeserializeObject<AuthorizeResponseModel>(responseString);
-            
+
             string token = AuthorizeResponse.Token;
 
             // token при запитах додається в header Authorization: Bearer "token"
 
-            return token;
+            return AuthorizeResponse;
+        }
+
+        public AuthorizeResponseModel Authorize(AuthorizeRequestBodyModel ARBody)
+        {
+            _ = new AuthorizeResponseModel();
+
+            AuthorizeResponseModel AuthorizeResponse = GetRequest(ARBody);
+
+            return AuthorizeResponse;
         }
     }
 
@@ -77,14 +96,7 @@ namespace vkursi_api_example.token
 
      */
 
-
-    public class AuthorizeResponseModel
-    {
-        [JsonProperty("Token")]
-        public string Token { get; set; }           // Token
-    }
-
-    public class AuthorizeRequestBodyModel
+    public class AuthorizeRequestBodyModel          // Модель запиту
     {
         [JsonProperty("email")]
         public string Email { get; set; }           // Логін від облікового запису vkursi.pro
@@ -92,4 +104,11 @@ namespace vkursi_api_example.token
         [JsonProperty("password")]
         public string Password { get; set; }        // Пароль
     }
+
+    public class AuthorizeResponseModel             // Модель відповіді
+    {
+        [JsonProperty("Token")]
+        public string Token { get; set; }           // Token
+    }
+
 }

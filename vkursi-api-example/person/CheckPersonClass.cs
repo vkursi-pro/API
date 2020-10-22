@@ -21,21 +21,20 @@ namespace vkursi_api_example.person
 
         */
 
-        public static CheckPersonResponseModel CheckPerson(string token, string personName, string ipn)
+        public CheckPersonResponseModel CheckPerson(string token, CheckPersonRequestBodyModel CheckPersonRequestBodyRow)
         {
-            if (String.IsNullOrEmpty(token))
-                token = AuthorizeClass.Authorize();
+            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
             string responseString = string.Empty;
 
             while (string.IsNullOrEmpty(responseString))
             {
 
-                CheckPersonRequestBodyModel CheckPersonRequestBodyRow = new CheckPersonRequestBodyModel
-                {
-                    FullName = personName,              // ПІБ (ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ)
-                    Ipn = ipn                           // ІПН (2301715013)
-                };
+                //CheckPersonRequestBodyModel CheckPersonRequestBodyRow = new CheckPersonRequestBodyModel
+                //{
+                //    FullName = personName,              // ПІБ (ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ)
+                //    Ipn = ipn                           // ІПН (2301715013)
+                //};
 
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/person/checkperson");
@@ -55,7 +54,8 @@ namespace vkursi_api_example.person
                 if ((int)response.StatusCode == 401)
                 {
                     Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
-                    token = AuthorizeClass.Authorize();
+                    AuthorizeClass _authorize = new AuthorizeClass();
+                    token = _authorize.Authorize();
                 }
 
                 else if ((int)response.StatusCode != 200)
@@ -111,7 +111,6 @@ namespace vkursi_api_example.person
 
     public class CheckPersonRequestBodyModel                                            // Модель запиту (обмеження 1)
     {
-        public Guid? Id { get; set; }                                                   // Null (cистемный id Vkursi)
         public string FullName { get; set; }                                            // ПІБ
         public string FirstName { get; set; }                                           // Призвище (необовязкове якщо вказаний FullName)
         public string SecondName { get; set; }                                          // Ім'я (необовязкове якщо вказаний FullName)

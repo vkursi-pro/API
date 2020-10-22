@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json.Serialization;
 using vkursi_api_example.bi;
 using vkursi_api_example.changes;
 using vkursi_api_example.codeExample;
@@ -24,7 +26,10 @@ namespace vkursi_api_example
             // 1. Отримання токена авторизації
             // [POST] /api/1.0/token/authorize
 
-            token = AuthorizeClass.Authorize();
+            AuthorizeClass _authorize = new AuthorizeClass();
+            token = _authorize.Authorize();
+
+            GetRelationsClass.GetRelations(ref token, "00131305", null);
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -174,7 +179,9 @@ namespace vkursi_api_example
             // 29. Отримання інформації по фізичній особі
             // [POST] /api/1.0/person/checkperson
 
-            CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ", "2301715013");
+            CheckPersonRequestBodyModel CheckPersonRequestBody = JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2301715013\",\"Doc\":null,\"Birthday\":null, \"RuName\":null}");
+            CheckPersonClass _checkPersonClass = new CheckPersonClass();
+            _checkPersonClass.CheckPerson(token, CheckPersonRequestBody);
 
             // 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
             // [POST] /api/1.0/movableloads/getexistedmovableloads

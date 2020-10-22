@@ -13,7 +13,7 @@ namespace vkursi_api_example.bi
         Отримати перелік компаній по яким відбулись зміни в межах Bi моніторингу
         [POST] /api/1.0/bi/GetDataBiChangeInfo
          
-        Приклад 1: без Body
+        Приклад 1: без Body (через параметри в URL)
 
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/bi/GetDataBiChangeInfo?LabelId=1c891112-b022-4a83-ad34-d1f976c60a0b&Size=1000&IsOnlyNew=true&DateChange=2019-11-28T19:00:00.000' \
         --header 'ContentType: application/json' \
@@ -33,8 +33,11 @@ namespace vkursi_api_example.bi
 
         public static GetDataBiChangeInfoRequestModel GetDataBiChangeInfo(DateTime dateChange, string labelId, bool isNewOnly, int size, string token)
         {
-            if (string.IsNullOrEmpty(token))
-                token = AuthorizeClass.Authorize();
+            if (string.IsNullOrEmpty(token)) 
+            { 
+                AuthorizeClass _authorize = new AuthorizeClass(); 
+                token = _authorize.Authorize(); 
+            }
 
             string responseString = string.Empty;
 
@@ -42,10 +45,10 @@ namespace vkursi_api_example.bi
             {
                 GetDataBiChangeInfoBodyModel GBDRequestBody = new GetDataBiChangeInfoBodyModel
                 {
-                    LabelId = labelId,                                              // Id списку (в якому відбулись зміни)
+                    LabelId = labelId,                                              // Id списку(Label) (в якому відбулись зміни)
                     Size = size,                                                    // Розмір даних (від 1 до 10000)
                     IsOnlyNew = isNewOnly,                                          // Отримати тільки нові записи (true - отримати ті які до раніще не отримували / false - отримати всі за дату)
-                    DateChange = dateChange                                         // Дата коли відбулись зміни
+                    DateChange = dateChange                                         // Дата від якої необхадно отримати зміни (при повторному запиті необхідно використовувати MaxDateChange з відповіді)
                 };
 
                 string body = JsonConvert.SerializeObject(GBDRequestBody);          // Example Body: {"LabelId":"1c891112-b022-4a83-ad34-d1f976c60a0b","Size":1000,"DateChange":"2019-11-28T19:00:52.059","IsOnlyNew":true}
@@ -64,7 +67,8 @@ namespace vkursi_api_example.bi
                 if ((int)response.StatusCode == 401)
                 {
                     Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
-                    token = AuthorizeClass.Authorize();
+                    AuthorizeClass _authorize = new AuthorizeClass();
+                    token = _authorize.Authorize();
                 }
                 else if ((int)response.StatusCode != 200)
                 {
@@ -94,22 +98,22 @@ namespace vkursi_api_example.bi
         public bool IsSuccess { get; set; }                                     // Успішно виконано?
         public string Status { get; set; }                                      // success, error, (Дані успішно знайдено. Pack: " + part)
         public int Code { get; set; }                                           // 404, 200, ...
+        public DateTime MaxDateChange { get; set; }                             // Максимальна дата зміни по копанії в відповіді
         public List<DataBiChangeInfoModel> Data { get; set; }                   // Перелік компаній
     }
 
-    public class DataBiChangeInfoModel
+    public class DataBiChangeInfoModel                                          // Перелік компаній
     {
-        public Guid Id { get; set; }                                            // Id організації (пізніше будуть ще ФОП)
-        public bool IsCompany { get; set; }                                     // Це компанію (так/ні)
-        public string Code { get; set; }                                        // Код ЕДРПОУ (для компанії)
-        public bool IsNew { get; set; }                                         // Новий запис (раніше не передавався по API)
-        public int ChangeType { get; set; }                                     // 1 - Новий / 2 - Зміна / 3 - на відалення (більше не відповідає критеріям)
-        public int DateChange { get; set; }                                     // Дата коли відбулись зміни
-        public OrganizationBiInfoModel OrganizationInfo { get; set; }           // Інформація про організацію
+        public DateTime? DateChange { get; set; }                               // Дата коли відбулись зміни
+        public int ChangeType { get; set; }                                     // 1 - Новий / 2 - Зміна / 3 - На відалення (більше не відповідає критеріям)
+        public OrganizationBiInfoModel Data { get; set; }                       // Інформація про організацію
     }
 
     public class OrganizationBiInfoModel                                        // Інформація про організацію
     {
+        public string Id { get; set; }                                          // Id компанії
+        public string DateStart { get; set; }                                   // Дата першого додавання компанії в Label
+        public string Label { get; set; }                                       // Назва збереженного списку
         public string NazvaPidpriyemstva { get; set; }                          // Повне найменування підприємства
         public string KodYedrpou { get; set; }                                  // Код ЄДРПОУ
         public string DataReyestratsiyi { get; set; }                           // Дата реєстрації
@@ -162,7 +166,29 @@ namespace vkursi_api_example.bi
         public string ChistiyDokhidViruchka2018 { get; set; }                   // Чистий дохід (виручка) 2018
         public string ChistiyPributokzbitok2018 { get; set; }                   // Чистий прибуток/збиток 2018
         public string KontaktnaInformatsiya { get; set; }                       // Контактна інформація
-        public string Label { get; set; }                                       // Назва збереженного списку
+
+        public string Pratsivnikiv2019 { get; set; }                            // Штатна чисельність працівників - 2019
+        public string SumaEksportny2019 { get; set; }                           // Сума експортних операцій - 2019
+        public string SumaImporty2019 { get; set; }                             // Сума імпортних операцій - 2019
+
+        public double? d108002UsohozarozdilomID1109502 { get; set; }
+        public double? d126002UsohozarozdilomIID1119502 { get; set; }
+        public double? d124002IIINeoborotniaktyvy { get; set; }
+        public double? d128002BalansaktivuD1130002 { get; set; }
+        public double? d138002UsohozarozdilomID1149502 { get; set; }
+        public double? d148002UsohozarozdilomIID1159502 { get; set; }
+        public double? d162002UsohozarozdilomIIID1169502 { get; set; }
+        public double? d1170002D141802IVZobovyazanny { get; set; }
+        public double? d203501Chystyydokhid { get; set; }
+        public double? d210001Finansovyyrezul { get; set; }
+        public double? d210501FinRez { get; set; }
+        public double? d217001FinRezdoopodatkuvannyaprybutok { get; set; }
+        public double? d217501FinRezdoopodatkuvannyazbytok { get; set; }
+        public double? d222001ChystyyFinRezprybutokD2235001 { get; set; }
+        public double? d222501ChystyyFinRezzbytokD2235501 { get; set; }
+        public double? d207001RazomdokhodyD2228001 { get; set; }
+        public double? d212001RazomvytratyD2228501 { get; set; }
+        public int? forma { get; set; }
     }
 
 }

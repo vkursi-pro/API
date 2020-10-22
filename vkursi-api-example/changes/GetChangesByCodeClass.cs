@@ -22,8 +22,7 @@ namespace vkursi_api_example.changes
 
         public static List<GetChangesByCodeResponseModel> GetChangesByCode(string token, string code, string fromDate, string toDate, int? fieldType)
         {
-            if (String.IsNullOrEmpty(token))
-                token = AuthorizeClass.Authorize();
+            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
             string responseString = string.Empty;
 
@@ -54,7 +53,8 @@ namespace vkursi_api_example.changes
                 if ((int)response.StatusCode == 401)
                 {
                     Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
-                    token = AuthorizeClass.Authorize();
+                    AuthorizeClass _authorize = new AuthorizeClass();
+                    token = _authorize.Authorize();
                 }
 
                 else if ((int)response.StatusCode != 200)
