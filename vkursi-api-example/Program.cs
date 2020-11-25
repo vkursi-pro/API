@@ -29,7 +29,7 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            GetRelationsClass.GetRelations(ref token, "00131305", null);
+            EstateCurrentOnMonitoringClass.EstateCurrentOnMonitoring(token);
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -239,7 +239,7 @@ namespace vkursi_api_example
             // 41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
             // [POST] /api/1.0/organizations/getrelations
 
-            GetRelationsClass.GetRelations(ref token, "00131305", null);
+            GetRelationsClass.GetRelations(ref token, "42556505", null);
 
             // 42. Запит на отримання геопросторових даних ПККУ
             // [POST] /api/1.0/Estate/GetCadastrCoordinates
@@ -279,8 +279,10 @@ namespace vkursi_api_example
 
             SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 7248532000);
 
-            // 50. 
-            // [GET] /api/1.0/estate/estateCurrentOnMoniting
+            // 50. Отримати перелік обєктів ОНМ які встановлено на моніторинг нерухомого майна (SMS RRP)
+            // [GET] /api/1.0/estate/estateCurrentOnMonitoring
+
+            EstateCurrentOnMonitoringClass.EstateCurrentOnMonitoring(token);
 
             // 51. Судові документі по ЮО/ФО
             // [POST] /api/1.0/CourtDecision/getStanRozgliaduSprav

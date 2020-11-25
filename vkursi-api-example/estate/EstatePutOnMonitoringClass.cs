@@ -110,7 +110,8 @@ namespace vkursi_api_example.estate
     public class EstatePutOnMonitoringRequestBodyModel                                  // Модель запиту 
     {
         public List<long> OnmNumbers { get; set; }                                      // Перелік номерів ОНМ
-        public List<string> CadastrNumbers { get; set; }                                // Перелік кадастрових номерів
+
+        // public List<string> CadastrNumbers { get; set; }                             // ВИКЛЮЧЕНО! Перелік кадастрових номерів
         public DateTime DateTimeEnd { get; set; }                                       // Дата до якої діє моніторинг
     }
 

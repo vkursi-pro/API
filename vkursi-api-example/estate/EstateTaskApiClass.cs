@@ -214,10 +214,10 @@ namespace vkursi_api_example.estate
             {
                 EstateGetTaskDataApiRequestBodyModel EGTDARequestBody = new EstateGetTaskDataApiRequestBodyModel
                 {
-                    taskId = null,                                              // Id задачі (перелік доспупних taskId можна отриммати в  api/1.0/estate/getestatetasklist)
-                    skip = 0,                                                   // К-ть записів які будуть пропущені
-                    take = 100,                                                 // К-ть записів які будуть отримані (null - всі)
-                    cadastr = new List<string>                                  // Перелік кадастрових номерів
+                    TaskId = null,                                              // Id задачі (перелік доспупних taskId можна отриммати в  api/1.0/estate/getestatetasklist)
+                    Skip = 0,                                                   // К-ть записів які будуть пропущені
+                    Take = 100,                                                 // К-ть записів які будуть отримані (null - всі)
+                    Сadastr = new List<string>                                // ВПерелік кадастрових номерів
                     {
                         cadastr
                     }
@@ -328,7 +328,15 @@ namespace vkursi_api_example.estate
         public bool? CalculateCost { get; set; }                                // Якщо тільки порахувати вартість
         public bool IsNeedUpdateAll { get; set; }                               // Якщо true - оновлюємо всі дані в ДЗК і РРП
         public string TaskName { get; set; }                                    // Назва задачі
-        public bool DzkOnly { get; set; }                                       // Запити тільки по ДЗК
+        public EstateApiCreateTaskParamRequest Param { get; set; }              // Вибір реестрів по яким необхідно здійснити перевірку (null - якщо по всім)
+    }
+
+    public class EstateApiCreateTaskParamRequest                                // Вибір реестрів по яким необхідно здійснити перевірку (null - якщо по всім)
+    {
+        public bool IsWithDzk { get; set; }                                     // ДЗК (Державный земельний кадастр)
+        public bool IsWithRrp { get; set; }                                     // РРП (Державний реєстр речових прав на нерухоме майно)
+        public bool IsWithPkku { get; set; }                                    // ПККУ (Публічна кадастрова карта України)
+        public bool IsWithNgo { get; set; }                                     // НГО (Нормативна грошова оцінка)
     }
 
     // 19. EstateCreateTaskApi (Модель відповіді)
@@ -355,10 +363,10 @@ namespace vkursi_api_example.estate
     // 21.EstateGetTaskDataApi (Модель Body запиту)
     public class EstateGetTaskDataApiRequestBodyModel                           // Модель Body запиту
     {
-        public string taskId { get; set; }                                      // Id задачі
-        public int? skip { get; set; }                                          // К-ть записів які будуть пропущені
-        public int? take { get; set; }                                          // К-ть записів які будуть отримані (максимум MAX)
-        public List<string> cadastr { get; set; }                               // Перелік кодастрових номерів
+        public string TaskId { get; set; }                                      // Id задачі
+        public int? Skip { get; set; }                                          // К-ть записів які будуть пропущені
+        public int? Take { get; set; }                                          // К-ть записів які будуть отримані (максимум MAX)
+        public List<string> Сadastr { get; set; }                               // Перелік кадастрових номерів (які булі додані в задачі)
     }
 
     // 21. EstateGetTaskDataApi (Модель відповіді)
