@@ -8,7 +8,7 @@ namespace vkursi_api_example.organizations
 {
     public class FreeNaisClass
     {
-        public static string FreeNais(ref string token, string movableId)
+        public static string FreeNais(ref string token, string code)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
@@ -16,7 +16,7 @@ namespace vkursi_api_example.organizations
 
             while (string.IsNullOrEmpty(responseString))
             {
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/freenais?code=00131305");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/freenais?code=" + code);
                 RestRequest request = new RestRequest(Method.GET);
 
                 // string body = JsonConvert.SerializeObject(GPMLRequestBody); // Example Body: {"Id":1278898}

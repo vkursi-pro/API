@@ -29,7 +29,7 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            EstateCurrentOnMonitoringClass.EstateCurrentOnMonitoring(token);
+            GetExpressScoreClass.GetExpressScore(ref token, 1, "32352162");
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -313,13 +313,23 @@ namespace vkursi_api_example
             // api/1.0/organizations/GetStatutnuyFileUrl
 
             // 57. Аналіз фінансових показників підприємства за кодом ЄДРПОУ
-            // api/1.0/organizations/GetOrgFinance
+            // [POST] api/1.0/organizations/GetOrgFinance
 
             GetOrgFinanceClass.GetOrgFinance(ref token, "00131305");
 
-            // 58.
+            // 58. Оригинальний метод Nais, на отримання скороченних данних по коду ІПН / ЄДРПОУ 
+            // [POST] /api/1.0/organizations/freenais
 
             FreeNaisClass.FreeNais(ref token, "00131305");
+
+            // 59. Оригинальний метод Nais, на отримання повних данних по коду фізичним та юридичним особав за кодом ІПН / ЄДРПОУ 
+
+
+
+            // 60. Отримання відомостей по Експрес оцінку ризиків у ЮО, ФОП та ФО за ПІБ та кодом ІПН / ЄДРПОУ 
+            // [POST] /api/1.0/organizations/getExpressScore
+
+            GetExpressScoreClass.GetExpressScore(ref token, 1, "32352162");
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp
