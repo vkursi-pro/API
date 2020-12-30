@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using vkursi_api_example.token;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
 
 namespace vkursi_api_example.estate
 {
@@ -68,7 +68,6 @@ namespace vkursi_api_example.estate
                     Console.WriteLine("Недостатньо ресурсів для виконання запиту, відповідно до вашого тарифу. Дізнатися об'єм доступних ресурсів - /api/1.0/token/gettariff");
                     return null;
                 }
-                // Update in progress, total objects
                 else if ((int)response.StatusCode != 200)
                 {
                     Console.WriteLine("Запит не успішний");

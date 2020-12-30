@@ -29,7 +29,10 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            GetExpressScoreClass.GetExpressScore(ref token, 1, "32352162");
+            EditExpressScoreWeightClass.EditExpressScoreWeight(ref token, "{\"borgZarPlati\":[{\"indicatorValue\":\">=200000\",\"weight\":1},{\"indicatorValue\":\">100000#=<200000\",\"weight\":2},{\"indicatorValue\":\"=<100000\",\"weight\":3}],\"vidkrytiVp\":[{\"indicatorValue\":\">=5\",\"weight\":1},{\"indicatorValue\":\">1#<5\",\"weight\":2},{\"indicatorValue\":\"=0\",\"weight\":3}]}");
+
+            GetExpressScoreWeightClass.GetExpressScoreWeight(ref token);
+
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -49,7 +52,7 @@ namespace vkursi_api_example
             // 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
             // [GET] /api/1.0/estate/getestatebycode
 
-            GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+            //GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 
             // 6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
             // [GET] /api/1.0/changes/getchanges
@@ -322,7 +325,13 @@ namespace vkursi_api_example
 
             FreeNaisClass.FreeNais(ref token, "00131305");
 
-            // 59. Оригинальний метод Nais, на отримання повних данних по коду фізичним та юридичним особав за кодом ІПН / ЄДРПОУ 
+            // 59. Оригинальний метод Nais, на отримання повних данних по ЮО або ФОП за кодом NaisId (який ми отримуємо з [POST] /api/1.0/organizations/freenais)
+            // [GET] /api/1.0/organizations/paynais
+
+            PayNaisClass.Paynais(ref token, 811202);
+
+            // 59.1 Оригінальний метод Nais, на отримання повних даних (з міткою ЕЦП) за кодом NaisId який ми отримуємо з [POST] /api/1.0/organizations/freenais
+            // organizations/payNaisSign
 
 
 
@@ -330,6 +339,16 @@ namespace vkursi_api_example
             // [POST] /api/1.0/organizations/getExpressScore
 
             GetExpressScoreClass.GetExpressScore(ref token, 1, "32352162");
+
+            // 61. Редагування відомостей вагу ризиків в Експрес оцінці
+            // [POST] /api/1.0/organizations/EditExpressScoreWeight
+
+            EditExpressScoreWeightClass.EditExpressScoreWeight(ref token, "[{\"borgZarPlati\":[{\"indicatorValue\":\">=200000\",\"weight\":1},{\"indicatorValue\":\">100000#=<200000\",\"weight\":2},{\"indicatorValue\":\"=<100000\",\"weight\":3}],\"vidkrytiVp\":[{\"indicatorValue\":\">=5\",\"weight\":1},{\"indicatorValue\":\">1#<5\",\"weight\":2},{\"indicatorValue\":\"=0\",\"weight\":3}],}]");
+
+            // 62. Отримання відомостей про вагу ризиків в Експрес оцінці
+            // [POST] /api/1.0/organizations/GetExpressScoreWeight
+
+            GetExpressScoreWeightClass.GetExpressScoreWeight(ref token);
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp

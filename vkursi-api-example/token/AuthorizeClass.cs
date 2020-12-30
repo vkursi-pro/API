@@ -46,6 +46,10 @@ namespace vkursi_api_example.token
             IRestResponse response = client.Execute(request);
             string responseString = response.Content;
 
+            if ((int)response.StatusCode == 401)
+            {
+
+            }
             AuthorizeResponseModel AuthorizeResponse = JsonConvert.DeserializeObject<AuthorizeResponseModel>(responseString);
 
             string token = AuthorizeResponse.Token;
