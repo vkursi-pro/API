@@ -10,7 +10,7 @@ namespace vkursi_api_example.monitoring
     {
         /*
          
-         12. Додавання фізичних та юридичних осіб до списку(реєстру) та моніторингу
+         12. Додати в "Мої списки" юридичну особу, фізичну особу, фізичну особу підприємця або КОАТУУ (до списку vkursi.pro/eventcontrol#/reestr)
          [POST] api/1.0/Monitoring/addToControl
 
          curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/Monitoring/addToControl' \
@@ -23,7 +23,11 @@ namespace vkursi_api_example.monitoring
 
         public static List<AddToControlResponseModel> AddToControl(string code, string ReestrId, string token)
         {
-            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
+            if (string.IsNullOrEmpty(token)) 
+            { 
+                AuthorizeClass _authorize = new AuthorizeClass();
+                token = _authorize.Authorize();
+            }
 
             string responseString = string.Empty;
 
@@ -31,10 +35,12 @@ namespace vkursi_api_example.monitoring
             {
                 AddToControlRequestBodyModel ATCRBodyRow = new AddToControlRequestBodyModel
                 {
-                    Codes = new List<string>                                // Перелік кодів ЄДРПОУ
+                    Codes = new List<string>                                // Перелік кодів ЄДРПОУ (для додавання компаній до списку)
                     {
                         code
                     },
+                    Koatuus = null,                                         // Перелік КОАТУУ
+                    FopsId = null,                                          // Перелік Id ФОП
                     ReestrId = ReestrId,                                    // Id списка(реєстра) в який будуть додані записи (перелік мона отримати api/1.0/monitoring/getAllReestr)
                     IsOnMonitoring = true,                                  // Автоматично додати до моніторингу (true - так / false - ні)
                     Persons = new List<EventControlPersonAddItemModel>      // Перелік фізичних осіб для додавання в списки
@@ -49,7 +55,9 @@ namespace vkursi_api_example.monitoring
                     }
                 };
                 
-                string body = JsonConvert.SerializeObject(ATCRBodyRow);     // Example body: {"Codes":["00131305"],"ReestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b","IsOnMonitoring":true,"Persons":[{"Name":"Шевченко Тарас Григорович","Ipn":"3334725058","Birthday":"09.03.1978","PassportCode":"HM156253"}]}
+                string body = JsonConvert.SerializeObject(ATCRBodyRow);     // Example body (ЄДРПОУ):   {"ReestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b","IsOnMonitoring":true,"Codes":["00131305","41462280"]}
+                                                                            // Example body (КОАТУУ):   {"ReestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b","IsOnMonitoring":true,"Koatuus":["8000000000","7456222500"]}
+                                                                            // Example body (Persons):  {"ReestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b","IsOnMonitoring":true,"Persons":[{"Name":"Шевченко Тарас Григорович","Ipn":"3334725058","Birthday":"09.03.1978","PassportCode":"HM156253"}]}
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/Monitoring/addToControl");
                 RestRequest request = new RestRequest(Method.POST);
@@ -127,6 +135,8 @@ namespace vkursi_api_example.monitoring
     public class AddToControlRequestBodyModel                                   // Модель Body запиту
     {
         public List<string> Codes { get; set; }                                 // Перелік кодів ЄДРПОУ
+        public List<string> FopsId { get; set; }                                // Перелік Id ФОП
+        public List<string> Koatuus { get; set; }                               // Перелік КОАТУУ
         public string ReestrId { get; set; }                                    // Id списка(реєстра) в який будуть додані записи
         public bool? IsOnMonitoring { get; set; }                               // Автоматично додати до моніторингу (true - так / false - ні)
         public List<EventControlPersonAddItemModel> Persons { get; set; }       // Перелік фізичних осіб для додавання в списки

@@ -29,11 +29,6 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            EditExpressScoreWeightClass.EditExpressScoreWeight(ref token, "{\"borgZarPlati\":[{\"indicatorValue\":\">=200000\",\"weight\":1},{\"indicatorValue\":\">100000#=<200000\",\"weight\":2},{\"indicatorValue\":\"=<100000\",\"weight\":3}],\"vidkrytiVp\":[{\"indicatorValue\":\">=5\",\"weight\":1},{\"indicatorValue\":\">1#<5\",\"weight\":2},{\"indicatorValue\":\"=0\",\"weight\":3}]}");
-
-            GetExpressScoreWeightClass.GetExpressScoreWeight(ref token);
-
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -84,10 +79,10 @@ namespace vkursi_api_example
 
             GetContentClass.GetContent("84583482", token);
 
-            // 12. Додати контрагентів до списку (до списку vkursi.pro/eventcontrol#/reestr)
+            // 12. Додати в "Мої списки" юридичну особу, фізичну особу, фізичну особу підприємця або КОАТУУ (до списку vkursi.pro/eventcontrol#/reestr)
             // [POST] /api/1.0/Monitoring/addToControl
 
-           AddToControlClass.AddToControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
+            AddToControlClass.AddToControl("00131305", "1c891112-b022-4a83-ad34-d1f976c60a0b", token);
 
             // 13. Видалити контрагентів зі списку 
             // [POST] /api/1.0/Monitoring/removeFromControl
@@ -323,7 +318,7 @@ namespace vkursi_api_example
             // 58. Оригинальний метод Nais, на отримання скороченних данних по коду ІПН / ЄДРПОУ 
             // [POST] /api/1.0/organizations/freenais
 
-            FreeNaisClass.FreeNais(ref token, "00131305");
+            FreeNaisClass.FreeNais(ref token, "00131305", "True", "100");
 
             // 59. Оригинальний метод Nais, на отримання повних данних по ЮО або ФОП за кодом NaisId (який ми отримуємо з [POST] /api/1.0/organizations/freenais)
             // [GET] /api/1.0/organizations/paynais
