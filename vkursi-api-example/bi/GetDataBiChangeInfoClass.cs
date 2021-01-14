@@ -104,6 +104,7 @@ namespace vkursi_api_example.bi
 
     public class DataBiChangeInfoModel                                          // Перелік компаній
     {
+        public Guid Id { get; set; }                                            // Id зміни
         public DateTime? DateChange { get; set; }                               // Дата коли відбулись зміни
         public int ChangeType { get; set; }                                     // 1 - Новий / 2 - Зміна / 3 - На відалення (більше не відповідає критеріям)
         public OrganizationBiInfoModel Data { get; set; }                       // Інформація про організацію
