@@ -2,6 +2,7 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using vkursi_api_example.token;
 
@@ -60,6 +61,8 @@ namespace vkursi_api_example.changes
 
             ChangesResponseList = JsonConvert.DeserializeObject<List<GetChangesResponseModel>>(responseString);
 
+            var sdsds = ChangesResponseList.Where(w => w.changeId == "4b3b01d3-1bdf-42a9-a7d4-561e76255d14").ToList();
+
             return ChangesResponseList;
         }
     }
@@ -97,8 +100,10 @@ namespace vkursi_api_example.changes
 
     public class GetChangesResponseModel                            // Модель відповіді GetChanges
     {
+        public string changeId { get; set; }                        // Id зміни
         public DateTime dateOfChange { get; set; }                  // Дата зміни
         public string changeType { get; set; }                      // Тип зміни
+        public string addDate { get; set; }                         // Дата зміни (в сервісі Vkursi)
         public string change { get; set; }                          // Опис інформмації по зміну
         public OwnerChangesInfo ownerChangesInfo { get; set; }      // Інформация про організацію / ФОП по якому відбулась зміна
         public Guid? ReestrId { get; set; }                         // Id списку

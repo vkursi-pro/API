@@ -90,6 +90,7 @@ namespace vkursi_api_example.bi
 
     public class GetDataCompanyModel                                            // Перелік компаній
     {
+        public string Id { get; set; }                                          // Id компанії
         public string NazvaPidpriyemstva { get; set; }                          // Повне найменування підприємства
         public string KodYedrpou { get; set; }                                  // Код ЄДРПОУ
         public string DataReyestratsiyi { get; set; }                           // Дата реєстрації

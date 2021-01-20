@@ -37,7 +37,7 @@ namespace vkursi_api_example
             // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
             // [POST] /api/1.0/organizations/getfops
 
-            GetFopsClass.GetFops("1841404820", token); // 3334800417
+            GetFopsClass.GetFops("2341818675", token); // 3334800417
 
             // 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
             // [POST] /api/1.0/organizations/getadvancedorganization
