@@ -21,7 +21,6 @@ namespace vkursi_api_example.organizations
             --header 'Content-Type: application/json'
 
         Приклад відповіді:
-            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOwnershipStructureResponse.json
 
         */
 

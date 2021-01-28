@@ -22,7 +22,7 @@ namespace vkursi_api_example.organizations
             --data-raw '{"edrpou":"31077508"}'
 
         Приклад відповіді:
-            
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOwnershipStructureResponse.json
 
         */
 
