@@ -333,7 +333,7 @@ namespace vkursi_api_example
             // 60. Отримання відомостей по Експрес оцінку ризиків у ЮО, ФОП та ФО за ПІБ та кодом ІПН / ЄДРПОУ 
             // [POST] /api/1.0/organizations/getExpressScore
 
-            GetExpressScoreClass.GetExpressScore(ref token, 1, "32352162");
+            GetExpressScoreClass.GetExpressScore(ref token, 1, "31077508");
 
             // 61. Редагування відомостей вагу ризиків в Експрес оцінці
             // [POST] /api/1.0/organizations/EditExpressScoreWeight
@@ -344,6 +344,11 @@ namespace vkursi_api_example
             // [POST] /api/1.0/organizations/GetExpressScoreWeight
 
             GetExpressScoreWeightClass.GetExpressScoreWeight(ref token);
+
+            // 63. Структура власності компанії
+            // [POST] /api/1.0/organizations/GetOwnershipStructure
+
+            GetOwnershipStructureClass.GetOwnershipStructure(ref token, "31077508");
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp

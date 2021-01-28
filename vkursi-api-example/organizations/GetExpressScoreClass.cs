@@ -3,7 +3,6 @@ using RestSharp;
 using Newtonsoft.Json;
 using vkursi_api_example.token;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace vkursi_api_example.organizations
 {

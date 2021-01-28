@@ -1,0 +1,47 @@
+{
+   "success":true,
+   "status":"Дані знайдено",
+   "data":{
+      "id":"3e7e3337-1014-4369-b80a-0000a56847ab",
+      "name":"ПП \"СОКОЛИ\"",
+      "adress":"Україна, 55332, ВУЛ. МОЛОДІЖНА, 10, С. ІВАНІВКА, АРБУЗИНСЬКИЙ РАЙОН, МИКОЛАЇВСЬКА ОБЛАСТЬ",
+      "country":"UA",
+      "isFounder":false,
+      "relationType":null,
+      "nodeType":"company",
+      "persent":null,
+      "persentOriginal":null,
+      "founderAdress":null,
+      "code":"31077508",
+      "directControl":null,
+      "countDirectControlPower":0,
+      "countNotDirectControlPower":0,
+      "countDirectLessControlPower":1,
+      "countNotDirectLessControlPower":0,
+      "countTotal":1,
+      "child":[
+         {
+            "id":"6998792",
+            "name":"МУСІЙОВСЬКИЙ МИХАЙЛО МИКОЛАЙОВИЧ",
+            "adress":"55332, УКРАЇНА, 55332, МОЛОДІЖНА, 10, ІВАНІВКА, АРБУЗИНСЬКИЙ, МИКОЛАЇВСЬКА",
+            "country":"UA",
+            "isFounder":true,
+            "relationType":"founder",
+            "nodeType":"people",
+            "persent":100.0,
+            "persentOriginal":100.0,
+            "founderAdress":"55332, УКРАЇНА, 55332, МОЛОДІЖНА, 10, ІВАНІВКА, АРБУЗИНСЬКИЙ, МИКОЛАЇВСЬКА",
+            "code":null,
+            "directControl":"Прямий вплив",
+            "countDirectControlPower":null,
+            "countNotDirectControlPower":null,
+            "countDirectLessControlPower":null,
+            "countNotDirectLessControlPower":null,
+            "countTotal":null,
+            "child":[
+               
+            ]
+         }
+      ]
+   }
+}
