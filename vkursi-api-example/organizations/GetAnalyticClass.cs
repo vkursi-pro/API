@@ -2,6 +2,7 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using vkursi_api_example.token;
 
@@ -74,6 +75,13 @@ namespace vkursi_api_example.organizations
             GetAnalyticResponseModel organizationAnalytic = new GetAnalyticResponseModel();
 
             organizationAnalytic = JsonConvert.DeserializeObject<GetAnalyticResponseModel>(responseString);
+
+            var vidkrytoCreditor = organizationAnalytic.enforcements.Where(w => w.vidkrytoCreditor != null).Sum(w => w.vidkrytoCreditor);
+            var zavershenoCreditor = organizationAnalytic.enforcements.Where(w => w.zavershenoCreditor != null).Sum(w => w.zavershenoCreditor);
+            var inshyyStanCreditor = organizationAnalytic.enforcements.Where(w => w.inshyyStanCreditor != null).Sum(w => w.inshyyStanCreditor);
+            var vidkrytoDebitor = organizationAnalytic.enforcements.Where(w => w.vidkrytoDebitor != null).Sum(w => w.vidkrytoDebitor);
+            var zavershenoDebitor = organizationAnalytic.enforcements.Where(w => w.zavershenoDebitor != null).Sum(w => w.zavershenoDebitor);
+            var inshyyStanDebitor = organizationAnalytic.enforcements.Where(w => w.inshyyStanDebitor != null).Sum(w => w.inshyyStanDebitor);
 
             return organizationAnalytic;
         }

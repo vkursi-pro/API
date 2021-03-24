@@ -10,7 +10,7 @@ namespace vkursi_api_example.organizations
     {
         /*
 
-        33. Список виконавчих проваджень по фізичним або юридичним особам за кодом ІПН / ЄДРПОУ
+        33. Список виконавчих проваджень по юридичним особам за кодом ЄДРПОУ (55. Список виконавчих проваджень по фізичним особам за кодом ІПН)
         [POST] /api/1.0/organizations/getorgenforcements
 
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorgenforcements' \
@@ -35,7 +35,7 @@ namespace vkursi_api_example.organizations
                     {
                         code
                     },
-                    Take = 3,                                                 // Кількість записів (ВП) які будуть отримані
+                    Take = 500,                                                 // Кількість записів (ВП) які будуть отримані
                     Skip = 0                                                   // Кількість записів (ВП) які будуть пропущені
                 };
 
@@ -76,7 +76,7 @@ namespace vkursi_api_example.organizations
 
             GetOrgEnforcementsResponseModel GOEResponse = new GetOrgEnforcementsResponseModel();
 
-            GOEResponse = new GetOrgEnforcementsResponseModel();
+            GOEResponse = JsonConvert.DeserializeObject<GetOrgEnforcementsResponseModel>(responseString);
 
             return GOEResponse;
         }
@@ -128,7 +128,7 @@ namespace vkursi_api_example.organizations
     {
         public bool IsSucces { get; set; }                                      // Успішний запит (true - так / false - ні)
         public string Succes { get; set; }                                      // Статус відповіді (maxLength:128)
-        public OrgEnforcementApiAnswerModelData Data { get; set; }              // Дані
+        public List<OrgEnforcementApiAnswerModelData> Data { get; set; }              // Дані
     }
 
     public class OrgEnforcementApiAnswerModelData                               // Дані

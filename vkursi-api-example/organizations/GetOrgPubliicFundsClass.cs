@@ -12,8 +12,8 @@ namespace vkursi_api_example.organizations
          
         34. Загальна статистики по Edata (по компанії)
         [POST] /api/1.0/organizations/getorgpubliicfunds    
-        
-        */
+         
+        */ 
 
         public static GetOrgPubliicFundsResponseModel GetOrgPubliicFunds(ref string token, string code)
         {

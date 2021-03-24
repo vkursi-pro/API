@@ -23,7 +23,11 @@ namespace vkursi_api_example.person
 
         public CheckPersonResponseModel CheckPerson(string token, CheckPersonRequestBodyModel CheckPersonRequestBodyRow)
         {
-            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
+            if (string.IsNullOrEmpty(token)) 
+            { 
+                AuthorizeClass _authorize = new AuthorizeClass();
+                token = _authorize.Authorize();
+            }
 
             string responseString = string.Empty;
 
@@ -111,6 +115,10 @@ namespace vkursi_api_example.person
 
     public class CheckPersonRequestBodyModel                                            // Модель запиту (обмеження 1)
     {
+        /// <summary>
+        /// ПІБ
+        /// </summary>
+        /// <example>ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ</example>
         public string FullName { get; set; }                                            // ПІБ
         public string FirstName { get; set; }                                           // Призвище (необовязкове якщо вказаний FullName)
         public string SecondName { get; set; }                                          // Ім'я (необовязкове якщо вказаний FullName)

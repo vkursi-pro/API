@@ -1,9 +1,6 @@
-﻿using HtmlAgilityPack;
-using Newtonsoft.Json;
+﻿using System;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using HtmlAgilityPack;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example.courtdecision

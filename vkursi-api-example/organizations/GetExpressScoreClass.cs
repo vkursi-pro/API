@@ -69,6 +69,15 @@ namespace vkursi_api_example.organizations
 
             GESResponse = JsonConvert.DeserializeObject<GetExpressScoreResponseModel>(responseString);
 
+            if (GESResponse.Status.Contains("Помилка"))
+            {
+
+            }
+            else
+            {
+                Console.WriteLine(responseString);
+            }
+
             return GESResponse;
         }
     }

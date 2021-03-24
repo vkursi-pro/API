@@ -47,7 +47,7 @@ namespace vkursi_api_example
             // 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
             // [GET] /api/1.0/estate/getestatebycode
 
-            //GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+            GetEstateByCodeClass.GetRealEstateRights("00131305", token);
 
             // 6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
             // [GET] /api/1.0/changes/getchanges
@@ -118,8 +118,6 @@ namespace vkursi_api_example
             // 18. Отримати перелік Label доступних в модулі BI
             // [GET] /api/1.0/bi/getbiimportlabels
 
-            DateTime dateTime = DateTime.Now;
-
             GetBiImportLabelsClass.GetBiImportLabels(token);
             // New
             GetBiLabelsClass.GetBiLabels(token);
@@ -177,7 +175,7 @@ namespace vkursi_api_example
             // 29. Отримання інформації по фізичній особі
             // [POST] /api/1.0/person/checkperson
 
-            CheckPersonRequestBodyModel CheckPersonRequestBody = JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2301715013\",\"Doc\":null,\"Birthday\":null, \"RuName\":null}");
+            CheckPersonRequestBodyModel CheckPersonRequestBody = JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2301715013\",\"Doc\":\"BC481139\",\"Birthday\":null, \"RuName\":null}");
             CheckPersonClass _checkPersonClass = new CheckPersonClass();
             _checkPersonClass.CheckPerson(token, CheckPersonRequestBody);
 
@@ -192,7 +190,7 @@ namespace vkursi_api_example
             // 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
             // [POST] /api/1.0/organizations/getorgvehicle
 
-            GetOrgVehicleClass.GetOrgVehicle(ref token, "00131305");
+            GetOrgVehicleClass.GetOrgVehicle(ref token, "09807750");
 
             // 33. Список виконавчих проваджень по юридичним особам за кодом ЄДРПОУ (55. Список виконавчих проваджень по фізичним особам за кодом ІПН)
             // [POST] /api/1.0/organizations/getorgenforcements
@@ -333,15 +331,15 @@ namespace vkursi_api_example
             // 60. Отримання відомостей по Експрес оцінку ризиків у ЮО, ФОП та ФО за ПІБ та кодом ІПН / ЄДРПОУ 
             // [POST] /api/1.0/organizations/getExpressScore
 
-            GetExpressScoreClass.GetExpressScore(ref token, 1, "31077508");
+            GetExpressScoreClass.GetExpressScore(ref token, 1, "37199162");
 
             // 61. Редагування відомостей вагу ризиків в Експрес оцінці
-            // [POST] /api/1.0/organizations/EditExpressScoreWeight
+            // [POST] /api/1.0/organizations/EditExpressScoreWeight?type=1
 
             EditExpressScoreWeightClass.EditExpressScoreWeight(ref token, "[{\"borgZarPlati\":[{\"indicatorValue\":\">=200000\",\"weight\":1},{\"indicatorValue\":\">100000#=<200000\",\"weight\":2},{\"indicatorValue\":\"=<100000\",\"weight\":3}],\"vidkrytiVp\":[{\"indicatorValue\":\">=5\",\"weight\":1},{\"indicatorValue\":\">1#<5\",\"weight\":2},{\"indicatorValue\":\"=0\",\"weight\":3}],}]");
 
             // 62. Отримання відомостей про вагу ризиків в Експрес оцінці
-            // [POST] /api/1.0/organizations/GetExpressScoreWeight
+            // [POST] /api/1.0/organizations/GetExpressScoreWeight?type=1
 
             GetExpressScoreWeightClass.GetExpressScoreWeight(ref token);
 
@@ -350,6 +348,16 @@ namespace vkursi_api_example
 
             GetOwnershipStructureClass.GetOwnershipStructure(ref token, "31077508");
 
+            // 64. Перелік об'єктів в списках
+            // [POST] /api/1.0/monitoring/getContent
+
+            GetContentMonitoringClass.GetContent(ref token, "31077508"); // string reestrId
+
+            // 65. Отримати скорочені дані ДЗК за списком кадастрових номерів
+            // [POST] /api/1.0/estate/GetPKKUinfo
+
+            GetPKKUinfoClass.GetPKKUinfo(ref token, new List<string> { "5321386400:00:042:0028" });
+
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp
 
@@ -357,9 +365,6 @@ namespace vkursi_api_example
             // [inprogress]
 
             // Перелік статусів відповідей API
-
-
-
         }
     }
 }

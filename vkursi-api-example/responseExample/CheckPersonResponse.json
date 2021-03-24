@@ -1,0 +1,355 @@
+{
+   "Status":"Дані успішно знайдено",
+   "IsSucces":true,
+   "Name":"шеремета василь анатолійович",
+   "Ipn":"2301715013",
+   "Passport":null,
+   "NameRu":null,
+   "DateBirth":"1963-01-07T00:00:00",
+   "Borg":{
+      "PadatokBorg":[
+         
+      ],
+      "PaymentBorg":[
+         
+      ],
+      "ChildBorg":[
+         
+      ]
+   },
+   "Movables":[
+      
+   ],
+   "PersonsInFopsModelList":[
+      {
+         "FopId":"8610d4de-0f9e-469e-ba97-8f7db41ca94e",
+         "Name":"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ",
+         "RegionName":"Миколаївська обл",
+         "Kved":"47.89 Роздрібна торгівля з лотків і на ринках іншими товарами",
+         "Status":"в стані припинення",
+         "Reference":"sheremeta-vasyl-anatoliiovych-8610d4de-0f9e-469e-ba97-8f7db41ca94e"
+      }
+   ],
+   "Audits":[
+      
+   ],
+   "Enforcements":null,
+   "Estates":{
+      "StatusExist":false,
+      "PersonEstatesLandList":[
+         {
+            "Id":"a5571057-b158-48f7-abba-0adf0ce396d5",
+            "PersonCardId":"c0a8e56e-0a9e-b946-14a8-2160f94b646c",
+            "Name":"4820355700:02:036:0126",
+            "Court":0,
+            "LocationChecked":true,
+            "LocationName":"Миколаївська, Арбузинський, Костянтинівка",
+            "LocationCoordinates":"{\"Longtitude\":31.1574523089521,\"Latitude\":47.8385091041633}",
+            "FormaVlasnosti":"Приватна",
+            "Area":0.0104,
+            "Purpose":"A.01.03",
+            "CategoryList":[
+               5
+            ],
+            "StatusList":[
+               1
+            ]
+         },
+         {
+            "Id":"7a3abaae-1b73-4430-9a77-12b494e92832",
+            "PersonCardId":"c0a8e56e-0a9e-b946-14a8-2160f94b646c",
+            "Name":"6823980700:02:026:0342",
+            "Court":0,
+            "LocationChecked":true,
+            "LocationName":"Хмельницька, Славутський, Бачманівська/с.бачманівка",
+            "LocationCoordinates":"{\"Longtitude\":27.0417084744405,\"Latitude\":50.3304791977158}",
+            "FormaVlasnosti":"Приватна",
+            "Area":2.8122,
+            "Purpose":"01.01 Для ведення товарного сільськогосподарського виробництва",
+            "CategoryList":[
+               5
+            ],
+            "StatusList":[
+               1
+            ]
+         },
+         {
+            "Id":"2c3089e5-9304-4073-a615-a235020ec9de",
+            "PersonCardId":"c0a8e56e-0a9e-b946-14a8-2160f94b646c",
+            "Name":"4820355700:02:036:0125",
+            "Court":0,
+            "LocationChecked":true,
+            "LocationName":"Миколаївська, Арбузинський, Костянтинівка",
+            "LocationCoordinates":"{\"Longtitude\":31.1573178375455,\"Latitude\":47.8385761559125}",
+            "FormaVlasnosti":"Приватна",
+            "Area":0.04,
+            "Purpose":"A.01.03",
+            "CategoryList":[
+               5
+            ],
+            "StatusList":[
+               1
+            ]
+         },
+         {
+            "Id":"a9dc473b-4fc3-4d2e-86f2-d16cc35fb982",
+            "PersonCardId":"c0a8e56e-0a9e-b946-14a8-2160f94b646c",
+            "Name":"6823980700:02:026:0022",
+            "Court":0,
+            "LocationChecked":true,
+            "LocationName":"Хмельницька, Славутський, Бачманівська/с.бачманівка",
+            "LocationCoordinates":"{\"Longtitude\":27.0392486268612,\"Latitude\":50.3307823596152}",
+            "FormaVlasnosti":"Приватна",
+            "Area":2.8121,
+            "Purpose":"01.01 Для ведення товарного сільськогосподарського виробництва",
+            "CategoryList":[
+               5
+            ],
+            "StatusList":[
+               1
+            ]
+         }
+      ],
+      "PersonEstatesObjectList":[
+         {
+            "Id":"02f56b1a-bc6b-42e4-a908-eb8863aa8bbf",
+            "PersonCardId":"c0a8e56e-0a9e-b946-14a8-2160f94b646c",
+            "Name":"Миколаївська обл., Арбузинський р., смт. Костянтинівка, вулиця Леніна, будинок 125-А",
+            "Court":0,
+            "LocationChecked":true,
+            "LocationName":null,
+            "LocationCoordinates":"{\"Longtitude\":31.1615735,\"Latitude\":47.8276814}",
+            "FormaVlasnosti":null,
+            "Area":null,
+            "Purpose":null,
+            "CategoryList":[
+               5
+            ],
+            "StatusList":[
+               1
+            ]
+         }
+      ],
+      "Purposes":[
+         {
+            "Name":"A.01.03",
+            "LandCount":2,
+            "Area":0.0504,
+            "CourtCount":0
+         },
+         {
+            "Name":"01.01 Для ведення товарного сільськогосподарського виробництва",
+            "LandCount":2,
+            "Area":5.6243,
+            "CourtCount":0
+         }
+      ],
+      "Regions":[
+         {
+            "Name":"Миколаївська область",
+            "LandCount":2,
+            "Area":0.0504,
+            "CourtCount":0
+         },
+         {
+            "Name":"Хмельницька область",
+            "LandCount":2,
+            "Area":5.6243,
+            "CourtCount":0
+         }
+      ],
+      "OwnershipType":{
+         "Private":4,
+         "Commun":0,
+         "Derg":0,
+         "Other":0
+      },
+      "UpdateInProgres":false,
+      "Error":false
+   },
+   "Vehicles":[
+      
+   ],
+   "PersonsInOrganizationsModelsList":[
+      {
+         "Name":"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ",
+         "OrgName":"ГО \"ЄДИНА НАДІЯ!\"",
+         "OrgCode":"39661276",
+         "OrgStatus":"зареєстровано",
+         "CountryCode":804,
+         "ConnectionType":"Засновник",
+         "Address":null,
+         "Reference":"ho-iedyna-nadiia-39661276"
+      }
+   ],
+   "FairModels":null,
+   "IntellectualProperty":{
+      "PersonTrademarkList":[
+         
+      ],
+      "PersonPatentList":[
+         
+      ],
+      "UsefulModelList":[
+         
+      ]
+   },
+   "Declarations":[
+      
+   ],
+   "Licenses":{
+      "ActualLicenseCount":0,
+      "NonActualLicenseCount":0,
+      "LicensesList":null,
+      "CorruptionsList":null,
+      "LustrationsList":null
+   },
+   "Hiding":[
+      
+   ],
+   "LostDocuments":[
+      
+   ],
+   "CourtAnalytic":{
+      "TotalCount":1,
+      "PlaintiffCount":0,
+      "DefendantCount":1,
+      "OtherSideCount":0,
+      "LoserCount":0,
+      "WinCount":0,
+      "IntendedCount":0,
+      "CaseCount":1,
+      "InProcess":0,
+      "TotalDocuments":1,
+      "ListJusticeKindses":[
+         {
+            "Id":4,
+            "Name":"Адміністративне",
+            "Count":1
+         },
+         {
+            "Id":0,
+            "Name":"Iнше",
+            "Count":0
+         },
+         {
+            "Id":1,
+            "Name":"Цивільне",
+            "Count":0
+         },
+         {
+            "Id":2,
+            "Name":"Кримінальне",
+            "Count":0
+         },
+         {
+            "Id":3,
+            "Name":"Господарське",
+            "Count":0
+         },
+         {
+            "Id":5,
+            "Name":"Адмінправопорушення",
+            "Count":0
+         }
+      ]
+   },
+   "Bancrutcy":[
+      {
+         "Name":"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ",
+         "Number":"915/1257/14",
+         "CourtName":"Господарський суд Миколаївської області",
+         "Publications":[
+            {
+               "Item1":"2016-02-16T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2014-09-18T00:00:00",
+               "Item2":"Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури"
+            },
+            {
+               "Item1":"2016-08-08T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-03-23T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-12-27T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-09-08T00:00:00",
+               "Item2":"Повідомлення про результати проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2017-03-01T00:00:00",
+               "Item2":"Повідомлення про результати проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-09-21T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-07-04T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-12-09T00:00:00",
+               "Item2":"Повідомлення про результати проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-11-10T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-04-21T00:00:00",
+               "Item2":"Повідомлення про результати проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2017-01-30T00:00:00",
+               "Item2":"Повідомлення про результати проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-05-31T00:00:00",
+               "Item2":"Повідомлення про результати проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2014-09-11T00:00:00",
+               "Item2":"Оголошення про порушення справи про банкрутство"
+            },
+            {
+               "Item1":"2016-08-04T00:00:00",
+               "Item2":"Повідомлення про результати проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-04-25T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-10-25T00:00:00",
+               "Item2":"Повідомлення про результати проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2017-01-31T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-12-08T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-12-08T00:00:00",
+               "Item2":"Оголошення про проведення аукціону з продажу майна (додаткове)"
+            },
+            {
+               "Item1":"2016-03-18T00:00:00",
+               "Item2":"Повідомлення про результати проведення аукціону з продажу майна (додаткове)"
+            }
+         ]
+      }
+   ],
+   "Sanctions":null
+}
