@@ -42,7 +42,7 @@ namespace vkursi_api_example
             // 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
             // [POST] /api/1.0/organizations/getadvancedorganization
 
-            GetAdvancedOrganizationClass.GetAdvancedOrganization("1841404820", ref token); // 00131305
+            GetAdvancedOrganizationClass.GetAdvancedOrganization("3334800417", ref token); // 00131305
 
             // 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
             // [GET] /api/1.0/estate/getestatebycode
@@ -351,12 +351,22 @@ namespace vkursi_api_example
             // 64. Перелік об'єктів в списках
             // [POST] /api/1.0/monitoring/getContent
 
-            GetContentMonitoringClass.GetContent(ref token, "31077508"); // string reestrId
+            GetContentMonitoringClass.GetContent(ref token, "31077508" ); // string reestrId
 
             // 65. Отримати скорочені дані ДЗК за списком кадастрових номерів
             // [POST] /api/1.0/estate/GetPKKUinfo
 
             GetPKKUinfoClass.GetPKKUinfo(ref token, new List<string> { "5321386400:00:042:0028" });
+
+            // 66. Отримати дані реквізитів для строреня картки ФОП / ЮО
+            // [POST] /api/1.0/organizations/GetRequisites
+
+            GetRequisitesClass.GetRequisites(ref token, "41462280");
+
+            // 67. Запит на отримання повних реквізитів та контенту судових документів організації за критеріями
+            // [POST] /api/1.0/courtdecision/getdecisionsbyfilter
+
+            GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
 
             // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
             // [inprogress] estate/GetRrp

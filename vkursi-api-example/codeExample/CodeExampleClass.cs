@@ -1,7 +1,11 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
+using vkursi_api_example.estate;
 using vkursi_api_example.organizations;
 
 namespace vkursi_api_example.codeExample
@@ -90,6 +94,54 @@ namespace vkursi_api_example.codeExample
                 Console.WriteLine(ex);
                 return false;
             }
+        }
+
+        // Приклад отримання скорочених даних ДЗК за списком кадастрових номерів
+
+        public static void GetPKKUinfo(string token)
+        {
+            List<string> FileTextLineList = new List<string>();
+
+            using (var sr = new StreamReader(@"C:\Users\vadim\Desktop\cadNumb.txt"))
+            {
+                string textLine = string.Empty;
+
+                while ((textLine = sr.ReadLine()) != null)
+                {
+                    FileTextLineList.Add(textLine?.Trim());
+                }
+
+                FileTextLineList = FileTextLineList.Distinct().ToList();
+            }
+
+            int count = 0;
+
+            List<string> CadNumberList = new List<string>();
+
+            List<KadastrMapApiDetailsEstate> KadastrMapApiDetails = new List<KadastrMapApiDetailsEstate>();
+
+            foreach (var item in FileTextLineList)
+            {
+                count++;
+
+                CadNumberList.Add(item);
+
+                if ((count % 99) == 0 || count == FileTextLineList.Count)
+                {
+                    GetPKKUinfoResponseModel GetPKKUinfoResponse = GetPKKUinfoClass.GetPKKUinfo(ref token, CadNumberList);
+                    CadNumberList.Clear();
+
+                    KadastrMapApiDetails.AddRange(GetPKKUinfoResponse.Data);
+                }
+            }
+
+            using (var writer = new StreamWriter(@"C:\Users\vadim\Desktop\cadNumbResult.csv"))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(KadastrMapApiDetails);
+            }
+
+            Console.WriteLine();
         }
     }
 }

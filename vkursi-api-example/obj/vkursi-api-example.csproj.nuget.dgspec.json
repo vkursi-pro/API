@@ -44,6 +44,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[26.1.0, )"
+            },
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[1.11.30, )"

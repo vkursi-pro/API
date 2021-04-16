@@ -76,6 +76,8 @@ namespace vkursi_api_example.organizations
 
             organizationAnalytic = JsonConvert.DeserializeObject<GetAnalyticResponseModel>(responseString);
 
+            string jsonStr = JsonConvert.SerializeObject(organizationAnalytic, Formatting.Indented);
+
             var vidkrytoCreditor = organizationAnalytic.enforcements.Where(w => w.vidkrytoCreditor != null).Sum(w => w.vidkrytoCreditor);
             var zavershenoCreditor = organizationAnalytic.enforcements.Where(w => w.zavershenoCreditor != null).Sum(w => w.zavershenoCreditor);
             var inshyyStanCreditor = organizationAnalytic.enforcements.Where(w => w.inshyyStanCreditor != null).Sum(w => w.inshyyStanCreditor);

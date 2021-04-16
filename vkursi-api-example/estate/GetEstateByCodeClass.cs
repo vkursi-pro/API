@@ -79,6 +79,10 @@ namespace vkursi_api_example.estate
 
             realEstateDeserialize = JsonConvert.DeserializeObject<GetRealEstateRightsResponseModel>(responseString);
 
+            //string jsonStr = JsonConvert.SerializeObject(realEstateDeserialize, Formatting.Indented);
+
+            //realEstateDeserialize.Estates.RemoveAll(r => r.DateEnd != null);
+
             return realEstateDeserialize;
         }
     }
@@ -194,7 +198,7 @@ namespace vkursi_api_example.estate
         public int? CourtCount { get; set; }                                    // К-ть судових рішень
 
         [JsonPropertyName("objectId")]
-        public int? ObjectId { get; set; }                                      // Id об'єкта Nais (для отримання витяга)
+        public long? ObjectId { get; set; }                                      // Id об'єкта Nais (для отримання витяга)
         public string Code { get; set; }                                        // Код ЄДРПОУ / ІПН (maxLength:10)
     }
 

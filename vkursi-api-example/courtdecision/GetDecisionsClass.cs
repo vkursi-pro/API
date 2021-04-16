@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using System;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Newtonsoft.Json;
 using vkursi_api_example.token;
+using System.Collections.Generic;
 
 namespace vkursi_api_example.courtdecision
 {
@@ -24,7 +23,11 @@ namespace vkursi_api_example.courtdecision
 
         public static GetDecisionsResponseModel GetDecisions(string edrpou, int? skip, int? typeSide, int? justiceKindId, List<string> npas, string token)
         {
-            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
+            if (string.IsNullOrEmpty(token))
+            {
+                AuthorizeClass _authorize = new AuthorizeClass();
+                token = _authorize.Authorize();
+            }
 
             string responseString = string.Empty;
 

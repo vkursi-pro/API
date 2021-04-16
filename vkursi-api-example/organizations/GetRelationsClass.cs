@@ -10,16 +10,22 @@ namespace vkursi_api_example.organizations
     {
         /*
 
-        41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
-        [POST] /api/1.0/organizations/getrelations
+        Метод:
+            41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
+            [POST] /api/1.0/organizations/getrelations
 
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getrelations' \
-        --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
-        --header 'Content-Type: application/json' \
-        --data-raw '{"Edrpou":["00131305"],"RelationId":null}'
+        cURL запиту:
+            curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getrelations' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Edrpou":["42556505"],"RelationId":null,"FilterRelationType":null,"MaxRelationLevel":3}'
+
+        Приклад відповіді:
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetRelationsResponse.json
 
         */
+
         public static GetRelationsResponseModel GetRelations(ref string token, string edrpou, string relationId)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
@@ -34,9 +40,15 @@ namespace vkursi_api_example.organizations
                     {
                         edrpou
                     },
-                    MaxRelationLevel = 3
 
-                    //RelationId = new List<string>
+                    MaxRelationLevel = 1,                                               // Фільтр по к-ті рівнів зв'язків які будуть отриммані в відповіді
+
+                    //FilterRelationType = new List<int>                                // Фільтр по типам зв'язків
+                    //{ 
+                    //    1,2,3
+                    //},
+
+                    //RelationId = new List<string>                                     // Перелік Id зв'язків за якими буде проведений пошук зв'язків
                     //{
                     //    edrpou
                     //}
@@ -44,7 +56,7 @@ namespace vkursi_api_example.organizations
 
                 string body = JsonConvert.SerializeObject(GRRequestBody);
 
-                // Example Body: {"Edrpou":["00131305"],"RelationId":null}
+                // Example Body: {"Edrpou":["42556505"],"RelationId":null,"FilterRelationType":null,"MaxRelationLevel":3}
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getrelations");
                 RestRequest request = new RestRequest(Method.POST);
@@ -85,7 +97,7 @@ namespace vkursi_api_example.organizations
         import http.client
         import mimetypes
         conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
-        payload = "{\"Edrpou\":[\"00131305\"],\"RelationId\":null}"
+        payload = "{\"Edrpou\":[\"42556505\"],\"RelationId\":null,\"FilterRelationType\":null,\"MaxRelationLevel\":3}"
         headers = {
           'ContentType': 'application/json',
           'Authorization': 'Bearer eyJhbGciOiJIUzI1Ni...',
@@ -102,7 +114,7 @@ namespace vkursi_api_example.organizations
         OkHttpClient client = new OkHttpClient().newBuilder()
           .build();
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\"Edrpou\":[\"00131305\"],\"RelationId\":null}");
+        RequestBody body = RequestBody.create(mediaType, "{\"Edrpou\":[\"42556505\"],\"RelationId\":null,\"FilterRelationType\":null,\"MaxRelationLevel\":3}");
         Request request = new Request.Builder()
           .url("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getrelations")
           .method("POST", body)
@@ -116,9 +128,10 @@ namespace vkursi_api_example.organizations
 
     public class GetRelationsRequestBodyModel                                           // Модель запиту 
     {
-        public List<string> Edrpou { get; set; }                                        // Перелік кодів ЄДРПОУ (обмеження 1)
-        public List<string> RelationId { get; set; }                                    // Перелік id зв'язків
-        public int? MaxRelationLevel { get; set; }                                       // К-ть рівнів
+        public List<string> Edrpou { get; set; }                                        // Перелік кодів ЕДРПОУ за якими буде проведений пошук зв'язків
+        public List<string> RelationId { get; set; }                                    // Перелік Id зв'язків за якими буде проведений пошук зв'язків
+        public List<int> FilterRelationType { get; set; }                               // Фільтр по типам зв'язків (LocationType = 1, ChiefType = 2, FounderType = 3, OldNodeNameType = 4, OldNodeChiefType = 5, OldNodeAdressType = 6, OldNodeFounder = 7, Branch = 8, Assignee = 9, Signatorie = 10, Shareholder = 11, ContactType = 12)
+        public int? MaxRelationLevel { get; set; }                                      // Фільтр по к-ті рівнів зв'язків які будуть отриммані в відповіді
     }
 
     public class GetRelationsResponseModel                                              // Модель на відповідь
@@ -137,6 +150,9 @@ namespace vkursi_api_example.organizations
         public string ChildName { get; set; }                                           // Назва дочірнього зв'язку
         public string ChildEdrpou { get; set; }                                         // ЄДРПОУ дочірнього зв'язку
         public List<int> ParentSanctions { get; set; }                                  // Санкції
+        public int? ParentPublicPerson { get; set; }                                    // Статус публічної особи (// 0 - не публічна особа, 1 - звязана с публічною особою, 2 - публічная особо, 3 - невідомо, null - нема інформації)
+        public int? ChildPublicPerson { get; set; }                                     // Дочірній  зв'язок
+        public double? Percent { get; set; }                                            // Відсоток володіння (якщо бенефіціар / засновник / або власник пакетік акцій)
         public List<int> ChildSanctions { get; set; }                                   // Санкції дочірнього зв'язку
         public int? RelationLevel { get; set; }                                         // Рівень зв'язків
         public string Type { get; set; }                                                // Тип зв'язку (керівник, бенефіціар)
