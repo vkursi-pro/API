@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "m7LKqs/hEyebrpS9YG6M9pU3PmgDSvPb0Eq4crCdodPx9R5hgBjcCJhMF6N++vXAIy8d2CONIcrtbr7SQa/f8w==",
+  "dgSpecHash": "PhP+qA/2xgJ3Ds0cD3gA8wjVbafX2Lukf3xaG0geqP7DSNLAhy38I41Gy3+JNP37rgJPMVumGuWh9QIrizanZg==",
   "success": true,
-  "projectFilePath": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+  "projectFilePath": "C:\\Users\\VadymVadym\\source\\repos\\API\\vkursi-api-example\\vkursi-api-example.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\vadim\\.nuget\\packages\\csvhelper\\26.1.0\\csvhelper.26.1.0.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\htmlagilitypack\\1.11.30\\htmlagilitypack.1.11.30.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"
+    "C:\\Users\\VadymVadym\\.nuget\\packages\\csvhelper\\26.1.0\\csvhelper.26.1.0.nupkg.sha512",
+    "C:\\Users\\VadymVadym\\.nuget\\packages\\htmlagilitypack\\1.11.30\\htmlagilitypack.1.11.30.nupkg.sha512",
+    "C:\\Users\\VadymVadym\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\VadymVadym\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\VadymVadym\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"
   ],
   "logs": []
 }

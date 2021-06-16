@@ -140,7 +140,7 @@ namespace vkursi_api_example
             // 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
             // [POST] /api/1.0/movableLoads/getmovableloads
 
-            GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
+            GetMovableLoadsClass.GetMovableLoads(ref token, "36679626", "1841404820");
 
             // 23. ДРОРМ отримання витяга
             // [POST] /api/1.0/MovableLoads/getpaymovableloads

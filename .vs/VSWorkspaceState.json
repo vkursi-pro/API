@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\vkursi-api-example",
-    "\\vkursi-api-example\\organizations"
+    ""
   ],
-  "SelectedNode": "\\vkursi-api-example\\organizations\\AuthorizeClass.cs",
+  "SelectedNode": "\\vkursi-api-example.sln",
   "PreviewInSolutionExplorer": false
 }

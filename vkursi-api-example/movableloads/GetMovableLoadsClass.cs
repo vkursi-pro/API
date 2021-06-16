@@ -23,7 +23,7 @@ namespace vkursi_api_example.movableloads
         
         */
 
-        public static GetMovableLoadsResponseModel GetMovableLoads(string token, string edrpou, string ipn)
+        public static GetMovableLoadsResponseModel GetMovableLoads(ref string token, string edrpou, string ipn)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
