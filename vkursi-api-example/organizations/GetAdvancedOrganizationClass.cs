@@ -40,8 +40,11 @@ namespace vkursi_api_example.organizations
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getadvancedorganization");
                 RestRequest request = new RestRequest(Method.POST);
 
+                request.AddParameter("needUpdate", "true");                 // true - прямий запит в Nais / false - історичні дані з сервісу
+
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
+
                 request.AddParameter("application/json", body, ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute(request);

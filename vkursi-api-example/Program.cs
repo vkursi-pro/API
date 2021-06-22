@@ -32,7 +32,7 @@ namespace vkursi_api_example
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
-            GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472 
+            GetOrganizationsClass.GetOrganizations("40073472", ref token); // 40073472 
 
             // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
             // [POST] /api/1.0/organizations/getfops
@@ -110,7 +110,7 @@ namespace vkursi_api_example
             GetBiDataClass.GetBiData(null, 1000, token);
             // New
             GetDataBiInfoClass.GetDataBiInfo("1c891112-b022-4a83-ad34-d1f976c60a0b", 1000, DateTime.Parse("2019-11-28 19:00:52.059"), token);
-            // New 
+            // New
             GetDataBiChangeInfoClass.GetDataBiChangeInfo(DateTime.Parse("2019-11-28 19:00:52.059"), "1c891112-b022-4a83-ad34-d1f976c60a0b", false, 100, token);
             // New
             GetDataBiOrganizationInfoClass.GetDataBiOrganizationInfo(new List<string> { "1c891112-b022-4a83-ad34-d1f976c60a0b" }, new List<string> { "00131305" }, token);
@@ -140,7 +140,7 @@ namespace vkursi_api_example
             // 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
             // [POST] /api/1.0/movableLoads/getmovableloads
 
-            GetMovableLoadsClass.GetMovableLoads(ref token, "36679626", "1841404820");
+            GetMovableLoadsClass.GetMovableLoads(ref token, "36679626", null); // GetMovableLoadsClass.GetMovableLoads(ref token, null, "1841404820");
 
             // 23. ДРОРМ отримання витяга
             // [POST] /api/1.0/MovableLoads/getpaymovableloads
