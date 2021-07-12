@@ -535,11 +535,139 @@ GetTaskCompanyDeclarationsAndCourtsClass.GetTaskCompanyDeclarationsAndCourts(ref
 
 <br>
 <br>
+        
+<h3>55. Список виконавчих проваджень по фізичним особам за кодом ІПН</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/person/GetPersonEnforcementsClass.cs" target="_blank">[POST] /api/1.0/person/GetPersonEnforcements</a></p>
 
+<p><b>Дані методу: </b>Дані з реєстру виконавчих проваджень</p>
 
-<h3>ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi</h3>
-// [inprogress] estate/GetRrp
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/person/GetPersonEnforcements' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1N...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Code":"3015301315","LastName":"СТЕЛЬМАЩУК","FirstName":"АНДРІЙ","SecondName":"ВАСИЛЬОВИЧ"}'
+</code></pre>
 
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/person/GetPersonEnforcementsClass.cs" target="_blank">[POST] /api/1.0/person/GetPersonEnforcements</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/person/GetPersonEnforcementsClass.cs#L154" target="_blank">GetPersonEnforcementsResponseModel </a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetPersonEnforcementsResponse.json" target="_blank">GetPersonEnforcementsResponse.json</a></p>
+
+<br>
+<br>
+        
+<h3>56. Отримання статуту підприємства</h3>
+[POST] api/1.0/organizations/GetStatutnuyFileUrl
+
+<br>
+<br>
+      
+<h3>57. Аналіз фінансових показників підприємства за кодом ЄДРПОУ</h3>
+
+GetOrgFinanceClass.GetOrgFinance(ref token, "00131305");
+        
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceClass.cs" target="_blank">[POST] api/1.0/organizations/GetOrgFinance</a></p>
+
+<p><b>Дані методу: </b>фінансові показники діяльності подприємства (баланси, звіти про фінансові результати)</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinance' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Code":["00131305"]}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinance</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceClass.cs#L110" target="_blank">GetOrgFinanceResponseModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrgFinanceResponse.json" target="_blank">GetOrgFinanceResponse.json</a></p>
+
+<br>
+<br>
+      
+<h3>58. Оригинальний метод Nais, на отримання скороченних данних по коду ІПН / ЄДРПОУ </h3>
+[POST] /api/1.0/organizations/freenais
+
+FreeNaisClass.FreeNais(ref token, "00131305", "True", "100");
+
+<br>
+<br>
+      
+<h3>59. Оригинальний метод Nais, на отримання повних данних по ЮО або ФОП за кодом ІПН/ЄДРПОУ або кодом NaisId (який ми отримуємо з [POST] /api/1.0/organizations/freenais)</h3>
+[GET] /api/1.0/organizations/paynais
+
+PayNaisClass.Paynais(ref token, 811202);
+
+<br>
+<br>
+      
+<h3>59.1 Оригінальний метод Nais, на отримання повних данних по ЮО або ФОП за кодом ІПН/ЄДРПОУ або кодом NaisId (який ми отримуємо з [POST] /api/1.0/organizations/freenais)</h3>
+[GET] /api/1.0/organizations/payNaisSign
+
+<br>
+<br>
+      
+<h3>60. Отримання відомостей по Експрес оцінку ризиків у ЮО, ФОП та ФО за ПІБ та кодом ІПН / ЄДРПОУ</h3>
+[POST] /api/1.0/organizations/getExpressScore
+
+GetExpressScoreClass.GetExpressScore(ref token, 1, "37199162");
+
+<br>
+<br>
+      
+<h3>61. Редагування відомостей вагу ризиків в Експрес оцінці</h3>
+[POST] /api/1.0/organizations/EditExpressScoreWeight?type=1
+
+EditExpressScoreWeightClass.EditExpressScoreWeight(ref token, "[{\"borgZarPlati\":[{\"indicatorValue\":\">=200000\",\"weight\":1},{\"indicatorValue\":\">100000#=<200000\",\"weight\":2},{\"indicatorValue\":\"=<100000\",\"weight\":3}],\"vidkrytiVp\":[{\"indicatorValue\":\">=5\",\"weight\":1},{\"indicatorValue\":\">1#<5\",\"weight\":2},{\"indicatorValue\":\"=0\",\"weight\":3}],}]");
+
+<br>
+<br>
+      
+<h3>62. Отримання відомостей про вагу ризиків в Експрес оцінці</h3>
+[POST] /api/1.0/organizations/GetExpressScoreWeight?type=1
+
+GetExpressScoreWeightClass.GetExpressScoreWeight(ref token);
+
+<br>
+<br>
+      
+<h3>63. Структура власності компанії</h3>
+[POST] /api/1.0/organizations/GetOwnershipStructure
+
+GetOwnershipStructureClass.GetOwnershipStructure(ref token, "31077508");
+
+<br>
+<br>
+        
+<h3>64. Перелік об'єктів в списках</h3>
+[POST] /api/1.0/monitoring/getContent
+
+GetContentMonitoringClass.GetContent(ref token, "31077508" ); // string reestrId
+
+<br>
+<br>
+      
+<h3>65. Отримати скорочені дані ДЗК за списком кадастрових номерів</h3>
+[POST] /api/1.0/estate/GetPKKUinfo
+
+GetPKKUinfoClass.GetPKKUinfo(ref token, new List<string> { "5321386400:00:042:0028" });
+
+<br>
+<br>
+      
+<h3>66. Отримати дані реквізитів для створення картки ФОП / ЮО</h3>
+[POST] /api/1.0/organizations/GetRequisites
+
+GetRequisitesClass.GetRequisites(ref token, "41462280");
+
+<br>
+<br>
+      
+<h3>67. Запит на отримання повних реквізитів та контенту судових документів організації за критеріями</h3>
+[POST] /api/1.0/courtdecision/getdecisionsbyfilter
+
+GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
+        
 <br>
 <br>
 
