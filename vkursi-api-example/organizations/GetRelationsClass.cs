@@ -167,5 +167,38 @@ namespace vkursi_api_example.organizations
                                                                                         // Branch Філія
                                                                                         // Shareholder Власники пакетів акцій
                                                                                         // Assignee Правонаступник
+
+        [JsonProperty("adresa")]
+        public string Adresa { get; set; }                                              // 
+
+        [JsonProperty("typBenefVolodinnya")]
+        public string TypBenefVolodinnya { get; set; }                                  // 
+
+        [JsonProperty("vplyvCherezUO")]
+        public string VplyvCherezUo { get; set; }                                       // 
+
+        [JsonProperty("aktsiy")]
+        public List<AktsiyRelationModel> Aktsiy { get; set; }                                   // 
+    }
+
+    public class AktsiyRelationModel
+    {
+        [JsonProperty("vydDeponenta")]
+        public string VydDeponenta { get; set; }                                        // 
+
+        [JsonProperty("vydTsinnohoPaperu")]
+        public string VydTsinnohoPaperu { get; set; }                                   // 
+
+        [JsonProperty("kodIsin")]
+        public string KodIsin { get; set; }                                             // 
+
+        [JsonProperty("nominalVartist")]
+        public string NominalVartist { get; set; }                                      // 
+
+        [JsonProperty("kilkistAktsiy")]
+        public string KilkistAktsiy { get; set; }                                       // 
+
+        [JsonProperty("vidsotokAktsiy")]
+        public string VidsotokAktsiy { get; set; }                                      // 
     }
 }

@@ -253,11 +253,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\VadymVadym\\Source\\Repos\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+      "projectUniqueName": "C:\\Users\\VadymVadym\\source\\repos\\API\\vkursi-api-example\\vkursi-api-example.csproj",
       "projectName": "vkursi-api-example",
-      "projectPath": "C:\\Users\\VadymVadym\\Source\\Repos\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+      "projectPath": "C:\\Users\\VadymVadym\\source\\repos\\API\\vkursi-api-example\\vkursi-api-example.csproj",
       "packagesPath": "C:\\Users\\VadymVadym\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VadymVadym\\Source\\Repos\\API\\vkursi-api-example\\obj\\",
+      "outputPath": "C:\\Users\\VadymVadym\\source\\repos\\API\\vkursi-api-example\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\VadymVadym\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -318,7 +318,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
