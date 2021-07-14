@@ -94,20 +94,29 @@ namespace vkursi_api_example._2._0
     }
 
 
-    public class ApiConstructorResponseModel                                // Відповідь на запит
+    public class ApiConstructorResponseModel                                                // Відповідь на запит
     {
-        public List<int> ErrorList { get; set; }                            // Перелік методів по яким віявлені помилки
-        public List<Api2AnswerModelRelationData> GetRelationsData { get; set; } // Відповідь по методу 41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
+        public List<int> ErrorList { get; set; }                                            // Перелік методів по яким віявлені помилки
+        public List<Api2AnswerModelRelationData> GetRelationsData { get; set; }             // Відповідь по методу 41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
+                                                                                            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRelationsClass.cs#L137
         public List<OrgLicensesApiApiAnswerModelData> GetOrgLicensesInfoData { get; set; }  // Відповідь по методу 37. Перелік ліцензій, та дозволів
-        public List<Api2AnswerModelOrgFinanceData> GetOrgFinanceData { get; set; } // Відповідь по методу 57. Аналіз фінансових показників підприємства за кодом ЄДРПОУ
-        public List<GetAnalyticResponseModel> GetAnalyticData { get; set; } // 9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ
-        public List<OrganizationaisElasticModel> GetAdvancedOrganizationData { get; set; } // Відповідь по методу 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
-        public List<Api2AnswerModelGetRequisites> GetRequisitesData { get; set; } // 66. Отримати дані реквізитів для строреня картки ФОП / ЮО
-        public List<Api2AnswerModelVehicleData> VehicleData { get; set; } // 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
-        public List<OrgShareHoldersApiAnswerModelData> ShareHoldersData { get; set; } // 39. Відомості про власників пакетів акцій (від 5%)
-        public List<GetOrgFinanceShortAnswerData> ShortFinanceData { get; set; } // 69. Скорочені основні фінансові показники діяльності підприємства 
-        public string StatusMessage { get; set; } // Повідомлення про помилку
-        public int StatusCode { get; set; } // Статус відповіді
+                                                                                            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgLicensesInfoClass.cs#L84
+        public List<Api2AnswerModelOrgFinanceData> GetOrgFinanceData { get; set; }          // Відповідь по методу 57. Аналіз фінансових показників підприємства за кодом ЄДРПОУ
+                                                                                            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceClass.cs#L123
+        public List<GetAnalyticResponseModel> GetAnalyticData { get; set; }                 // Відповідь по методу 9. Запит на отримання аналітичних даних по організації за кодом ЄДРПОУ
+                                                                                            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAnalyticClass.cs#L132
+        public List<OrganizationaisElasticModel> GetAdvancedOrganizationData { get; set; }  // Відповідь по методу 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
+                                                                                            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L124
+        public List<Api2AnswerModelGetRequisites> GetRequisitesData { get; set; }           // Відповідь по методу 66. Отримати дані реквізитів для строреня картки ФОП / ЮО
+                                                                                            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRequisitesClass.cs#L137
+        public List<Api2AnswerModelVehicleData> VehicleData { get; set; }                   // Відповідь по методу 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
+                                                                                            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRequisitesClass.cs#L137
+        public List<OrgShareHoldersApiAnswerModelData> ShareHoldersData { get; set; }       // Відповідь по методу 39. Відомості про власників пакетів акцій (від 5%)
+                                                                                            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgShareholdersClass.cs#L121
+        public List<GetOrgFinanceShortAnswerData> ShortFinanceData { get; set; }            // Відповідь по методу 69. Скорочені основні фінансові показники діяльності підприємства 
+                                                                                            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceShortClass.cs#L88
+        public string StatusMessage { get; set; }                                           // Повідомлення про помилку
+        public int StatusCode { get; set; }                                                 // Статус відповіді
     }
 
     public class Api2AnswerModelRelationData
