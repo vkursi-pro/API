@@ -83,17 +83,22 @@ namespace vkursi_api_example.courtdecision
         }
     }
 
-    public class GetDecisionsByFilterRequestBodyModel
+    public class GetDecisionsByFilterRequestBodyModel                           // Модель запиту
     {
         public string Edrpou { get; set; }                                      // Код ЄДРПОУ
         public int? TypeSide { get; set; }                                      // null - all, 1 - Plaintiffs; 2 - Defendants; 3 - Other;
         public int? JusticeKindId { get; set; }                                 // null - all, 0 - "Iнше", 1 - "Цивільне", 2 - "Кримінальне", 3 - "Господарське", 4 - "Адміністративне", 5 - "Адмінправопорушення"
         public List<string> Npas { get; set; }                                  // Id статті НПА (можна отримати в розробника)
-        public string ScrollToken { get; set; }                                 // Скрол для отриання наступных документів
+        public string ScrollToken { get; set; }                                 // Скрол для отримання наступних документів
+        public int? JudgmentFormId { get; set; }                                // 1  Вирок, 2 Постанова, 3 Рішення, 4 "Судовий наказ", 5 Ухвала, 6 "Окрема ухвала", 10 "Окрема думка"
+        public DateTime? AdjudicationDateFrom { get; set; }                     // Дата рішення від
+        public DateTime? AdjudicationDateTo { get; set; }                       // Дата рішення до
+
     }
 
-    public class GetDecisionsByFilterResponseModel
-    {
 
-    }
+    // Модель відповіди ідентична Методу № 26. Рекізити судового документа [POST] /api/1.0/courtdecision/getdecisionbyid
+
+    // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionByIdClass.cs#L110
+
 }

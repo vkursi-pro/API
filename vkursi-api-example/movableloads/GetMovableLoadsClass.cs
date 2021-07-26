@@ -10,20 +10,26 @@ namespace vkursi_api_example.movableloads
     {
         /*
         
-        22. ДРОРМ отримання скороченных даних про наявні обтяження на рухоме майно по ІПН / ЄДРПОУ
-        [POST] /api/1.0/MovableLoads/getmovableloads
+        Метод:
+            22. ДРОРМ отримання скороченных даних про наявні обтяження на рухоме майно по ІПН / ЄДРПОУ
+            [POST] /api/1.0/MovableLoads/getmovableloads
 
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/MovableLoads/getmovableloads' \
-        --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
-        --header 'Content-Type: application/json' \
-        --data-raw '{"Edrpou":["36679626"],"Ipn":["1841404820"]}'
+        cURL запиту:
+            curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/MovableLoads/getmovableloads' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Edrpou":["36679626"],"Ipn":["1841404820"]}'
+
+        Приклад відповіді:
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetMovableLoadsResponse.json
+
 
         *Важливо: повертає тільки відкриті обтяження
         
         */
 
-        public static GetMovableLoadsResponseModel GetMovableLoads(string token, string edrpou, string ipn)
+        public static GetMovableLoadsResponseModel GetMovableLoads(ref string token, string edrpou, string ipn)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
@@ -124,6 +130,7 @@ namespace vkursi_api_example.movableloads
         public bool isSuccess { get; set; }         // Запит виконано успішно (true - так / false - ні)
         public string status { get; set; }          // Спапус запиту (maxLength:128)
         public List<Datum> data { get; set; }       // Перелік обтяжень
+        public Dictionary<string, string> originalData { get; set; }
     }
 
     public class SidesBurdenList                    // Перелік обтяжувачів
@@ -144,11 +151,20 @@ namespace vkursi_api_example.movableloads
 
     public class Datum                              // Перелік обтяжень
     {
-        public string number { get; set; }          // Номер обтяження  (maxLength:32)
-        public DateTime regDate { get; set; }       // Дата реєстрації обтяження
-        public bool isActive { get; set; }          // Діюче (true - так / false - ні)
-        public List<SidesBurdenList> sidesBurdenList { get; set; }  // Перелік обтяжувачів
-        public List<SidesDebtorList> sidesDebtorList { get; set; }  // Перелік боржників
-        public string property { get; set; }        // Опис майна (maxLength:512)
+        public string Number { get; set; }          // Номер обтяження  (maxLength:32)
+        public DateTime? RegDate { get; set; }       // Дата реєстрації обтяження
+        public bool IsActive { get; set; }          // Діюче (true - так / false - ні)
+        public List<SidesBurdenList> SidesBurdenList { get; set; }  // Перелік обтяжувачів
+        public List<SidesBurdenList> SidesDebtorList { get; set; }  // Перелік боржників
+        public string Property { get; set; }        // Опис майна (maxLength:512)
+        public Guid Id { get; set; }                // Системний id обтяження в сервісі Vkursi
+        public DateTime? RequestDate { get; set; }  // Дата запиту до розпорядника
+        public string ObjectEncumbrance { get; set; }// Об’єкт обтяження
+        public string Type { get; set; }            // Вид обтяження
+        public string OriginalCurrency { get; set; }// Валюта обтяження
+        public decimal? OriginalSum { get; set; }   // Сума обтяження (в валюті яка вказана в OriginalCurrency)
+        public decimal? SumUah { get; set; }        // Сума обтяження в грн по курсу на дату реєстрації обтяження
+        public DateTime? EndDate { get; set; }      // Термін дії
+        public DateTime? CreateDate { get; set; }   // Дата коли обтяження з'явисоль в сервісі Vkursi
     }
 }

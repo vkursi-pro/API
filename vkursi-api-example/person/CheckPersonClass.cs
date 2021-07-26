@@ -21,7 +21,7 @@ namespace vkursi_api_example.person
 
         */
 
-        public CheckPersonResponseModel CheckPerson(string token, CheckPersonRequestBodyModel CheckPersonRequestBodyRow)
+        public static CheckPersonResponseModel CheckPerson(string token, CheckPersonRequestBodyModel CheckPersonRequestBodyRow)
         {
             if (string.IsNullOrEmpty(token)) 
             { 

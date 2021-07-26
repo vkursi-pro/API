@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json.Serialization;
+using vkursi_api_example._2._0;
 using vkursi_api_example.bi;
 using vkursi_api_example.changes;
 using vkursi_api_example.codeExample;
@@ -37,7 +38,7 @@ namespace vkursi_api_example
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
-            GetOrganizationsClass.GetOrganizations("1841404820", ref token); // 40073472 
+            GetOrganizationsClass.GetOrganizations("40073472", ref token); // 40073472 
 
             // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
             // [POST] /api/1.0/organizations/getfops
@@ -115,7 +116,7 @@ namespace vkursi_api_example
             GetBiDataClass.GetBiData(null, 1000, token);
             // New
             GetDataBiInfoClass.GetDataBiInfo("1c891112-b022-4a83-ad34-d1f976c60a0b", 1000, DateTime.Parse("2019-11-28 19:00:52.059"), token);
-            // New 
+            // New
             GetDataBiChangeInfoClass.GetDataBiChangeInfo(DateTime.Parse("2019-11-28 19:00:52.059"), "1c891112-b022-4a83-ad34-d1f976c60a0b", false, 100, token);
             // New
             GetDataBiOrganizationInfoClass.GetDataBiOrganizationInfo(new List<string> { "1c891112-b022-4a83-ad34-d1f976c60a0b" }, new List<string> { "00131305" }, token);
@@ -180,9 +181,7 @@ namespace vkursi_api_example
             // 29. Отримання інформації по фізичній особі
             // [POST] /api/1.0/person/checkperson
 
-            //CheckPersonRequestBodyModel CheckPersonRequestBody = JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2301715013\",\"Doc\":\"СМ495604\",\"Birthday\":null, \"RuName\":null}");
-            //CheckPersonClass _checkPersonClass = new CheckPersonClass();
-            //_checkPersonClass.CheckPerson(token, CheckPersonRequestBody);
+            CheckPersonClass.CheckPerson(token, JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2301715013\",\"Doc\":\"BC481139\",\"Birthday\":null, \"RuName\":null}"));
 
             // 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
             // [POST] /api/1.0/movableloads/getexistedmovableloads
@@ -310,7 +309,7 @@ namespace vkursi_api_example
 
             GetPersonEnforcementsClass.GetPersonEnforcements(ref token, "2951907234", "ЗАЙЧЕНКО", "МАКСИМ", "ВОЛОДИМИРОВИЧ");
 
-            // 56. 
+            // 56. Отримання статуту підприємства
             // api/1.0/organizations/GetStatutnuyFileUrl
 
             // 57. Аналіз фінансових показників підприємства за кодом ЄДРПОУ
@@ -330,7 +329,6 @@ namespace vkursi_api_example
 
             // 59.1 Оригінальний метод Nais, на отримання повних даних (з міткою ЕЦП) за кодом NaisId який ми отримуємо з [POST] /api/1.0/organizations/freenais
             // organizations/payNaisSign
-
 
 
             // 60. Отримання відомостей по Експрес оцінку ризиків у ЮО, ФОП та ФО за ПІБ та кодом ІПН / ЄДРПОУ 
@@ -373,11 +371,20 @@ namespace vkursi_api_example
 
             GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
 
-            // ДРРП отримання витягів які були замовлені раніше в сервісі Vkursi
-            // [inprogress] estate/GetRrp
+            // 68. Анкета
+            // [POST] /api/1.0/organizations/GetAnketa
 
-            // Судові рішення по ФО
-            // [inprogress]
+            GetAnketaClass.GetAnketa(ref token, "41462280");
+
+            // 69. API 2.0 Конструктор API
+            // [POST] /api/2.0/ApiConstructor
+
+            ApiConstructorClass.ApiConstructor(ref token, "41462280",  new HashSet<int>{ 4, 9, 41, 37, 57, 66, 32, 39, 70});
+
+            // 70. Скорочені основні фінансові показники діяльності підприємства 
+            // [POST] /api/1.0/organizations/GetOrgFinanceShort
+
+            GetOrgFinanceShortClass.GetOrgFinanceShort(ref token, "41462280", new List<int> { 2020, 2019 });
 
             // Перелік статусів відповідей API
         }

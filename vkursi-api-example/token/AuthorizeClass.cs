@@ -6,19 +6,23 @@ namespace vkursi_api_example.token
     public class AuthorizeClass
     {
         /*
-         
-        1. Авторизація та отримання токену
-        [POST] /api/1.0/token/authorize
+        
+        Метод:
+            1. Авторизація (отримання токену)
+            [POST] /api/1.0/token/authorize
             
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/token/authorize' \
-        --header 'Content-Type: application/json' \
-        --data-raw '{"email":"test@testemail.com","password":"123456"}'
+        cURL запиту:
+            curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/token/authorize' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"email":"test@testemail.com","password":"123456"}'
+
+        * - Термін дії токену 30 хв (після цого ви отримаєте помилку 401 unauthorized)
 
         */
 
         public string Authorize()
         {
-            // Вкажіть ваш логін та пароль від сервісу vkursi.pro які ви вводиди при реєстрации облікового запису vkursi.pro/account/register
+            // Вкажіть ваш логін та пароль від сервісу Vkursi які ви вводили при реєстрації облікового запису vkursi.pro/account/register або зарееструйте новий
            
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
@@ -36,6 +40,7 @@ namespace vkursi_api_example.token
         public AuthorizeResponseModel GetRequest(AuthorizeRequestBodyModel ARBody)
         {
             string body = JsonConvert.SerializeObject(ARBody); // Example: {"email":"test@testemail.com","password":"123456"}
+
             RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/token/authorize");
             RestRequest request = new RestRequest(Method.POST);
 
@@ -46,10 +51,6 @@ namespace vkursi_api_example.token
             IRestResponse response = client.Execute(request);
             string responseString = response.Content;
 
-            if ((int)response.StatusCode == 401)
-            {
-
-            }
             AuthorizeResponseModel AuthorizeResponse = JsonConvert.DeserializeObject<AuthorizeResponseModel>(responseString);
 
             string token = AuthorizeResponse.Token;

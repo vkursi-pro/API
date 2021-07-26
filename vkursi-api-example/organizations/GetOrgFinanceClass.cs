@@ -124,7 +124,7 @@ namespace vkursi_api_example.organizations
     public partial class Datum
     {
         [JsonProperty("date_of_request")]
-        public DateTimeOffset DateOfRequest { get; set; }
+        public DateTime DateOfRequest { get; set; }
 
         [JsonProperty("name")]
         public long? Name { get; set; }
@@ -139,76 +139,76 @@ namespace vkursi_api_example.organizations
         public string Likvid { get; set; }
 
         [JsonProperty("main_active")]
-        public List<MainActive> MainActive { get; set; }
+        public List<YearSum> MainActive { get; set; }
 
         [JsonProperty("actives")]
-        public List<Active> Actives { get; set; }
+        public List<YearSum> Actives { get; set; }
 
         [JsonProperty("current_liabilities")]
-        public List<Active> CurrentLiabilities { get; set; }
+        public List<YearSum> CurrentLiabilities { get; set; }
 
         [JsonProperty("net_income")]
-        public List<Active> NetIncome { get; set; }
+        public List<YearSum> NetIncome { get; set; }
 
         [JsonProperty("net_profit")]
-        public List<Active> NetProfit { get; set; }
+        public List<YearSum> NetProfit { get; set; }
 
         [JsonProperty("balance_small")]
-        public List<BalanceSmall> BalanceSmall { get; set; }
+        public List<Balance> BalanceSmall { get; set; }
 
         [JsonProperty("balance_normal")]
-        public List<BalanceNormal> BalanceNormal { get; set; }
+        public List<Balance> BalanceNormal { get; set; }
 
         [JsonProperty("tend_num")]
-        public List<ImpGroupNum> TendNum { get; set; }
+        public List<YearNum> TendNum { get; set; }
 
         [JsonProperty("tend_sum")]
-        public List<Active> TendSum { get; set; }
+        public List<YearSum> TendSum { get; set; }
 
         [JsonProperty("tend_num_solo")]
-        public List<ImpGroupNum> TendNumSolo { get; set; }
+        public List<YearNum> TendNumSolo { get; set; }
 
         [JsonProperty("tend_percent_solo")]
-        public List<ImpBiggestGroupPercent> TendPercentSolo { get; set; }
+        public List<YearPerc> TendPercentSolo { get; set; }
 
         [JsonProperty("tend_zamov_num")]
-        public List<ImpGroupNum> TendZamovNum { get; set; }
+        public List<YearNum> TendZamovNum { get; set; }
 
         [JsonProperty("tend_zamov_sum")]
-        public List<Active> TendZamovSum { get; set; }
+        public List<YearSum> TendZamovSum { get; set; }
 
         [JsonProperty("tend_zamov_num_solo")]
-        public List<ImpGroupNum> TendZamovNumSolo { get; set; }
+        public List<YearNum> TendZamovNumSolo { get; set; }
 
         [JsonProperty("tend_zamov_percent_solo")]
-        public List<ImpBiggestGroupPercent> TendZamovPercentSolo { get; set; }
+        public List<YearPerc> TendZamovPercentSolo { get; set; }
 
         [JsonProperty("exp_num")]
-        public string ExpNum { get; set; }
+        public List<YearNum> ExpNum { get; set; }
 
         [JsonProperty("exp_sum")]
-        public string ExpSum { get; set; }
+        public List<YearSum> ExpSum { get; set; }
 
         [JsonProperty("exp_group_num")]
-        public string ExpGroupNum { get; set; }
+        public List<YearNum> ExpGroupNum { get; set; }
 
         [JsonProperty("exp_biggest_group_percent")]
-        public string ExpBiggestGroupPercent { get; set; }
+        public List<YearPerc> ExpBiggestGroupPercent { get; set; }
 
         [JsonProperty("imp_num")]
-        public ImpGroupNum[] ImpNum { get; set; }
+        public List<YearNum> ImpNum { get; set; }
 
         [JsonProperty("imp_sum")]
-        public List<Active> ImpSum { get; set; }
+        public List<YearSum> ImpSum { get; set; }
 
         [JsonProperty("imp_group_num")]
-        public List<ImpGroupNum> ImpGroupNum { get; set; }
+        public List<YearPerc> ImpGroupNum { get; set; }
 
         [JsonProperty("imp_biggest_group_percent")]
-        public List<ImpBiggestGroupPercent> ImpBiggestGroupPercent { get; set; }
+        public List<YearPerc> ImpBiggestGroupPercent { get; set; }
     }
 
-    public partial class Active
+    public partial class YearSum
     {
         [JsonProperty("year")]
         public long? Year { get; set; }
@@ -229,7 +229,25 @@ namespace vkursi_api_example.organizations
         public long? AgeMonth { get; set; }
     }
 
-    public partial class BalanceNormal
+    public partial class YearPerc
+    {
+        [JsonProperty("year")]
+        public long? Year { get; set; }
+
+        [JsonProperty("perc")]
+        public double Perc { get; set; }
+    }
+
+    public partial class YearNum
+    {
+        [JsonProperty("year")]
+        public long? Year { get; set; }
+
+        [JsonProperty("num")]
+        public long? Num { get; set; }
+    }
+
+    public partial class Balance
     {
         [JsonProperty("year")]
         public long? Year { get; set; }
@@ -983,297 +1001,7 @@ namespace vkursi_api_example.organizations
 
         [JsonProperty("D2_2550_01")]
         public double? D22550_01 { get; set; }
-    }
 
-    public partial class ImpBiggestGroupPercent
-    {
-        [JsonProperty("year")]
-        public long? Year { get; set; }
-
-        [JsonProperty("perc")]
-        public double Perc { get; set; }
-    }
-
-    public partial class ImpGroupNum
-    {
-        [JsonProperty("year")]
-        public long? Year { get; set; }
-
-        [JsonProperty("num")]
-        public long? Num { get; set; }
-    }
-
-    public partial class MainActive
-    {
-        [JsonProperty("year")]
-        public long? Year { get; set; }
-
-        [JsonProperty("sum")]
-        public long? Sum { get; set; }
-    }
-
-    public partial class BalanceSmall
-    {
-        [JsonProperty("year")]
-        public long Year { get; set; }
-
-        [JsonProperty("code")]
-        public long Code { get; set; }
-
-        [JsonProperty("D1_1005_01")]
-        public double? D11005_01 { get; set; }
-
-        [JsonProperty("D1_1005_02")]
-        public double? D11005_02 { get; set; }
-
-        [JsonProperty("D1_1010_01")]
-        public double? D11010_01 { get; set; }
-
-        [JsonProperty("D1_1010_02")]
-        public double? D11010_02 { get; set; }
-
-        [JsonProperty("D1_1011_01")]
-        public double? D11011_01 { get; set; }
-
-        [JsonProperty("D1_1011_02")]
-        public double? D11011_02 { get; set; }
-
-        [JsonProperty("D1_1012_01")]
-        public double? D11012_01 { get; set; }
-
-        [JsonProperty("D1_1012_02")]
-        public double? D11012_02 { get; set; }
-
-        [JsonProperty("D1_1020_02")]
-        public double? D11020_02 { get; set; }
-
-        [JsonProperty("D1_1020_01")]
-        public double? D11020_01 { get; set; }
-
-        [JsonProperty("D1_1030_01")]
-        public double? D11030_01 { get; set; }
-
-        [JsonProperty("D1_1030_02")]
-        public double? D11030_02 { get; set; }
-
-        [JsonProperty("D1_1090_01")]
-        public double? D11090_01 { get; set; }
-
-        [JsonProperty("D1_1090_02")]
-        public double? D11090_02 { get; set; }
-
-        [JsonProperty("D1_1095_01")]
-        public double? D11095_01 { get; set; }
-
-        [JsonProperty("D1_1095_02")]
-        public double? D11095_02 { get; set; }
-
-        [JsonProperty("D1_1100_01")]
-        public double? D11100_01 { get; set; }
-
-        [JsonProperty("D1_1100_02")]
-        public double? D11100_02 { get; set; }
-
-        [JsonProperty("D1_1103_01")]
-        public double? D11103_01 { get; set; }
-
-        [JsonProperty("D1_1103_02")]
-        public double? D11103_02 { get; set; }
-
-        [JsonProperty("D1_1110_01")]
-        public double? D11110_01 { get; set; }
-
-        [JsonProperty("D1_1110_02")]
-        public double? D11110_02 { get; set; }
-
-        [JsonProperty("D1_1125_02")]
-        public double? D11125_02 { get; set; }
-
-        [JsonProperty("D1_1125_01")]
-        public double? D11125_01 { get; set; }
-
-        [JsonProperty("D1_1135_01")]
-        public double? D11135_01 { get; set; }
-
-        [JsonProperty("D1_1135_02")]
-        public double? D11135_02 { get; set; }
-
-        [JsonProperty("D1_1136_01")]
-        public double? D11136_01 { get; set; }
-
-        [JsonProperty("D1_1136_02")]
-        public double? D11136_02 { get; set; }
-
-        [JsonProperty("D1_1155_01")]
-        public double? D11155_01 { get; set; }
-
-        [JsonProperty("D1_1155_02")]
-        public double? D11155_02 { get; set; }
-
-        [JsonProperty("D1_1160_01")]
-        public double? D11160_01 { get; set; }
-
-        [JsonProperty("D1_1160_02")]
-        public double? D11160_02 { get; set; }
-
-        [JsonProperty("D1_1165_02")]
-        public double? D11165_02 { get; set; }
-
-        [JsonProperty("D1_1165_01")]
-        public double? D11165_01 { get; set; }
-
-        [JsonProperty("D1_1170_01")]
-        public double? D11170_01 { get; set; }
-
-        [JsonProperty("D1_1170_02")]
-        public double? D11170_02 { get; set; }
-
-        [JsonProperty("D1_1190_01")]
-        public double? D11190_01 { get; set; }
-
-        [JsonProperty("D1_1190_02")]
-        public double? D11190_02 { get; set; }
-
-        [JsonProperty("D1_1195_01")]
-        public double? D11195_01 { get; set; }
-
-        [JsonProperty("D1_1195_02")]
-        public double? D11195_02 { get; set; }
-
-        [JsonProperty("D1_1200_01")]
-        public double? D11200_01 { get; set; }
-
-        [JsonProperty("D1_1200_02")]
-        public double? D11200_02 { get; set; }
-
-        [JsonProperty("D1_1300_02")]
-        public double? D11300_02 { get; set; }
-
-        [JsonProperty("D1_1300_01")]
-        public double? D11300_01 { get; set; }
-
-        [JsonProperty("D1_1400_02")]
-        public double? D11400_02 { get; set; }
-
-        [JsonProperty("D1_1400_01")]
-        public double? D11400_01 { get; set; }
-
-        [JsonProperty("D1_1410_01")]
-        public double? D11410_01 { get; set; }
-
-        [JsonProperty("D1_1410_02")]
-        public double? D11410_02 { get; set; }
-
-        [JsonProperty("D1_1415_01")]
-        public double? D11415_01 { get; set; }
-
-        [JsonProperty("D1_1415_02")]
-        public double? D11415_02 { get; set; }
-
-        [JsonProperty("D1_1420_01")]
-        public double? D11420_01 { get; set; }
-
-        [JsonProperty("D1_1420_02")]
-        public double? D11420_02 { get; set; }
-
-        [JsonProperty("D1_1425_01")]
-        public double? D11425_01 { get; set; }
-
-        [JsonProperty("D1_1425_02")]
-        public double? D11425_02 { get; set; }
-
-        [JsonProperty("D1_1495_01")]
-        public double? D11495_01 { get; set; }
-
-        [JsonProperty("D1_1495_02")]
-        public double? D11495_02 { get; set; }
-
-        [JsonProperty("D1_1595_01")]
-        public double? D11595_01 { get; set; }
-
-        [JsonProperty("D1_1595_02")]
-        public double? D11595_02 { get; set; }
-
-        [JsonProperty("D1_1600_01")]
-        public double? D11600_01 { get; set; }
-
-        [JsonProperty("D1_1600_02")]
-        public double? D11600_02 { get; set; }
-
-        [JsonProperty("D1_1610_02")]
-        public double? D11610_02 { get; set; }
-
-        [JsonProperty("D1_1610_01")]
-        public double? D11610_01 { get; set; }
-
-        [JsonProperty("D1_1615_01")]
-        public double? D11615_01 { get; set; }
-
-        [JsonProperty("D1_1615_02")]
-        public double? D11615_02 { get; set; }
-
-        [JsonProperty("D1_1620_01")]
-        public double? D11620_01 { get; set; }
-
-        [JsonProperty("D1_1620_02")]
-        public double? D11620_02 { get; set; }
-
-        [JsonProperty("D1_1621_02")]
-        public double? D11621_02 { get; set; }
-
-        [JsonProperty("D1_1621_01")]
-        public double? D11621_01 { get; set; }
-
-        [JsonProperty("D1_1625_01")]
-        public double? D11625_01 { get; set; }
-
-        [JsonProperty("D1_1625_02")]
-        public double? D11625_02 { get; set; }
-
-        [JsonProperty("D1_1630_01")]
-        public double? D11630_01 { get; set; }
-
-        [JsonProperty("D1_1630_02")]
-        public double? D11630_02 { get; set; }
-
-        [JsonProperty("D1_1665_01")]
-        public double? D11665_01 { get; set; }
-
-        [JsonProperty("D1_1665_02")]
-        public double? D11665_02 { get; set; }
-
-        [JsonProperty("D1_1690_01")]
-        public double? D11690_01 { get; set; }
-
-        [JsonProperty("D1_1690_02")]
-        public double? D11690_02 { get; set; }
-
-        [JsonProperty("D1_1695_02")]
-        public double? D11695_02 { get; set; }
-
-        [JsonProperty("D1_1695_01")]
-        public double? D11695_01 { get; set; }
-
-        [JsonProperty("D1_1700_01")]
-        public double? D11700_01 { get; set; }
-
-        [JsonProperty("D1_1700_02")]
-        public double? D11700_02 { get; set; }
-
-        [JsonProperty("D1_1900_01")]
-        public double? D11900_01 { get; set; }
-
-        [JsonProperty("D1_1900_02")]
-        public double? D11900_02 { get; set; }
-
-        [JsonProperty("D2_2000_01")]
-        public double? D22000_01 { get; set; }
-
-        [JsonProperty("D2_2050_01")]
-        public double? D22050_01 { get; set; }
-
-        [JsonProperty("D2_2120_01")]
-        public double? D22120_01 { get; set; }
 
         [JsonProperty("D2_2160_01")]
         public double? D22160_01 { get; set; }
@@ -1281,31 +1009,13 @@ namespace vkursi_api_example.organizations
         [JsonProperty("D2_2165_01")]
         public double? D22165_01 { get; set; }
 
-        [JsonProperty("D2_2180_01")]
-        public double? D22180_01 { get; set; }
-
-        [JsonProperty("D2_2240_01")]
-        public double? D22240_01 { get; set; }
-
-        [JsonProperty("D2_2270_01")]
-        public double? D22270_01 { get; set; }
-
         [JsonProperty("D2_2280_01")]
         public double? D22280_01 { get; set; }
 
         [JsonProperty("D2_2285_01")]
         public double? D22285_01 { get; set; }
 
-        [JsonProperty("D2_2290_01")]
-        public double? D22290_01 { get; set; }
-
-        [JsonProperty("D2_2300_01")]
-        public double? D22300_01 { get; set; }
-
         [JsonProperty("D2_2310_01")]
         public double? D22310_01 { get; set; }
-
-        [JsonProperty("D2_2350_01")]
-        public double? D22350_01 { get; set; }
     }
 }
