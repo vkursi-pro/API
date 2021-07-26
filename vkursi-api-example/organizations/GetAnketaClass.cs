@@ -11,7 +11,8 @@ namespace vkursi_api_example.organizations
     {
         /*
         
-        68
+        68. Анкета
+        [POST] /api/1.0/organizations/GetAnketa
 
         */
 
@@ -33,7 +34,6 @@ namespace vkursi_api_example.organizations
                 };
 
                 string body = JsonConvert.SerializeObject(GARBody);
-
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetAnketa");
                 RestRequest request = new RestRequest(Method.POST);

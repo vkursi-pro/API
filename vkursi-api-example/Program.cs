@@ -30,11 +30,6 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-
-            CheckPersonRequestBodyModel CheckPersonRequestBody = JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ПЛОХІХ АНДРІЙ ГЕОРГІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2516402437\",\"Doc\":\"СМ495604\",\"Birthday\":null, \"RuName\":null}");
-            CheckPersonClass _checkPersonClass = new CheckPersonClass();
-            _checkPersonClass.CheckPerson(token, CheckPersonRequestBody);
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -48,7 +43,7 @@ namespace vkursi_api_example
             // 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
             // [POST] /api/1.0/organizations/getadvancedorganization
 
-            GetAdvancedOrganizationClass.GetAdvancedOrganization("3334800417", ref token); // 00131305
+            GetAdvancedOrganizationClass.GetAdvancedOrganization("25412361", ref token); // 00131305
 
             // 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
             // [GET] /api/1.0/estate/getestatebycode
@@ -146,7 +141,7 @@ namespace vkursi_api_example
             // 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
             // [POST] /api/1.0/movableLoads/getmovableloads
 
-            GetMovableLoadsClass.GetMovableLoads(token, "30839560", "1841404820");
+            GetMovableLoadsClass.GetMovableLoads(ref token, "30839560", "1841404820");
 
             // 23. ДРОРМ отримання витяга
             // [POST] /api/1.0/MovableLoads/getpaymovableloads
@@ -379,12 +374,17 @@ namespace vkursi_api_example
             // 69. API 2.0 Конструктор API
             // [POST] /api/2.0/ApiConstructor
 
-            ApiConstructorClass.ApiConstructor(ref token, "41462280",  new HashSet<int>{ 4, 9, 41, 37, 57, 66, 32, 39, 70});
+            ApiConstructorClass.ApiConstructor(ref token, "25412361",  new HashSet<int>{ 4, 9, 41, 37, 66, 32, 39, 70, 71 }); // 57
 
             // 70. Скорочені основні фінансові показники діяльності підприємства 
             // [POST] /api/1.0/organizations/GetOrgFinanceShort
 
             GetOrgFinanceShortClass.GetOrgFinanceShort(ref token, "41462280", new List<int> { 2020, 2019 });
+
+            // 71. Фінансово промислові групи
+            // [POST] /api/1.0/organizations/GetFinancialIndustrialGroup
+
+            GetFinancialIndustrialGroupClass.GetFinancialIndustrialGroup(ref token, "41462280");
 
             // Перелік статусів відповідей API
         }

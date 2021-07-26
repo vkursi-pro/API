@@ -67,6 +67,10 @@ namespace vkursi_api_example._2._0
 
             ACResponseRow = JsonConvert.DeserializeObject<ApiConstructorResponseModel>(responseString);
 
+
+            var sddsds = JsonConvert.SerializeObject(ACResponseRow, Formatting.Indented);
+
+
             return ACResponseRow;
         }
     }

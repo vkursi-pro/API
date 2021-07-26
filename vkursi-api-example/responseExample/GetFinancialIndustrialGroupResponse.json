@@ -1,0 +1,33 @@
+{
+   "isSuccess":true,
+   "status":"Дані знайдено",
+   "data":[
+      {
+         "code":"21560766",
+         "data":[
+            {
+               "id":"8eb4e4f9-3e8e-4e28-9717-761406e6ebd6",
+               "organizationName":"АКЦІОНЕРНЕ ТОВАРИСТВО \"УКРТЕЛЕКОМ\"",
+               "organizationCode":"21560766",
+               "financialGroupName":"Систем Кепітал Менеджмент (СКМ)",
+               "financialGroupId":2,
+               "organizationId":"ba0d5fb2-03f1-4f07-b297-ea8ce4403d36",
+               "relationPersonName":"АХМЕТОВ РІНАТ ЛЕОНІДОВИЧ",
+               "fpgNetIncom":0.00,
+               "dateCreate":"2021-07-21T16:08:48.183"
+            },
+            {
+               "id":"eb9a4262-49fa-4fb6-8880-e41a6f5b3bc4",
+               "organizationName":"АКЦІОНЕРНЕ ТОВАРИСТВО \"УКРТЕЛЕКОМ\"",
+               "organizationCode":"21560766",
+               "financialGroupName":"Систем Кепітал Менеджмент (СКМ)",
+               "financialGroupId":2,
+               "organizationId":"ba0d5fb2-03f1-4f07-b297-ea8ce4403d36",
+               "relationPersonName":"АХМЕТОВ РІНАТ ЛЕОНІДОВИЧ",
+               "fpgNetIncom":0.00,
+               "dateCreate":"2021-07-21T16:08:48.177"
+            }
+         ]
+      }
+   ]
+}

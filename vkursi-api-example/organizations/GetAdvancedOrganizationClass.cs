@@ -11,14 +11,20 @@ namespace vkursi_api_example.organizations
     {
         /*
 
-        4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
-        [POST] /api/1.0/organizations/getadvancedorganization
+        Метод:
+            4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
+            [POST] /api/1.0/organizations/getadvancedorganization
 
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getadvancedorganization' \
-        --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
-        --header 'Content-Type: application/json' \
-        --data-raw '{"Code":"21560045"}'
+        cURL запиту:
+            curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getadvancedorganization' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"21560045"}'
+
+
+        Приклад відповіді:
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetadvancedorganizationResponse.json
 
          */
 

@@ -66,12 +66,7 @@ namespace vkursi_api_example.Swagger.Controllers
         {
             var headerAuth = Request.Headers["Authorization"];
 
-
-            Console.WriteLine();
-
-            CheckPersonClass _сheckPerson = new CheckPersonClass();
-
-            var CPResponseRow = _сheckPerson.CheckPerson(Authorization, CheckPersonRequestBodyRow);
+            var CPResponseRow = CheckPerson(Authorization, CheckPersonRequestBodyRow);
 
             return CPResponseRow;
         }
