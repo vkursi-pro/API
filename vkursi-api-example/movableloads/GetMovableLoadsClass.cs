@@ -36,17 +36,17 @@ namespace vkursi_api_example.movableloads
 
                 GetMovableLoadsRequestBodyModel GMLRequestBodyRow = new GetMovableLoadsRequestBodyModel
                 {
-                    //Edrpou = new List<string> {
-                    //    edrpou
-                    //},
-                    Ipn = new List<string> {
-                        ipn
-                    }
+                    Edrpou = new List<string> {
+                        edrpou
+                    },
+                    //Ipn = new List<string> {
+                    //    ipn
+                    //}
                 };
 
                 string body = JsonConvert.SerializeObject(GMLRequestBodyRow);
 
-                //body = "{\"Ipn\":[\"2333700948\"]}";
+                body = "{\"Edrpou\":[\"30839560\"]}";
 
                 // Example Body: {"Ipn":["2333700948"]}
 

@@ -20,6 +20,22 @@ namespace vkursi_api_example.organizations
          
         */
 
+
+
+        public static string GetExpressScoreTemp(string edrpou)
+        {
+            var client = new RestClient("https://89.184.66.70:7638/ExpressScore/GetExpressScore");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", "{\r\n    \"UserId\": \"A98D501F-98F2-4497-B263-964BF5E04CDA\",\r\n    \"Request\": {\r\n        \"SearchType\": 1,\r\n        \"Name\": \"тищенко володимир сергійович\",\r\n        \"Code\": \"" + edrpou + "\"\r\n    }\r\n}", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+
+            return response.Content;
+        }
+
+
+
         public static GetExpressScoreResponseModel GetExpressScore(ref string token, int searchType, string code)
         {
             if (string.IsNullOrEmpty(token)) 
@@ -69,6 +85,9 @@ namespace vkursi_api_example.organizations
 
             GESResponse = JsonConvert.DeserializeObject<GetExpressScoreResponseModel>(responseString);
 
+            string test1 = JsonConvert.SerializeObject(GESResponse, Formatting.Indented);
+
+
             if (GESResponse.Status.Contains("Помилка"))
             {
 
@@ -77,6 +96,20 @@ namespace vkursi_api_example.organizations
             {
                 Console.WriteLine(responseString);
             }
+
+            string responseString2 = GetExpressScoreTemp(code);
+
+            GetExpressScoreResponseModel GESResponse2 = new GetExpressScoreResponseModel();
+
+            GESResponse2 = JsonConvert.DeserializeObject<GetExpressScoreResponseModel>(responseString2);
+
+            string test2 = JsonConvert.SerializeObject(GESResponse2, Formatting.Indented);
+
+            if (test1 == test2)
+            {
+
+            }
+
 
             return GESResponse;
         }

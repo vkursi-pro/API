@@ -47,6 +47,7 @@ namespace vkursi_api_example.organizations
                 IRestResponse response = client.Execute(request);
                 responseString = response.Content;
 
+
                 if ((int)response.StatusCode == 401)
                 {
                     Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
@@ -62,7 +63,9 @@ namespace vkursi_api_example.organizations
             }
 
             GetOrgFinanceResponseModel GOFResponseRow = new GetOrgFinanceResponseModel();
+
             GOFResponseRow = JsonConvert.DeserializeObject<GetOrgFinanceResponseModel>(responseString);
+
             return GOFResponseRow;
         }
     }

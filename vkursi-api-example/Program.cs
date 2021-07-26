@@ -29,6 +29,11 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
+
+            CheckPersonRequestBodyModel CheckPersonRequestBody = JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ПЛОХІХ АНДРІЙ ГЕОРГІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2516402437\",\"Doc\":\"СМ495604\",\"Birthday\":null, \"RuName\":null}");
+            CheckPersonClass _checkPersonClass = new CheckPersonClass();
+            _checkPersonClass.CheckPerson(token, CheckPersonRequestBody);
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -140,7 +145,7 @@ namespace vkursi_api_example
             // 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
             // [POST] /api/1.0/movableLoads/getmovableloads
 
-            GetMovableLoadsClass.GetMovableLoads(token, "36679626", "1841404820");
+            GetMovableLoadsClass.GetMovableLoads(token, "30839560", "1841404820");
 
             // 23. ДРОРМ отримання витяга
             // [POST] /api/1.0/MovableLoads/getpaymovableloads
@@ -175,9 +180,9 @@ namespace vkursi_api_example
             // 29. Отримання інформації по фізичній особі
             // [POST] /api/1.0/person/checkperson
 
-            CheckPersonRequestBodyModel CheckPersonRequestBody = JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2301715013\",\"Doc\":\"BC481139\",\"Birthday\":null, \"RuName\":null}");
-            CheckPersonClass _checkPersonClass = new CheckPersonClass();
-            _checkPersonClass.CheckPerson(token, CheckPersonRequestBody);
+            //CheckPersonRequestBodyModel CheckPersonRequestBody = JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2301715013\",\"Doc\":\"СМ495604\",\"Birthday\":null, \"RuName\":null}");
+            //CheckPersonClass _checkPersonClass = new CheckPersonClass();
+            //_checkPersonClass.CheckPerson(token, CheckPersonRequestBody);
 
             // 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
             // [POST] /api/1.0/movableloads/getexistedmovableloads
