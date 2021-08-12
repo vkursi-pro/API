@@ -11,6 +11,7 @@ using vkursi_api_example.monitoring;
 using vkursi_api_example.movableloads;
 using vkursi_api_example.organizations;
 using vkursi_api_example.person;
+using vkursi_api_example.podatkova;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example
@@ -26,8 +27,6 @@ namespace vkursi_api_example
 
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
-
-            GetActivityOrgHistoryClass.GetActivityOrgHistory(ref token, "41462280");
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -389,6 +388,11 @@ namespace vkursi_api_example
 
             // 72. API з історії зміни даних в ЄДР
             // [POST] /api/1.0/organizations/getactivityorghistory
+
+            // 73. Відомості про субєктів господарювання які стоять на обліку в ДФС
+            // [POST] /api/1.0/podatkova/cabinettaxregistration
+
+            CabinetTaxRegistrationClass.CabinetTaxRegistration(ref token, "41462280");
 
             // Перелік статусів відповідей API
         }
