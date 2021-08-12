@@ -86,9 +86,10 @@ namespace vkursi_api_example.organizations
         public string Code { get; set; }                                        // Код ЕДРПОУ
         public bool KvedChange { get; set; }                                    // Менялся ли КВЕД (за предыдущие 12 мес) 
         public bool ReorganizeChange { get; set; }                              // Реорганизация  (за предыдущие 12 мес) 
-
         public bool CompanyStructureChange { get; set; }                        // Зміни в структурі власності (за предыдущие 12 мес)   
         public bool StatCapitalChangeToLower { get; set; }                      // Уменьшался ли статутный  (за предыдущие 12 мес)  
+        public bool Error { get; set; }                                         // Помилка
+        public bool NotFound { get; set; }                                      // Не знайдено
 
     }
 }
