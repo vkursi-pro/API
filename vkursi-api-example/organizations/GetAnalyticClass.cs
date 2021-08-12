@@ -174,6 +174,20 @@ namespace vkursi_api_example.organizations
         public List<OrganizationAnalyticFinancialRisks> financialRisks { get; set; }                            // Аналіз фінансових ризиків (період рік) (відп.до довідника № 12) 
         public List<OrganizationAnalyticEmployeesModel> employees { get; set; }                                 // Дані про кількість співробітників (період рік)
 
+
+        public List<string> vehiclesInfo { get; set; }
+        public OrganizationAnalyticKoatuInfo koatuInfo { get; set; }                                            // Дані про код КОАТУУ
+
+        public List<LtStAnalyticsModel> equityLtStAnalytics { get; set; }
+        public SinglePaxPayer singlePayers { get; set; }
+        public int? shareholdersCount { get; set; }
+        public int? branchCount { get; set; }
+
+
+        public List<FeaCountryGroup> feaCountry { get; set; }                                                   // Дані по ЗЄД в розрізі країни та року
+        public List<FeaCountryGroup> feaGroup { get; set; }                                                     // Дані по ЗЄД в розрізі групи товарів та року
+
+        public List<ImportMainBalanceIndicators> mainBalanceIndicators { get; set; }
     }
 
 
@@ -645,5 +659,75 @@ namespace vkursi_api_example.organizations
         public string sanctionType { get; set; }                                                // Тип штрафних санкцій (maxLength:256)
         public double? sanctionAmount { get; set; }// Сума штрафу
 
+    }
+
+
+    public class FeaCountryGroup                                                                // Дані по ЗЄД в розрізі групи товарів (або країни) та року
+    {
+        public int? year { get; set; }                                                          // Рік
+
+        public bool? isImport { get; set; }                                                     // Це імпорт? (true - так / false - ні)
+
+        public int? code { get; set; }                                                          // Код країни / ВЕД
+
+        public double? totalSum { get; set; }                                                   // Сумма
+
+        public int? position { get; set; }                                                      // Позиція на ринку (за даний рік по даному коду)
+
+        public double? persent { get; set; }                                                    // Відсоток ринку (за даний рік по даному коду)
+    }
+
+    public class SinglePaxPayer
+    {
+        public int? group { get; set; }
+        public bool? singlePayer { get; set; }
+        public DateTime? singlePayerCancelDate { get; set; }
+        public DateTime? singlePayerDate { get; set; }
+        public int? stavka { get; set; }
+    }
+
+
+    public class LtStAnalyticsModel
+    {
+        public int? year { get; set; }
+        public bool? isBigForm { get; set; }
+        public float? equity { get; set; }
+        public float? ltStNetDebt { get; set; }
+        public float? ltStDebtSales { get; set; }
+    }
+
+    public class OrganizationAnalyticKoatuInfo
+    {
+        public int? firstLevel { get; set; }
+        public int? secondLevel { get; set; }
+        public int? thirdLevel { get; set; }
+        public int? fourthLevel { get; set; }
+        public long? fullKoatu { get; set; }
+    }
+
+    public class ImportMainBalanceIndicators
+    {
+        public int period { get; set; }
+        public double? d108002UsohozarozdilomID1109502 { get; set; }
+        public double? d126002UsohozarozdilomIID1119502 { get; set; }
+        public double? d124002IIINeoborotniaktyvy { get; set; }
+        public double? d128002BalansaktivuD1130002 { get; set; }
+        public double? d138002UsohozarozdilomID1149502 { get; set; }
+        public double? d148002UsohozarozdilomIID1159502 { get; set; }
+        public double? d162002UsohozarozdilomIIID1169502 { get; set; }
+        public double? d1170002D141802IVZobovyazanny { get; set; }
+        public double? d203501Chystyydokhid { get; set; }
+        public double? d210001Finansovyyrezul { get; set; }
+        public double? d210501FinRez { get; set; }
+        public double? d217001FinRezdoopodatkuvannyaprybutok { get; set; } // big only
+        public double? d217501FinRezdoopodatkuvannyazbytok { get; set; } // big only
+        public double? d222001ChystyyFinRezprybutokD2235001 { get; set; }
+        public double? d222501ChystyyFinRezzbytokD2235501 { get; set; } // big only
+
+        // Smal only
+        public double? d207001RazomdokhodyD2228001 { get; set; }
+        public double? d212001RazomvytratyD2228501 { get; set; }
+
+        public int forma { get; set; }
     }
 }
