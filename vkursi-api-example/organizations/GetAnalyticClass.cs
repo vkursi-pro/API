@@ -707,27 +707,27 @@ namespace vkursi_api_example.organizations
 
     public class ImportMainBalanceIndicators
     {
-        public int period { get; set; }
-        public double? d108002UsohozarozdilomID1109502 { get; set; }
-        public double? d126002UsohozarozdilomIID1119502 { get; set; }
-        public double? d124002IIINeoborotniaktyvy { get; set; }
-        public double? d128002BalansaktivuD1130002 { get; set; }
-        public double? d138002UsohozarozdilomID1149502 { get; set; }
-        public double? d148002UsohozarozdilomIID1159502 { get; set; }
-        public double? d162002UsohozarozdilomIIID1169502 { get; set; }
-        public double? d1170002D141802IVZobovyazanny { get; set; }
-        public double? d203501Chystyydokhid { get; set; }
-        public double? d210001Finansovyyrezul { get; set; }
-        public double? d210501FinRez { get; set; }
-        public double? d217001FinRezdoopodatkuvannyaprybutok { get; set; } // big only
-        public double? d217501FinRezdoopodatkuvannyazbytok { get; set; } // big only
-        public double? d222001ChystyyFinRezprybutokD2235001 { get; set; }
-        public double? d222501ChystyyFinRezzbytokD2235501 { get; set; } // big only
+        public int period { get; set; }                                     // Рік
+        public double? d108002UsohozarozdilomID1109502 { get; set; }        // I. Необоротні активи // Усього за розділом I // 1095
+        public double? d126002UsohozarozdilomIID1119502 { get; set; }       // II. Оборотні активи // Усього за розділом II // 1195
+        public double? d124002IIINeoborotniaktyvy { get; set; }             // III. Необоротні активи, утримувані для продажу, та групи вибуття // 1200
+        public double? d128002BalansaktivuD1130002 { get; set; }            // Баланс // 1300
+        public double? d138002UsohozarozdilomID1149502 { get; set; }        // I. Власний капітал // Усього за розділом I // 1495
+        public double? d148002UsohozarozdilomIID1159502 { get; set; }       // II. Довгострокові зобов'язання і забезпечення // Усього за розділом II // 1595
+        public double? d162002UsohozarozdilomIIID1169502 { get; set; }      // IІІ. Поточні зобов'язання і забезпечення // Усього за розділом IІІ // 1695
+        public double? d1170002D141802IVZobovyazanny { get; set; }          // ІV. Зобов'язання, пов'язані з необоротними активами, утримуваними для продажу, та групами вибуття // 1700
+        public double? d203501Chystyydokhid { get; set; }                   // Чистий дохід від реалізації продукції (товарів, робіт, послуг) // 2000
+        public double? d210001Finansovyyrezul { get; set; }                 // Фінансовий результат від операційної діяльності: прибуток // 2190
+        public double? d210501FinRez { get; set; }                          // Фінансовий результат від операційної діяльності: збиток // 2195
+        public double? d217001FinRezdoopodatkuvannyaprybutok { get; set; }  // Фінансовий результат до оподаткування: // прибуток // 2290 
+        public double? d217501FinRezdoopodatkuvannyazbytok { get; set; }    // Фінансовий результат до оподаткування: // збиток // 2295
+        public double? d222001ChystyyFinRezprybutokD2235001 { get; set; }   // Чистий фінансовий результат: прибуток // 2350
+        public double? d222501ChystyyFinRezzbytokD2235501 { get; set; }     // Чистий фінансовий результат: збиток // 2355
 
-        // Smal only
-        public double? d207001RazomdokhodyD2228001 { get; set; }
-        public double? d212001RazomvytratyD2228501 { get; set; }
 
-        public int forma { get; set; }
+        public double? d207001RazomdokhodyD2228001 { get; set; }            // Разом доходи (малі підприємства)
+        public double? d212001RazomvytratyD2228501 { get; set; }            // Разом витрати (малі підприємства)
+
+        public int forma { get; set; }                                      
     }
 }
