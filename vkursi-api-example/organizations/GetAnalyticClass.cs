@@ -616,7 +616,7 @@ namespace vkursi_api_example.organizations
 
     public class Ownership                                                                      // 
     {
-        public long Id { get; set; }
+        public long? Id { get; set; }
         public string form { get; set; }                                                        // (maxLength:256)
         public int? olf_code { get; set; }
     }

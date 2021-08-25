@@ -10,6 +10,8 @@
          "address":"01030 Україна, 01030, місто Київ, ВУЛИЦЯ БОГДАНА ХЕМЕЛЬНИЦЬКОГО, будинок 17/52",
          "kved":"63.11 Оброблення даних, розміщення інформації на веб-вузлах і пов'язана з ними діяльність",
          "chief":"ЗАПЕКА ВАДИМ ВІТАЛІЙОВИЧ",
+         "olfName":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ",
+         "forma":"4",
          "reestrPdv":{
             "state":"Платник ПДВ",
             "regDate":"2019-05-01T00:00:00",
@@ -26,7 +28,18 @@
             "stavka":5.0,
             "grupa":3
          },
-         "reestrNeprubutkovuhkUstanov":null
+         "reestrNeprubutkovuhkUstanov":null,
+         "addressParts":{
+            "atu":"місто Київ",
+            "atu_code":"8039100000",
+            "street":"ВУЛИЦЯ БОГДАНА ХЕМЕЛЬНИЦЬКОГО",
+            "house_type":"будинок",
+            "house":"17/52",
+            "building_type":null,
+            "building":null,
+            "num_type":null,
+            "num":null
+         }
       }
    ]
 }

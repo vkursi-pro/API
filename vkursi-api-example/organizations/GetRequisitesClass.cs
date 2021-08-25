@@ -148,6 +148,9 @@ namespace vkursi_api_example.organizations
         public GetRequisitesRequestAnswerDataReestrPdvCancel ReestrPdvCancel { get; set; }// Відомості про анульоване ПДВ
         public GetRequisitesRequestAnswerDataReestrPed ReestrPed { get; set; }          // Відомості з реєстру платників єдиного податку
         public NeprubutkovaUstanovaInfo ReestrNeprubutkovuhkUstanov { get; set; }       // Відомості з реєстру неприбуткових установ
+
+        [JsonProperty("addressParts")]
+        public AddressParts AddressParts { get; set; }                                  // Адреса в окремих полях
     }
 
     public class GetRequisitesRequestAnswerDataReestrPdv                                // Відомості про ПДВ
@@ -195,5 +198,35 @@ namespace vkursi_api_example.organizations
 
         [JsonProperty("CSti")]
         public string CSti { get; set; }                                                // Код контролюючого органу, який прийняв рішення
+    }
+
+    public partial class AddressParts                                                   // Адреса в окремих полях
+    {
+        [JsonProperty("atu")]
+        public string Atu { get; set; }                                                 // Область
+
+        [JsonProperty("atu_code")]
+        public string AtuCode { get; set; }                                             // Код КОАТУУ
+
+        [JsonProperty("street")]
+        public string Street { get; set; }                                              // Назва вулиці
+
+        [JsonProperty("house_type")]
+        public string HouseType { get; set; }                                           // Тип будівлі ('буд.', 'інше')
+
+        [JsonProperty("house")]
+        public string House { get; set; }                                               // Номер будинку, якщо тип - 'буд.'
+
+        [JsonProperty("building_type")]
+        public string BuildingType { get; set; }                                        // Тип будівлі
+
+        [JsonProperty("building")]
+        public string Building { get; set; }                                            // Номер будівлі
+
+        [JsonProperty("num_type")]
+        public string NumType { get; set; }                                             // Тип приміщення
+
+        [JsonProperty("num")]
+        public string Num { get; set; }                                                 // Номер приміщення
     }
 }
