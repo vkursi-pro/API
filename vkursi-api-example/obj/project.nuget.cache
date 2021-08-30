@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1brlMRUMYDyIgHS2XZFzdgy+uCnVirs535ouOsA28+K+CUQee7HpPGXWkMPp9HY6rLWJ6TjSTZVgoVDUiZzlqA==",
+  "dgSpecHash": "xqq02JSfGU6bmHlpZqOM+F1lHblQieihXZfmmJKXldT/MwC6BtbrkypcTcBwAEE4iy7kfWH4cFCtW82mZiCVkg==",
   "success": true,
   "projectFilePath": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,8 @@
     "C:\\Users\\vadim\\.nuget\\packages\\htmlagilitypack\\1.11.30\\htmlagilitypack.1.11.30.nupkg.sha512",
     "C:\\Users\\vadim\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\vadim\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512"
+    "C:\\Users\\vadim\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512",
+    "C:\\Users\\vadim\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.17\\microsoft.netcore.app.host.win-x64.3.1.17.nupkg.sha512"
   ],
   "logs": []
 }

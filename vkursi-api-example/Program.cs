@@ -28,7 +28,7 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            GetRequisitesClass.GetRequisites(ref token, "41462280");
+            CabinetTaxEdpodEpClass.CabinetTaxEdpodEp(token, "3334800417", true);
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -395,6 +395,11 @@ namespace vkursi_api_example
             // [POST] /api/1.0/podatkova/cabinettaxregistration
 
             CabinetTaxRegistrationClass.CabinetTaxRegistration(ref token, "41462280");
+
+            // 74.Стан ФОПа та відомості про ЄП
+            // [POST] /api/1.0/podatkova/cabinettaxedpodep
+
+            CabinetTaxEdpodEpClass.CabinetTaxEdpodEp(token, "3334800417", true);
 
             // Перелік статусів відповідей API
         }
