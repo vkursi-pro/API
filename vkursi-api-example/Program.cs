@@ -1,12 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.Json.Serialization;
 using vkursi_api_example._2._0;
 using vkursi_api_example.bi;
 using vkursi_api_example.changes;
-using vkursi_api_example.codeExample;
 using vkursi_api_example.courtdecision;
 using vkursi_api_example.dictionary;
 using vkursi_api_example.estate;
@@ -14,6 +11,7 @@ using vkursi_api_example.monitoring;
 using vkursi_api_example.movableloads;
 using vkursi_api_example.organizations;
 using vkursi_api_example.person;
+using vkursi_api_example.podatkova;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example
@@ -29,6 +27,8 @@ namespace vkursi_api_example
 
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
+
+            GetRequisitesClass.GetRequisites(ref token, "41462280");
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -307,6 +307,8 @@ namespace vkursi_api_example
             // 56. Отримання статуту підприємства
             // api/1.0/organizations/GetStatutnuyFileUrl
 
+            GetStatutnuyFileUrlClass.GetStatutnuyFileUrl(ref token, "5159752801");
+
             // 57. Аналіз фінансових показників підприємства за кодом ЄДРПОУ
             // [POST] api/1.0/organizations/GetOrgFinance
 
@@ -385,6 +387,14 @@ namespace vkursi_api_example
             // [POST] /api/1.0/organizations/GetFinancialIndustrialGroup
 
             GetFinancialIndustrialGroupClass.GetFinancialIndustrialGroup(ref token, "41462280");
+
+            // 72. API з історії зміни даних в ЄДР
+            // [POST] /api/1.0/organizations/getactivityorghistory
+
+            // 73. Відомості про субєктів господарювання які стоять на обліку в ДФС
+            // [POST] /api/1.0/podatkova/cabinettaxregistration
+
+            CabinetTaxRegistrationClass.CabinetTaxRegistration(ref token, "41462280");
 
             // Перелік статусів відповідей API
         }
