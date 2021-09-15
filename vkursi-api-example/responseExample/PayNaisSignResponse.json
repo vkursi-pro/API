@@ -1,0 +1,211 @@
+{
+   "payload":{
+      "id":10656661,
+      "state":1,
+      "state_text":"зареєстровано",
+      "code":"38335915",
+      "names":{
+         "name":"\"АГРОФІРМА БАРТЕЛЬ\"",
+         "include_olf":1,
+         "display":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"АГРОФІРМА БАРТЕЛЬ\"",
+         "short":"ТОВ \"АГРОФІРМА БАРТЕЛЬ\"",
+         "name_for":null,
+         "short_for":null
+      },
+      "olf_code":"240",
+      "olf_name":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ",
+      "olf_subtype":null,
+      "founding_document_type":1,
+      "founding_document_name":null,
+      "executive_power":{
+         "name":null,
+         "code":null
+      },
+      "object_name":"Галицька районна державна адміністрація",
+      "founders":[
+         {
+            "name":"БАРТЕЛЬ ФЕРНАН МАРТІН",
+            "address":{
+               "zip":"67160",
+               "country":"Франція",
+               "address":"Франція, 67160, ВУЛИЦЯ ЕТУАЛЬ, БУДИНОК 12, МІСТО ВІССЕМБУР-АЛЬТЕНШТАТ",
+               "parts":{
+                  "atu":null,
+                  "atu_code":null,
+                  "street":null,
+                  "house_type":null,
+                  "house":null,
+                  "building_type":null,
+                  "building":null,
+                  "num_type":null,
+                  "num":null
+               }
+            },
+            "capital":9943.49,
+            "last_name":"БАРТЕЛЬ",
+            "first_middle_name":"ФЕРНАН МАРТІН",
+            "role":4,
+            "role_text":"засновник"
+         },
+         {
+            "name":"ЧОРНИЙ ЙОСИФ ІВАНОВИЧ",
+            "address":{
+               "zip":"77110",
+               "country":"Україна",
+               "address":"Україна, 77110, Івано-Франківська обл., Галицький р-н, село Насташине, ВУЛИЦЯ КОЦЮБИНСЬКОГО, будинок 13",
+               "parts":{
+                  "atu":"Івано-Франківська обл., Галицький р-н, село Насташине",
+                  "atu_code":"2621285701",
+                  "street":"ВУЛИЦЯ КОЦЮБИНСЬКОГО",
+                  "house_type":"будинок",
+                  "house":"13",
+                  "building_type":null,
+                  "building":null,
+                  "num_type":null,
+                  "num":null
+               }
+            },
+            "capital":523.34,
+            "last_name":"ЧОРНИЙ",
+            "first_middle_name":"ЙОСИФ ІВАНОВИЧ",
+            "role":4,
+            "role_text":"засновник"
+         }
+      ],
+      "beneficiaries":[
+         
+      ],
+      "authorised_capital":{
+         "value":10466.83,
+         "date":"2013-11-09"
+      },
+      "management":null,
+      "heads":[
+         {
+            "address":null,
+            "last_name":"ЧОРНИЙ",
+            "first_middle_name":"ЙОСИФ ІВАНОВИЧ",
+            "role":3,
+            "role_text":"керівник",
+            "position":null,
+            "appointment_date":"2012-11-09",
+            "restriction":"ЗГІДНО СТАТУТУ"
+         }
+      ],
+      "managing_paper":null,
+      "activity_kinds":[
+         {
+            "name":"Вирощування зернових культур (крім рису), бобових культур і насіння олійних культур",
+            "code":"01.11",
+            "is_primary":true
+         },
+         {
+            "name":"Змішане сільське господарство",
+            "code":"01.50",
+            "is_primary":false
+         },
+         {
+            "name":"Допоміжна діяльність у рослинництві",
+            "code":"01.61",
+            "is_primary":false
+         },
+         {
+            "name":"Роздрібна торгівля з лотків і на ринках іншими товарами",
+            "code":"47.89",
+            "is_primary":false
+         }
+      ],
+      "branches":[
+         
+      ],
+      "address":{
+         "zip":"77144",
+         "country":"Україна",
+         "address":"Україна, 77144, Івано-Франківська обл., Галицький р-н, село Яблунів, ВУЛИЦЯ СТЕФАНИКА, будинок 3",
+         "parts":{
+            "atu":"Івано-Франківська обл., Галицький р-н, село Яблунів",
+            "atu_code":"2621255309",
+            "street":"ВУЛИЦЯ СТЕФАНИКА",
+            "house_type":"будинок",
+            "house":"3",
+            "building_type":null,
+            "building":null,
+            "num_type":null,
+            "num":null
+         }
+      },
+      "registration":{
+         "date":"2012-11-09",
+         "record_number":"11061020000001084",
+         "record_date":"2012-11-09",
+         "is_separation":false,
+         "is_division":false,
+         "is_merge":false,
+         "is_transformation":false
+      },
+      "bankruptcy":null,
+      "termination":null,
+      "termination_cancel":null,
+      "assignees":[
+         
+      ],
+      "predecessors":[
+         
+      ],
+      "registrations":[
+         {
+            "name":"ГОЛОВНЕ УПРАВЛІННЯ РЕГІОНАЛЬНОЇ СТАТИСТИКИ",
+            "code":"21680000",
+            "type":4000,
+            "description":null,
+            "reg_number":null,
+            "start_date":"2012-11-12",
+            "start_num":null,
+            "end_date":null,
+            "end_num":null
+         },
+         {
+            "name":"ГОЛОВНЕ УПРАВЛІННЯ ДПС В ІВАНО-ФРАНКІВСЬКІЙ ОБЛАСТІ, КАЛУСЬКЕ УПРАВЛІННЯ, ГАЛИЦЬКА ДПІ (ГАЛИЦЬКИЙ РАЙОН)",
+            "code":"43142559",
+            "type":4002,
+            "description":"Реєстр платників податків",
+            "reg_number":null,
+            "start_date":"2012-11-15",
+            "start_num":"25254",
+            "end_date":null,
+            "end_num":null
+         },
+         {
+            "name":"ГОЛОВНЕ УПРАВЛІННЯ ДПС В ІВАНО-ФРАНКІВСЬКІЙ ОБЛАСТІ, КАЛУСЬКЕ УПРАВЛІННЯ, ГАЛИЦЬКА ДПІ (ГАЛИЦЬКИЙ РАЙОН)",
+            "code":"43142559",
+            "type":4001,
+            "description":"Реєстр платників єдиного внеску",
+            "reg_number":"03.02-0777",
+            "start_date":"2012-11-09",
+            "start_num":"03.02-0777",
+            "end_date":null,
+            "end_num":null
+         }
+      ],
+      "primary_activity_kind":{
+         "name":"Вирощування зернових культур (крім рису), бобових культур і насіння олійних культур",
+         "code":"01.11",
+         "reg_number":"03.02-0777",
+         "class":"22"
+      },
+      "prev_registration_end_term":null,
+      "open_enforcements":[
+         
+      ],
+      "contacts":{
+         "email":null,
+         "tel":[
+            "+380677514516"
+         ],
+         "fax":null,
+         "web_page":null,
+         "anotherInfo":null
+      }
+   },
+   "sign":"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"
+}
