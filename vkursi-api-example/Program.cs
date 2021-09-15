@@ -327,6 +327,7 @@ namespace vkursi_api_example
             // 59.1 Оригінальний метод Nais, на отримання повних даних (з міткою ЕЦП) за кодом NaisId який ми отримуємо з [POST] /api/1.0/organizations/freenais
             // organizations/payNaisSign
 
+            PayNaisSignClass.PayNaisSign(ref token, "10656661", "41462280", false);
 
             // 60. Отримання відомостей по Експрес оцінку ризиків у ЮО, ФОП та ФО за ПІБ та кодом ІПН / ЄДРПОУ 
             // [POST] /api/1.0/organizations/getExpressScore
