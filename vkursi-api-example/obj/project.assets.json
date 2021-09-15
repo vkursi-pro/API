@@ -253,11 +253,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+      "projectUniqueName": "C:\\Users\\vadim\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj",
       "projectName": "vkursi-api-example",
-      "projectPath": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+      "projectPath": "C:\\Users\\vadim\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj",
       "packagesPath": "C:\\Users\\vadim\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\API\\vkursi-api-example\\obj\\",
+      "outputPath": "C:\\Users\\vadim\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vadim\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -313,18 +313,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.17, 3.1.17]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
