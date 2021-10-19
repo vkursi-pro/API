@@ -66,7 +66,7 @@ namespace vkursi_api_example.person
                 else if ((int)response.StatusCode != 200 || response.ErrorMessage == "The operation has timed out.")
                 {
                     Console.WriteLine("Запит не успішний");
-                    return null;
+                    continue;
                 }
             }
 

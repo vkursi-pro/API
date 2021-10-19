@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CbMXycgDvZv/IxAhe4VEkKYq36BRVbaj3J4DZKb8ktFswjrOV1uOYFOGKQOxSZthy059d2/ZWpY1N6tWEl3RwQ==",
+  "dgSpecHash": "a9HwFv5w/i3QKGhmgmyGl0nceStO2FffP7iWS346JpU82fgATLs7V9fnaSK/fMEoWSCpEIqiirAvyUgQeavhkw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vadim\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+  "projectFilePath": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vadim\\.nuget\\packages\\csvhelper\\26.1.0\\csvhelper.26.1.0.nupkg.sha512",
     "C:\\Users\\vadim\\.nuget\\packages\\htmlagilitypack\\1.11.30\\htmlagilitypack.1.11.30.nupkg.sha512",

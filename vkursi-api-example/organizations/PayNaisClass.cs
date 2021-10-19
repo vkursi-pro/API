@@ -15,17 +15,17 @@ namespace vkursi_api_example.organizations
             59. Оригінальний метод Nais, на отримання повних данних по ЮО або ФОП за кодом NaisId (який ми отримуємо з [POST] /api/1.0/organizations/freenais)
             [GET] /api/1.0/organizations/paynais
 
-        cURL запиту:
-            curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/paynais?id=811202' \
+        cURL запиту:curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/paynais?id=811202' \
             --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...' \
             --header 'Content-Type: application/json' \
+            
 
         Приклад відповіді: 
             https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/PayNaisResponse.json
 
         */
 
-        public static OrganizationaisElasticModel Paynais(ref string token, long naisId)
+        public static OrganizationaisElasticModel Paynais(ref string token, long? naisId, string code)
         {
             if (string.IsNullOrEmpty(token)) 
             { 
@@ -41,6 +41,7 @@ namespace vkursi_api_example.organizations
                 RestRequest request = new RestRequest(Method.GET);
 
                 request.AddParameter("id", naisId);                             // Код Nais (який ми отримуємо з [POST] /api/1.0/organizations/freenais)
+                request.AddParameter("code", code);
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
 

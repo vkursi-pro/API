@@ -37,8 +37,8 @@ namespace vkursi_api_example.organizations
                     Skip = skip,                                                // К-ть записів які траба пропустити
                     Take = take,                                                // К-ть записів які траба взяти (якщо null будуть передані всі записи)
                     IsShortModel = IsShortModel,                                // Коротка або повна модель відповіді
-                    IsReturnAll = IsShortModel                                  // Повернуті всі записи або тільки ті які раніше не отримували по API
-                                                                                // (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
+                    IsReturnAll = false                                  // Повернуті всі записи або тільки ті які раніше не отримували по API
+                                                                               // (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
                 };
 
                 string body = JsonConvert.SerializeObject(GNRRequestBody);      // Example Body: {"DateReg":"29.10.2019","Type":"1","Skip":0,"Take":10,"IsShortModel":true,"IsReturnAll":true}

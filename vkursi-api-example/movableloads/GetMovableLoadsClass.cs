@@ -46,7 +46,7 @@ namespace vkursi_api_example.movableloads
                     //    edrpou
                     //},
                     Ipn = new List<string> {
-                        edrpou
+                        ipn
                     }
                 };
 
@@ -153,7 +153,7 @@ namespace vkursi_api_example.movableloads
         public DateTime? RegDate { get; set; }       // Дата реєстрації обтяження
         public bool IsActive { get; set; }          // Діюче (true - так / false - ні)
         public List<SidesBurdenList> SidesBurdenList { get; set; }  // Перелік обтяжувачів
-        public List<SidesBurdenList> SidesDebtorList { get; set; }  // Перелік боржників
+        public List<SidesDebtorList> SidesDebtorList { get; set; }  // Перелік боржників
         public string Property { get; set; }        // Опис майна (maxLength:512)
         public Guid Id { get; set; }                // Системний id обтяження в сервісі Vkursi
         public DateTime? RequestDate { get; set; }  // Дата запиту до розпорядника

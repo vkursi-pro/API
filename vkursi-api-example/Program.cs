@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using vkursi_api_example._2._0;
 using vkursi_api_example.bi;
 using vkursi_api_example.changes;
+using vkursi_api_example.codeExample;
 using vkursi_api_example.courtdecision;
 using vkursi_api_example.dictionary;
 using vkursi_api_example.estate;
@@ -27,8 +28,6 @@ namespace vkursi_api_example
 
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
-
-            CabinetTaxEdpodEpClass.CabinetTaxEdpodEp(token, "3334800417", true);
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -98,7 +97,7 @@ namespace vkursi_api_example
             // 15. Новий бізнес. Запит на отримання списку новозареєстрованих фізичних та юридичних осіб
             // [POST] /api/1.0/organizations/getnewregistration
 
-            GetNewRegistrationClass.GetNewRegistration("29.10.2019", "1", 0, 10, true, true, token);
+            GetNewRegistrationClass.GetNewRegistration("08.09.2019", "1", 0, 10, true, true, token);
 
             // 16. Видалити список контрагентів
             // [DELETE] /api/1.0/monitoring/removeReestr
@@ -322,7 +321,7 @@ namespace vkursi_api_example
             // 59. Оригинальний метод Nais, на отримання повних данних по ЮО або ФОП за кодом NaisId (який ми отримуємо з [POST] /api/1.0/organizations/freenais)
             // [GET] /api/1.0/organizations/paynais
 
-            PayNaisClass.Paynais(ref token, 811202);
+            GetOrgFinanceClass.GetOrgFinance(ref token, "24316073");
 
             // 59.1 Оригінальний метод Nais, на отримання повних даних (з міткою ЕЦП) за кодом NaisId який ми отримуємо з [POST] /api/1.0/organizations/freenais
             // organizations/payNaisSign
@@ -401,6 +400,11 @@ namespace vkursi_api_example
             // [POST] /api/1.0/podatkova/cabinettaxedpodep
 
             CabinetTaxEdpodEpClass.CabinetTaxEdpodEp(token, "3334800417", true);
+
+            // 75. API 2.0 Zemli конструктор API
+            // [POST] /api/2.0/ApiConstructorZemli
+
+            ApiConstructorClass.ApiConstructor(ref token, "25412361", new HashSet<int> { 4, 9, 41, 37, 66, 32, 39, 70, 71 }); // 57
 
             // Перелік статусів відповідей API
         }
