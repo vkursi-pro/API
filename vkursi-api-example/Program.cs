@@ -391,6 +391,8 @@ namespace vkursi_api_example
             // 72. API з історії зміни даних в ЄДР
             // [POST] /api/1.0/organizations/getactivityorghistory
 
+            GetActivityOrgHistoryClass.GetActivityOrgHistory(ref token, "44623955");
+
             // 73. Відомості про субєктів господарювання які стоять на обліку в ДФС
             // [POST] /api/1.0/podatkova/cabinettaxregistration
 
