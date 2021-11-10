@@ -126,7 +126,7 @@ namespace vkursi_api_example.movableloads
     public class GetMovableLoadsResponseModel       // Відповідь на запит
     {
         public bool isSuccess { get; set; }         // Запит виконано успішно (true - так / false - ні)
-        public string status { get; set; }          // Спапус запиту (maxLength:128)
+        public string status { get; set; }          // Статус запиту (maxLength:128)
         public List<Datum> data { get; set; }       // Перелік обтяжень
         public Dictionary<string, string> originalData { get; set; }
     }

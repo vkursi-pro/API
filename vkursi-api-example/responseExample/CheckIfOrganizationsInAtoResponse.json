@@ -1,0 +1,14 @@
+{
+   "isSuccess":true,
+   "status":"Дані знайдено",
+   "data":[
+      {
+         "code":"25412361",
+         "registerInAto":false
+      },
+      {
+         "code":"2674001651",
+         "registerInAto":true
+      }
+   ]
+}

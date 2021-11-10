@@ -25,7 +25,7 @@ namespace vkursi_api_example.organizations
 
         */
 
-        public static OrganizationaisElasticModel Paynais(ref string token, long? naisId, string code)
+        public static OrganizationaisElasticModel PayNais(ref string token, long? naisId, string code)
         {
             if (string.IsNullOrEmpty(token)) 
             { 

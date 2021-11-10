@@ -24,7 +24,8 @@ namespace vkursi_api_example._2._0
         {
             if (string.IsNullOrEmpty(token)) 
             {
-                AuthorizeClass _authorize = new AuthorizeClass(); token = _authorize.Authorize(); 
+                AuthorizeClass _authorize = new AuthorizeClass(); 
+                token = _authorize.Authorize(); 
             }
 
             string responseString = string.Empty;
@@ -67,9 +68,8 @@ namespace vkursi_api_example._2._0
 
             ACResponseRow = JsonConvert.DeserializeObject<ApiConstructorResponseModel>(responseString);
 
-
-            var sddsds = JsonConvert.SerializeObject(ACResponseRow, Formatting.Indented);
-
+            // Тут можна переглянути json відповіді
+            string apiConstructorResponseString = JsonConvert.SerializeObject(ACResponseRow, Formatting.Indented);
 
             return ACResponseRow;
         }

@@ -23,7 +23,7 @@ namespace vkursi_api_example.person
 
         public static CheckPersonResponseModel CheckPerson(string token, CheckPersonRequestBodyModel CheckPersonRequestBodyRow)
         {
-            if (string.IsNullOrEmpty(token)) 
+            if (string.IsNullOrEmpty(token))
             { 
                 AuthorizeClass _authorize = new AuthorizeClass();
                 token = _authorize.Authorize();

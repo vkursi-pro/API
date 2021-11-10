@@ -29,6 +29,10 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
+            CheckIfOrganizationsInAtoClass.CheckIfOrganizationsInAto(ref token, "25412361");
+
+            //GetRelationsClass.GetRelations(ref token, "42556505", null);
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -321,7 +325,7 @@ namespace vkursi_api_example
             // 59. Оригинальний метод Nais, на отримання повних данних по ЮО або ФОП за кодом NaisId (який ми отримуємо з [POST] /api/1.0/organizations/freenais)
             // [GET] /api/1.0/organizations/paynais
 
-            GetOrgFinanceClass.GetOrgFinance(ref token, "24316073");
+            //PayNaisClass.PayNais(ref token, "10656661", "41462280", false);
 
             // 59.1 Оригінальний метод Nais, на отримання повних даних (з міткою ЕЦП) за кодом NaisId який ми отримуємо з [POST] /api/1.0/organizations/freenais
             // organizations/payNaisSign
@@ -407,6 +411,11 @@ namespace vkursi_api_example
             // [POST] /api/2.0/ApiConstructorZemli
 
             ApiConstructorClass.ApiConstructor(ref token, "25412361", new HashSet<int> { 4, 9, 41, 37, 66, 32, 39, 70, 71 }); // 57
+
+            // 76. Перевірка чи знаходиться аблеса компанії/ФОП в зоні АТО (доступно в конструкторі API №76)
+            // [POST] /api/1.0/organizations/CheckIfOrganizationsInAto
+
+            CheckIfOrganizationsInAtoClass.CheckIfOrganizationsInAto(ref token, "25412361");
 
             // Перелік статусів відповідей API
         }

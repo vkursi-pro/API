@@ -36,10 +36,12 @@ namespace vkursi_api_example.organizations
             {
                 GetRelationsRequestBodyModel GRRequestBody = new GetRelationsRequestBodyModel
                 {
-                    Edrpou = new List<string>                                           // Перелік кодів ЄДРПОУ (обмеження 1)
-                    {
-                        edrpou
-                    },
+                    //Edrpou = new List<string>                                           // Перелік кодів ЄДРПОУ (обмеження 1)
+                    //{
+                    //    edrpou
+                    //},
+
+                    Name = new List<string>() { "ЗАПЕКА ВАДИМ ВІТАЛІЙОВИЧ" },
 
                     MaxRelationLevel = 1,                                               // Фільтр по к-ті рівнів зв'язків які будуть отриммані в відповіді
 
@@ -59,6 +61,7 @@ namespace vkursi_api_example.organizations
                 // Example Body: {"Edrpou":["42556505"],"RelationId":null,"FilterRelationType":null,"MaxRelationLevel":3}
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getrelations");
+
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
@@ -128,8 +131,13 @@ namespace vkursi_api_example.organizations
 
     public class GetRelationsRequestBodyModel                                           // Модель запиту 
     {
+        [JsonProperty("edrpou", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> Edrpou { get; set; }                                        // Перелік кодів ЕДРПОУ за якими буде проведений пошук зв'язків
+
+        [JsonProperty("relationId", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> RelationId { get; set; }                                    // Перелік Id зв'язків за якими буде проведений пошук зв'язків
+
+        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> Name { get; set; }                                          // Перелік ПІБ зв'язків за якими буде проведений пошук зв'язків (мах 1)
         public List<int> FilterRelationType { get; set; }                               // Фільтр по типам зв'язків (LocationType = 1, ChiefType = 2, FounderType = 3, OldNodeNameType = 4, OldNodeChiefType = 5, OldNodeAdressType = 6, OldNodeFounder = 7, Branch = 8, Assignee = 9, Signatorie = 10, Shareholder = 11, ContactType = 12)
         public int? MaxRelationLevel { get; set; }                                      // Фільтр по к-ті рівнів зв'язків які будуть отриммані в відповіді

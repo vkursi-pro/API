@@ -34,7 +34,7 @@ namespace vkursi_api_example.organizations
                     Code = new List<string> { code },
                 };
 
-                string body = JsonConvert.SerializeObject(GAOHRBody);  // {"Codes":["21560766"]}
+                string body = JsonConvert.SerializeObject(GAOHRBody);  // Example: {"Codes":["21560766","3334800417"]}
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getactivityorghistory");
                 RestRequest request = new RestRequest(Method.POST);
@@ -69,7 +69,7 @@ namespace vkursi_api_example.organizations
         }
     }
 
-    public class GetActivityOrgHistoryRequestBodyModel                          // Модель запиту (Example: )
+    public class GetActivityOrgHistoryRequestBodyModel                          // Модель запиту (Example: {"Codes":["21560766","3334800417"]})
     {
         public List<string> Code { get; set; }                                  // Код ЕДРПОУ
     }
