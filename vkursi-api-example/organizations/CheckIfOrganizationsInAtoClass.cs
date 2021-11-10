@@ -79,8 +79,6 @@ namespace vkursi_api_example.organizations
             string сheckIfOrganizationsInAtoResponseString = JsonConvert.SerializeObject(CIOIARow, Formatting.Indented);
 
             return CIOIARow;
-
-
         }
     }
 

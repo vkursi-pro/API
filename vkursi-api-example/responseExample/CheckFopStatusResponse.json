@@ -1,0 +1,37 @@
+{
+   "isSuccess":true,
+   "status":"Дані знайдено",
+   "data":[
+      {
+         "code":"2674001651",
+         "movables":[
+            
+         ],
+         "reestrInfo":[
+            
+         ],
+         "registrationData":{
+            "fullName":"ДУБІНСЬКИЙ МАКСИМ ПЕТРОВИЧ",
+            "tinS":null,
+            "adress":null,
+            "dRegSti":"10.12.2002",
+            "nRegSti":"1027",
+            "cStiMainName":"106, ГОЛОВНЕ УПРАВЛІННЯ ДПС У ХЕРСОНСЬКІЙ ОБЛАСТІ, АВТОНОМНІЙ РЕСПУБЛІЦІ КРИМ ТА М.СЕВАСТОПОЛІ, ГЕНІЧЕСЬКА ДПІ (ВЕЗ КРИМ,М.КЕРЧ)",
+            "vedLic":null,
+            "faceMode":2,
+            "cStan":0,
+            "dZakrSti":null,
+            "cKind":910,
+            "cClose":0,
+            "error":null,
+            "errorDescription":null,
+            "naisName":null,
+            "naisState":null,
+            "naisStateText":null
+         },
+         "registrationDataStatus":"Дані знайдено",
+         "isFop":true,
+         "fopState":"зареєстровано"
+      }
+   ]
+}

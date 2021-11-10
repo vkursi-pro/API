@@ -29,7 +29,7 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            CheckIfOrganizationsInAtoClass.CheckIfOrganizationsInAto(ref token, "25412361");
+            CheckFopStatusClass.CheckFopStatus(ref token, "2674001651", true);
 
             //GetRelationsClass.GetRelations(ref token, "42556505", null);
 
@@ -416,6 +416,11 @@ namespace vkursi_api_example
             // [POST] /api/1.0/organizations/CheckIfOrganizationsInAto
 
             CheckIfOrganizationsInAtoClass.CheckIfOrganizationsInAto(ref token, "25412361");
+
+            // 77. Перевірка ФОП/не ФОП, наявність ліцензій адвокат/нотаріус, наявність обтяжень ДРОРМ (доступно в конструкторі API №77)
+            // [POST] /api/1.0/person/CheckFopStatus
+
+            CheckFopStatusClass.CheckFopStatus(ref token, "2674001651", true);
 
             // Перелік статусів відповідей API
         }
