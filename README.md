@@ -671,4 +671,156 @@ GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 0, 1, 2, new List<str
 <br>
 <br>
 
+ <h3>67. Запит на отримання повних реквізитів та контенту судових документів організації за критеріями</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetDecisionsByFilterClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisionsbyfilter</a></p>
+
+GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
+
+<br>
+<br>
+
+<h3>68. Анкета</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAnketaClass.cs" target="_blank">[POST] /api/1.0/organizations/GetAnketa</a></p>
+
+GetAnketaClass.GetAnketa(ref token, "41462280");
+
+<br>
+<br>
+
+<h3>69. API 2.0 Конструктор API</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/ApiConstructorClass.cs" target="_blank">[POST] /api/2.0/ApiConstructor</a></p>
+
+ApiConstructorClass.ApiConstructor(ref token, "25412361",  new HashSet<int>{ 4, 9, 41, 37, 66, 32, 39, 70, 71 }); // 57
+
+<br>
+<br>
+
+<h3>70. Скорочені основні фінансові показники діяльності підприємства</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceShortClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceShort</a></p>
+
+GetOrgFinanceShortClass.GetOrgFinanceShort(ref token, "41462280", new List<int> { 2020, 2019 });
+
+<br>
+<br>
+
+<h3>71. Фінансово промислові групи</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFinancialIndustrialGroupClass.cs" target="_blank">[POST] /api/1.0/organizations/GetFinancialIndustrialGroup</a></p>
+
+GetFinancialIndustrialGroupClass.GetFinancialIndustrialGroup(ref token, "41462280");
+
+<br>
+<br>
+
+<h3>72. API з історії зміни даних в ЄДР</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetActivityOrgHistoryClass.cs" target="_blank">[POST] /api/1.0/organizations/getactivityorghistory</a></p>
+
+GetActivityOrgHistoryClass.GetActivityOrgHistory(ref token, "44623955");
+
+<br>
+<br>
+
+<h3>73. Відомості про субєктів господарювання які стоять на обліку в ДФС</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CabinetTaxRegistrationClass.cs" target="_blank">[POST] /api/1.0/podatkova/cabinettaxregistration</a></p>
+
+CabinetTaxRegistrationClass.CabinetTaxRegistration(ref token, "41462280");
+
+<br>
+<br>
+
+<h3>74. Стан ФОПа та відомості про ЄП</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CabinetTaxEdpodEpClass.cs" target="_blank">[POST] /api/1.0/podatkova/cabinettaxedpodep</a></p>
+
+CabinetTaxEdpodEpClass.CabinetTaxEdpodEp(token, "3334800417", true);
+
+<br>
+<br>
+
+<h3>75. API 2.0 Zemli конструктор API</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/ApiConstructorClass.cs" target="_blank">[POST] /api/2.0/ApiConstructorZemli</a></p>
+
+ApiConstructorClass.ApiConstructor(ref token, "25412361", new HashSet<int> { 4, 9, 41, 37, 66, 32, 39, 70, 71 }); // 57
+
+<br>
+<br>
+
+<h3>76. Перевірка чи знаходиться аблеса компанії/ФОП в зоні АТО (доступно в конструкторі API №76)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckIfOrganizationsInAtoClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckIfOrganizationsInAto</a></p>
+
+CheckIfOrganizationsInAtoClass.CheckIfOrganizationsInAto(ref token, "25412361");
+
+<br>
+<br>
+
+<h3>77. Перевірка ФОП/не ФОП, наявність ліцензій адвокат/нотаріус, наявність обтяжень ДРОРМ (доступно в конструкторі API №77)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckFopStatusClass.cs" target="_blank">[POST] /api/1.0/person/CheckFopStatus</a></p>
+
+CheckFopStatusClass.CheckFopStatus(ref token, "2674001651", true);
+
+<br>
+<br>
+
+<h3>78. Перевірка контрагента в списках санкції (доступно в конструкторі API №78)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgSanctionsClass.cs" target="_blank">[POST] /api/organizations/GetOrgSanctions</a></p>
+
+GetOrgSanctionsClass.GetOrgSanctions(ref token, "00131305");
+
+<br>
+<br>
+
+<h3>79. Реєстр платників ПДВ (доступно в конструкторі API №79)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgPdvClass.cs" target="_blank">[POST] /api/organizations/GetOrgPdv</a></p>
+
+GetOrgPdvClass.GetOrgPdv(ref token, "00131305");
+
+<br>
+<br>
+
+<h3>80. Анульована реєстрація платником ПДВ (доступно в конструкторі API №80)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgAnulPdvClass.cs" target="_blank">[POST] /api/organizations/GetOrgAnulPdv</a></p>
+
+GetOrgAnulPdvClass.GetOrgAnulPdv(ref token, "00131305");
+
+<br>
+<br>
+
+<h3>81. Реєстр платників Єдиного податку (доступно в конструкторі API №81)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetYedynyyPodatokClass.cs" target="_blank">[POST] /api/organizations/GetYedynyyPodatok</a></p>
+
+GetYedynyyPodatokClass.GetYedynyyPodatok(ref token, "00131305");
+
+<br>
+<br>
+
+<h3>82. Реєстр ДФС “Дізнайся більше про свого бізнес-партнера” (доступно в конструкторі API №82)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetDfsBussinesPartnerDataClass.cs" target="_blank">[POST] /api/organizations/GetDfsBussinesPartnerData</a></p>
+
+GetDfsBussinesPartnerDataClass.GetDfsBussinesPartnerData(ref token, "00131305");
+
+<br>
+<br>
+
+<h3>83. Штатна чисельність працівників (доступно в конструкторі API №83)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetKilkistPracivnukiv.cs" target="_blank">[POST] /api/organizations/GetKilkistPracivnukiv</a></p>
+
+GetKilkistPracivnukivClass.GetKilkistPracivnukiv(ref token, "00131305");
+
+<br>
+<br>
+
+<h3>84. Реєстр ДФС “Стан розрахунків з бюджетом” (доступно в конструкторі API №84)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationDbDebtorsDfsClass.cs" target="_blank">[POST] /api/organizations/GetOrganizationDbDebtorsDfs</a></p>
+
+GetOrganizationDbDebtorsDfsClass.GetOrganizationDbDebtorsDfs(ref token, "00131305");
+
+<br>
+<br>
+
+<h3>85. Єдиний реєстр боржників (доступно в конструкторі API №85)</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOpenEnforcementsClass.cs" target="_blank">[POST] /api/organizations/GetOpenEnforcements</a></p>
+
+GetOpenEnforcementsClass.GetOpenEnforcements(ref token, "00131305");
+        
+<br>
+<br>
+
 <h3>Перелік статусів відповідей API</h3>
