@@ -168,7 +168,7 @@ namespace vkursi_api_example.person
     public class OrgEnforcementApiAnswerModelDataVehicle                                // Пелелік виконавчих проваджень
     {
         public DateTime? DateOpen { get; set; }                                         // Дата відкриття ВП
-        public string VpNumber { get; set; }                                            // омер ВП (maxLength:32)
+        public string VpNumber { get; set; }                                            // Номер ВП (maxLength:32)
         public string Status { get; set; }                                              // Статус ВП (Приклад: Боржник, Стягувач, ...) (maxLength:128)
         public string Category { get; set; }                                            // Категорія ВП (maxLength:256)
         public string State { get; set; }                                               // Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)

@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example.podatkova
@@ -84,7 +82,7 @@ namespace vkursi_api_example.podatkova
 
     public class CabinetTaxRegistrationRequestBodyModel                             // Модель запиту (Example: {"tin":"21560766"})
     {
-        public string Tin { get; set; }                                             // Код ЄДРПОУ аба ІПН
+        public string Tin { get; set; }                                             // Код ЄДРПОУ або ІПН
     }
 
     public class CabinetTaxRegistrationResponseModel                                // Модель на відповідь CabinetTaxRegistration
