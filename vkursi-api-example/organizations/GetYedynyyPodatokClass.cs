@@ -71,23 +71,23 @@ namespace vkursi_api_example.organizations
 
     public class GetYedynyyPodatokRequestBodyModel                              // Модель запиту (Example: {"code":["21560766"]})
     {
-        public List<string> Code { get; set; }                                      // Код ЄДРПОУ
+        public List<string> Code { get; set; }                                  // Код ЄДРПОУ
     }
 
 
     public class GetYedynyyPodatokResponseModel                                 // Модель на відповідь GetYedynyyPodatok
     {
-        public string Status { get; set; }                                      // 
-        public bool IsSuccess { get; set; }                                     // 
-        public List<OrgYedunuyPodatok> Data { get; set; }                       // 
+        public string Status { get; set; }                                      // Статус запиту (maxLength:128)
+        public bool IsSuccess { get; set; }                                     // Запит виконано успішно (true - так / false - ні)
+        public List<OrgYedunuyPodatok> Data { get; set; }                       // Дані
     }
-    public class OrgYedunuyPodatok                                              // 
+    public class OrgYedunuyPodatok                                              // Дані
     {
-        public string Code { get; set; }                                        // 
-        public decimal? Stavka { get; set; }
-        public int? Grup { get; set; }
-        public DateTime? DateStart { get; set; }
-        public DateTime? DateEnd { get; set; }
-        public string Info { get; set; }
+        public string Code { get; set; }                                        // Код ЄДРПОУ за яким знайдено дані
+        public decimal? Stavka { get; set; }                                    // Ставка ЄП
+        public int? Grup { get; set; }                                          // Група ЄП
+        public DateTime? DateStart { get; set; }                                // Дата отримання
+        public DateTime? DateEnd { get; set; }                                  // Дата анулювання
+        public string Info { get; set; }                                        // Статус (1 Группа ПДВ / 2 Группа без ПДВ / 3 Группа без ПДВ / 3 Группа ПДВ" / Не платник ЄП)
     }
 }

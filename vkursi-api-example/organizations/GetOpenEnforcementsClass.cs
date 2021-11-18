@@ -77,16 +77,16 @@ namespace vkursi_api_example.organizations
 
     public class GetOpenEnforcementsResponseModel                                   // Модель на відповідь GetOpenEnforcements
     {
-        public string Status { get; set; }                                          // 
-        public bool IsSuccess { get; set; }                                         // 
-        public List<EnforcementsData> Data { get; set; }                            // 
+        public string Status { get; set; }                                          // Статус запиту (maxLength:128)
+        public bool IsSuccess { get; set; }                                         // Запит виконано успішно (true - так / false - ні)
+        public List<EnforcementsData> Data { get; set; }                            // Дані
     }
-    public class EnforcementsData                                                   // 
+    public class EnforcementsData                                                   // Дані
     {
-        public string Code { get; set; }                                            // 
-        public List<EnforcementsDataList> EnforcementsList { get; set; }            // 
+        public string Code { get; set; }                                            // Код ЕДРПОУ (за яким знайдено дані)
+        public List<EnforcementsDataList> EnforcementsList { get; set; }            // Перелік проваджень
     }
-    public class EnforcementsDataList                                               // 
+    public class EnforcementsDataList                                               // Перелік проваджень
     {
 
         public DateTime? DateOpen { get; set; }                                         // Дата відкриття ВП

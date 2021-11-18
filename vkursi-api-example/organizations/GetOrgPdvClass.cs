@@ -77,15 +77,15 @@ namespace vkursi_api_example.organizations
 
     public class GetOrgPdvResponseModel                                             // Модель на відповідь GetKilkistPracivnukiv
     {
-        public string Status { get; set; }                                          // 
-        public bool IsSuccess { get; set; }                                         // 
-        public List<OrgPdvInfo> Data { get; set; }                                  // 
+        public string Status { get; set; }                                          // Статус запиту (maxLength:128)
+        public bool IsSuccess { get; set; }                                         // Запит виконано успішно (true - так / false - ні)
+        public List<OrgPdvInfo> Data { get; set; }                                  // Дані відповіді
     }
-    public class OrgPdvInfo                                                         // 
+    public class OrgPdvInfo                                                         // Дані відповіді
     {
-        public string Code { get; set; }                                            // 
-        public DateTime? DateRegInn { get; set; }                                   // 
-        public string Inn { get; set; }                                             // 
-        public string Info { get; set; }                                            // 
+        public string Code { get; set; }                                            // Код ЄДРПОУ
+        public DateTime? DateRegInn { get; set; }                                   // Дата отримання свідоцтва ПДВ
+        public string Inn { get; set; }                                             // ІПН
+        public string Info { get; set; }                                            // Загальній статус (платник ПДВ / не платник ПДВ)
     }
 }

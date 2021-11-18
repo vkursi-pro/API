@@ -70,20 +70,20 @@ namespace vkursi_api_example.organizations
         }
     }
 
-    public class GetOrgAnulPdvRequestBodyModel
+    public class GetOrgAnulPdvRequestBodyModel                                      // Модель запиту 
     {
         public List<string> Code { get; set; }                                      // Код ЄДРПОУ
     }
 
-    public class GetOrgAnulPdvResponseModel
+    public class GetOrgAnulPdvResponseModel                                         // Модель відповіді
     {
-        public string Status { get; set; }
-        public bool IsSuccess { get; set; }
-        public List<OrgAnulPdvInfo> Data { get; set; }
+        public string Status { get; set; }                                          // Статус запиту (maxLength:128)
+        public bool IsSuccess { get; set; }                                         // Запит виконано успішно (true - так / false - ні)
+        public List<OrgAnulPdvInfo> Data { get; set; }                              // Дані відповіді
     }
-    public class OrgAnulPdvInfo
+    public class OrgAnulPdvInfo                                                     // Дані відповіді
     {
-        public string Code { get; set; }
-        public DateTime? AnulDateTime { get; set; }
+        public string Code { get; set; }                                            // Код ЕДРПОУ
+        public DateTime? AnulDateTime { get; set; }                                 // Дата анулювання
     }
 }

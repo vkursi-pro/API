@@ -155,7 +155,12 @@ namespace vkursi_api_example.person
         public List<PersonLostDoc> LostDocuments { get; set; }                          // Відомості про втрачені документи
         public CourtDecisionAggregationModel CourtAnalytic { get; set; }                // Судові рішення (призначені по розгляду)
         public List<PersonInBancrutcy> Bancrutcy { get; set; }                          // Відомості про банкрутство
-        public List<int> Sanctions { get; set; }                                        // Санкції
+        public List<PersonSanctionsData> SanctionsDetails { get; set; }                 // Санкції
+        public bool? PublicPerson { get; set; }                                         // Статус публічної особи (ПЕП) (// 0 - не публічна особа, 1 - звязана с публічною особою, 2 - публічная особо, 3 - невідомо, null - нема інформації)
+        public PersonApiResponseDataRecived CheckList { get; set; }                     // Перелік реєстрів з яких ми успішно/не успішно перевірили дані по ФО
+        public List<int> Sanctions { get; set; }                                        // Санкції перелік id (розширена інформація в SanctionsDetails)
+        public Guid? Id { get; set; }                                                   // Внутрішній id Vkursi
+
     }
 
     public class PersonsInBorgModel                                                     // Відомості про наявність боргу
@@ -419,7 +424,7 @@ namespace vkursi_api_example.person
         public List<PersonLustration> LustrationsList { get; set; }                     // Відомості з реєстру про люстрацію
     }
 
-    public class PersonLicense
+    public class PersonLicense                                                          // Ліцензії
     {
         public string LicenseName { get; set; }
         public string LicenseNumber { get; set; }
@@ -431,14 +436,14 @@ namespace vkursi_api_example.person
         public bool? SearchByBirthDay { get; set; }
         public string PersonName { get; set; }
     }
-    public class PersonCorruption
+    public class PersonCorruption                                                       // Корупційні правопорушення
     {
         public string Name { get; set; }
         public string PlaceOfWork { get; set; }
         public string Position { get; set; }
         public Guid LicenseId { get; set; }
     }
-    public class PersonLustration
+    public class PersonLustration                                                       // Люстрація
     {
         public string Name { get; set; }
         public string PlaceOfWork { get; set; }
@@ -493,5 +498,33 @@ namespace vkursi_api_example.person
         public List<Tuple<DateTime?, string>> Publications { get; set; }                // Відомості про публікації на сайте ВГСУ (Вищого господарського суду)
     }
 
-
+    public class PersonApiResponseDataRecived                                           // Перелік реєстрів з яких ми успішно/не успішно перевірили дані по ФО (true - успішно перевырили / false - не успішно перевырили)
+    {
+        public bool BorgCheck { get; set; }                                             //Борг
+        public bool MovableCheck { get; set; }                                          // ДРОРМ
+        public bool PersonsInFopsModelCheck { get; set; }                               // ФОП / не ФОП
+        public bool EnforcementsCheck { get; set; }                                     // Виконавчі провадження
+        public bool EstatesCheck { get; set; }                                          // Нерухомість
+        public bool VehiclesCheck { get; set; }                                         // Автотранспорт
+        public bool PersonsInOrganizationsModelsCheck { get; set; }                     // По компаніяї
+        public bool SanctionsCheck { get; set; }                                        // Санкції
+        public bool FairCheck { get; set; }                                             // Судові справи призначені до розгляду
+        public bool IntellectualPropertyCheck { get; set; }                             // Інтелектуальна власність
+        public bool DeclarationsCheck { get; set; }                                     // Декларації
+        public bool LicensesCheck { get; set; }                                         // Ліцензії
+        public bool HidingCheck { get; set; }                                           // Прихотуються від влади
+        public bool LostDocumentsCheck { get; set; }                                    // Втрачені документи
+        public bool BancrutcyCheck { get; set; }                                        // Банкрутство
+        public bool CourtAnalyticCheck { get; set; }                                    // Судові документи
+        public bool AuditsCheck { get; set; }                                           // План графік перевірок
+        public bool SanctionsDetailsCheck { get; set; }                                 // Санкції детально
+    }
+    public class PersonSanctionsData                                                    // Санкції
+    {
+        public int SanctionType { get; set; }                                           // Id санкції
+        public bool SearchByIpn { get; set; }                                           // Чи знайдено по ІПН
+        public DateTime? SanctionStart { get; set; }                                    // Дата початку
+        public string Name { get; set; }                                                // Назва санкції
+        public object Details { get; set; }                                             // Додаткові відомості в форматі json
+    }
 }
