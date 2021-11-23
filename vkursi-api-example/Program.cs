@@ -29,10 +29,6 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            GetActivityOrgHistoryClass.GetActivityOrgHistory(ref token, "43015722");
-
-            //GetRelationsClass.GetRelations(ref token, "42556505", null);
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 

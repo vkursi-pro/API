@@ -36,12 +36,12 @@ namespace vkursi_api_example.organizations
             {
                 GetRelationsRequestBodyModel GRRequestBody = new GetRelationsRequestBodyModel
                 {
-                    //Edrpou = new List<string>                                           // Перелік кодів ЄДРПОУ (обмеження 1)
-                    //{
-                    //    edrpou
-                    //},
+                    Edrpou = new List<string>                                           // Перелік кодів ЄДРПОУ (обмеження 1)
+                    {
+                        edrpou
+                    },
 
-                    Name = new List<string>() { "ЗАПЕКА ВАДИМ ВІТАЛІЙОВИЧ" },
+                    //Name = new List<string>() { "ЗАПЕКА ВАДИМ ВІТАЛІЙОВИЧ" },
 
                     MaxRelationLevel = 1,                                               // Фільтр по к-ті рівнів зв'язків які будуть отриммані в відповіді
 
@@ -152,19 +152,19 @@ namespace vkursi_api_example.organizations
 
     public class GetRelationApiModelAnswerData                                          // Перелік даних
     {
-        public string ParentId { get; set; }                                            // Id зв'язку
-        public string ChildId { get; set; }                                             // Id дочірнього зв'язку 
-        public string ParentName { get; set; }                                          // Назва зв'язку (керівник, бенефіціар)
-        public string ParentEdrpou { get; set; }                                        // ЄДРПОУ зв'язку
-        public string ChildName { get; set; }                                           // Назва дочірнього зв'язку
-        public string ChildEdrpou { get; set; }                                         // ЄДРПОУ дочірнього зв'язку
+        public string ParentId { get; set; }                                            // Id зв'язку (maxlength:36)
+        public string ChildId { get; set; }                                             // Id дочірнього зв'язку (maxlength:36)
+        public string ParentName { get; set; }                                          // Назва зв'язку (керівник, бенефіціар) (maxlength:511)
+        public string ParentEdrpou { get; set; }                                        // ЄДРПОУ зв'язку (maxlength:12)
+        public string ChildName { get; set; }                                           // Назва дочірнього зв'язку (maxlength:511)
+        public string ChildEdrpou { get; set; }                                         // ЄДРПОУ дочірнього зв'язку (maxlength:12)
         public List<int> ParentSanctions { get; set; }                                  // Санкції
         public int? ParentPublicPerson { get; set; }                                    // Статус публічної особи (// 0 - не публічна особа, 1 - звязана с публічною особою, 2 - публічная особо, 3 - невідомо, null - нема інформації)
         public int? ChildPublicPerson { get; set; }                                     // Дочірній  зв'язок
         public double? Percent { get; set; }                                            // Відсоток володіння (якщо бенефіціар / засновник / або власник пакетік акцій)
         public List<int> ChildSanctions { get; set; }                                   // Санкції дочірнього зв'язку
         public int? RelationLevel { get; set; }                                         // Рівень зв'язків
-        public string Type { get; set; }                                                // Тип зв'язку (керівник, бенефіціар)
+        public string Type { get; set; }                                                // Тип зв'язку (керівник, бенефіціар) (maxlength:31)
 
                                                                                         // FounderType Бенефіціар
                                                                                         // LocationType Адреса
@@ -178,36 +178,36 @@ namespace vkursi_api_example.organizations
                                                                                         // Assignee Правонаступник
 
         [JsonProperty("adresa")]
-        public string Adresa { get; set; }                                              // 
+        public string Adresa { get; set; }                                              // (maxlength:127)
 
         [JsonProperty("typBenefVolodinnya")]
-        public string TypBenefVolodinnya { get; set; }                                  // 
+        public string TypBenefVolodinnya { get; set; }                                  // (maxlength:63)
 
         [JsonProperty("vplyvCherezUO")]
-        public string VplyvCherezUo { get; set; }                                       // 
+        public string VplyvCherezUo { get; set; }                                       // (maxlength:511)
 
         [JsonProperty("aktsiy")]
-        public List<AktsiyRelationModel> Aktsiy { get; set; }                                   // 
+        public List<AktsiyRelationModel> Aktsiy { get; set; }                           // 
     }
 
     public class AktsiyRelationModel
     {
         [JsonProperty("vydDeponenta")]
-        public string VydDeponenta { get; set; }                                        // 
+        public string VydDeponenta { get; set; }                                        // (maxlength:511)
 
         [JsonProperty("vydTsinnohoPaperu")]
-        public string VydTsinnohoPaperu { get; set; }                                   // 
+        public string VydTsinnohoPaperu { get; set; }                                   // (maxlength:31)
 
         [JsonProperty("kodIsin")]
-        public string KodIsin { get; set; }                                             // 
+        public string KodIsin { get; set; }                                             // (maxlength:31)
 
         [JsonProperty("nominalVartist")]
-        public string NominalVartist { get; set; }                                      // 
+        public string NominalVartist { get; set; }                                      // (maxlength:63)
 
         [JsonProperty("kilkistAktsiy")]
-        public string KilkistAktsiy { get; set; }                                       // 
+        public string KilkistAktsiy { get; set; }                                       // (maxlength:31)
 
         [JsonProperty("vidsotokAktsiy")]
-        public string VidsotokAktsiy { get; set; }                                      // 
+        public string VidsotokAktsiy { get; set; }                                      // (maxlength:31)
     }
 }

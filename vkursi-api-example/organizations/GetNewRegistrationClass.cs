@@ -14,12 +14,22 @@ namespace vkursi_api_example.organizations
         15. Новий бізнес. Запит на отримання списку новозареєстрованих фізичних та юридичних осіб
         [POST] /api/1.0/organizations/getnewregistration
 
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getnewregistration' \
-        --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...' \
-        --header 'Content-Type: application/json' \
-        --data-raw '{"DateReg":"29.10.2019","Type":"1","Skip":0,"Take":10,"IsShortModel":true,"IsReturnAll":true}'
+        cURL запиту:
+            curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getnewregistration' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"DateReg":"23.11.2021","Type":"1","Skip":0,"Take":10,"IsShortModel":true,"IsReturnAll":true}'
 
+        Приклад відповіді (скорочена версія IsShortModel = true) 
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetNewRegistrationResponseShort.json
+        Модель відповіді (скорочена версія IsShortModel = true) 
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetNewRegistrationClass.cs#L161
+
+        Приклад відповіді (повна версія IsShortModel = false)
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetNewRegistrationResponseFull.json 
+        Модель відповіді (повна версія IsShortModel = false)
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L130
         */
 
         public static string GetNewRegistration(string dateReg, string type, int? skip, int? take, bool? IsShortModel, bool? IsReturnAll, string token)
@@ -37,8 +47,7 @@ namespace vkursi_api_example.organizations
                     Skip = skip,                                                // К-ть записів які траба пропустити
                     Take = take,                                                // К-ть записів які траба взяти (якщо null будуть передані всі записи)
                     IsShortModel = IsShortModel,                                // Коротка або повна модель відповіді
-                    IsReturnAll = false                                  // Повернуті всі записи або тільки ті які раніше не отримували по API
-                                                                               // (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
+                    IsReturnAll = false                                         // Повернуті всі записи або тільки ті які раніше не отримували по API (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
                 };
 
                 string body = JsonConvert.SerializeObject(GNRRequestBody);      // Example Body: {"DateReg":"29.10.2019","Type":"1","Skip":0,"Take":10,"IsShortModel":true,"IsReturnAll":true}
@@ -78,7 +87,7 @@ namespace vkursi_api_example.organizations
 
             List<GetAdvancedOrganizationResponseModel> NewRegistrationFullList = new List<GetAdvancedOrganizationResponseModel>();
 
-            List<OrganizationAdviceFullApiShortModel> NewRegistrationShortList = new List<OrganizationAdviceFullApiShortModel>();
+            List<GetNewRegistrationResponseShortModel> GetNewRegistrationResponseShortList = new List<GetNewRegistrationResponseShortModel>();
 
             if (IsShortModel == null || IsShortModel == false)
             {
@@ -86,8 +95,18 @@ namespace vkursi_api_example.organizations
             }
             else if (IsShortModel == true)
             {
-                NewRegistrationShortList = JsonConvert.DeserializeObject<List<OrganizationAdviceFullApiShortModel>>(responseString);
+                GetNewRegistrationResponseShortList = JsonConvert.DeserializeObject<List<GetNewRegistrationResponseShortModel>>(responseString);
             }
+
+            // Приклад відповіді(скорочена версія IsShortModel = true)
+                // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetNewRegistrationResponseShort.json
+            // Модель відповіді(скорочена версія IsShortModel = true)
+                // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetNewRegistrationClass.cs#L161
+
+            // Приклад відповіді(повна версія IsShortModel = false)
+                // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetNewRegistrationResponseFull.json 
+            // Модель відповіді(повна версія IsShortModel = false)
+                // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L130
 
             return responseString;
         }
@@ -130,15 +149,26 @@ namespace vkursi_api_example.organizations
 
     public class GetNewRegistrationRequestBodyModel                             // Модель Body запиту
     {
+        [JsonProperty("DateReg", NullValueHandling = NullValueHandling.Ignore)]
         public string DateReg { get; set; }                                     // Дата державної реєстрації (фізичної або юридичної особи)
+
+        [JsonProperty("Type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }                                        // Тип особи (1 - юридична особа / 2 - фізичної особа)
+
+        [JsonProperty("Skip", NullValueHandling = NullValueHandling.Ignore)]
         public int? Skip { get; set; }                                          // К-ть записів які траба пропустити
+
+        [JsonProperty("Take", NullValueHandling = NullValueHandling.Ignore)]
         public int? Take { get; set; }                                          // К-ть записів які траба взяти
+
+        [JsonProperty("IsShortModel", NullValueHandling = NullValueHandling.Ignore)]
         public bool? IsShortModel { get; set; }                                 // Коротка або повна модель відповіді
+
+        [JsonProperty("IsReturnAll", NullValueHandling = NullValueHandling.Ignore)]
         public bool? IsReturnAll { get; set; }                                  // Повернуті всі записи або тільки ті які раніше не отримували по API (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
     }
 
-    public class OrganizationAdviceFullApiShortModel                            // Модель відповіді GetNewRegistration
+    public class GetNewRegistrationResponseShortModel                           // Модель відповіді GetNewRegistration скорочена
     {
         public int Id { get; set; }                                             // Системний id сервісу Vkursi
         public int? State { get; set; }                                         // Стан реєстрації (Dictionary.OrganizationStateDict)
