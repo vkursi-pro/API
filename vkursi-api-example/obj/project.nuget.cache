@@ -1,14 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "falbqPWEEW0s4RU30IVwDl4QpChbaq0A6FiVoo35Aqx4fRb5FddSDWyuUEpUz4SnNiYoz53DzyzS/+P8LF+ITA==",
+  "dgSpecHash": "laCqXBtwDSh4afu7luJ5fFiqSn1JLDPE6JiYzaou14pxbmLyR8N+Pq9MheCOjQdofHJf37IhfeuWoH0e9QVTOw==",
   "success": true,
-  "projectFilePath": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+  "projectFilePath": "D:\\Parsers\\API\\vkursi-api-example\\vkursi-api-example.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\vadim\\.nuget\\packages\\csvhelper\\26.1.0\\csvhelper.26.1.0.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\htmlagilitypack\\1.11.30\\htmlagilitypack.1.11.30.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\vadim\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512"
+    "C:\\Users\\forimportTemp\\.nuget\\packages\\csvhelper\\26.1.0\\csvhelper.26.1.0.nupkg.sha512",
+    "C:\\Users\\forimportTemp\\.nuget\\packages\\htmlagilitypack\\1.11.30\\htmlagilitypack.1.11.30.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\forimportTemp\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\forimportTemp\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512",
+    "C:\\Users\\forimportTemp\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512"
   ],
   "logs": []
 }
