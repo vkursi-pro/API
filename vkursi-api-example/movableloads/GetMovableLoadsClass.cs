@@ -118,7 +118,9 @@ namespace vkursi_api_example.movableloads
 
     public class GetMovableLoadsRequestBodyModel
     {
+        [JsonProperty("edrpou", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> Edrpou { get; set; }    // Перелік кодів ІПН (обмеження 1)
+        [JsonProperty("ipn", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> Ipn { get; set; }       // Перелік кодів ЄДРПОУ (обмеження 1)
     }
 

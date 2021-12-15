@@ -458,6 +458,16 @@ namespace vkursi_api_example
 
             GetOpenEnforcementsClass.GetOpenEnforcements(ref token, "00131305");
 
+            // 86. Відомості про банкрутство ВГСУ
+            // [POST] /api/1.0/organizations/getBankruptcyByCode
+
+            GetBankruptcyByCodeClass.GetBankruptcyByCode(ref token, "00131305");
+
+            // 87. Єдиний державний реєстр юридичних осіб, фізичних осіб-підприємців та громадських формувань
+            // [POST] /api/1.0/organizations/getadvancedorganizationOnlyNaisData
+
+            GetAdvancedorganizationOnlyNaisDataClass.GetAdvancedOrganizationOnlyNaisData(ref token, "00131305");
+
             // Перелік статусів відповідей API
         }
     }

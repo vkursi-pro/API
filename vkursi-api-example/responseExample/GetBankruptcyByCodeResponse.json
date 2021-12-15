@@ -1,0 +1,28 @@
+{
+   "success":true,
+   "data":[
+      {
+         "vgsuData":[
+            {
+               "caseNumber":"905/1965/19",
+               "courtName":"Господарський суд Донецької області",
+               "dateProclamation":"2020-09-25T00:00:00",
+               "link":"http://vgsu.arbitr.gov.ua/pages/158/?d=65279&v=1f1752bf90&t=5",
+               "nameDebtor":"Акціонерне товариство \"К.ЕНЕРГО\" м.Курахове",
+               "numberAdvert":"65279",
+               "publicationType":"Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури"
+            },
+            {
+               "caseNumber":"905/1965/19",
+               "courtName":"Господарський суд Донецької області",
+               "dateProclamation":"2019-11-21T00:00:00",
+               "link":"http://vgsu.arbitr.gov.ua/pages/158/?d=64202&v=69240b9b39&t=3",
+               "nameDebtor":"Акціонерне товариство \"К.ЕНЕРГО\" м.Курахове",
+               "numberAdvert":"64202",
+               "publicationType":"Оголошення про порушення справи про банкрутство"
+            }
+         ],
+         "code":"00131305"
+      }
+   ]
+}
