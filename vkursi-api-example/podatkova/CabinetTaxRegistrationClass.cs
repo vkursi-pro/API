@@ -43,6 +43,8 @@ namespace vkursi_api_example.podatkova
 
                 string body = JsonConvert.SerializeObject(CTRRBody);        // Example body: {"tin":"21560766"}
 
+                body = "{\"tin\":\"38715972\",\"name\":\"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"МУН КОНЦЕРТ\"\"}";
+
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/podatkova/cabinettaxregistration");
                 RestRequest request = new RestRequest(Method.POST);
 

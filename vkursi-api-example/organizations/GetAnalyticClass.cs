@@ -76,14 +76,14 @@ namespace vkursi_api_example.organizations
 
             organizationAnalytic = JsonConvert.DeserializeObject<GetAnalyticResponseModel>(responseString);
 
-            string jsonStr = JsonConvert.SerializeObject(organizationAnalytic, Formatting.Indented);
+            //string jsonStr = JsonConvert.SerializeObject(organizationAnalytic, Formatting.Indented);
 
-            var vidkrytoCreditor = organizationAnalytic.enforcements.Where(w => w.vidkrytoCreditor != null).Sum(w => w.vidkrytoCreditor);
-            var zavershenoCreditor = organizationAnalytic.enforcements.Where(w => w.zavershenoCreditor != null).Sum(w => w.zavershenoCreditor);
-            var inshyyStanCreditor = organizationAnalytic.enforcements.Where(w => w.inshyyStanCreditor != null).Sum(w => w.inshyyStanCreditor);
-            var vidkrytoDebitor = organizationAnalytic.enforcements.Where(w => w.vidkrytoDebitor != null).Sum(w => w.vidkrytoDebitor);
-            var zavershenoDebitor = organizationAnalytic.enforcements.Where(w => w.zavershenoDebitor != null).Sum(w => w.zavershenoDebitor);
-            var inshyyStanDebitor = organizationAnalytic.enforcements.Where(w => w.inshyyStanDebitor != null).Sum(w => w.inshyyStanDebitor);
+            //var vidkrytoCreditor = organizationAnalytic.enforcements.Where(w => w.vidkrytoCreditor != null).Sum(w => w.vidkrytoCreditor);
+            //var zavershenoCreditor = organizationAnalytic.enforcements.Where(w => w.zavershenoCreditor != null).Sum(w => w.zavershenoCreditor);
+            //var inshyyStanCreditor = organizationAnalytic.enforcements.Where(w => w.inshyyStanCreditor != null).Sum(w => w.inshyyStanCreditor);
+            //var vidkrytoDebitor = organizationAnalytic.enforcements.Where(w => w.vidkrytoDebitor != null).Sum(w => w.vidkrytoDebitor);
+            //var zavershenoDebitor = organizationAnalytic.enforcements.Where(w => w.zavershenoDebitor != null).Sum(w => w.zavershenoDebitor);
+            //var inshyyStanDebitor = organizationAnalytic.enforcements.Where(w => w.inshyyStanDebitor != null).Sum(w => w.inshyyStanDebitor);
 
             return organizationAnalytic;
         }
@@ -133,7 +133,6 @@ namespace vkursi_api_example.organizations
     {
         public string orgId { get; set; }                                       // Id організації (maxLength:64)
         public string name { get; set; }                                        // Назва ЮО / ФОП (maxLength:512)
-        public string clearName { get; set; }                                   // (maxLength:512)
         public bool legalEntity { get; set; }                                   // Тип ЮО - true/ ФОП - false
         public string edrpou { get; set; }                                      // код ЄДРПОУ | ІПН (maxLength:10)
         public int? stateInt { get; set; }                                      // Статус код ( 1 - зареєстровано, 2 - припинено, ... відп.до довідника № 1. Стан суб’єкта)
@@ -141,7 +140,7 @@ namespace vkursi_api_example.organizations
         public double totalAmount { get; set; }                                 // Сума статутного капіталу
         public VatPayers vatPayers { get; set; }                                // ПДВ 
         public List<Tenders> tenders { get; set; }                              // Аналіз тендерів в розрізі періоду (місяць)
-        public List<Patents> patents { get; set; }                              // Патенти, торгові марки, 
+        public List<Patents> patents { get; set; }                              // // Статистика по об`єктів інтелектуальної власності в розрізі місяця (патентам / ТМ)
         public List<Declarations> declarations { get; set; }                    // Аналітика по деклараціям  (період рік)
         public Date date { get; set; }                                          // Дата створення / закрыття компанії / ФОП
         public TotalCourts totalCourts { get; set; }                            // Загальна аналітика по судовим рішенням
@@ -162,7 +161,6 @@ namespace vkursi_api_example.organizations
         public List<Regions> regions { get; set; }                              // Юридична адресса
         public List<Ownership> ownership { get; set; }                          // Форма власності
         public List<Founders> founders { get; set; }                            // Аналітика по засновникам в розрізі країни
-        public TenderStatistic tenderStatistic { get; set; }                    // Статистика по тендерам в загальна
         public List<OrganizationAnalyticFinancialBKI> financial { get; set; }   // Фінансова аналітика (період рік)
         public OrganizationAnalyticTenderBidStatistics tenderBidStatistics { get; set; }                        // Аналіз участі в торгах 
         public OrganizationAnalyticTenderOrganizerStatistics tenderOrganizerStatistics { get; set; }            // Аналіз організованніх тендерів
@@ -179,9 +177,9 @@ namespace vkursi_api_example.organizations
         public OrganizationAnalyticKoatuInfo koatuInfo { get; set; }                                            // Дані про код КОАТУУ
 
         public List<LtStAnalyticsModel> equityLtStAnalytics { get; set; }
-        public SinglePaxPayer singlePayers { get; set; }
-        public int? shareholdersCount { get; set; }
-        public int? branchCount { get; set; }
+        public SinglePaxPayer singlePayers { get; set; }                                                        // Відомості про єдиний податок
+        public int? shareholdersCount { get; set; } 
+        public int? branchCount { get; set; } 
 
 
         public List<FeaCountryGroup> feaCountry { get; set; }                                                   // Дані по ЗЄД в розрізі країни та року
@@ -516,18 +514,6 @@ namespace vkursi_api_example.organizations
         public long? inprocess { get; set; }// К-ть справ в процесі
 
     }
-
-    public class TenderStatistic                                                        // Статистика по тендерам в загальна
-    {
-        public long? applicationsForParticipation { get; set; }                         // 
-        public long? avarage { get; set; }                                              // 
-        public long? declaration { get; set; }                                          // 
-        public long? inProcess { get; set; }                                            // 
-        public long? lost { get; set; }                                                 // 
-        public long? summ { get; set; }                                                 // 
-        public long? win { get; set; }                                                  // 
-    }
-
     public class Declarations // Аналітика по деклараціям  (період рік)
     {
         public int? declarationYearInt { get; set; }// Період (рік)
@@ -548,22 +534,15 @@ namespace vkursi_api_example.organizations
 
     }
 
-    public class Patents
+    public class Patents                                                                // Статистика по об`єктів інтелектуальної власності в розрізі місяця (патентам / ТМ)
     {
-        public string name { get; set; }                                                // (maxLength:512)
-        public string type { get; set; }                                                // (maxLength:128)
-        public DateTime? dateReg { get; set; }
-        public DateTime? dateAnul { get; set; }
-        public List<string> mktp { get; set; }
-
-
         // ADD
-        public DateTime? period { get; set; }
-        public int? patentsDesignsCount { get; set; }
-        public int? patentsCount { get; set; }
-        public int? tradeMarkCount { get; set; }
-        public int? usefulModelsCount { get; set; }
-        public int? integratedСircuitsCount { get; set; }
+        public DateTime? period { get; set; }                                           // Період (помісячно)
+        public int? patentsDesignsCount { get; set; }                                   // Промислові зразки
+        public int? patentsCount { get; set; }                                          // Патенти
+        public int? tradeMarkCount { get; set; }                                        // ТМ
+        public int? usefulModelsCount { get; set; }                                     // Корисні моделі
+        public int? integratedСircuitsCount { get; set; }                               // Топографії інтегральних мікросхем
 
     }
     public class Tenders // Аналіз тендерів в розрізі періоду (місяць)
@@ -677,19 +656,19 @@ namespace vkursi_api_example.organizations
         public double? persent { get; set; }                                                    // Відсоток ринку (за даний рік по даному коду)
     }
 
-    public class SinglePaxPayer
+    public class SinglePaxPayer                                                                 // Відомості про єдиний податок
     {
-        public int? group { get; set; }
-        public bool? singlePayer { get; set; }
-        public DateTime? singlePayerCancelDate { get; set; }
-        public DateTime? singlePayerDate { get; set; }
-        public int? stavka { get; set; }
+        public int? group { get; set; }                                                         // Група ЄП
+        public bool? singlePayer { get; set; }                                                  // Чи є платников єдиного податку (true - так / false - ні)
+        public DateTime? singlePayerCancelDate { get; set; }                                    // Дата анулювання
+        public DateTime? singlePayerDate { get; set; }                                          // Дата отримання свідоцтва ЄП
+        public int? stavka { get; set; }                                                        // Ставка ЄП
     }
 
 
     public class LtStAnalyticsModel
     {
-        public int? year { get; set; }
+        public int? year { get; set; }                              
         public bool? isBigForm { get; set; }
         public float? equity { get; set; }
         public float? ltStNetDebt { get; set; }

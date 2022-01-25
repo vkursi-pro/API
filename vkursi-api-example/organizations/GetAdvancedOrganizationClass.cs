@@ -136,6 +136,7 @@ namespace vkursi_api_example.organizations
         public string Inn { get; set; }                                         // Код ПДВ (maxLength:10)
         public DateTime? DateCanceledInn { get; set; }                          // Дата анулювання свідоцтва платника ПДВ 
         public string Koatuu { get; set; }                                      // Код за КОАТУУ (maxLength:10)
+        public OrganizationaisElasticModel BranchMaster { get; set; }           // Якщо компанія ФІЛІЯ відомості про мотеринську компанію
     }
 
     public class OrganizationaisElasticModel

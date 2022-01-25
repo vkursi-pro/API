@@ -19,7 +19,7 @@ namespace vkursi_api_example.movableloads
             --header 'ContentType: application/json' \
             --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
             --header 'Content-Type: application/json' \
-            --data-raw '{"Edrpou":["36679626"],"Ipn":["1841404820"]}'
+            --data-raw '{"Edrpou":["36679626"]}'
 
         Приклад відповіді:
             https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetMovableLoadsResponse.json
@@ -40,15 +40,13 @@ namespace vkursi_api_example.movableloads
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/MovableLoads/getmovableloads");
                 RestRequest request = new RestRequest(Method.POST);
 
-                GetMovableLoadsRequestBodyModel GMLRequestBodyRow = new GetMovableLoadsRequestBodyModel
-                {
-                    //Edrpou = new List<string> {
-                    //    edrpou
-                    //},
-                    Ipn = new List<string> {
-                        ipn
-                    }
-                };
+                GetMovableLoadsRequestBodyModel GMLRequestBodyRow = new GetMovableLoadsRequestBodyModel();
+
+                if (!string.IsNullOrEmpty(ipn))
+                    GMLRequestBodyRow.Ipn = new List<string>() { ipn };
+
+                if (!string.IsNullOrEmpty(edrpou))
+                    GMLRequestBodyRow.Edrpou = new List<string>() { edrpou };
 
                 string body = JsonConvert.SerializeObject(GMLRequestBodyRow);
 

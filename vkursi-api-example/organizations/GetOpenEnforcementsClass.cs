@@ -121,17 +121,17 @@ namespace vkursi_api_example.organizations
         public string DebtorType { get; set; }                                          // Тип боржника (Фізична / Юридична / Держава / ...)
 
         public string StateCurrentOrganization { get; set; }                        // (in orgId) ? боржник : стягувач
-        public string DeductionType { get; set; }                                   // 
-        public DateTime? EnforcementDate { get; set; }                              // 
-        public DateTime? ModifyDate { get; set; }                                   // 
-        public EnforcementsDataOtherSite OtherSite { get; set; }                    // 
+        public string DeductionType { get; set; }                                   // Тип відрахування
+        public DateTime? EnforcementDate { get; set; }                              // Дата відкриття ВП
+        public DateTime? ModifyDate { get; set; }                                   // Дата останньої внесеної зміни в ВП
+        public EnforcementsDataOtherSite OtherSite { get; set; }                    // Відомості про іншу сторону (якщо наша компанія позивач то відомості про відповідача, якщо позивач навпаки)
     }
 
-    public class EnforcementsDataOtherSite                                          // 
+    public class EnforcementsDataOtherSite                                          // Відомості про іншу сторону (якщо наша компанія позивач то відомості про відповідача, якщо позивач навпаки)
     {
-        public string Name { get; set; }                                            // 
-        public string Code { get; set; }                                            // 
-        public string Type { get; set; }                                            // 
-        public string State { get; set; }                                           // 
+        public string Name { get; set; }                                            // Назва
+        public string Code { get; set; }                                            // Код ЄДРПОУ
+        public string Type { get; set; }                                            // Тип сторони (Фізична / Юридична)
+        public string State { get; set; }                                           // Стан (зареєстровано, припинено)
     }
 }
