@@ -34,7 +34,7 @@ namespace vkursi_api_example.organizations
 
                 string body = JsonConvert.SerializeObject(GOERBody);        // Example body: {"code":["21560766"]}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/organizations/GetOpenEnforcements");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOpenEnforcements");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
@@ -88,43 +88,20 @@ namespace vkursi_api_example.organizations
     }
     public class EnforcementsDataList                                               // Перелік проваджень
     {
-
-        public DateTime? DateOpen { get; set; }                                         // Дата відкриття ВП
         public string VpNum { get; set; }                                               // Номер ВП (maxLength:32)
-        public string Status { get; set; }                                              // Статус ВП (Приклад: Боржник, Стягувач, ...) (maxLength:128)
-        public string Category { get; set; }                                            // Категорія ВП (maxLength:256)
         public string State { get; set; }                                               // Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)
-        public string Contractor { get; set; }                                          // Інша сторона (Приклад: Київське міжрегіональне управління укртрансбезпеки Код ЄДРПОУ: 37995466) (maxLength:512)
         public string Publisher { get; set; }                                           // Документ виданий
         public string DepartmentName { get; set; }                                      // Зв'язок з виконавцем: Назва виконавця
         public string DepartmentPhone { get; set; }                                     // Зв'язок з виконавцем: Номер телефону виконавця
         public string Executor { get; set; }                                            // ПІБ виконавця
         public string ExecutorPhone { get; set; }                                       // Номер телефону виконавця
         public string ExecutorEmail { get; set; }                                       // Email виконавця
-
-        [JsonProperty("creditorType")]
-        public string CreditorType { get; set; }                                        // Тип стягувача (Фізична / Юридична / Держава / ...)
-
-        [JsonProperty("creditorName")]
-        public string CreditorName { get; set; }                                        // Назва стягувача
-
-        [JsonProperty("creditorBithday")]
-        public object CreditorBithday { get; set; }                                     // Дата народження стягувача (якщо ФО)
-
-        [JsonProperty("debtorName")]
-        public string DebtorName { get; set; }                                          // Назва боржника
-
-        [JsonProperty("debtorCode")]
-        public object DebtorCode { get; set; }                                          // Код боржника
-
-        [JsonProperty("debtorType")]
-        public string DebtorType { get; set; }                                          // Тип боржника (Фізична / Юридична / Держава / ...)
-
         public string StateCurrentOrganization { get; set; }                        // (in orgId) ? боржник : стягувач
         public string DeductionType { get; set; }                                   // Тип відрахування
         public DateTime? EnforcementDate { get; set; }                              // Дата відкриття ВП
         public DateTime? ModifyDate { get; set; }                                   // Дата останньої внесеної зміни в ВП
         public EnforcementsDataOtherSite OtherSite { get; set; }                    // Відомості про іншу сторону (якщо наша компанія позивач то відомості про відповідача, якщо позивач навпаки)
+
     }
 
     public class EnforcementsDataOtherSite                                          // Відомості про іншу сторону (якщо наша компанія позивач то відомості про відповідача, якщо позивач навпаки)

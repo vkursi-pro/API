@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Parsers\\API\\vkursi-api-example\\vkursi-api-example.csproj": {}
+    "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj": {}
   },
   "projects": {
-    "D:\\Parsers\\API\\vkursi-api-example\\vkursi-api-example.csproj": {
+    "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Parsers\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+        "projectUniqueName": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
         "projectName": "vkursi-api-example",
-        "projectPath": "D:\\Parsers\\API\\vkursi-api-example\\vkursi-api-example.csproj",
-        "packagesPath": "C:\\Users\\forimportTemp\\.nuget\\packages\\",
-        "outputPath": "D:\\Parsers\\API\\vkursi-api-example\\obj\\",
+        "projectPath": "D:\\Users\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+        "packagesPath": "C:\\Users\\vadim\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\API\\vkursi-api-example\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\forimportTemp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vadim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,18 +67,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.21, 3.1.21]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
