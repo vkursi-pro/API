@@ -569,18 +569,18 @@ namespace vkursi_api_example.organizations
         public DateTime? dateCanceled { get; set; } // Дата закрыття компанії / ФОП
     }
 
-    public class State
+    public class State                                                                          // Стани організації
     {
-        public string orgState { get; set; }                                                    // (maxLength:64)
-        public string bankruptcyState { get; set; }                                             // (maxLength:128)
-        public string canceledState { get; set; }                                               // (maxLength:128)
+        public string orgState { get; set; }                                                    // Стан організації (зареєстровано, припинено)(maxLength:64)
+        public string bankruptcyState { get; set; }                                             // Чи перебуває в процесі банкрутства(maxLength:128)
+        public string canceledState { get; set; }                                               // Чи перебуває в процесі припиненні(maxLength:128)
     }
 
-    public class Ownership                                                                      // 
+    public class Ownership                                                                      // Організаційно-правова форма(ОПФ) та форма власності
     {
-        public long? Id { get; set; }
-        public string form { get; set; }                                                        // (maxLength:256)
-        public int? olf_code { get; set; }
+        public long? Id { get; set; }                                                           // Форма власності Id { 1, "Державна власність"},       { 2, "Комунальна власність"},  { 3, "Змішана власність (Державна частка перевищує 50 відсотків)"}, // Змішана власність (Державна частка перевищує 50 відсотків) { 4, "Недержавна власність"},
+        public string form { get; set; }                                                        // Форма власності назва { 1, "Державна власність"},       { 2, "Комунальна власність"},  { 3, "Змішана власність (Державна частка перевищує 50 відсотків)"}, // Змішана власність (Державна частка перевищує 50 відсотків) { 4, "Недержавна власність"},
+        public int? olf_code { get; set; }                                                      // ОПФ код
     }
 
     public class OrganizationLicensesElastic // Аналіз ліцензій (в розрізі органу ліцензування)

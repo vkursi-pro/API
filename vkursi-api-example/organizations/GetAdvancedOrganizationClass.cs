@@ -387,7 +387,7 @@ namespace vkursi_api_example.organizations
     {
         public CourtDecisionAggregationModel Aggregations { get; set; }         // Судові рішення
         public string Edrpo { get; set; }                                       // ЄДРПОУ (maxLength:10)
-        public OpenCardAccessState OpenCardAccessState { get; set; }            // Рівень доступу
+        public OpenCardAccessState OpenCardAccessState { get; set; }            // Системна інформація Vkursi. Рівень доступу
     }
     public enum OpenCardAccessState                                             // Системна інформація Vkursi
     {
