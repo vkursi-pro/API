@@ -152,6 +152,7 @@ namespace vkursi_api_example.organizations
         public OrganizationaisExecutivePower executive_power { get; set; }      // Центральний чи місцевий орган виконавчої влади, до сфери управління якого належить державне підприємство або частка держави у статутному капіталі юридичної особи, якщо ця частка становить не менше 25 відсотків
         public string object_name { get; set; }                                 // Місцезнаходження реєстраційної справи (maxLength:256)
         public OrganizationaisFounders[] founders { get; set; }                 // Array[Founder]. Перелік засновників (учасників) юридичної особи, у тому числі прізвище, ім’я, по батькові, якщо засновник – фізична особа; найменування, місцезнаходження та ідентифікаційний код юридичної особи, якщо засновник – юридична особа
+        public OrganizationaisFounders[] beneficiaries { get; set; }            // Перелік кінцевих бенефіціарних власників(КБВ) юридичної особи
         public OrganizationaisBranches[] branches { get; set; }                 // Array[Branch]. Перелік відокремлених підрозділів юридичної особи
         public OrganizationaisAuthorisedCapital authorised_capital { get; set; }// Дані про розмір статутного капіталу (статутного або складеного капіталу) та про дату закінчення його формування, якщо суб’єкт – юридична особа
         public string management { get; set; }                                  // Відомості про органи управління юридичної особи (maxLength:256)
@@ -190,7 +191,7 @@ namespace vkursi_api_example.organizations
         public string code { get; set; }                                        // ЄДРПОУ (maxLength:10)
     }
 
-    public class OrganizationaisFounders                                        // Array[Founder]. Перелік засновників (учасників) юридичної особи, у тому числі прізвище, ім’я, по батькові, якщо засновник – фізична особа; найменування, місцезнаходження та ідентифікаційний код юридичної особи, якщо засновник – юридична особа
+    public class OrganizationaisFounders                                        // Відомості про кінцевих бенефіціарних власників, засновників (учасників) юридичної особи
     {
         public string name { get; set; }                                        // Повна назва суб’єкта (maxLength:512)
         public string code { get; set; }                                        // ЄДРПОУ код, якщо суб’єкт – юридична особа (maxLength:10)
@@ -202,6 +203,10 @@ namespace vkursi_api_example.organizations
         public int? id { get; set; }                                            // Ідентифікатор суб'єкта
         public string url { get; set; }                                         // Посилання на сторінку з детальною інформацією про суб'єкт (maxLength:64)
         public string capital { get; set; }                                     // Розмір частки у статутному капіталі пов’язаного суб’єкта (лише для засновників) (maxLength:128)
+
+        public string beneficiaries_type { get; set; }                          // Тип бенефіцарного володіння: «5» - Прямий вирішальний вплив; / «6» - Не прямий вирішальний вплив
+        public string interest { get; set; }                                    // Відсоток частки статутного капіталу або відсоток права голосу
+        public int? reason { get; set; }                                        // Причина відсутності КБВ (якщо у юридичної особи відсутні КБВ)
     }
 
     public class OrganizationaisAddress                                         // Адреса

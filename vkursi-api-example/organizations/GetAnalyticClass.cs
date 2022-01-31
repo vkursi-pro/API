@@ -158,7 +158,6 @@ namespace vkursi_api_example.organizations
         public OrganizationAnalyticExpressScore expressScore { get; set; }      // Дані експрес перевірки  
         public List<OrganizationAnalyticSanctions> sanctions { get; set; }      // Відомості про наявні санкції
         public List<int> kvedsInt { get; set; }                                 // Основний квед Id
-        public List<Regions> regions { get; set; }                              // Юридична адресса
         public List<Ownership> ownership { get; set; }                          // Форма власності
         public List<Founders> founders { get; set; }                            // Аналітика по засновникам в розрізі країни
         public List<OrganizationAnalyticFinancialBKI> financial { get; set; }   // Фінансова аналітика (період рік)
@@ -575,22 +574,6 @@ namespace vkursi_api_example.organizations
         public string orgState { get; set; }                                                    // (maxLength:64)
         public string bankruptcyState { get; set; }                                             // (maxLength:128)
         public string canceledState { get; set; }                                               // (maxLength:128)
-    }
-
-    public class Regions // Юридична адреса
-    {
-        public string code { get; set; }                                                        // (maxLength:32)
-        public string country { get; set; }                                                     // (maxLength:128)
-        public string countryId { get; set; }                                                   // (maxLength:64)
-        public string region { get; set; }                                                      // (maxLength:128)
-        public string regionId { get; set; }                                                    // (maxLength:64)
-        public string district { get; set; }                                                    // (maxLength:128)
-        public string districtId { get; set; }                                                  // (maxLength:64)
-        public string city { get; set; }                                                        // (maxLength:128)
-        public string cityId { get; set; }                                                      // (maxLength:64)
-        public string street { get; set; }                                                      // (maxLength:128)
-        public string house { get; set; }                                                       // (maxLength:64)
-        public string room { get; set; }                                                        // (maxLength:64)
     }
 
     public class Ownership                                                                      // 
