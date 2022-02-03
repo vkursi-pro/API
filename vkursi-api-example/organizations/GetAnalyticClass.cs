@@ -177,8 +177,8 @@ namespace vkursi_api_example.organizations
 
         public List<LtStAnalyticsModel> equityLtStAnalytics { get; set; }
         public SinglePaxPayer singlePayers { get; set; }                                                        // Відомості про єдиний податок
-        public int? shareholdersCount { get; set; } 
-        public int? branchCount { get; set; } 
+        public int? shareholdersCount { get; set; }                                                             // Системне поле
+        public int? branchCount { get; set; }                                                                   // Системне поле
 
 
         public List<FeaCountryGroup> feaCountry { get; set; }                                                   // Дані по ЗЄД в розрізі країни та року
@@ -235,29 +235,29 @@ namespace vkursi_api_example.organizations
 
     public class OrganizationAnalyticTenderBidStatisticsRealEstateRightsObj
     {
-        public int? full { get; set; } // Загальна кількість
-        public int? vlasnyk { get; set; }// Власник
-        public int? pravonabuvach { get; set; }
-        public int? pravokorystuvach { get; set; }
-        public int? zemlevlasnyk { get; set; }
-        public int? zemlevolodilets { get; set; }
-        public int? inshyy { get; set; }
-        public int? naymach { get; set; }
-        public int? orendar { get; set; }
-        public int? naymodavets { get; set; }
-        public int? orendodavets { get; set; }
-        public int? upravytel { get; set; }
-        public int? vyhodonabuvach { get; set; }
-        public int? ustanovnyk { get; set; }
-        public int? ipotekoderzhatel { get; set; }
-        public int? maynovyyPoruchytel { get; set; }
-        public int? ipotekodavets { get; set; }
-        public int? borzhnyk { get; set; }
-        public int? obtyazhuvach { get; set; }
-        public int? osobaMaynoYakoyiObtyazhuyutsya { get; set; }
-        public int? osobaVinteresakhYakoyi { get; set; }
-        public bool? registerError { get; set; }
-        public List<OrganizationAnalyticRegionsEstate> regions { get; set; }// Об'єкти нерухомого майна в розрізі регіону
+        public int? full { get; set; }              // Загальна кількість
+        public int? vlasnyk { get; set; }           // Власник 
+        public int? pravonabuvach { get; set; }     // Правонабувач
+        public int? pravokorystuvach { get; set; }  // Правокористувач
+        public int? zemlevlasnyk { get; set; }      // Землевласник
+        public int? zemlevolodilets { get; set; }   // Землеволоділець
+        public int? inshyy { get; set; }            // Інший
+        public int? naymach { get; set; }           // Наймач
+        public int? orendar { get; set; }           // Орендар
+        public int? naymodavets { get; set; }       // Наймодавець
+        public int? orendodavets { get; set; }      // Орендодавець
+        public int? upravytel { get; set; }         // Управитель
+        public int? vyhodonabuvach { get; set; }    // Вигодонабувач
+        public int? ustanovnyk { get; set; }        // Установник
+        public int? ipotekoderzhatel { get; set; }  // Іпотекодержатель
+        public int? maynovyyPoruchytel { get; set; }// Майновий поручитель
+        public int? ipotekodavets { get; set; }     // Іпотекодавець
+        public int? borzhnyk { get; set; }          // Боржник
+        public int? obtyazhuvach { get; set; }      // Обтяжувач
+        public int? osobaMaynoYakoyiObtyazhuyutsya { get; set; } // Особа, майно/права якої обтяжуються
+        public int? osobaVinteresakhYakoyi { get; set; } // Особа, в інтересах якої встановлено обтяження
+        public bool? registerError { get; set; }    // Помилка при оновленні
+        public List<OrganizationAnalyticRegionsEstate> regions { get; set; } // Об'єкти нерухомого майна в розрізі регіону
     }
 
     public class OrganizationAnalyticTenderBidStatisticsRealEstateRightsLand // Аналіз земельних ділянок
@@ -413,29 +413,29 @@ namespace vkursi_api_example.organizations
 
     public class OrganizationAnalyticExpressScore // Дані експрес перевірки 
     {
-        public bool liquidation { get; set; }
-        public bool bankruptcy { get; set; }
-        public int? badRelations { get; set; }
-        public int? sffiliatedMore { get; set; }
-        public bool sanctions { get; set; }
-        public long? introduction { get; set; }
-        public int? criminal { get; set; }
-        public bool audits { get; set; }
-        public bool canceledVat { get; set; }
-        public bool taxDebt { get; set; }
-        public decimal? wageArrears { get; set; }
-        public bool kved { get; set; }
-        public bool newDirector { get; set; }
-        public int? massRegistration { get; set; }
-        public bool youngCompany { get; set; }
-        public bool atoRegistered { get; set; }
-        public bool fictitiousBusiness { get; set; }
-        public int? headOtherCompanies { get; set; }
-        public int? notLicense { get; set; }
-        public bool vatLessThree { get; set; }
-        public int? sanctionsRelationships { get; set; }
-        public int? territoriesRelationships { get; set; }
-        public int? criminalRelationships { get; set; }
+        public bool liquidation { get; set; } // В процесі ліквідації
+        public bool bankruptcy { get; set; } // Відомості про банкрутство
+        public int? badRelations { get; set; } // Зв’язки з компаніями банкрутами
+        public int? sffiliatedMore { get; set; }// Афілійовані зв’язки
+        public bool sanctions { get; set; }// Санкційні списки
+        public long? introduction { get; set; } //Виконавчі впровадження
+        public int? criminal { get; set; }// Кримінальні справи
+        public bool audits { get; set; }// Включено в план-графік перевірок
+        public bool canceledVat { get; set; }// Анульована реєстрація платника ПДВ
+        public bool taxDebt { get; set; }// Податковий борг
+        public decimal? wageArrears { get; set; }// Заборгованість по ЗП
+        public bool kved { get; set; }// Зміна основного КВЕД
+        public bool newDirector { get; set; }// Новий директор
+        public int? massRegistration { get; set; }// Адреса масової реєстрації
+        public bool youngCompany { get; set; }// Нова компанія
+        public bool atoRegistered { get; set; }// Зареєстровано на окупованій території
+        public bool fictitiousBusiness { get; set; }// Стаття 205 ККУ. Фіктивне підприємництво
+        public int? headOtherCompanies { get; set; }// Керівник цієї компанії є керівником в інших компаніях
+        public int? notLicense { get; set; }// Не діюча ліцензія
+        public bool vatLessThree { get; set; }// Статус платника ПДВ не перевищує 3 місяців
+        public int? sanctionsRelationships { get; set; }// Зв’язки з компаніями під санкціями
+        public int? territoriesRelationships { get; set; }// Зв’язки з компаніями з окупованих територій
+        public int? criminalRelationships { get; set; } // Зв’язки з компаніями, які мають кримінальні справи
     }
 
     public class OrganizationAnalyticEdata // Аналітика по Edata період (місяць)
@@ -649,7 +649,7 @@ namespace vkursi_api_example.organizations
     }
 
 
-    public class LtStAnalyticsModel
+    public class LtStAnalyticsModel                             // Системна інформація (не використовується)
     {
         public int? year { get; set; }                              
         public bool? isBigForm { get; set; }
@@ -658,13 +658,13 @@ namespace vkursi_api_example.organizations
         public float? ltStDebtSales { get; set; }
     }
 
-    public class OrganizationAnalyticKoatuInfo
+    public class OrganizationAnalyticKoatuInfo                  // Відомості про КОАТУУ 
     {
-        public int? firstLevel { get; set; }
-        public int? secondLevel { get; set; }
-        public int? thirdLevel { get; set; }
-        public int? fourthLevel { get; set; }
-        public long? fullKoatu { get; set; }
+        public int? firstLevel { get; set; }                    // Розряди 1-2 – перший рівень класифікації. Включає в себе Автономну Республіку Крим , області України , міста зі спеціальним статусом ( Київ , Севастополь ).
+        public int? secondLevel { get; set; }                   // Розряди 3-5 - другий рівень класифікації. Включає міста обласного значення, райони Автономної Республіки Крим та областей, райони в містах зі спеціальним статусом.
+        public int? thirdLevel { get; set; }                    // Розряди 6-8 - третій рівень класифікації. Включає міста районного значення, райони в містах обласного значення, селища міського типу , сільські та селищні ради.
+        public int? fourthLevel { get; set; }                   // Розряди 9-10 - четвертий рівень класифікації. Включає в себе села та селища.
+        public long? fullKoatu { get; set; }                    // Повний КОАТУУ (приведений до формату цілого числа)
     }
 
     public class ImportMainBalanceIndicators
@@ -690,6 +690,6 @@ namespace vkursi_api_example.organizations
         public double? d207001RazomdokhodyD2228001 { get; set; }            // Разом доходи (малі підприємства)
         public double? d212001RazomvytratyD2228501 { get; set; }            // Разом витрати (малі підприємства)
 
-        public int forma { get; set; }                                      
+        public int forma { get; set; }                                      // Форма звітності (1 - велика / 2- мала)
     }
 }

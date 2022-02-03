@@ -132,45 +132,45 @@ namespace vkursi_api_example.movableloads
 
     public class DataObjectClear                                            // Витяг
     {
-        public int id { get; set; }
-        public int opOpID { get; set; }
-        public string lmType { get; set; }
-        public string opStatus { get; set; }
-        public string opType { get; set; }
-        public DateTime actTerm { get; set; }
-        public string archiveDate { get; set; }
-        public DateTime execTerm { get; set; }
+        public int id { get; set; }                             // Ідентифікатор запису (для АПІ не несе інформаційного навантаження)
+        public int opOpID { get; set; }                         // Номер обтяження
+        public string lmType { get; set; } // тип обтяження / Податкова застава    LM_TYPE=12 / Звернення стягнення LM_TYPE=13 / Заборона на рухоме майно LM_TYPE=7 / Арешт рухомого майна LM_TYPE = 8 / Застава рухомого майна LM_TYPE = 10 / Інше обтяження рухомого майна LM_TYPE=999
+        public string opStatus { get; set; } // Стан запису (активний анульований) – в АПІ надходить тільки статус 1 - активний
+        public string opType { get; set; } // стан реєстрації обтяжень (тип операції - 1 реєстрація обтяження 2 -припинення обтяження)
+        public DateTime actTerm { get; set; } // Термін дії: 
+        public string archiveDate { get; set; } // Архівна дата
+        public DateTime execTerm { get; set; } // Термін виконання зобов’язання
         public string prevRegistration { get; set; }
         public int reqReqID { get; set; }
         public string bnBnID { get; set; }
-        public string regNum { get; set; }
-        public string contractSum { get; set; }
-        public string checkSum { get; set; }
+        public string regNum { get; set; } // Реєстраційний номер обтяження (зовнішній ключ)
+        public string contractSum { get; set; } // Розмір основного зобов’язання: сума
+        public string checkSum { get; set; } // Контрольна сума заяви (для АПІ не несе інформаційного навантаження)
         public string archiveNum { get; set; }
-        public string penaltyInit { get; set; }
-        public string currencyType { get; set; }
-        public string lmSort { get; set; }
-        public string alPossible { get; set; }
-        public string lmTypeExtension { get; set; }
-        public string additional { get; set; }
+        public string penaltyInit { get; set; } // Ознака наявності “Звернення стягнення”
+        public string currencyType { get; set; } // Розмір основного зобов’язання: валюта
+        public string lmSort { get; set; } // вид обтяження / • публічне обтяження(LM_SORT= 1) / • приватне обтяження(LM_SORT= 2)
+        public string alPossible { get; set; } // 1. Дозволено відчужувати / 2. Заборонено відчужувати / 3.	За погодженням з обтяжувачем
+        public string lmTypeExtension { get; set; } // Опис у довільному форматі типу обтяження
+        public string additional { get; set; } // Додаткові дані до обтяження
         public string archRegName { get; set; }
-        public DateTime regDate { get; set; }
+        public DateTime regDate { get; set; } // Дата обтяження
         public int currentObjID { get; set; }
-        public string startDay { get; set; }
+        public string startDay { get; set; } // 
         public string startMonth { get; set; }
         public string startYear { get; set; }
         public double validContractSum { get; set; }
-        public List<Property> properties { get; set; }
-        public List<Subject> subjects { get; set; }
+        public List<Property> properties { get; set; } // Опис майна
+        public List<Subject> subjects { get; set; } // Інформація про обтяжувача 
         public List<CauseDocument> causeDocuments { get; set; }
-        public DateTime opRegDate { get; set; }
-        public string registrarInfo { get; set; }
-        public string lmState { get; set; }
+        public DateTime opRegDate { get; set; } // Дата проведення операції формування витягу
+        public string registrarInfo { get; set; } // Інформація про реєстратора
+        public string lmState { get; set; } // Стан документа
         public List<Document> documents { get; set; }
-        public string lmStateName { get; set; }
-        public string currentObjName { get; set; }
-        public string currentRegistrar { get; set; }
-        public string penalty { get; set; }
+        public string lmStateName { get; set; } // Назва стану документа
+        public string currentObjName { get; set; } // Організація реєстратора, який сформував витяг
+        public string currentRegistrar { get; set; } // Реєстратора, який сформував витяг
+        public string penalty { get; set; } // Ознака наявності “Звернення стягнення”
     }
 
     public class PrTypeAttr
@@ -194,7 +194,7 @@ namespace vkursi_api_example.movableloads
         public int id { get; set; }
         public int? prParentID { get; set; }
         public string prPrID { get; set; }
-        public int opOpID { get; set; }
+        public int opOpID { get; set; } // Номер обтяження
         public string adAdID { get; set; }
         public string reReID { get; set; }
         public string reLandRegNumHash { get; set; }
@@ -218,36 +218,36 @@ namespace vkursi_api_example.movableloads
         public string reLandTypeExtension { get; set; }
         public string otherRegNumNID { get; set; }
         public string isArchive { get; set; }
-        public string prRegNum { get; set; }
+        public string prRegNum { get; set; } // Реєстраційний номер майна
         public string prRegNumNID { get; set; }
         public string driRegDate { get; set; }
         public string driRegNum { get; set; }
-        public string fullExtension { get; set; }
-        public List<string> prAttr { get; set; }
+        public string fullExtension { get; set; } // Опис майна
+        public List<string> prAttr { get; set; } // Масив переліку динамічних атрибутів та їх значень
         public List<PrTypeAttr> prTypeAttr { get; set; }
-        public string addProperties { get; set; }
+        public string addProperties { get; set; } // Додаткові відомості
     }
 
-    public class Subject
+    public class Subject // Інформація про обтяжувача 
     {
         public int id { get; set; }
-        public string sbjType { get; set; }
+        public string sbjType { get; set; } // Тип суб'єкта: / 1 (фіз.особа) / 2 (юр.особа)
         public string subjectParentID { get; set; }
         public string rusNID { get; set; }
         public string atuAtuID { get; set; }
         public string cnCnID { get; set; }
         public int rlRlID { get; set; }
-        public int opOpID { get; set; }
+        public int opOpID { get; set; } // Номер обтяження
         public int ukrNID { get; set; }
-        public string foreignSubject { get; set; }
+        public string foreignSubject { get; set; } // Ознака нерезедентності
         public string birthMonth { get; set; }
         public string codeAbsence { get; set; }
         public string code { get; set; }
-        public string changeType { get; set; }
+        public string changeType { get; set; } // Тип змін (для АПІ не несе інформаційного навантаження)
         public string birthYear { get; set; }
         public string birthDay { get; set; }
         public string addressIndex { get; set; }
-        public string additional { get; set; }
+        public string additional { get; set; } // Додаткові відомості
         public string birthPlace { get; set; }
         public string name { get; set; }
         public string simpleAddress { get; set; }
@@ -273,17 +273,17 @@ namespace vkursi_api_example.movableloads
 
     public class CauseDocument
     {
-        public int id { get; set; }
-        public int opOpID { get; set; }
-        public DateTime pubDate { get; set; }
-        public string cdType { get; set; }
-        public string serNum { get; set; }
-        public string additional { get; set; }
-        public string publisher { get; set; }
-        public string cdTypeExtension { get; set; }
+        public int id { get; set; } // Id
+        public int opOpID { get; set; } // Номер обтяження
+        public DateTime pubDate { get; set; } // Дата видачі документа
+        public string cdType { get; set; } // Тип документа
+        public string serNum { get; set; } // Номер документа
+        public string additional { get; set; } // Додаткові відомості
+        public string publisher { get; set; } // Ким виданий
+        public string cdTypeExtension { get; set; } // Опис типу документу
         public string cdParentID { get; set; }
-        public string changeType { get; set; }
-        public string causeDocumentInfo { get; set; }
+        public string changeType { get; set; } // Тип зміни запису про документ (додавання, виправлення тощо)
+        public string causeDocumentInfo { get; set; } // Інформація про документ - підставу
     }
 
     public class Document
@@ -294,7 +294,7 @@ namespace vkursi_api_example.movableloads
         public int empEmpID { get; set; }
         public string docType { get; set; }
         public string generateddocument { get; set; }
-        public DateTime regDate { get; set; }
+        public DateTime regDate { get; set; } // Дата реєстрації
         public string seSeID { get; set; }
         public string docState { get; set; }
         public string docTypeName { get; set; }
