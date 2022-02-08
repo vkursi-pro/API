@@ -140,8 +140,8 @@ namespace vkursi_api_example.courtdecision
         public string[] CriminalNumb { get; set; }                                      // Криминальні провадження
         public string[] CadastralNumb { get; set; }                                     // Кадастрові номери
 
-        public bool? ContainAppeal { get; set; }                                        // Наявність касацій (за номером документа)
-        public bool? ContainCassation { get; set; }                                     // Наявність апеляцій (за номером документа)
+        public bool? ContainAppeal { get; set; }                                        // Наявність апеляцій (за номером документа)
+        public bool? ContainCassation { get; set; }                                     // Наявність касацій (за номером документа)
         public List<SidesAllModel> SidesAllNested { get; set; }                         // Сторони в справи
     }
 

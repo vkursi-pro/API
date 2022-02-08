@@ -170,21 +170,15 @@ namespace vkursi_api_example.organizations
         public List<OrganizationAnalyticOrganizationFEAModel> financialFEA { get; set; }                        // Аналіз ЗЕД (період рік)
         public List<OrganizationAnalyticFinancialRisks> financialRisks { get; set; }                            // Аналіз фінансових ризиків (період рік) (відп.до довідника № 12) 
         public List<OrganizationAnalyticEmployeesModel> employees { get; set; }                                 // Дані про кількість співробітників (період рік)
-
-
-        public List<string> vehiclesInfo { get; set; }
+        public List<string> vehiclesInfo { get; set; }                                                          // Системна інформація (не використовується)
         public OrganizationAnalyticKoatuInfo koatuInfo { get; set; }                                            // Дані про код КОАТУУ
-
-        public List<LtStAnalyticsModel> equityLtStAnalytics { get; set; }
+        public List<LtStAnalyticsModel> equityLtStAnalytics { get; set; }                                       // Системна інформація (не використовується)
         public SinglePaxPayer singlePayers { get; set; }                                                        // Відомості про єдиний податок
         public int? shareholdersCount { get; set; }                                                             // Системне поле
         public int? branchCount { get; set; }                                                                   // Системне поле
-
-
         public List<FeaCountryGroup> feaCountry { get; set; }                                                   // Дані по ЗЄД в розрізі країни та року
         public List<FeaCountryGroup> feaGroup { get; set; }                                                     // Дані по ЗЄД в розрізі групи товарів та року
-
-        public List<ImportMainBalanceIndicators> mainBalanceIndicators { get; set; }
+        public List<ImportMainBalanceIndicators> mainBalanceIndicators { get; set; }                            // Основні показники балансу
     }
 
 
@@ -262,27 +256,27 @@ namespace vkursi_api_example.organizations
 
     public class OrganizationAnalyticTenderBidStatisticsRealEstateRightsLand // Аналіз земельних ділянок
     {
-        public int? full { get; set; }// Загальна кількість
-        public int? vlasnyk { get; set; }// Власник
-        public int? pravonabuvach { get; set; }// Правокористувач
-        public int? pravokorystuvach { get; set; }
-        public int? zemlevlasnyk { get; set; }
-        public int? zemlevolodilets { get; set; }
-        public int? inshyy { get; set; }
-        public int? naymach { get; set; }
-        public int? orendar { get; set; }
-        public int? naymodavets { get; set; }
-        public int? orendodavets { get; set; }
-        public int? upravytel { get; set; }
-        public int? vyhodonabuvach { get; set; }
-        public int? ustanovnyk { get; set; }
-        public int? ipotekoderzhatel { get; set; }
-        public int? maynovyyPoruchytel { get; set; }
-        public int? ipotekodavets { get; set; }
-        public int? borzhnyk { get; set; }
-        public int? obtyazhuvach { get; set; }
-        public int? osobaMaynoYakoyiObtyazhuyutsya { get; set; }
-        public int? osobaVinteresakhYakoyi { get; set; }
+        public int? full { get; set; }              // Загальна кількість
+        public int? vlasnyk { get; set; }           // Власник 
+        public int? pravonabuvach { get; set; }     // Правонабувач
+        public int? pravokorystuvach { get; set; }  // Правокористувач
+        public int? zemlevlasnyk { get; set; }      // Землевласник
+        public int? zemlevolodilets { get; set; }   // Землеволоділець
+        public int? inshyy { get; set; }            // Інший
+        public int? naymach { get; set; }           // Наймач
+        public int? orendar { get; set; }           // Орендар
+        public int? naymodavets { get; set; }       // Наймодавець
+        public int? orendodavets { get; set; }      // Орендодавець
+        public int? upravytel { get; set; }         // Управитель
+        public int? vyhodonabuvach { get; set; }    // Вигодонабувач
+        public int? ustanovnyk { get; set; }        // Установник
+        public int? ipotekoderzhatel { get; set; }  // Іпотекодержатель
+        public int? maynovyyPoruchytel { get; set; }// Майновий поручитель
+        public int? ipotekodavets { get; set; }     // Іпотекодавець
+        public int? borzhnyk { get; set; }          // Боржник
+        public int? obtyazhuvach { get; set; }      // Обтяжувач
+        public int? osobaMaynoYakoyiObtyazhuyutsya { get; set; } // Особа, майно/права якої обтяжуються
+        public int? osobaVinteresakhYakoyi { get; set; } // Особа, в інтересах якої встановлено обтяження
         public double? ploshcha { get; set; } // Загальна площа
         public double? ploshchaObroblena { get; set; } // Площа в обробітку (офіційно)
         public List<OrganizationAnalyticRegionsEstate> regions { get; set; }// Земельні ділянки в розрізі регіону
@@ -321,15 +315,15 @@ namespace vkursi_api_example.organizations
     public class OrganizationAnalyticTenderOrganizerStatistics // Аналіз організованніх тендерів
     {
         public int? announcedTenders { get; set; } // К-ть організованніх тендерів
-        public double? sum { get; set; }// Сума організованніх тендерів
-        public double? averageLag { get; set; }
+        public double? sum { get; set; }// Сума організованих тендерів
+        public double? averageLag { get; set; } // Середній період отримання оплати
         public int? participants { get; set; }// Унікальних учасників
         public double? concurrency { get; set; }// Середня к-ть унакальних учасників
         public double? avgContracts { get; set; }// Середня к-ть контрактів на одного учасника
         public int? currentTendersCount { get; set; }// К-ть тендерів з торгами
-        public double? currentTendersSum { get; set; }
+        public double? currentTendersSum { get; set; } // Сума тендерів з торгами
         public int? nonConcurrentTendersCount { get; set; }// К-ть неконкурентних тендерів
-        public double? nonConcurrentTendersSum { get; set; }
+        public double? nonConcurrentTendersSum { get; set; } // Сума неконкурентних тендерів
         public int? concurrentTendersCount { get; set; }// К-ть конкурентних тендерів
         public double? concurrentTendersSum { get; set; }// Сума конкурентних тендерів
         public int? changedBidsTendersCount { get; set; }// К-ть тендерів зі зміною ставки
@@ -363,8 +357,8 @@ namespace vkursi_api_example.organizations
         public double? changedBidsTendersSum { get; set; }// Сума тендерів зі зміною ставки
         public int? notChangedBidsTendersCount { get; set; }// К-ть тендерів без зміни ставки
         public double? notChangedBidsTendersSum { get; set; }// Сума тендерів без зміни ставки
-        public int? curConNonConCount { get; set; }
-        public double? curConNonConSum { get; set; }
+        public int? curConNonConCount { get; set; } // К-ть неконкурентних тендерів без зміни ставки
+        public double? curConNonConSum { get; set; } // Сума неконкурентних тендерів без зміни ставки
         public int? winsNonConcurrentTendersCount { get; set; }// К-ть перемог в неконкурентних тендерах
         public double? winsNonConcurrentTendersSum { get; set; }// Сума перемог в неконкурентних тендерах
         public int? winsConcurrentTendersCount { get; set; }// К-ть перемог в конкурентних тендерах
@@ -373,8 +367,8 @@ namespace vkursi_api_example.organizations
         public double? winsChangedBidsTendersSum { get; set; }// Сума перемог в тендерах зі зміною ставки
         public int? winsNotChangedBidsTendersCount { get; set; }// К-ть перемог в тендерах без зміни ставки
         public double? winsNotChangedBidsTendersSum { get; set; }// Сума перемог в тендерах без зміни ставки
-        public int? winsCurConNonConCount { get; set; }
-        public double? winsCurConNonConSum { get; set; }
+        public int? winsCurConNonConCount { get; set; } // Сума перемог в неконкурентних тендерах без зміни ставки
+        public double? winsCurConNonConSum { get; set; } // К-ть перемог в неконкурентних тендерах без зміни ставки
         public int? firstMinimalPriceWin { get; set; }// К-ть перемог на першій мінімальній ціні
         public int? firstMinimalPriceLose { get; set; }// К-ть поразок на першій мінімальній ціні
         public int? firstMinimalPriceWinPercent { get; set; }// Відсоток перемог на першій мінімальній ціні
@@ -452,7 +446,7 @@ namespace vkursi_api_example.organizations
     {
         public int? publicationType { get; set; } // Тип публікації (відповідно таблиці)
         public DateTime? dateProclamation { get; set; } // Дата публікації повідомлення
-        public double? totalSumPossessions { get; set; }
+        public double? totalSumPossessions { get; set; } // Загальна сума виставленрого майна
     }
 
     public class OrganizationAnalyticEnforcements // Виконавчі проваждення
@@ -529,7 +523,7 @@ namespace vkursi_api_example.organizations
         public decimal? incomefinanceSum { get; set; }// Сума доходів, у тому числі подарунків
         public decimal? moneyAssetsSum { get; set; }// Сума грошових активів
         public decimal? financialLiabilitiesSum { get; set; } // Сума фінансових зобов'язань
-        public decimal? membershipOrgSum { get; set; } //
+        public decimal? membershipOrgSum { get; set; } // Членство в організаціях
 
     }
 
@@ -667,7 +661,7 @@ namespace vkursi_api_example.organizations
         public long? fullKoatu { get; set; }                    // Повний КОАТУУ (приведений до формату цілого числа)
     }
 
-    public class ImportMainBalanceIndicators
+    public class ImportMainBalanceIndicators                                // Основні показники балансу
     {
         public int period { get; set; }                                     // Рік
         public double? d108002UsohozarozdilomID1109502 { get; set; }        // I. Необоротні активи // Усього за розділом I // 1095

@@ -164,13 +164,13 @@ namespace vkursi_api_example.movableloads
         public List<Subject> subjects { get; set; } // Інформація про обтяжувача 
         public List<CauseDocument> causeDocuments { get; set; }
         public DateTime opRegDate { get; set; } // Дата проведення операції формування витягу
-        public string registrarInfo { get; set; } // Інформація про реєстратора
-        public string lmState { get; set; } // Стан документа
+        public string registrarInfo { get; set; }       // Інформація про реєстратора
+        public string lmState { get; set; }             // Стан документа
         public List<Document> documents { get; set; }
-        public string lmStateName { get; set; } // Назва стану документа
-        public string currentObjName { get; set; } // Організація реєстратора, який сформував витяг
-        public string currentRegistrar { get; set; } // Реєстратора, який сформував витяг
-        public string penalty { get; set; } // Ознака наявності “Звернення стягнення”
+        public string lmStateName { get; set; }         // Назва стану документа
+        public string currentObjName { get; set; }      // Організація реєстратора, який сформував витяг
+        public string currentRegistrar { get; set; }    // Реєстратора, який сформував витяг
+        public string penalty { get; set; }             // Ознака наявності “Звернення стягнення”
     }
 
     public class PrTypeAttr
