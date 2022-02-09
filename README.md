@@ -656,8 +656,8 @@ GetPKKUinfoClass.GetPKKUinfo(ref token, new List<string> { "5321386400:00:042:00
 <br>
       
 <h3>66. Отримати дані реквізитів для створення картки ФОП / ЮО</h3>
-[POST] /api/1.0/organizations/GetRequisites
-
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRequisitesClass.cs" target="_blank">[POST] /api/1.0/organizations/GetRequisites</a></p>
+        
 GetRequisitesClass.GetRequisites(ref token, "41462280");
 
 <br>
