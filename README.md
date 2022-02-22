@@ -656,8 +656,8 @@ GetPKKUinfoClass.GetPKKUinfo(ref token, new List<string> { "5321386400:00:042:00
 <br>
       
 <h3>66. Отримати дані реквізитів для створення картки ФОП / ЮО</h3>
-[POST] /api/1.0/organizations/GetRequisites
-
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRequisitesClass.cs" target="_blank">[POST] /api/1.0/organizations/GetRequisites</a></p>
+        
 GetRequisitesClass.GetRequisites(ref token, "41462280");
 
 <br>
@@ -720,7 +720,7 @@ GetActivityOrgHistoryClass.GetActivityOrgHistory(ref token, "44623955");
 <br>
 
 <h3>73. Відомості про субєктів господарювання які стоять на обліку в ДФС</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CabinetTaxRegistrationClass.cs" target="_blank">[POST] /api/1.0/podatkova/cabinettaxregistration</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/podatkova/CabinetTaxRegistrationClass.cs" target="_blank">[POST] /api/1.0/podatkova/cabinettaxregistration</a></p>
 
 CabinetTaxRegistrationClass.CabinetTaxRegistration(ref token, "41462280");
 
@@ -752,7 +752,7 @@ CheckIfOrganizationsInAtoClass.CheckIfOrganizationsInAto(ref token, "25412361");
 <br>
 
 <h3>77. Перевірка ФОП/не ФОП, наявність ліцензій адвокат/нотаріус, наявність обтяжень ДРОРМ (доступно в конструкторі API №77)</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckFopStatusClass.cs" target="_blank">[POST] /api/1.0/person/CheckFopStatus</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/person/CheckFopStatusClass.cs" target="_blank">[POST] /api/1.0/person/CheckFopStatus</a></p>
 
 CheckFopStatusClass.CheckFopStatus(ref token, "2674001651", true);
 
