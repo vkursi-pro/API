@@ -21,7 +21,7 @@ namespace vkursi_api_example.changes
 
         */
 
-        public static List<GetChangesResponseModel> GetChanges(string date, string token)
+        public static List<GetChangesResponseModel> GetChanges(string date, string token, string addDate, bool clearHtml)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
@@ -32,7 +32,10 @@ namespace vkursi_api_example.changes
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/changes/getchanges");
                 RestRequest request = new RestRequest(Method.GET);
 
-                request.AddParameter("addDate", date);                 // Дата в яку сервіс Vkursi виявив зміни
+                request.AddParameter("addDate", addDate);                   // Дата в яку сервіс Vkursi виявив зміни
+
+                request.AddParameter("date", date);                         // Дата зміни
+
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
 

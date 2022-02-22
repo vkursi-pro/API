@@ -52,7 +52,7 @@ namespace vkursi_api_example
             // 6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
             // [GET] /api/1.0/changes/getchanges
 
-            GetChangesClass.GetChanges("28.10.2019", token);
+            GetChangesClass.GetChanges(date: "28.10.2019", token: token, null, false);
 
             // 7. Отримати перелік списків (які користувач створив на vkursi.pro/eventcontrol#/reestr). Списки в сервісі використовуються для зберігання контрагентів, витягів та довідок
             // [GET] /api/1.0/monitoring/getAllReestr
@@ -140,7 +140,7 @@ namespace vkursi_api_example
             // 22. ДРОРМ отримання скороченных данных по ІПН / ЄДРПОУ
             // [POST] /api/1.0/movableLoads/getmovableloads
 
-            GetMovableLoadsClass.GetMovableLoads(ref token, "30839560", "1841404820");
+            GetMovableLoadsClass.GetMovableLoads(ref token, "30839560", "3118708120");
 
             // 23. ДРОРМ отримання витяга
             // [POST] /api/1.0/MovableLoads/getpaymovableloads
@@ -311,7 +311,7 @@ namespace vkursi_api_example
             // 57. Аналіз фінансових показників підприємства за кодом ЄДРПОУ
             // [POST] api/1.0/organizations/GetOrgFinance
 
-            GetOrgFinanceClass.GetOrgFinance(ref token, "00131305");
+            GetOrgFinanceClass.GetOrgFinance(ref token, "01982608");
 
             // 58. Оригинальний метод Nais, на отримання скороченних данних по коду ІПН / ЄДРПОУ 
             // [POST] /api/1.0/organizations/freenais

@@ -32,7 +32,8 @@ namespace vkursi_api_example.courtdecision
             {
              GetStanRozgliaduSpravBodyModel GSRSBody = new GetStanRozgliaduSpravBodyModel
                 {
-                    CompanyEdrpou = "31729918",
+                    //CompanyEdrpou = "31729918",
+                    PersonName = "Колесник Анна Олексіївна",
                     Size = 100,    
                     //DateStart = DateTime.Parse("2020-04-13T00:00:00.000Z")
                 };
@@ -41,7 +42,7 @@ namespace vkursi_api_example.courtdecision
 
                 // Example Body: {"CompanyEdrpou":"42721869","Size":100}
 
-                body = "{\"CompanyEdrpou\":\"42721869\",\"Size\":100}";
+                //body = "{\"CompanyEdrpou\":\"42721869\",\"Size\":100}";
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/CourtDecision/getStanRozgliaduSprav");
                 RestRequest request = new RestRequest(Method.POST);

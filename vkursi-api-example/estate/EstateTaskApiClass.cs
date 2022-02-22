@@ -329,6 +329,22 @@ namespace vkursi_api_example.estate
         public bool IsNeedUpdateAll { get; set; }                               // Якщо true - оновлюємо всі дані в ДЗК і РРП
         public string TaskName { get; set; }                                    // Назва задачі
         public EstateApiCreateTaskParamRequest Param { get; set; }              // Вибір реестрів по яким необхідно здійснити перевірку (null - якщо по всім)
+
+        // Керування моніторингом СМС РРП
+
+        public int? SmsRrpMonitoring { get; set; }                              // Тип моніторингу // 1 - Моніторинг по нормалізованим / 2 - Моніторинг по повним
+        public DateTime? DateTimeEnd { get; set; }                              // Дата закінчення моныторингу
+
+        public List<string> SmsRrpMonitoringSectionsList { get; set; }          // Перелік розділів що будуть моніторитись 
+
+                                                                                // Загальні відомості	PlotGeneralInfo
+                                                                                // Право власності	PlotOwnershipInfo
+                                                                                // Інше речове право	PlotUseRightInfo
+                                                                                // Обтяження та іпотека	PlotEncumbranceInfo,PlotMortgageInfo
+                                                                                // Нерухомість на ділянці	PlotRealtyInfo
+                                                                                // Намір про продаж	PlotSaleIntention
+
+
     }
 
     public class EstateApiCreateTaskParamRequest                                // Вибір реестрів по яким необхідно здійснити перевірку (null - якщо по всім)
