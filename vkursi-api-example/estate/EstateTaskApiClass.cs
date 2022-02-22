@@ -337,12 +337,13 @@ namespace vkursi_api_example.estate
 
         public List<string> SmsRrpMonitoringSectionsList { get; set; }          // Перелік розділів що будуть моніторитись 
 
-                                                                                // Загальні відомості	PlotGeneralInfo
-                                                                                // Право власності	PlotOwnershipInfo
-                                                                                // Інше речове право	PlotUseRightInfo
-                                                                                // Обтяження та іпотека	PlotEncumbranceInfo,PlotMortgageInfo
-                                                                                // Нерухомість на ділянці	PlotRealtyInfo
-                                                                                // Намір про продаж	PlotSaleIntention
+                                                                                // "0" - Всі дані по ділянці
+                                                                                // "1" - Загальні відомості
+                                                                                // "2" - Право власності
+                                                                                // "3" - Інше речове право
+                                                                                // "4" - Обтяження та  іпотека
+                                                                                // "5" - Намір про продаж
+                                                                                // "6" - Нерухомість на ділянці
 
 
     }
