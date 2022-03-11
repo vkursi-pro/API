@@ -164,50 +164,58 @@ namespace vkursi_api_example.organizations
         public double? Percent { get; set; }                                            // Відсоток володіння (якщо бенефіціар / засновник / або власник пакетік акцій)
         public List<int> ChildSanctions { get; set; }                                   // Санкції дочірнього зв'язку
         public int? RelationLevel { get; set; }                                         // Рівень зв'язків
-        public string Type { get; set; }                                                // Тип зв'язку (керівник, бенефіціар) (maxlength:31)
+        public string Type { get; set; }                                                // Тип зв'язку (керівник, бенефіціар) (maxlength:31) ВІдповідно по переліку:
 
-                                                                                        // FounderType Бенефіціар
-                                                                                        // LocationType Адреса
-                                                                                        // ChiefType Керівник
-                                                                                        // OldNodeAdressType Попередня адреса
-                                                                                        // OldNodeFounder Попередній бенефіціар
-                                                                                        // OldNodeChiefType Попередній керівник
-                                                                                        // OldNodeNameType Попередня назва
-                                                                                        // Branch Філія
-                                                                                        // Shareholder Власники пакетів акцій
-                                                                                        // Assignee Правонаступник
+        // FounderType Засновник
+        // LocationType Адреса
+        // ChiefType Керівник
+        // OldNodeAdressType Попередня адреса
+        // OldNodeFounder Попередній засновник
+        // OldNodeChiefType Попередній керівник
+        // OldNodeNameType Попередня назва
+        // Branch Філія
+        // Shareholder Власники пакетів акцій
+        // Assignee Правонаступник
+        // Signatorie Підписант
+        // OldSignatorie Попередній підписант
+        // ContactType контактні інформація (телефон Email)
+        // BeneficiarType Бенефіціар
+        // OldBeneficiarType Попередній бенефіціар
+        // Predecessor Попередник
+        // Fop ФОП
+
 
         [JsonProperty("adresa")]
-        public string Adresa { get; set; }                                              // (maxlength:127)
+        public string Adresa { get; set; }                                              // Адреса(maxlength:127)
 
         [JsonProperty("typBenefVolodinnya")]
-        public string TypBenefVolodinnya { get; set; }                                  // (maxlength:63)
+        public string TypBenefVolodinnya { get; set; }                                  // Тип бенефіціарного володіння (maxlength:63)
 
         [JsonProperty("vplyvCherezUO")]
-        public string VplyvCherezUo { get; set; }                                       // (maxlength:511)
+        public string VplyvCherezUo { get; set; }                                       // Має вплив через компанію (maxlength:511)
 
         [JsonProperty("aktsiy")]
-        public List<AktsiyRelationModel> Aktsiy { get; set; }                           // 
+        public List<AktsiyRelationModel> Aktsiy { get; set; }                           // Відомості про власника паветів акцій > 5%
     }
 
-    public class AktsiyRelationModel
+    public class AktsiyRelationModel                                                    // Відомості про власника паветів акцій > 5%
     {
         [JsonProperty("vydDeponenta")]
-        public string VydDeponenta { get; set; }                                        // (maxlength:511)
+        public string VydDeponenta { get; set; }                                        // Вид депондента (maxlength:511)
 
         [JsonProperty("vydTsinnohoPaperu")]
-        public string VydTsinnohoPaperu { get; set; }                                   // (maxlength:31)
+        public string VydTsinnohoPaperu { get; set; }                                   // Тип цінного паперу (maxlength:31)
 
         [JsonProperty("kodIsin")]
-        public string KodIsin { get; set; }                                             // (maxlength:31)
+        public string KodIsin { get; set; }                                             // Код ІСІН (maxlength:31)
 
         [JsonProperty("nominalVartist")]
-        public string NominalVartist { get; set; }                                      // (maxlength:63)
+        public string NominalVartist { get; set; }                                      // Номінальна вартість (maxlength:63)
 
         [JsonProperty("kilkistAktsiy")]
-        public string KilkistAktsiy { get; set; }                                       // (maxlength:31)
+        public string KilkistAktsiy { get; set; }                                       // Кількість акцій (maxlength:31)
 
         [JsonProperty("vidsotokAktsiy")]
-        public string VidsotokAktsiy { get; set; }                                      // (maxlength:31)
+        public string VidsotokAktsiy { get; set; }                                      // Відсоток акцій (maxlength:31)
     }
 }

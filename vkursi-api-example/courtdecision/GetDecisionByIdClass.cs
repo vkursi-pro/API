@@ -118,9 +118,9 @@ namespace vkursi_api_example.courtdecision
     {
         public DateTime AdjudicationDate { get; set; }                                  // Дата ухвалення рішення 
         public DateTime DateCreated { get; set; }                                       // Дата імпорту документа до сервісу
-        public int CauseCategoryId { get; set; }                                        // Категорія справи (додати довіник)
+        public int CauseCategoryId { get; set; }                                        // Категорія справи (https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/dictionary/jsonFiles/causeCategory.json)
         public Content Content { get; set; }                                            // Контент судового документа 
-        public int CourtId { get; set; }                                                // Id суду (додати довіник)
+        public int CourtId { get; set; }                                                // Id суду (https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/dictionary/jsonFiles/court.json)
         public DateTime DatePublished { get; set; }                                     // Дата офіційної публікації документа
         public int Id { get; set; }                                                     // Id документа
         public int InstanceId { get; set; }                                             // Id інстанції (1 - Касаційна, 2 - Апеляційна, 3 - Перша)

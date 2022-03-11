@@ -419,35 +419,34 @@ namespace vkursi_api_example.person
     {
         public int ActualLicenseCount { get; set; }                                     // Кількість діючих ліцензій
         public int NonActualLicenseCount { get; set; }                                  // Кількість не діючих ліцензій
-        public List<PersonLicense> LicensesList { get; set; }                           // Список ліцензій
+        public List<PersonLicense> LicensesList { get; set; }                           // Перелік ліцензій
         public List<PersonCorruption> CorruptionsList { get; set; }                     // Відомості з реєстру корупційних правопорушень
         public List<PersonLustration> LustrationsList { get; set; }                     // Відомості з реєстру про люстрацію
     }
 
-    public class PersonLicense                                                          // Ліцензії
+    public class PersonLicense                                                          // Перелік ліцензій
     {
-        public string LicenseName { get; set; }
-        public string LicenseNumber { get; set; }
-        public DateTime? DateEnd { get; set; }
-        public bool Actual { get; set; }
-        public Guid LicenseId { get; set; }
-        public string SearchedString { get; set; }
-        public bool? SearchByIpn { get; set; }
-        public bool? SearchByBirthDay { get; set; }
-        public string PersonName { get; set; }
+        public string LicenseName { get; set; }                                         // Назва ліцензії
+        public string LicenseNumber { get; set; }                                       // Номер
+        public DateTime? DateEnd { get; set; }                                          // Дата закінчення
+        public bool Actual { get; set; }                                                // Системне поле
+        public Guid LicenseId { get; set; }                                             // Системне поле
+        public bool? SearchByIpn { get; set; }                                          // Є співпадіння по ІПН
+        public bool? SearchByBirthDay { get; set; }                                     // Є співпадіння по ПІБ
+        public string PersonName { get; set; }                                          // ПІБ
     }
     public class PersonCorruption                                                       // Корупційні правопорушення
     {
-        public string Name { get; set; }
-        public string PlaceOfWork { get; set; }
-        public string Position { get; set; }
-        public Guid LicenseId { get; set; }
+        public string Name { get; set; }                                                // ПІБ
+        public string PlaceOfWork { get; set; }                                         // Місце роботи
+        public string Position { get; set; }                                            // Посада
+        public Guid LicenseId { get; set; }                                             // Системний Id
     }
     public class PersonLustration                                                       // Люстрація
     {
-        public string Name { get; set; }
-        public string PlaceOfWork { get; set; }
-        public Guid LicenseId { get; set; }
+        public string Name { get; set; }                                                // ПІБ
+        public string PlaceOfWork { get; set; }                                         // Місце роботи
+        public Guid LicenseId { get; set; }                                             // Системний Id
     }
 
     public class PersonsHidingViewModel                                                 // Відомості про осіб що переховуються від органів влади
@@ -458,7 +457,7 @@ namespace vkursi_api_example.person
         public string Category { get; set; }                                            // Категорія
         public DateTime? DateLost { get; set; }                                         // Дата зникнення
         public string Paragraph { get; set; }                                           // Стаття
-        public string Restraint { get; set; }                                           // 
+        public string Restraint { get; set; }                                           // Обмеження
         public string ContactInfo { get; set; }                                         // Контакта інформація відповідного органу
         public string ImageUrl { get; set; }                                            // Посаління на Фото
     }
