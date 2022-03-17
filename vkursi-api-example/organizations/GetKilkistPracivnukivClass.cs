@@ -12,7 +12,7 @@ namespace vkursi_api_example.organizations
         /*
         
         83. Штатна чисельність працівників
-        [POST] /api/organizations/GetKilkistPracivnukiv
+        [POST] /api/1.0/organizations/GetKilkistPracivnukiv
          
         */
         public static GetKilkistPracivnukivResponseModel GetKilkistPracivnukiv(ref string token, string code)
@@ -34,7 +34,7 @@ namespace vkursi_api_example.organizations
 
                 string body = JsonConvert.SerializeObject(GKPRBody);        // Example body: {"code":["21560766"]}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/organizations/GetKilkistPracivnukiv");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetKilkistPracivnukiv");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");

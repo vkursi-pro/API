@@ -10,7 +10,7 @@ namespace vkursi_api_example.organizations
         /*
          
         81. Реєстр платників Єдиного податку
-        [POST] /api/organizations/GetYedynyyPodatok 
+        [POST] /api/1.0/organizations/GetYedynyyPodatok 
 
         */
 
@@ -33,7 +33,7 @@ namespace vkursi_api_example.organizations
 
                 string body = JsonConvert.SerializeObject(GYPRBody);        // Example body: {"code":["21560766"]}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/organizations/GetYedynyyPodatok");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetYedynyyPodatok");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");

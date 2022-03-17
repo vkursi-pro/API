@@ -32,7 +32,7 @@ namespace vkursi_api_example
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
-            GetOrganizationsClass.GetOrganizations("40073472", ref token); // 40073472 
+            GetDfsBussinesPartnerDataClass.GetDfsBussinesPartnerData(ref token, "00131305");
 
             // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
             // [POST] /api/1.0/organizations/getfops
@@ -419,42 +419,42 @@ namespace vkursi_api_example
             CheckFopStatusClass.CheckFopStatus(ref token, "00131305", true);
 
             // 78. Перевірка контрагента в списках санкції (доступно в конструкторі API №78)
-            // [POST] /api/organizations/GetOrgSanctions
+            // [POST] /api/1.0/organizations/GetOrgSanctions
 
             GetOrgSanctionsClass.GetOrgSanctions(ref token, "00131305");
 
             // 79. Реєстр платників ПДВ (доступно в конструкторі API №79)
-            // [POST] /api/organizations/GetOrgPdv
+            // [POST] /api/1.0/organizations/GetOrgPdv
 
             GetOrgPdvClass.GetOrgPdv(ref token, "00131305");
 
             // 80. Анульована реєстрація платником ПДВ (доступно в конструкторі API №80)
-            // [POST] /api/organizations/GetOrgAnulPdv
+            // [POST] /api/1.0/organizations/GetOrgAnulPdv
 
             GetOrgAnulPdvClass.GetOrgAnulPdv(ref token, "00131305");
 
             // 81. Реєстр платників Єдиного податку (доступно в конструкторі API №81)
-            // [POST] /api/organizations/GetYedynyyPodatok
+            // [POST] /api/1.0/organizations/GetYedynyyPodatok
 
             GetYedynyyPodatokClass.GetYedynyyPodatok(ref token, "00131305");
 
             // 82. Реєстр ДФС “Дізнайся більше про свого бізнес-партнера” (доступно в конструкторі API №82)
-            // [POST] /api/organizations/GetDfsBussinesPartnerData
+            // [POST] /api/1.0/organizations/GetDfsBussinesPartnerData
 
             GetDfsBussinesPartnerDataClass.GetDfsBussinesPartnerData(ref token, "00131305");
 
             // 83. Штатна чисельність працівників (доступно в конструкторі API №83)
-            // [POST] /api/organizations/GetKilkistPracivnukiv
+            // [POST] /api/1.0/organizations/GetKilkistPracivnukiv
 
             GetKilkistPracivnukivClass.GetKilkistPracivnukiv(ref token, "00131305");
 
             // 84. Реєстр ДФС “Стан розрахунків з бюджетом” (доступно в конструкторі API №84)
-            // [POST] /api/organizations/GetOrganizationDbDebtorsDfs
+            // [POST] /api/1.0/organizations/GetOrganizationDbDebtorsDfs
 
             GetOrganizationDbDebtorsDfsClass.GetOrganizationDbDebtorsDfs(ref token, "00131305");
 
             // 85. Єдиний реєстр боржників (доступно в конструкторі API №85)
-            // [POST] /api/organizations/GetOpenEnforcements
+            // [POST] /api/1.0/organizations/GetOpenEnforcements
 
             GetOpenEnforcementsClass.GetOpenEnforcements(ref token, "00131305");
 

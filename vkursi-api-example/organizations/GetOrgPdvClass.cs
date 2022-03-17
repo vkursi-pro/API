@@ -11,7 +11,7 @@ namespace vkursi_api_example.organizations
         /*
          
         79. Реєстр платників ПДВ
-        [POST] /api/organizations/GetOrgPdv
+        [POST] /api/1.0/organizations/GetOrgPdv
          
         */
 
@@ -34,7 +34,7 @@ namespace vkursi_api_example.organizations
 
                 string body = JsonConvert.SerializeObject(GKPRBody);        // Example body: {"code":["21560766"]}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/organizations/GetOrgPdv");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgPdv");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");

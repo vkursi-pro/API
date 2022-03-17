@@ -11,7 +11,7 @@ namespace vkursi_api_example.organizations
         /*
          
         85. Єдиний реєстр боржників
-        [POST] /api/organizations/GetOpenEnforcements 
+        [POST] /api/1.0/organizations/GetOpenEnforcements 
          
         */
 

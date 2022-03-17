@@ -11,7 +11,7 @@ namespace vkursi_api_example.organizations
         /*
          
         82. Реєстр ДФС “Дізнайся більше про свого бізнес-партнера”
-        [POST] /api/organizations/GetDfsBussinesPartnerData
+        [POST] /api/1.0/organizations/GetDfsBussinesPartnerData
 
         */
 
@@ -34,7 +34,7 @@ namespace vkursi_api_example.organizations
 
                 string body = JsonConvert.SerializeObject(GDBPDRBody);        // Example body: {"code":["21560766"]}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/organizations/GetDfsBussinesPartnerData");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetDfsBussinesPartnerData");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");

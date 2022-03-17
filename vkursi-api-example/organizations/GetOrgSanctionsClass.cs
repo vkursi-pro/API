@@ -11,7 +11,7 @@ namespace vkursi_api_example.organizations
         /*
          
         78. Перевірка контрагента в списках санкції
-        [POST] /apiorganizations/GetOrgSanctions
+        [POST] /api/1.0/organizations/GetOrgSanctions
          
         */
 
@@ -34,7 +34,7 @@ namespace vkursi_api_example.organizations
 
                 string body = JsonConvert.SerializeObject(GOSRBody);        // Example body: {"code":["21560766"]}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/organizations/GetOrgSanctions");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgSanctions");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");

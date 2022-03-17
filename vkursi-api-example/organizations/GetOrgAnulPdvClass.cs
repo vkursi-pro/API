@@ -11,7 +11,7 @@ namespace vkursi_api_example.organizations
         /*
          
         80. Анульована реєстрація платником ПДВ
-        [POST] /api/organizations/GetOrgAnulPdv
+        [POST] /api/1.0/organizations/GetOrgAnulPdv
          
         */
 
@@ -34,7 +34,7 @@ namespace vkursi_api_example.organizations
 
                 string body = JsonConvert.SerializeObject(GOAPRBody);        // Example body: {"code":["21560766"]}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/organizations/GetOrgAnulPdv");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgAnulPdv");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
