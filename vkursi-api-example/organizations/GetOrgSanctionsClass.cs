@@ -27,9 +27,12 @@ namespace vkursi_api_example.organizations
 
             while (string.IsNullOrEmpty(responseString))
             {
+                //code = "33447980";
+
                 GetOrgSanctionsRequestBodyModel GOSRBody = new GetOrgSanctionsRequestBodyModel
                 {
-                    Code = new List<string> { code }                        // Код ЄДРПОУ аба ІПН
+                    Code = new List<string> { code },                       // Код ЄДРПОУ аба ІПН
+                    IncludeFounders = true                                  // Розширений пошук санкцій (включає пошук по засновниках та бенефіціарах)
                 };
 
                 string body = JsonConvert.SerializeObject(GOSRBody);        // Example body: {"code":["21560766"]}
@@ -73,6 +76,7 @@ namespace vkursi_api_example.organizations
     public class GetOrgSanctionsRequestBodyModel                                // Модель запиту (Example: {"code":["21560766"]})
     {
         public List<string> Code { get; set; }                                  // Код ЄДРПОУ
+        public bool? IncludeFounders { get; set; }                              // Розширений пошук санкцій (включає пошук по засновниках та бенефіціарах)
     }
 
     public class GetOrgSanctionsResponseModel                                   // Модель на відповідь GetKilkistPracivnukiv
@@ -90,6 +94,13 @@ namespace vkursi_api_example.organizations
         public bool IsActive { get; set; }                                      // Чи активна санкція
         public int? SanctionId { get; set; }                                    // Ід санкції
         public object Details { get; set; }                                     // Json з додатковими атрибумами саккції
+
+        public List<string> PersonNames { get; set; }
+        public HashSet<string> SearchedByNames { get; set; }
+        public List<string> OrganizationNames { get; set; }
+
+        [JsonProperty("typeList")]
+        public List<int> TypeList { get; set; }
 
     }
 }

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using vkursi_api_example._2._0;
 using vkursi_api_example.bi;
 using vkursi_api_example.changes;
-using vkursi_api_example.codeExample;
 using vkursi_api_example.courtdecision;
 using vkursi_api_example.dictionary;
 using vkursi_api_example.estate;
@@ -32,7 +31,7 @@ namespace vkursi_api_example
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
-            GetDfsBussinesPartnerDataClass.GetDfsBussinesPartnerData(ref token, "00131305");
+            GetOrganizationsClass.GetOrganizations("00131305", ref token);
 
             // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
             // [POST] /api/1.0/organizations/getfops

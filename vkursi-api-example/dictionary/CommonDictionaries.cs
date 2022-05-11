@@ -540,8 +540,8 @@ namespace vkursi_api_example.dictionary
         {
             Dictionary<int, string> GlobalTypeCountDict = new Dictionary<int, string>
             {
-                { 1, "Інше право"},
-                { 2, "Власність"},
+                { 1, "Власність"},
+                { 2, "Інше право"},
                 { 3, "Іпотека"},
                 { 4, "Обтяження"},
             };
