@@ -11,19 +11,22 @@ namespace vkursi_api_example.organizations
 {
     public class GetFopsClass
     {
-        /*
-         
-        3. Запит на отримання коротких даних по ФОП за кодом ІПН
-        [POST] /api/1.0/organizations/getfops  
-
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getfops' \
-        --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOiJI...' \
-        --header 'Content-Type: application/json' \
-        --data-raw '{"code": ["3334800417"]}'
-
+        /// <summary>
+        /// 3. Запит на отримання коротких даних по ФОП за кодом ІПН
+        /// [POST] /api/1.0/organizations/getfops
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        
+        /*       
+            cURL запиту:
+                curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getfops' \
+                --header 'ContentType: application/json' \
+                --header 'Authorization: Bearer eyJhbGciOiJI...' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{"code": ["3334800417"]}'
         */
-
         public static List<GetFopsResponseModel> GetFops(string code, string token)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
@@ -40,13 +43,7 @@ namespace vkursi_api_example.organizations
                     }
                 };
 
-                string body = string.Empty;                                 // Example body: {"code": ["3334800417"]}
-
-                // Newtonsoft.Json
-                body = JsonConvert.SerializeObject(GFRequestBody);
-
-                // System.Text.Json;
-                // body = JsonSerializer.Serialize(GFRequestBody);
+                string body = JsonConvert.SerializeObject(GFRequestBody);   // Example body: {"code": ["3334800417"]}
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getfops");
                 RestRequest request = new RestRequest(Method.POST);
@@ -78,11 +75,7 @@ namespace vkursi_api_example.organizations
 
             List<GetFopsResponseModel> FopsShortList = new List<GetFopsResponseModel>();
 
-            // Newtonsoft.Json
             FopsShortList = JsonConvert.DeserializeObject<List<GetFopsResponseModel>>(responseString);
-
-            // System.Text.Json;
-            // FopsShortList = JsonSerializer.Deserialize<List<GetFopsResponseModel>>(responseString);
 
             return FopsShortList;
         }

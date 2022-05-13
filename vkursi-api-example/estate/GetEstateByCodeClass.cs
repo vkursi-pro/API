@@ -10,19 +10,25 @@ namespace vkursi_api_example.estate
 {
     public class GetEstateByCodeClass
     {
+        /// <summary>
+        /// 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
+        /// При першому запиті у відповідь приходять дані станом на поточний момент і ініціюється процедура поновлення. Якщо процедура відновлення не завершена у відповідь при повторному запиті (за тими ж паараметрами) буде приходити: Update in progress, total objects {общее количество} try again later. - Спробуйте повторити запит через 30 секунд. Після оновлення прийде стандартна відповідь.
+        /// [GET] /api/1.0/estate/getestatebycode
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+
         /*
-        
-        5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
-        При першому запиті у відповідь приходять дані станом на поточний момент і ініціюється процедура поновлення. Якщо процедура відновлення не завершена у відповідь при повторному запиті (за тими ж паараметрами) буде приходити: Update in progress, total objects {общее количество} try again later. - Спробуйте повторити запит через 30 секунд. Після оновлення прийде стандартна відповідь.
-        [GET] /api/1.0/estate/getestatebycode     
-         
-        curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatebycode?code=3080213038' \
-        --header 'ContentType: application/json' \
-        --header 'Authorization: Bearer eyJhbGciOiJIUzI1...' \
-        --header 'Content-Type: application/json' \
+            cURL запиту:
+                curl --location --request GET 'https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatebycode?code=3080213038' \
+                --header 'ContentType: application/json' \
+                --header 'Authorization: Bearer eyJhbGciOiJIUzI1...' \
+                --header 'Content-Type: application/json' \
 
-         */
-
+            Приклад відповіді:
+                https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetEstateByCodeResponse.json      
+        */
         public static GetRealEstateRightsResponseModel GetRealEstateRights(string code, string token)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
@@ -40,7 +46,6 @@ namespace vkursi_api_example.estate
 
                 IRestResponse response = client.Execute(request);
                 responseString = response.Content;
-
 
                 if ((int)response.StatusCode == 401)
                 {

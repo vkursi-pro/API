@@ -5,21 +5,21 @@ namespace vkursi_api_example.token
 {
     public class AuthorizeClass
     {
+        /// <summary>
+        /// 1. Авторизація (отримання токену)
+        /// [POST] /api/1.0/token/authorize
+        /// </summary>
+        /// <returns></returns>
         /*
         
-        Метод:
-            1. Авторизація (отримання токену)
-            [POST] /api/1.0/token/authorize
-            
-        cURL запиту:
-            curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/token/authorize' \
-            --header 'Content-Type: application/json' \
-            --data-raw '{"email":"test@testemail.com","password":"123456"}'
+            cURL запиту:
+                curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/token/authorize' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{"email":"test@testemail.com","password":"123456"}'
 
-        * - Термін дії токену 30 хв (після цого ви отримаєте помилку 401 unauthorized)
+            * - Термін дії токену 30 хв (після цого ви отримаєте помилку 401 unauthorized)
 
         */
-
         public string Authorize()
         {
             // Вкажіть ваш логін та пароль від сервісу Vkursi які ви вводили при реєстрації облікового запису vkursi.pro/account/register або зарееструйте новий
@@ -27,7 +27,7 @@ namespace vkursi_api_example.token
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
                 Email = "beroomas@hasevo.com",       // Логін (Email)
-                Password = "123456"                 // Пароль
+                Password = "1qaz2wsx"                 // Пароль
             };
 
             AuthorizeResponseModel AuthorizeResponse = new AuthorizeResponseModel();

@@ -8,14 +8,26 @@ namespace vkursi_api_example.organizations
 {
     public class GetOrgLicensesInfoClass
     {
+        /// <summary>
+        /// 37. Перелік ліцензій, та дозволів
+        /// [POST] /api/1.0/organizations/getorglicensesinfo
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="edrpou"></param>
+        /// <returns></returns>
+        
         /*
+            cURL запиту:
+                 curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorglicensesinfo' \
+                --header 'ContentType: application/json' \
+                --header 'Authorization: Bearer eyJhbGciOiJIUzI1N' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{"Edrpou":["00131305"]}'
 
-        37. Перелік ліцензій, та дозволів
-        [POST] /api/1.0/organizations/getorglicensesinfo        
-         
+            Приклад відповіді:
+                https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrgLicensesInfoResponse.json
         */
-
-        public static GetOrgLicensesInfoResponseModel GetOrgLicensesInfo(ref string token, string code)
+        public static GetOrgLicensesInfoResponseModel GetOrgLicensesInfo(ref string token, string edrpou)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
@@ -27,7 +39,7 @@ namespace vkursi_api_example.organizations
                 {
                     Edrpou = new List<string>
                     {
-                        code                                                    // Код ЄДРПОУ аба ІПН
+                        edrpou                                                    // Код ЄДРПОУ аба ІПН
                     }
                 };
 
@@ -68,6 +80,45 @@ namespace vkursi_api_example.organizations
             return GOLIResponse;
         }
     }
+
+    /*
+        // Java - OkHttp example:
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"Edrpou\":[\"00131305\"]}");
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorglicensesinfo")
+          .method("POST", body)
+          .addHeader("ContentType", "application/json")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIUz")
+          .addHeader("Content-Type", "application/json")
+          .build();
+        Response response = client.newCall(request).execute(); 
+
+
+        // Python - http.client example:
+
+        import http.client
+        import json
+
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = json.dumps({
+          "Edrpou": [
+            "00131305"
+          ]
+        })
+        headers = {
+          'ContentType': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJ',
+          'Content-Type': 'application/json'
+        }
+        conn.request("POST", "/api/1.0/organizations/getorglicensesinfo", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
+    */
 
     public class GetOrgLicensesInfoRequestBodyModel                             // Модель Body запиту
     {
