@@ -8,13 +8,12 @@ namespace vkursi_api_example.organizations
 {
     public class GetDfsBussinesPartnerDataClass
     {
-        /*
-         
-        82. Реєстр ДФС “Дізнайся більше про свого бізнес-партнера”
-        [POST] /api/1.0/organizations/GetDfsBussinesPartnerData
-
-        */
-
+        /// <summary>
+        /// 82. Реєстр ДФС “Дізнайся більше про свого бізнес-партнера” [POST] /api/1.0/organizations/GetDfsBussinesPartnerData
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public static GetDfsBussinesPartnerDataResponseModel GetDfsBussinesPartnerData(ref string token, string code)
         {
             if (string.IsNullOrEmpty(token))

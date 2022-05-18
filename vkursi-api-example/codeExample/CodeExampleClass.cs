@@ -15,22 +15,44 @@ namespace vkursi_api_example.codeExample
 {
     public class CodeExampleClass
     {
-        // Приклад отримання списку пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
-        public void GetRelationsCodeExample(string token)
+        /// <summary>
+        /// Приклад отримання повної інформації про ФОП-а за ІПН з api/1.0/organizations/getadvancedorganization
+        /// </summary>
+        public void GetFopsExample()
+        {
+            List<string> stringLst = new List<string>();
+
+            stringLst = FileReader(@"C:\Users\vadim\Downloads\code.txt");
+
+            string token = null;
+
+            int count = 0;
+
+            foreach (var item in stringLst)
+            {
+                count++;
+
+                var getFop = GetFopsClass.GetFops(item, ref token);
+
+                System.Threading.Thread.Sleep(1500);
+
+                if (getFop?.Any() == true)
+                    Console.WriteLine(count + " | " + getFop[0].Code + " | " + getFop[0].Id);
+                else
+                    Console.WriteLine(count + " | " + item + " | не знайдено");
+            }
+
+            Console.WriteLine();
+        }
+        /// <summary>
+        /// Приклад отримання списку пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
+        /// </summary>
+        public void GetRelationsCodeExample()
         {
             // Читаемо перелік кодів ЄДРПОУ з файлу
-            List<string> QueryUserId = new List<string>();
+            List<string> stringLst = new List<string>();
 
-            using (var sr = new StreamReader(@"C:\Users\user\Downloads\relationIdList.txt"))
-            {
-                string textLine = string.Empty;
-
-                while ((textLine = sr.ReadLine()) != null)
-                {
-                    // textLine = textLine.PadLeft(8, '0');
-                    QueryUserId.Add(textLine);
-                }
-            }
+            stringLst = FileReader(@"C:\Users\user\Downloads\relationIdList.txt");
 
             // Шлях до файлу в який буде саписано результат
             DirectoryInfo filePath = new DirectoryInfo(@"C:\Users\user\Downloads");
@@ -39,7 +61,9 @@ namespace vkursi_api_example.codeExample
 
             int count = 0;
 
-            foreach (var item in QueryUserId)
+            string token = null;
+
+            foreach (var item in stringLst)
             {
                 count++;
                 if ((count % 100) == 0)
@@ -207,27 +231,10 @@ namespace vkursi_api_example.codeExample
             Console.WriteLine();
         }
 
-        // Вичитка чайлу з кодами
-        public static List<string> FileReader(string path)
-        {
-            // Читаемо перелік кодів ЄДРПОУ з файлу
-            List<string> TextLineList = new List<string>();
 
-            using (var sr = new StreamReader(path))
-            {
-                string textLine = string.Empty;
-
-                while ((textLine = sr.ReadLine()) != null)
-                {
-                    // textLine = textLine.PadLeft(8, '0');
-                    TextLineList.Add(textLine);
-                }
-            }
-
-            return TextLineList;
-        }
-
-        // Приклад Отримання ДРОРМа
+        /// <summary>
+        /// Приклад використання Vkursi API для отримання ДРОРМа
+        /// </summary>
         public static void GetDrorm()
         {
             // Читаемо перелік кодів ЄДРПОУ з файлу
@@ -290,7 +297,37 @@ namespace vkursi_api_example.codeExample
             Console.WriteLine();
         }
 
-        // 3. Запись в один json файл
+        /// <summary>
+        /// Вичитка файлу з текстом построково в List<string>
+        /// </summary>
+        /// <param name="path">Шлях до файлу</param>
+        /// <returns></returns>
+        public static List<string> FileReader(string path)
+        {
+            // Читаемо перелік кодів ЄДРПОУ з файлу
+            List<string> TextLineList = new List<string>();
+
+            using (var sr = new StreamReader(path))
+            {
+                string textLine = string.Empty;
+
+                while ((textLine = sr.ReadLine()) != null)
+                {
+                    // textLine = textLine.PadLeft(8, '0');
+                    TextLineList.Add(textLine);
+                }
+            }
+
+            return TextLineList;
+        }
+
+        /// <summary>
+        /// 3. Запись в один json файл
+        /// </summary>
+        /// <param name="textLineRow"></param>
+        /// <param name="filePath"></param>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static bool WriteJsonTextToTxt(string textLineRow, DirectoryInfo filePath, string fileName)
         {
             try

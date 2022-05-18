@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using vkursi_api_example._2._0;
 using vkursi_api_example.bi;
 using vkursi_api_example.changes;
+using vkursi_api_example.codeExample;
 using vkursi_api_example.courtdecision;
 using vkursi_api_example.dictionary;
 using vkursi_api_example.estate;
@@ -28,6 +29,9 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
+            GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
+
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -36,7 +40,7 @@ namespace vkursi_api_example
             // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
             // [POST] /api/1.0/organizations/getfops
 
-            GetFopsClass.GetFops("2341818675", token); // 3334800417
+            GetFopsClass.GetFops("3334800417", ref token); // 3334800417
 
             // 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
             // [POST] /api/1.0/organizations/getadvancedorganization
@@ -365,7 +369,7 @@ namespace vkursi_api_example
             // 67. Запит на отримання повних реквізитів та контенту судових документів організації за критеріями
             // [POST] /api/1.0/courtdecision/getdecisionsbyfilter
 
-            GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
+            GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
 
             // 68. Анкета
             // [POST] /api/1.0/organizations/GetAnketa

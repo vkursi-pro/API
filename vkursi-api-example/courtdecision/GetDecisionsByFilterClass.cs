@@ -8,16 +8,30 @@ namespace vkursi_api_example.courtdecision
 {
     public class GetDecisionsByFilterClass
     {
+        /// <summary>
+        /// 67. Запит на отримання повних реквізитів та контенту судових документів організації за критеріями [POST] /api/1.0/courtdecision/getdecisionsbyfilter
+        /// </summary>
+        /// <param name="edrpou"></param>
+        /// <param name="typeSide"></param>
+        /// <param name="justiceKindId"></param>
+        /// <param name="npas"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
 
         /*
-         
-        67. Запит на отримання повних реквізитів та контенту судових документів організації за критеріями
-        [POST] /api/1.0/courtdecision/getdecisionsbyfilter
-
+            cURL запиту:
+                curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getdecisionsByFilter' \
+                --header 'ContentType: application/json' \
+                --header 'Authorization: Bearer eyJhbGciOiJIUzI1...' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{"Edrpou":"00131305","TypeSide":null,"JusticeKindId":null,"Npas":null,"ScrollToken":null,"JudgmentFormId":null,"AdjudicationDateFrom":null,"AdjudicationDateTo":null}'
+        
+            Приклад відповіді:
+                    https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetDecisionsByFilterResponse.json
         */
 
 
-        public static GetDecisionByIdResponseModel GetDecisionsByFilter(string edrpou, int? skip, int? typeSide, int? justiceKindId, List<string> npas, string token)
+        public static GetDecisionByIdResponseModel GetDecisionsByFilter(string edrpou, int? typeSide, int? justiceKindId, List<string> npas, string token)
         {
             if (string.IsNullOrEmpty(token)) 
             { 
@@ -32,12 +46,12 @@ namespace vkursi_api_example.courtdecision
                 GetDecisionsByFilterRequestBodyModel GDBFRequestBody = new GetDecisionsByFilterRequestBodyModel
                 {
                     Edrpou = edrpou,                                            // Код ЄДРПОУ
-                    TypeSide = typeSide,                                        // Тип сторони в судомому документі
-                    JusticeKindId = justiceKindId,                              // Форма судочинства
-                    Npas = npas                                                 // Фільтр по статтям до НПА
+                    //TypeSide = typeSide,                                        // Тип сторони в судомому документі
+                    //JusticeKindId = justiceKindId                              // Форма судочинства
+                    //Npas = npas                                                 // Фільтр по статтям до НПА
                 };
 
-                string body = JsonConvert.SerializeObject(GDBFRequestBody);                // Example body: {"Edrpou":"14360570","Skip":0,"TypeSide":null,"JusticeKindId":null,"Npas":["F545D851-6015-455D-BFE7-01201B629774"]}
+                string body = JsonConvert.SerializeObject(GDBFRequestBody);                // Example body: {"Edrpou":"14360570","TypeSide":null,"JusticeKindId":null,"Npas":["F545D851-6015-455D-BFE7-01201B629774"]}
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getdecisionsByFilter");
                 RestRequest request = new RestRequest(Method.POST);
@@ -96,9 +110,12 @@ namespace vkursi_api_example.courtdecision
 
     }
 
-
-    // Модель відповіди ідентична Методу № 26. Рекізити судового документа [POST] /api/1.0/courtdecision/getdecisionbyid
-
-    // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionByIdClass.cs#L110
-
+    public class GetDecisionsByFilterResponseModel                              // Модель відповіді
+    {
+        public bool IsSuccess { get; set; }                                     // Статус відповіді по API
+        public string Status { get; set; }                                      // Чи успішний запит (maxLength:128)
+        public string ScrollToken { get; set; }                                 // Скрол для отримання наступних документів (100)
+        public long DecisionsCount { get; set; }                                // Загальна кількясть документів за запитом
+        public List<CourtDecisionElasticModel> Data { get; set; }               // Переліе судовіх документів (Модель відповіди ідентична Методу № 26. Рекізити судового документа [POST] /api/1.0/courtdecision/getdecisionbyid https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionByIdClass.cs#L110)
+    }
 }

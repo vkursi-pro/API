@@ -10,6 +10,7 @@ namespace vkursi_api_example.token
         /// [POST] /api/1.0/token/authorize
         /// </summary>
         /// <returns></returns>
+        
         /*
         
             cURL запиту:
@@ -26,8 +27,8 @@ namespace vkursi_api_example.token
            
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
-                Email = "beroomas@hasevo.com",       // Логін (Email)
-                Password = "1qaz2wsx"                 // Пароль
+                Email = "test@testemail.com",       // Логін (Email)
+                Password = "123456"                 // Пароль
             };
 
             AuthorizeResponseModel AuthorizeResponse = new AuthorizeResponseModel();
