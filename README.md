@@ -688,7 +688,7 @@ GetAnketaClass.GetAnketa(ref token, "41462280");
 <br>
 
 <h3>69. API 2.0 Конструктор API</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/ApiConstructorClass.cs" target="_blank">[POST] /api/2.0/ApiConstructor</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/2.0/ApiConstructorClass.cs" target="_blank">[POST] /api/2.0/ApiConstructor</a></p>
 
 ApiConstructorClass.ApiConstructor(ref token, "25412361",  new HashSet<int>{ 4, 9, 41, 37, 66, 32, 39, 70, 71 }); // 57
 
