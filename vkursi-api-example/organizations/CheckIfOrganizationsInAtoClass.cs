@@ -140,6 +140,9 @@ namespace vkursi_api_example.organizations
         public List<CheckIfOrganizationsInAtoAnswerData> Data { get; set; }             // Перелік суб'єктів
     }
 
+    /// <summary>
+    /// Перевірка чи знаходиться аблеса компанії/ФОП в зоні АТО
+    /// </summary>
     public class CheckIfOrganizationsInAtoAnswerData                                    // Перелік суб'єктів
     {
         public string Code { get; set; }                                                // Код

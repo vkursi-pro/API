@@ -137,31 +137,32 @@ namespace vkursi_api_example.organizations
         public string olf_code { get; set; }                                    // Код організаційно-правової форми суб’єкта, якщо суб’єкт – юридична особа (maxLength:256)
         public string olf_name { get; set; }                                    // Назва організаційно-правової форми суб’єкта, якщо суб’єкт – юридична особа (maxLength:256)
         public string founding_document { get; set; }                           // Назва установчого документа, якщо суб’єкт – юридична особа (maxLength:128)
-        public OrgExecutivePower executive_power { get; set; }          // Центральний чи місцевий орган виконавчої влади, до сфери управління якого належить державне підприємство або частка держави у статутному капіталі юридичної особи, якщо ця частка становить не менше 25 відсотків
+        public OrgExecutivePower executive_power { get; set; }                  // Центральний чи місцевий орган виконавчої влади, до сфери управління якого належить державне підприємство або частка держави у статутному капіталі юридичної особи, якщо ця частка становить не менше 25 відсотків
         public string object_name { get; set; }                                 // Місцезнаходження реєстраційної справи (maxLength:256)
-        public OrgFounders[] founders { get; set; }                     // Array[Founder]. Перелік засновників (учасників) юридичної особи, у тому числі прізвище, ім’я, по батькові, якщо засновник – фізична особа; найменування, місцезнаходження та ідентифікаційний код юридичної особи, якщо засновник – юридична особа
-        public OrgBranches[] branches { get; set; }                     // Array[Branch]. Перелік відокремлених підрозділів юридичної особи
-        public OrgAuthorisedCapital authorised_capital { get; set; }    // Дані про розмір статутного капіталу (статутного або складеного капіталу) та про дату закінчення його формування, якщо суб’єкт – юридична особа
+        public OrgFounders[] founders { get; set; }                             // Array[Founder]. Перелік засновників (учасників) юридичної особи, у тому числі прізвище, ім’я, по батькові, якщо засновник – фізична особа; найменування, місцезнаходження та ідентифікаційний код юридичної особи, якщо засновник – юридична особа
+        public OrgFounders[] beneficiaries { get; set; }                        // Перелік кінцевих бенефіціарних власників(КБВ) юридичної особи
+        public OrgBranches[] branches { get; set; }                             // Array[Branch]. Перелік відокремлених підрозділів юридичної особи
+        public OrgAuthorisedCapital authorised_capital { get; set; }            // Дані про розмір статутного капіталу (статутного або складеного капіталу) та про дату закінчення його формування, якщо суб’єкт – юридична особа
         public string management { get; set; }                                  // Відомості про органи управління юридичної особи (maxLength:256)
         public string managing_paper { get; set; }                              // Найменування розпорядчого акта, якщо суб’єкт – юридична особа (maxLength:256)
         public bool? is_modal_statute { get; set; }                             // Дані про наявність відмітки про те, що юридична особа створюється та діє на підставі модельного статуту
-        public OrgActivityKinds[] activity_kinds { get; set; }          // Перелік видів економічної діяльності
-        public OrgNaisHeads[] heads { get; set; }                       // Array[Head]. Прізвище, ім’я, по батькові, дата обрання (призначення) осіб, які обираються (призначаються) до органу управління юридичної особи, уповноважених представляти юридичну особу у правовідносинах з третіми особами, або осіб, які мають право вчиняти дії від імені юридичної особи без довіреності, у тому числі підписувати договори та дані про наявність обмежень щодо представництва від імені юридичної особи
-        public OrgNaisAddress address { get; set; }                     // Адреса
-        public OrgNaisRegistration registration { get; set; }           // inline_model_2. Дата державної реєстрації, дата та номер запису в Єдиному державному реєстрі про включення до Єдиного державного реєстру відомостей про юридичну особу
-        public OrgNaisBankruptcy bankruptcy { get; set; }               // inline_model_3. Дані про перебування юридичної особи в процесі провадження у справі про банкрутство, санації
-        public OrgNaisTermination termination { get; set; }             // inline_model_4. Дата та номер запису про державну реєстрацію припинення юридичної особи, підстава для його внесення
-        public OrgNaisTerminationCancel termination_cancel { get; set; }// inline_model_5. Дата та номер запису про відміну державної реєстрації припинення юридичної особи, підстава для його внесення
-        public OrgNaisAssignees[] assignees { get; set; }               // RelatedSubject. Дані про юридичних осіб-правонаступників: повне найменування та місцезнаходження юридичних осіб-правонаступників, їх ідентифікаційні коди
-        public OrgNaisAssignees[] predecessors { get; set; }            // RelatedSubject. Дані про юридичних осіб-правонаступників: повне найменування та місцезнаходження юридичних осіб-правонаступників, їх ідентифікаційні коди
-        public OrgNaisRegistrations[] registrations { get; set; }       // inline_model_6. Відомості, отримані в порядку взаємного обміну інформацією з відомчих реєстрів органів статистики,  Міндоходів, Пенсійного фонду України
-        public OrgNaisPrimaryActivityKind primary_activity_kind { get; set; }// inline_model_7. Дані органів статистики про основний вид економічної діяльності юридичної особи, визначений на підставі даних державних статистичних спостережень відповідно до статистичної методології за підсумками діяльності за рік
+        public OrgActivityKinds[] activity_kinds { get; set; }                  // Перелік видів економічної діяльності
+        public OrgNaisHeads[] heads { get; set; }                               // Array[Head]. Прізвище, ім’я, по батькові, дата обрання (призначення) осіб, які обираються (призначаються) до органу управління юридичної особи, уповноважених представляти юридичну особу у правовідносинах з третіми особами, або осіб, які мають право вчиняти дії від імені юридичної особи без довіреності, у тому числі підписувати договори та дані про наявність обмежень щодо представництва від імені юридичної особи
+        public OrgNaisAddress address { get; set; }                             // Адреса
+        public OrgNaisRegistration registration { get; set; }                   // inline_model_2. Дата державної реєстрації, дата та номер запису в Єдиному державному реєстрі про включення до Єдиного державного реєстру відомостей про юридичну особу
+        public OrgNaisBankruptcy bankruptcy { get; set; }                       // inline_model_3. Дані про перебування юридичної особи в процесі провадження у справі про банкрутство, санації
+        public OrgNaisTermination termination { get; set; }                     // inline_model_4. Дата та номер запису про державну реєстрацію припинення юридичної особи, підстава для його внесення
+        public OrgNaisTerminationCancel termination_cancel { get; set; }        // inline_model_5. Дата та номер запису про відміну державної реєстрації припинення юридичної особи, підстава для його внесення
+        public OrgNaisAssignees[] assignees { get; set; }                       // RelatedSubject. Дані про юридичних осіб-правонаступників: повне найменування та місцезнаходження юридичних осіб-правонаступників, їх ідентифікаційні коди
+        public OrgNaisAssignees[] predecessors { get; set; }                    // RelatedSubject. Дані про юридичних осіб-правонаступників: повне найменування та місцезнаходження юридичних осіб-правонаступників, їх ідентифікаційні коди
+        public OrgNaisRegistrations[] registrations { get; set; }               // inline_model_6. Відомості, отримані в порядку взаємного обміну інформацією з відомчих реєстрів органів статистики,  Міндоходів, Пенсійного фонду України
+        public OrgNaisPrimaryActivityKind primary_activity_kind { get; set; }   // inline_model_7. Дані органів статистики про основний вид економічної діяльності юридичної особи, визначений на підставі даних державних статистичних спостережень відповідно до статистичної методології за підсумками діяльності за рік
         public string prev_registration_end_term { get; set; }                  // Термін, до якого юридична особа перебуває на обліку в органі Міндоходів за місцем попередньої реєстрації, у разі зміни місцезнаходження юридичної особи
-        public OrgNaisContacts contacts { get; set; }                   // Контактні дані
+        public OrgNaisContacts contacts { get; set; }                           // Контактні дані
         public string[] open_enforcements { get; set; }                         // Дата відкриття виконавчого провадження щодо юридичної особи (для незавершених виконавчих проваджень)
     }
 
-    public class OrgNamesModel                                          // Назва суб’єкта
+    public class OrgNamesModel                                                  // Назва суб’єкта
     {
         public string name { get; set; }                                        // Повна назва суб’єкта (maxLength:512)
         public bool? include_olf { get; set; }                                  // Вказує, чи треба додавати організаційно-правову форму до назви, якщо суб’єкт – юридична особа
@@ -183,7 +184,7 @@ namespace vkursi_api_example.organizations
     {
         public string name { get; set; }                                        // Повна назва суб’єкта (maxLength:512)
         public string code { get; set; }                                        // ЄДРПОУ код, якщо суб’єкт – юридична особа (maxLength:10)
-        public OrgNaisAddress address { get; set; }                             // Адреса
+        public OrganizationaisAddress address { get; set; }                     // Адреса
         public string last_name { get; set; }                                   // Прізвище (якщо суб’єкт - приватна особа); (maxLength:256)
         public string first_middle_name { get; set; }                           // Ім’я та по-батькові (якщо суб’єкт – приватна особа) (maxLength:256)
         public int? role { get; set; }                                          // Таблица ###. Роль по відношенню до пов’язаного суб’єкта
@@ -191,6 +192,10 @@ namespace vkursi_api_example.organizations
         public int? id { get; set; }                                            // Ідентифікатор суб'єкта
         public string url { get; set; }                                         // Посилання на сторінку з детальною інформацією про суб'єкт (maxLength:64)
         public string capital { get; set; }                                     // Розмір частки у статутному капіталі пов’язаного суб’єкта (лише для засновників) (maxLength:128)
+
+        public string beneficiaries_type { get; set; }                          // Тип бенефіцарного володіння: «5» - Прямий вирішальний вплив; / «6» - Не прямий вирішальний вплив
+        public string interest { get; set; }                                    // Відсоток частки статутного капіталу або відсоток права голосу
+        public int? reason { get; set; }                                        // Причина відсутності КБВ (якщо у юридичної особи відсутні КБВ)
     }
 
     public class OrgNaisAddress                                                 // Адреса

@@ -29,9 +29,6 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
-
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 

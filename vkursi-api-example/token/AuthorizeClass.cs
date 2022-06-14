@@ -11,8 +11,7 @@ namespace vkursi_api_example.token
         /// </summary>
         /// <returns></returns>
         
-        /*
-        
+        /*      
             cURL запиту:
                 curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/token/authorize' \
                 --header 'Content-Type: application/json' \
@@ -27,7 +26,7 @@ namespace vkursi_api_example.token
            
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
-                Email = "test@testemail.com",       // Логін (Email)
+                Email = "admin@admin.com",       // Логін (Email)
                 Password = "123456"                 // Пароль
             };
 

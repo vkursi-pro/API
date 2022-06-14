@@ -127,7 +127,7 @@ namespace vkursi_api_example.movableloads
     {
         public bool isSuccess { get; set; }         // Запит виконано успішно (true - так / false - ні)
         public string status { get; set; }          // Статус запиту (maxLength:128)
-        public List<Datum> data { get; set; }       // Перелік обтяжень
+        public List<MovableLoadsDatum> data { get; set; }       // Перелік обтяжень
         public Dictionary<string, string> originalData { get; set; }
     }
 
@@ -147,7 +147,7 @@ namespace vkursi_api_example.movableloads
         public List<string> personCardIdList { get; set; }                // Системний id vkursi
     }
 
-    public class Datum                              // Перелік обтяжень
+    public class MovableLoadsDatum                              // Перелік обтяжень
     {
         public string Number { get; set; }          // Номер обтяження  (maxLength:32)
         public DateTime? RegDate { get; set; }       // Дата реєстрації обтяження
