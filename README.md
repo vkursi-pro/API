@@ -264,7 +264,7 @@ GetBiLabelsClass.GetBiLabels(token);
 <br>
 <br>
 
-<h3>19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам, та домавання обектыв до моныторингу СМС РРП</h3>
+<h3>19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам, та додавання об'єктів до моніторингу СМС РРП</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateCreateTaskApiClass.cs" target="_blank">[POST] /api/1.0/estate/estatecreatetaskapi</a></p>
 
 <pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/estatecreatetaskapi' \
