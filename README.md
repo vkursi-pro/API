@@ -264,10 +264,20 @@ GetBiLabelsClass.GetBiLabels(token);
 <br>
 <br>
 
-<h3>19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateTaskApiClass.cs" target="_blank">[POST] /api/1.0/estate/estatecreatetaskapi</a></p>
+<h3>19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам, та додавання об'єктів до моніторингу СМС РРП</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateCreateTaskApiClass.cs" target="_blank">[POST] /api/1.0/estate/estatecreatetaskapi</a></p>
 
-EstateTaskApiClass.EstateCreateTaskApi(token);
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/estatecreatetaskapi' \
+        --header 'ContentType: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Cadastrs":["5621287500:03:001:0019"],"CalculateCost":true,"IsNeedUpdateAll":false,"IsReport":true,"TaskName":"Назва задачі","DzkOnly":false}'</pre></code>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateCreateTaskApiClass.cs" target="_blank">[POST] /api/1.0/estate/estatecreatetaskapi</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/EstateCreateTaskApiClass.cs#L246" target="_blank">EstateCreateTaskApiResponseBody</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/EstateCreateTaskApiResponse.json" target="_blank">GetChangesResponse.json</a></p>
 
 <br>
 <br>
