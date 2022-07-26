@@ -10,7 +10,7 @@ namespace vkursi_api_example.estate
     public class EstateCreateTaskApiClass
     {
         /// <summary>
-        /// 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам. Частина перша додавання в чергу
+        /// 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам (додавання в чергу) та додавання об'єктів до моніторингу СМС РРП
         /// [POST] api/1.0/estate/estatecreatetaskapi
         /// </summary>
         /// <param name="token"></param>

@@ -122,7 +122,7 @@ namespace vkursi_api_example
             // New
             GetBiLabelsClass.GetBiLabels(token);
 
-            // 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам, та домавання обектыв до моныторингу СМС РРП
+            // 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам (додавання в чергу) та додавання об'єктів до моніторингу СМС РРП
             // [POST] /api/1.0/estate/estatecreatetaskapi
 
             EstateCreateTaskApiClass.EstateCreateTaskApi(token);
