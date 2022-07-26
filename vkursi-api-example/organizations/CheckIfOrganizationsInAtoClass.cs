@@ -126,26 +126,45 @@ namespace vkursi_api_example.organizations
      
     */
 
-
-    public class CheckIfOrganizationsInAtoRequestBodyModel                              // Модель запиту 
-    {
-        public List<string> Code { get; set; }                                          // Перелік кодів ЄДРПОУ / ІПН
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class CheckIfOrganizationsInAtoRequestBodyModel                              // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ / ІПН
+     /// </summary>
+        public List<string> Code { get; set; }                                          // 
     }
 
-
-    public class CheckIfOrganizationsInAtoResponseModel                                 // Відповідь на запит
-    {
-        public bool IsSuccess { get; set; }                                             // Запит виконано успішно (true - так / false - ні)
-        public string Status { get; set; }                                              // Статус запиту (maxLength:128)
-        public List<CheckIfOrganizationsInAtoAnswerData> Data { get; set; }             // Перелік суб'єктів
+    /// <summary>
+    /// Відповідь на запит
+    /// </summary>
+    public class CheckIfOrganizationsInAtoResponseModel                                 // 
+    {/// <summary>
+     /// Запит виконано успішно (true - так / false - ні)
+     /// </summary>
+        public bool IsSuccess { get; set; }                                             // 
+        /// <summary>
+        /// Статус запиту (maxLength:128)
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Перелік суб'єктів
+        /// </summary>
+        public List<CheckIfOrganizationsInAtoAnswerData> Data { get; set; }             // 
     }
 
     /// <summary>
     /// Перевірка чи знаходиться аблеса компанії/ФОП в зоні АТО
     /// </summary>
     public class CheckIfOrganizationsInAtoAnswerData                                    // Перелік суб'єктів
-    {
-        public string Code { get; set; }                                                // Код
-        public bool? RegisterInAto { get; set; }                                        // Чи знаходиться в зоні АТО (true - так / false - ні)
+    {/// <summary>
+     /// Код
+     /// </summary>
+        public string Code { get; set; }                                                // 
+        /// <summary>
+        /// Чи знаходиться в зоні АТО (true - так / false - ні)
+        /// </summary>
+        public bool? RegisterInAto { get; set; }                                        // 
     }
 }

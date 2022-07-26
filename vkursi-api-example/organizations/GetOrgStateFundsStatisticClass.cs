@@ -64,41 +64,86 @@ namespace vkursi_api_example.organizations
             return GOSResponseRow;
         }
     }
-
-    public class GetOrgStateFundsStatisticRequestBodyModel                      // Модель Body запиту
-    {
-        public List<string> Edrpou { get; set; }                                // Перелік кодів ЄДРПОУ (обеження 1)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetOrgStateFundsStatisticRequestBodyModel                      // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ (обеження 1)
+     /// </summary>
+        public List<string> Edrpou { get; set; }                                // 
     }
-
-    public class GetOrgStateFundsStatisticResponseModel                         // Модель відповіді GetEstates
-    {
-        public bool IsSucces { get; set; }                                      // Успішний запит (true - так / false - ні)
-        public string Status { get; set; }                                      // Статус запиту
-        public List<OrgStateFundsStatisticApiAnswerModelData> Data { get; set; }// Дані запиту
+    /// <summary>
+    /// Модель відповіді GetEstates
+    /// </summary>
+    public class GetOrgStateFundsStatisticResponseModel                         // 
+    {/// <summary>
+     /// Успішний запит (true - так / false - ні)
+     /// </summary>
+        public bool IsSucces { get; set; }                                      // 
+        /// <summary>
+        /// Статус запиту
+        /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Дані запиту
+        /// </summary>
+        public List<OrgStateFundsStatisticApiAnswerModelData> Data { get; set; }// 
     }
-
-    public class OrgStateFundsStatisticApiAnswerModelData                       // Дані запиту
-    {
-        public string Edrpou { get; set; }                                      // Код ЄДРПОУ
-        public StateFundStatisticModel Data { get; set; }                       // Дані
+    /// <summary>
+    /// Дані запиту
+    /// </summary>
+    public class OrgStateFundsStatisticApiAnswerModelData                       // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Edrpou { get; set; }                                      // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public StateFundStatisticModel Data { get; set; }                       // 
     }
-
-    public class StateFundStatisticModel                                        // Дані
-    {
-        public List<StateFundInputStatistic> TenderAnalytic { get; set; }       // Інформація про виграні тендери
-        public List<OrganizationFinancalResultModel> Net_Income { get; set; }// Дохід (обороти)
-        public List<StateFundInputStatistic> Edata { get; set; }                // Публічні кошти
+    /// <summary>
+    /// Дані
+    /// </summary>
+    public class StateFundStatisticModel                                        // 
+    {/// <summary>
+     /// Інформація про виграні тендери
+     /// </summary>
+        public List<StateFundInputStatistic> TenderAnalytic { get; set; }       // 
+        /// <summary>
+        /// Дохід (обороти)
+        /// </summary>
+        public List<OrganizationFinancalResultModel> Net_Income { get; set; }// 
+        /// <summary>
+        /// Публічні кошти
+        /// </summary>
+        public List<StateFundInputStatistic> Edata { get; set; }                // 
     }
-
-    public class StateFundInputStatistic                                        // Інформація про виграні тендери
-    {
-        public string year { get; set; }                                        // Рік
-        public double? sum { get; set; }                                        // Сума
+    /// <summary>
+    /// Інформація про виграні тендери
+    /// </summary>
+    public class StateFundInputStatistic                                        // 
+    {/// <summary>
+     /// Рік
+     /// </summary>
+        public string year { get; set; }                                        // 
+        /// <summary>
+        /// Сума
+        /// </summary>
+        public double? sum { get; set; }                                        // 
     }
-
-    public class OrganizationFinancalResultModel                             // Дохід (обороти)
-    {
-        public string year { get; set; }                                        // Рік
-        public long? sum { get; set; }                                          // Сума
+    /// <summary>
+    /// Дохід (обороти)
+    /// </summary>
+    public class OrganizationFinancalResultModel                             // 
+    {/// <summary>
+     /// Рік
+     /// </summary>
+        public string year { get; set; }                                        // 
+        /// <summary>
+        /// Сума
+        /// </summary>
+        public long? sum { get; set; }                                          // 
     }
 }

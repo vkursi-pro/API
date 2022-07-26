@@ -113,15 +113,26 @@ namespace vkursi_api_example.organizations
         Response response = client.newCall(request).execute();
 
      */
-
-    public class GetInfoByKoatuuRequestBodyModel                                // Модель Body запиту
-    {
-        public string koatuuCode { get; set; }                                  // Код КОАТУУ
-        public string type { get; set; }                                        // Тип особи (1 - юридичні / 2 - фізичні)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetInfoByKoatuuRequestBodyModel                                
+    {/// <summary>
+     /// Код КОАТУУ
+     /// </summary>
+        public string koatuuCode { get; set; }                                  
+        /// <summary>
+        /// Тип особи (1 - юридичні / 2 - фізичні)
+        /// </summary>
+        public string type { get; set; }                                         
     }
-
-    public class GetInfoByKoatuuResponseModel                                   // Модель відповіді GetInfoByKoatuu
-    {
-        public string code { get; set; }                                        // Код ЄДРПОУ або Id фізичної особи
+    /// <summary>
+    /// Модель відповіді GetInfoByKoatuu
+    /// </summary>
+    public class GetInfoByKoatuuResponseModel                                    
+    {/// <summary>
+     /// Код ЄДРПОУ або Id фізичної особи
+     /// </summary>
+        public string code { get; set; }                                        
     }
 }

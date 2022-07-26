@@ -110,36 +110,103 @@ namespace vkursi_api_example.organizations
 
      */
 
-    class GetOrganizationsRequestBodyModel                          // Модель Body запиту
-    {
-        public List<string> code = new List<string>();              // Перелік кодів ЄДРПОУ
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    class GetOrganizationsRequestBodyModel                          // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ
+     /// </summary>
+        public List<string> code = new List<string>();              // 
     }
-
-    public class GetOrganizationsResponseModel                      // Модель відповіді GetOrganizations
-    {
-        public Guid Id { get; set; }                                // Системний Id організації
-        public string Name { get; set; }                            // Повна назва організації (maxLength:512)
-        public string ShortName { get; set; }                       // Скорочена назва організації (maxLength:512)
-        public string Edrpou { get; set; }                          // Код ЄДРПОУ (maxLength:8)
-        public string ChiefName { get; set; }                       // ПІБ Керівника (maxLength:256)
-        public string State { get; set; }                           // Статус реєстрації
-        public DateTime? DateRegInn { get; set; }                   // Дата реєстрації платником ПДВ
-        public string Inn { get; set; }                             // Код ІПН (ПДВ) (maxLength:12)
-        public DateTime? DateCanceledInn { get; set; }              // Дата анулючання свідоцтва платника ПДВ
-        public bool? HasBorg { get; set; }                          // Наявний податковий борг (true - так / false - ні)
-        public bool? InSanctions { get; set; }                      // Наявні санкції (true - так / false - ні)
-        public int? Introduction { get; set; }                      // Наявні виконавчі провадження
-        public int? ExpressScore { get; set; }                      // Загальна кількість ризиків
-        public SingleTaxPayer singleTaxPayer { get; set; }          // Відомості про платника ЄП
-
-        public class SingleTaxPayer                                 // Відомості про платника ЄП
-        {
-            public DateTime dateStart { get; set; }                 // Дата реєстрації платником ЄП
-            public double rate { get; set; }                        // Ставка
-            public int group { get; set; }                          // Група
-            public DateTime? dateEnd { get; set; }                  // Дата анулювання
-            public string kindOfActivity { get; set; }              // Вид діяльності (maxLength:256)
-            public bool status { get; set; }                        // Статус (true - платник ЄП / false - не платник ЄП)
+    /// <summary>
+    /// Модель відповіді GetOrganizations
+    /// </summary>
+    public class GetOrganizationsResponseModel                      // 
+    {/// <summary>
+     /// Системний Id організації
+     /// </summary>
+        public Guid Id { get; set; }                                // 
+        /// <summary>
+        /// Повна назва організації (maxLength:512)
+        /// </summary>
+        public string Name { get; set; }                            // 
+        /// <summary>
+        /// Скорочена назва організації (maxLength:512)
+        /// </summary>
+        public string ShortName { get; set; }                       // 
+        /// <summary>
+        /// Код ЄДРПОУ (maxLength:8)
+        /// </summary>
+        public string Edrpou { get; set; }                          // 
+        /// <summary>
+        /// ПІБ Керівника (maxLength:256)
+        /// </summary>
+        public string ChiefName { get; set; }                       // 
+        /// <summary>
+        /// Статус реєстрації
+        /// </summary>
+        public string State { get; set; }                           // 
+        /// <summary>
+        /// Дата реєстрації платником ПДВ
+        /// </summary>
+        public DateTime? DateRegInn { get; set; }                   // 
+        /// <summary>
+        /// Код ІПН (ПДВ) (maxLength:12)
+        /// </summary>
+        public string Inn { get; set; }                             // 
+        /// <summary>
+        /// Дата анулючання свідоцтва платника ПДВ
+        /// </summary>
+        public DateTime? DateCanceledInn { get; set; }              // 
+        /// <summary>
+        /// Наявний податковий борг (true - так / false - ні)
+        /// </summary>
+        public bool? HasBorg { get; set; }                          // 
+        /// <summary>
+        /// Наявні санкції (true - так / false - ні)
+        /// </summary>
+        public bool? InSanctions { get; set; }                      // 
+        /// <summary>
+        /// Наявні виконавчі провадження
+        /// </summary>
+        public int? Introduction { get; set; }                      // 
+        /// <summary>
+        /// Загальна кількість ризиків
+        /// </summary>
+        public int? ExpressScore { get; set; }                      // 
+        /// <summary>
+        /// Відомості про платника ЄП
+        /// </summary>
+        public SingleTaxPayer singleTaxPayer { get; set; }          // 
+        /// <summary>
+        /// Відомості про платника ЄП
+        /// </summary>
+        public class SingleTaxPayer                                 // 
+        {/// <summary>
+         /// Дата реєстрації платником ЄП
+         /// </summary>
+            public DateTime dateStart { get; set; }                 // 
+            /// <summary>
+            /// Ставка
+            /// </summary>
+            public double rate { get; set; }                        // 
+            /// <summary>
+            /// Група
+            /// </summary>
+            public int group { get; set; }                          // 
+            /// <summary>
+            /// Дата анулювання
+            /// </summary>
+            public DateTime? dateEnd { get; set; }                  // 
+            /// <summary>
+            /// Вид діяльності (maxLength:256)
+            /// </summary>
+            public string kindOfActivity { get; set; }              // 
+            /// <summary>
+            /// Статус (true - платник ЄП / false - не платник ЄП)
+            /// </summary>
+            public bool status { get; set; }                        // 
         }
     }
 }

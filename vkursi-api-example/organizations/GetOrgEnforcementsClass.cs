@@ -116,36 +116,85 @@ namespace vkursi_api_example.organizations
         Response response = client.newCall(request).execute();
 
      */
-
-    public class GetOrgEnforcementsRequestBodyModel                             // Модель Body запиту
-    {
-        public List<string> Edrpou { get; set; }                                // Перелік кодів ЄДРПОУ (обеження 1)
-        public int? Take { get; set; }                                          // Кількість записів (ВП) які будуть отримані
-        public int? Skip { get; set; }                                          // Кількість записів (ВП) які будуть пропущені
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetOrgEnforcementsRequestBodyModel                             // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ (обеження 1)
+     /// </summary>
+        public List<string> Edrpou { get; set; }                                // 
+        /// <summary>
+        /// Кількість записів (ВП) які будуть отримані
+        /// </summary>
+        public int? Take { get; set; }                                          // 
+        /// <summary>
+        /// Кількість записів (ВП) які будуть пропущені
+        /// </summary>
+        public int? Skip { get; set; }                                          // 
     }
-
-    public class GetOrgEnforcementsResponseModel                                // Модель відповіді GetOrgEnforcements
-    {
-        public bool IsSucces { get; set; }                                      // Успішний запит (true - так / false - ні)
-        public string Succes { get; set; }                                      // Статус відповіді (maxLength:128)
-        public List<OrgEnforcementApiAnswerModelData> Data { get; set; }              // Дані
+    /// <summary>
+    /// Модель відповіді GetOrgEnforcements
+    /// </summary>
+    public class GetOrgEnforcementsResponseModel                                // 
+    {/// <summary>
+     /// Успішний запит (true - так / false - ні)
+     /// </summary>
+        public bool IsSucces { get; set; }                                      // 
+        /// <summary>
+        /// Статус відповіді (maxLength:128)
+        /// </summary>
+        public string Succes { get; set; }                                      // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public List<OrgEnforcementApiAnswerModelData> Data { get; set; }              // 
     }
-
-    public class OrgEnforcementApiAnswerModelData                               // Дані
-    {
-        public string Edrpou { get; set; }                                      // Код ЄДРПОУ (за яким бувВП запит) (maxLength:12)
-        public int TotalCount { get; set; }                                     // Загальна кількість 
-        public List<OrgEnforcementApiEnforcementsList> Enforcements { get; set; } // Пелелік виконавчих проваджень
+    /// <summary>
+    /// Дані
+    /// </summary>
+    public class OrgEnforcementApiAnswerModelData                               // 
+    {/// <summary>
+     /// Код ЄДРПОУ (за яким бувВП запит) (maxLength:12)
+     /// </summary>
+        public string Edrpou { get; set; }                                      // 
+        /// <summary>
+        /// Загальна кількість 
+        /// </summary>
+        public int TotalCount { get; set; }                                     // 
+        /// <summary>
+        /// Пелелік виконавчих проваджень
+        /// </summary>
+        public List<OrgEnforcementApiEnforcementsList> Enforcements { get; set; } // 
     }
-
-    public class OrgEnforcementApiEnforcementsList                              // Пелелік виконавчих проваджень
-    {
-        public DateTime? DateOpen { get; set; }                                 // Дата відкриття ВП
-        public string VpNumber { get; set; }                                    // Номер ВП (maxLength:32)
-        public string Status { get; set; }                                      // Статус ВП (Приклад: Боржник, Стягувач, ...) (maxLength:128)
-        public string Category { get; set; }                                    // Категорія ВП (maxLength:256)
-        public string State { get; set; }                                       // Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)
-        public string Contractor { get; set; }                                  // Інша сторона (Приклад: Київське міжрегіональне управління укртрансбезпеки Код ЄДРПОУ: 37995466) (maxLength:512)
+    /// <summary>
+    /// Пелелік виконавчих проваджень
+    /// </summary>
+    public class OrgEnforcementApiEnforcementsList                              // 
+    {/// <summary>
+     /// Дата відкриття ВП
+     /// </summary>
+        public DateTime? DateOpen { get; set; }                                 // 
+        /// <summary>
+        /// Номер ВП (maxLength:32)
+        /// </summary>
+        public string VpNumber { get; set; }                                    // 
+        /// <summary>
+        /// Статус ВП (Приклад: Боржник, Стягувач, ...) (maxLength:128)
+        /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Категорія ВП (maxLength:256)
+        /// </summary>
+        public string Category { get; set; }                                    // 
+        /// <summary>
+        /// Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)
+        /// </summary>
+        public string State { get; set; }                                       // 
+        /// <summary>
+        /// Інша сторона (Приклад: Київське міжрегіональне управління укртрансбезпеки Код ЄДРПОУ: 37995466) (maxLength:512)
+        /// </summary>
+        public string Contractor { get; set; }                                  // 
     }
 
 }

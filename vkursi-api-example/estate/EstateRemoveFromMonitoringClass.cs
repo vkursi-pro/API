@@ -112,18 +112,38 @@ namespace vkursi_api_example.estate
         Response response = client.newCall(request).execute();
 
      */
-
-    public class EstateRemoveFromMonitoringBodyModel                                    // Модель запиту 
-    {
-        public List<long> OnmNumbers { get; set; }                                      // Перелік номерів ОНМ
-        public List<string> CadastrNumbers { get; set; }                                // Перелік кадастрових номерів
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class EstateRemoveFromMonitoringBodyModel                                    // 
+    {/// <summary>
+     /// Перелік номерів ОНМ
+     /// </summary>
+        public List<long> OnmNumbers { get; set; }                                      // 
+        /// <summary>
+        /// Перелік кадастрових номерів
+        /// </summary>
+        public List<string> CadastrNumbers { get; set; }                                // 
     }
-
-    public class EstateRemoveFromMonitoringResponseModel                                // Модель на відповідь
-    {
-        public bool IsSuccess { get; set; }                                             // Чи успішний запит
-        public string Status { get; set; }                                              // Статус відповіді по API
-        public List<string> NotFoundCadastrsOnMonitoring { get; set; }                  // Перелік не знайдених кадастрових номерів
-        public List<long> NotFoundOnmOnMonitoring { get; set; }                         // Перелік не знайдених номерів ОНМ
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class EstateRemoveFromMonitoringResponseModel                                // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool IsSuccess { get; set; }                                             // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Перелік не знайдених кадастрових номерів
+        /// </summary>
+        public List<string> NotFoundCadastrsOnMonitoring { get; set; }                  // 
+        /// <summary>
+        /// Перелік не знайдених номерів ОНМ
+        /// </summary>
+        public List<long> NotFoundOnmOnMonitoring { get; set; }                         // 
     }
 }

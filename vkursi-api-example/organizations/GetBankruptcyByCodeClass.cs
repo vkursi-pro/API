@@ -117,37 +117,89 @@ namespace vkursi_api_example.organizations
         print(data.decode("utf-8"))
      
     */
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class GetBankruptcyByCodeRequestBodyModel
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public List<string> Codes { get; set; }
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class GetBankruptcyByCodeResponseModel
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public bool Success { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public string Status { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public List<GetBankruptcyByCodeModelAnswerData> Data { get; set; }
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class GetBankruptcyByCodeModelAnswerData
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public List<GetBankruptcyByCodeData> VgsuData { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public string Code { get; set; }
     }
-
-    public class GetBankruptcyByCodeData                                                // Дані ВГСУ
-    {
-        public string CaseNumber { get; set; }                                          // Номер судового рішення (maxLength:64)
-        public string CourtName { get; set; }                                           // Назва суду (maxLength:256)
-        public DateTime? DateProclamation { get; set; }                                 // Дата публікації
-        public string Edrpou { get; set; }                                              // (maxLength:64)
-        public DateTime? EndDate { get; set; }                                          // 
-        public string Link { get; set; }                                                // Посилання на ВГСУ (maxLength:256)
-        public string NameDebtor { get; set; }                                          // (maxLength:512)
-        public string NumberAdvert { get; set; }                                        // (maxLength:64)
-        public string PublicationType { get; set; }                                     // Тип інформації (maxLength:128)
-        public DateTime? StartDate { get; set; }                                        // 
+    /// <summary>
+    /// Дані ВГСУ
+    /// </summary>
+    public class GetBankruptcyByCodeData                                                
+    {/// <summary>
+     /// Номер судового рішення (maxLength:64)
+     /// </summary>
+        public string CaseNumber { get; set; }                                          
+        /// <summary>
+        /// Назва суду (maxLength:256)
+        /// </summary>
+        public string CourtName { get; set; }                                           
+        /// <summary>
+        /// Дата публікації
+        /// </summary>
+        public DateTime? DateProclamation { get; set; }                                 
+        /// <summary>
+        /// (maxLength:64)
+        /// </summary>
+        public string Edrpou { get; set; }                                              
+        /// <summary>
+        /// ???
+        /// </summary>
+        public DateTime? EndDate { get; set; }                                          
+        /// <summary>
+        /// Посилання на ВГСУ (maxLength:256)
+        /// </summary>
+        public string Link { get; set; }                                                
+        /// <summary>
+        /// (maxLength:512)
+        /// </summary>
+        public string NameDebtor { get; set; }                                          
+        /// <summary>
+        /// (maxLength:64)
+        /// </summary>
+        public string NumberAdvert { get; set; }                                        
+        /// <summary>
+        /// Тип інформації (maxLength:128)
+        /// </summary>
+        public string PublicationType { get; set; }                                     
+        /// <summary>
+        /// ???
+        /// </summary>
+        public DateTime? StartDate { get; set; }                                        
     }
 
 

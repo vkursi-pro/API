@@ -146,83 +146,205 @@ namespace vkursi_api_example.organizations
         Response response = client.newCall(request).execute();
 
      */
-
-    public class GetNewRegistrationRequestBodyModel                             // Модель Body запиту
-    {
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetNewRegistrationRequestBodyModel                             // 
+    {/// <summary>
+     /// Дата державної реєстрації (фізичної або юридичної особи)
+     /// </summary>
         [JsonProperty("DateReg", NullValueHandling = NullValueHandling.Ignore)]
-        public string DateReg { get; set; }                                     // Дата державної реєстрації (фізичної або юридичної особи)
-
+        public string DateReg { get; set; }                                     // 
+        /// <summary>
+        /// Тип особи (1 - юридична особа / 2 - фізичної особа)
+        /// </summary>
         [JsonProperty("Type", NullValueHandling = NullValueHandling.Ignore)]
-        public string Type { get; set; }                                        // Тип особи (1 - юридична особа / 2 - фізичної особа)
-
+        public string Type { get; set; }                                        // 
+        /// <summary>
+        /// К-ть записів які траба пропустити
+        /// </summary>
         [JsonProperty("Skip", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Skip { get; set; }                                          // К-ть записів які траба пропустити
-
+        public int? Skip { get; set; }                                          // 
+        /// <summary>
+        /// К-ть записів які траба взяти
+        /// </summary>
         [JsonProperty("Take", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Take { get; set; }                                          // К-ть записів які траба взяти
-
+        public int? Take { get; set; }                                          // 
+        /// <summary>
+        /// Коротка або повна модель відповіді
+        /// </summary>
         [JsonProperty("IsShortModel", NullValueHandling = NullValueHandling.Ignore)]
-        public bool? IsShortModel { get; set; }                                 // Коротка або повна модель відповіді
-
+        public bool? IsShortModel { get; set; }                                 // 
+        /// <summary>
+        /// Повернуті всі записи або тільки ті які раніше не отримували по API (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
+        /// </summary>
         [JsonProperty("IsReturnAll", NullValueHandling = NullValueHandling.Ignore)]
-        public bool? IsReturnAll { get; set; }                                  // Повернуті всі записи або тільки ті які раніше не отримували по API (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
+        public bool? IsReturnAll { get; set; }                                  // 
     }
-
-    public class GetNewRegistrationResponseShortModel                           // Модель відповіді GetNewRegistration скорочена
-    {
-        public int Id { get; set; }                                             // Системний id сервісу Vkursi
-        public int? State { get; set; }                                         // Стан реєстрації (Dictionary.OrganizationStateDict)
-        public string State_text { get; set; }                                  // Стан реєстрації текст
-        public string Registration_date { get; set; }                           // Дата реєстрації
-        public int Type { get; set; }                                           // Тип особи (1 - юридична особа / 2 - фізичної особа)
-        public string Short_name { get; set; }                                  // Скорочене найменування
-        public string Full_name { get; set; }                                   // Повне найменування
-        public string Olf_name { get; set; }                                    // Назва організаційно правової форми власності
+    /// <summary>
+    /// Модель відповіді GetNewRegistration скорочена
+    /// </summary>
+    public class GetNewRegistrationResponseShortModel                           // 
+    {/// <summary>
+     /// Системний id сервісу Vkursi
+     /// </summary>
+        public int Id { get; set; }                                             // 
+        /// <summary>
+        /// Стан реєстрації (Dictionary.OrganizationStateDict)
+        /// </summary>
+        public int? State { get; set; }                                         // 
+        /// <summary>
+        /// Стан реєстрації текст
+        /// </summary>
+        public string State_text { get; set; }                                  // 
+        /// <summary>
+        /// Дата реєстрації
+        /// </summary>
+        public string Registration_date { get; set; }                           // 
+        /// <summary>
+        /// Тип особи (1 - юридична особа / 2 - фізичної особа)
+        /// </summary>
+        public int Type { get; set; }                                           // 
+        /// <summary>
+        /// Скорочене найменування
+        /// </summary>
+        public string Short_name { get; set; }                                  // 
+        /// <summary>
+        /// Повне найменування
+        /// </summary>
+        public string Full_name { get; set; }                                   // 
+        /// <summary>
+        /// Назва організаційно правової форми власності
+        /// </summary>
+        public string Olf_name { get; set; }                                    // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public string Display_name { get; set; }                                // 
-        public string Code { get; set; }                                        // Код ЄДРПОУ
-        public OrganizationaisPrimaryActivityKind Activity { get; set; }        // Інформація про КВЕД
-
-        public class OrganizationaisPrimaryActivityKind                         // Інформація про КВЕД
-        {
-            public string name { get; set; }                                    // Назва КВЕД
-            public string code { get; set; }                                    // Код КВЕД
-            public string reg_number { get; set; }                              // Дані про реєстраційний номер платника єдиного внеску
+        /// <summary>
+        /// Код ЄДРПОУ
+        /// </summary>
+        public string Code { get; set; }                                        // 
+        /// <summary>
+        /// Інформація про КВЕД
+        /// </summary>
+        public OrganizationaisPrimaryActivityKind Activity { get; set; }        // 
+        /// <summary>
+        /// Інформація про КВЕД
+        /// </summary>
+        public class OrganizationaisPrimaryActivityKind                         // 
+        {/// <summary>
+         /// Назва КВЕД
+         /// </summary>
+            public string name { get; set; }                                    // 
+            /// <summary>
+            /// Код КВЕД
+            /// </summary>
+            public string code { get; set; }                                    // 
+            /// <summary>
+            /// Дані про реєстраційний номер платника єдиного внеску
+            /// </summary>
+            public string reg_number { get; set; }                              // 
+            /// <summary>
+            /// Дані про клас ризику
+            /// </summary>
             [JsonProperty("class")]
-            public string classProp { get; set; }                               // Дані про клас ризику
+            public string classProp { get; set; }                               // 
         }
-
-        public string Email { get; set; }                                       // Email
-        public string[] Phones { get; set; }                                    // Номери телефонів
-        public string Location_full { get; set; }                               // Адреса повна
-        public OrganizationaisAddress Location_parts { get; set; }              // Адреса детальна
-
-        public class OrganizationaisAddress                                     // Адреса детальна
-        {
-            public string zip { get; set; }                                     // Поштовий індекс
-            public string country { get; set; }                                 // Назва країни
-            public string address { get; set; }                                 // Адреса
-            public OrganizationaisParts parts { get; set; }                     // Детальна адреса
-
-            public class OrganizationaisParts                                   // Детальна адреса
-            {
-                public string atu { get; set; }                                 // Адміністративна територіальна одиниця
-                public string street { get; set; }                              // Вулиця
-                public string house_type { get; set; }                          // Тип будівлі ('буд.', 'інше')
-                public string house { get; set; }                               // Номер будинку, якщо тип - 'буд.'
-                public string building_type { get; set; }                       // Тип будівлі
-                public string building { get; set; }                            // Номер будівлі
-                public string num_type { get; set; }                            // Тип приміщення
-                public string num { get; set; }                                 // Номер приміщення
+        /// <summary>
+        /// Email
+        /// </summary>
+        public string Email { get; set; }                                       // 
+        /// <summary>
+        /// Номери телефонів
+        /// </summary>
+        public string[] Phones { get; set; }                                    // 
+        /// <summary>
+        /// Адреса повна
+        /// </summary>
+        public string Location_full { get; set; }                               // 
+        /// <summary>
+        /// Адреса детальна
+        /// </summary>
+        public OrganizationaisAddress Location_parts { get; set; }              // 
+        /// <summary>
+        /// Адреса детальна
+        /// </summary>
+        public class OrganizationaisAddress                                     // 
+        {/// <summary>
+         /// Поштовий індекс
+         /// </summary>
+            public string zip { get; set; }                                     // 
+            /// <summary>
+            /// Назва країни
+            /// </summary>
+            public string country { get; set; }                                 // 
+            /// <summary>
+            /// Адреса
+            /// </summary>
+            public string address { get; set; }                                 // 
+            /// <summary>
+            /// Детальна адреса
+            /// </summary>
+            public OrganizationaisParts parts { get; set; }                     // 
+            /// <summary>
+            /// Детальна адреса
+            /// </summary>
+            public class OrganizationaisParts                                   // 
+            {/// <summary>
+             /// Адміністративна територіальна одиниця
+             /// </summary>
+                public string atu { get; set; }                                 // 
+                /// <summary>
+                /// Вулиця
+                /// </summary>
+                public string street { get; set; }                              // 
+                /// <summary>
+                /// Тип будівлі ('буд.', 'інше')
+                /// </summary>
+                public string house_type { get; set; }                          // 
+                /// <summary>
+                /// 
+                /// </summary>
+                public string house { get; set; }                               // 
+                /// <summary>
+                /// Тип будівлі
+                /// </summary>
+                public string building_type { get; set; }                       // 
+                /// <summary>
+                /// Номер будівлі
+                /// </summary>
+                public string building { get; set; }                            // 
+                /// <summary>
+                /// Тип приміщення
+                /// </summary>
+                public string num_type { get; set; }                            // 
+                /// <summary>
+                /// Номер приміщення
+                /// </summary>
+                public string num { get; set; }                                 // 
             }
         }
-
-        public OrganizationAdviceFullApiShortDirectorModel Ceo_name { get; set; }// ПІБ керівника
-
-        public class OrganizationAdviceFullApiShortDirectorModel                // ПІБ керівника
-        {
-            public string first_name { get; set; }                              // Призвице керівника
-            public string last_name { get; set; }                               // Ім'я керівника             
-            public string middle_name { get; set; }                             // По батькові керівника
+        /// <summary>
+        /// ПІБ керівника
+        /// </summary>
+        public OrganizationAdviceFullApiShortDirectorModel Ceo_name { get; set; }// 
+        /// <summary>
+        /// ПІБ керівника
+        /// </summary>
+        public class OrganizationAdviceFullApiShortDirectorModel                // 
+        {/// <summary>
+         /// Призвице керівника
+         /// </summary>
+            public string first_name { get; set; }                              // 
+            /// <summary>
+            /// Ім'я керівника 
+            /// </summary>
+            public string last_name { get; set; }                               //             
+            /// <summary>
+            /// По батькові керівника
+            /// </summary>
+            public string middle_name { get; set; }                             // 
         }
     }
 }

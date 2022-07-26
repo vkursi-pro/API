@@ -64,41 +64,91 @@ namespace vkursi_api_example.organizations
 
         }
     }
-
-    public class GetOrgFinanceShortRequestBodyModel         // Модель запиту 
-    {
-        public List<GetOrgFinanceShortInData> Filter { get; set; }  // Фильтр
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class GetOrgFinanceShortRequestBodyModel         // 
+    {/// <summary>
+     /// Фильтр
+     /// </summary>
+        public List<GetOrgFinanceShortInData> Filter { get; set; }  // 
+    }
+    /// <summary>
+    /// Фильтр
+    /// </summary>
+    public class GetOrgFinanceShortInData                   // 
+    {/// <summary>
+     /// Рік
+     /// </summary>
+        public List<int> Years { get; set; }                // 
+        /// <summary>
+        /// Код Єдрпоу
+        /// </summary>
+        public string Code { get; set; }                    // 
     }
 
-    public class GetOrgFinanceShortInData                   // Фильтр
-    {
-        public List<int> Years { get; set; }                // Рік
-        public string Code { get; set; }                    // Код Єдрпоу
+
+    /// <summary>
+    /// Відповідь на запит
+    /// </summary>
+    public class GetOrgFinanceShortResponseModel             // 
+    {/// <summary>
+     /// Статус відповіді
+     /// </summary>
+        public string Status { get; set; }                  // 
+        /// <summary>
+        /// Чи успішна відповідь
+        /// </summary>
+        public bool IsSuccess { get; set; }                 // 
+        /// <summary>
+        /// Дані відповіді
+        /// </summary>
+        public List<GetOrgFinanceShortAnswerData> Data { get; set; }    // 
     }
-
-
-
-    public class GetOrgFinanceShortResponseModel             // Відповідь на запит
-    {
-        public string Status { get; set; }                  // Статус відповіді
-        public bool IsSuccess { get; set; }                 // Чи успішна відповідь
-        public List<GetOrgFinanceShortAnswerData> Data { get; set; }    // Дані відповіді
+    /// <summary>
+    /// Дані відповіді
+    /// </summary>
+    public class GetOrgFinanceShortAnswerData               // 
+    {/// <summary>
+     /// Массив данніх в розрізі року
+     /// </summary>
+        public List<GetOrgFinanceShortAnswerDataByYear> Data { get; set; }  // 
+        /// <summary>
+        /// Код Єдрпоу
+        /// </summary>
+        public string Code { get; set; }                    // 
     }
-
-    public class GetOrgFinanceShortAnswerData               // Дані відповіді
-    {
-        public List<GetOrgFinanceShortAnswerDataByYear> Data { get; set; }  // Массив данніх в розрізі року
-        public string Code { get; set; }                    // Код Єдрпоу
-    }
-
-    public class GetOrgFinanceShortAnswerDataByYear         // Массив данніх в розрізі року
-    {
-        public int Year { get; set; }                       // Рік
-        public double? VyruchkaDohid { get; set; }          // Виручка (Дохід)
-        public double? OsnovniZasoby { get; set; }          // Основні засоби
-        public double? OborotniAktyvy { get; set; }         // Оборотні активи
-        public double? VlasnyyKapital { get; set; }         // Власний капітал
-        public double? DovhostrokoviZob { get; set; }       // Довгострокові зобов'язання
-        public double? PotochniZob { get; set; }            // Поточні зобов'язання
+    /// <summary>
+    /// Массив данніх в розрізі року
+    /// </summary>
+    public class GetOrgFinanceShortAnswerDataByYear         // 
+    {/// <summary>
+     /// Рік
+     /// </summary>
+        public int Year { get; set; }                       // 
+        /// <summary>
+        /// Виручка (Дохід)
+        /// </summary>
+        public double? VyruchkaDohid { get; set; }          // 
+        /// <summary>
+        /// Основні засоби
+        /// </summary>
+        public double? OsnovniZasoby { get; set; }          // 
+        /// <summary>
+        /// Оборотні активи
+        /// </summary>
+        public double? OborotniAktyvy { get; set; }         // 
+        /// <summary>
+        /// Власний капітал
+        /// </summary>
+        public double? VlasnyyKapital { get; set; }         // 
+        /// <summary>
+        /// Довгострокові зобов'язання
+        /// </summary>
+        public double? DovhostrokoviZob { get; set; }       // 
+        /// <summary>
+        /// Поточні зобов'язання
+        /// </summary>
+        public double? PotochniZob { get; set; }            // 
     }
 }

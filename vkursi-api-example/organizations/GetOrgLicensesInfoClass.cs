@@ -119,30 +119,67 @@ namespace vkursi_api_example.organizations
         data = res.read()
         print(data.decode("utf-8"))
     */
-
-    public class GetOrgLicensesInfoRequestBodyModel                             // Модель Body запиту
-    {
-        public List<string> Edrpou { get; set; }                                // Перелік ЄДРПОУ / ІПН (обмеження 1)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetOrgLicensesInfoRequestBodyModel                             // 
+    {/// <summary>
+     /// Перелік ЄДРПОУ / ІПН (обмеження 1)
+     /// </summary>
+        public List<string> Edrpou { get; set; }                                // 
     }
-
-    public class GetOrgLicensesInfoResponseModel                                // Модель відповіді GetOrgLicensesInfo
-    {
-        public bool IsSucces { get; set; }                                      // Статус відповіді по API
-        public string Status { get; set; }                                      // Чи успішний запит (maxLength:128)
-        public List<OrgLicensesApiApiAnswerModelData> Data { get; set; }        // Дані
+    /// <summary>
+    /// Модель відповіді GetOrgLicensesInfo
+    /// </summary>
+    public class GetOrgLicensesInfoResponseModel                                // 
+    {/// <summary>
+     /// Статус відповіді по API
+     /// </summary>
+        public bool IsSucces { get; set; }                                      // 
+        /// <summary>
+        /// Чи успішний запит (maxLength:128)
+        /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public List<OrgLicensesApiApiAnswerModelData> Data { get; set; }        // 
     }
-
-    public class OrgLicensesApiApiAnswerModelData                               // Дані
-    {
-        public string Edrpou { get; set; }                                      // ЄДРПОУ / ІПН (maxLength:12)
-        public List<OrgLicensesApiApiAnswerModelDataObject> Licenses { get; set; }      // Перелік ліцензій
-    }
-    public class OrgLicensesApiApiAnswerModelDataObject                         // Перелік ліцензій
-    {
-        public string Name { get; set; }                                        // Назва (maxLength:256)
-        public string Number { get; set; }                                      // Номер (maxLength:64)
-        public DateTime? DateEnd { get; set; }                                  // Дата закінчення
-        public DateTime? DateStart { get; set; }                                // Дата початку
-        public string State { get; set; }                                       // Стан (maxLength:32)
+    /// <summary>
+    /// Дані
+    /// </summary>
+    public class OrgLicensesApiApiAnswerModelData                               // 
+    {/// <summary>
+     /// ЄДРПОУ / ІПН (maxLength:12)
+     /// </summary>
+        public string Edrpou { get; set; }                                      // 
+        /// <summary>
+        /// Перелік ліцензій
+        /// </summary>
+        public List<OrgLicensesApiApiAnswerModelDataObject> Licenses { get; set; }      // 
+    }/// <summary>
+     /// Перелік ліцензій
+     /// </summary>
+    public class OrgLicensesApiApiAnswerModelDataObject                         // 
+    {/// <summary>
+     /// Назва (maxLength:256)
+     /// </summary>
+        public string Name { get; set; }                                        // 
+        /// <summary>
+        /// Номер (maxLength:64)
+        /// </summary>
+        public string Number { get; set; }                                      // 
+        /// <summary>
+        /// Дата закінчення
+        /// </summary>
+        public DateTime? DateEnd { get; set; }                                  // 
+        /// <summary>
+        /// Дата початку
+        /// </summary>
+        public DateTime? DateStart { get; set; }                                // 
+        /// <summary>
+        /// Стан (maxLength:32)
+        /// </summary>
+        public string State { get; set; }                                       // 
     }
 }

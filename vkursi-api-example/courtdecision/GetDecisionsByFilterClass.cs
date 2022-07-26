@@ -96,26 +96,67 @@ namespace vkursi_api_example.courtdecision
             return DecisionsByFilterResponseRow;
         }
     }
-
-    public class GetDecisionsByFilterRequestBodyModel                           // Модель запиту
-    {
-        public string Edrpou { get; set; }                                      // Код ЄДРПОУ
-        public int? TypeSide { get; set; }                                      // null - all, 1 - Plaintiffs; 2 - Defendants; 3 - Other;
-        public int? JusticeKindId { get; set; }                                 // null - all, 0 - "Iнше", 1 - "Цивільне", 2 - "Кримінальне", 3 - "Господарське", 4 - "Адміністративне", 5 - "Адмінправопорушення"
-        public List<string> Npas { get; set; }                                  // Id статті НПА (можна отримати в розробника)
-        public string ScrollToken { get; set; }                                 // Скрол для отримання наступних документів
-        public int? JudgmentFormId { get; set; }                                // 1  Вирок, 2 Постанова, 3 Рішення, 4 "Судовий наказ", 5 Ухвала, 6 "Окрема ухвала", 10 "Окрема думка"
-        public DateTime? AdjudicationDateFrom { get; set; }                     // Дата рішення від
-        public DateTime? AdjudicationDateTo { get; set; }                       // Дата рішення до
+    /// <summary>
+    /// Модель запиту
+    /// </summary>
+    public class GetDecisionsByFilterRequestBodyModel                           // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Edrpou { get; set; }                                      // 
+        /// <summary>
+        /// null - all, 1 - Plaintiffs; 2 - Defendants; 3 - Other;
+        /// </summary>
+        public int? TypeSide { get; set; }                                      // 
+        /// <summary>
+        /// null - all, 0 - "Iнше", 1 - "Цивільне", 2 - "Кримінальне", 3 - "Господарське", 4 - "Адміністративне", 5 - "Адмінправопорушення"
+        /// </summary>
+        public int? JusticeKindId { get; set; }                                 // 
+        /// <summary>
+        /// Id статті НПА (можна отримати в розробника)
+        /// </summary>
+        public List<string> Npas { get; set; }                                  // 
+        /// <summary>
+        /// Скрол для отримання наступних документів
+        /// </summary>
+        public string ScrollToken { get; set; }                                 // 
+        /// <summary>
+        /// 1  Вирок, 2 Постанова, 3 Рішення, 4 "Судовий наказ", 5 Ухвала, 6 "Окрема ухвала", 10 "Окрема думка"
+        /// </summary>
+        public int? JudgmentFormId { get; set; }                                // 
+        /// <summary>
+        /// Дата рішення від
+        /// </summary>
+        public DateTime? AdjudicationDateFrom { get; set; }                     // 
+        /// <summary>
+        /// Дата рішення до
+        /// </summary>
+        public DateTime? AdjudicationDateTo { get; set; }                       // 
 
     }
-
-    public class GetDecisionsByFilterResponseModel                              // Модель відповіді
-    {
-        public bool IsSuccess { get; set; }                                     // Статус відповіді по API
-        public string Status { get; set; }                                      // Чи успішний запит (maxLength:128)
-        public string ScrollToken { get; set; }                                 // Скрол для отримання наступних документів (100)
-        public long DecisionsCount { get; set; }                                // Загальна кількясть документів за запитом
-        public List<CourtDecisionElasticModel> Data { get; set; }               // Переліе судовіх документів (Модель відповіди ідентична Методу № 26. Рекізити судового документа [POST] /api/1.0/courtdecision/getdecisionbyid https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionByIdClass.cs#L110)
+    /// <summary>
+    /// Модель відповіді
+    /// </summary>
+    public class GetDecisionsByFilterResponseModel                              // 
+    {/// <summary>
+     /// Статус відповіді по API
+     /// </summary>
+        public bool IsSuccess { get; set; }                                     // 
+        /// <summary>
+        /// Чи успішний запит (maxLength:128)
+        /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Скрол для отримання наступних документів (100)
+        /// </summary>
+        public string ScrollToken { get; set; }                                 // 
+        /// <summary>
+        /// Загальна кількясть документів за запитом
+        /// </summary>
+        public long DecisionsCount { get; set; }                                // 
+        /// <summary>
+        /// Переліе судовіх документів (Модель відповіди ідентична Методу № 26. Рекізити судового документа [POST] /api/1.0/courtdecision/getdecisionbyid https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionByIdClass.cs#L110)
+        /// </summary>
+        public List<CourtDecisionElasticModel> Data { get; set; }               // 
     }
 }

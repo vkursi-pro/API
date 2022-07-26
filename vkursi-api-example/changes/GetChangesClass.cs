@@ -100,24 +100,62 @@ namespace vkursi_api_example.changes
         Response response = client.newCall(request).execute();
 
      */
-
-    public class GetChangesResponseModel                            // Модель відповіді GetChanges
-    {
-        public string changeId { get; set; }                        // Id зміни
-        public DateTime dateOfChange { get; set; }                  // Дата зміни
-        public string changeType { get; set; }                      // Тип зміни
-        public string addDate { get; set; }                         // Дата зміни (в сервісі Vkursi)
-        public string change { get; set; }                          // Опис інформмації по зміну
-        public OwnerChangesInfo ownerChangesInfo { get; set; }      // Інформация про організацію / ФОП по якому відбулась зміна
-        public Guid? ReestrId { get; set; }                         // Id списку
-        public string ReestrName { get; set; }                      // Назва списку
+    /// <summary>
+    /// Модель відповіді GetChanges
+    /// </summary>
+    public class GetChangesResponseModel                            // 
+    {/// <summary>
+     /// Id зміни
+     /// </summary>
+        public string changeId { get; set; }                        // 
+        /// <summary>
+        /// Дата зміни
+        /// </summary>
+        public DateTime dateOfChange { get; set; }                  // 
+        /// <summary>
+        /// Тип зміни
+        /// </summary>
+        public string changeType { get; set; }                      // 
+        /// <summary>
+        /// Дата зміни (в сервісі Vkursi)
+        /// </summary>
+        public string addDate { get; set; }                         // 
+        /// <summary>
+        /// Опис інформмації по зміну
+        /// </summary>
+        public string change { get; set; }                          // 
+        /// <summary>
+        /// Інформация про організацію / ФОП по якому відбулась зміна
+        /// </summary>
+        public OwnerChangesInfo ownerChangesInfo { get; set; }      // 
+        /// <summary>
+        /// Id списку
+        /// </summary>
+        public Guid? ReestrId { get; set; }                         // 
+        /// <summary>
+        /// Назва списку
+        /// </summary>
+        public string ReestrName { get; set; }                      // 
     }
-
-    public class OwnerChangesInfo                                   // Інформация про організацію / ФОП по якому відбулась зміна
-    {
-        public string id { get; set; }                              // Системний Id
-        public int type { get; set; }                               // Тип (1 - організация | 2 - фізична особа)
-        public string name { get; set; }                            // Найменування
-        public string code { get; set; }                            // Код ІНП / Єдрпоу
+    /// <summary>
+    /// Інформация про організацію / ФОП по якому відбулась зміна
+    /// </summary>
+    public class OwnerChangesInfo                                   // 
+    {/// <summary>
+     /// Системний Id
+     /// </summary>
+        public string id { get; set; }                              // 
+        /// <summary>
+        /// Тип (1 - організация | 2 - фізична особа)
+        /// </summary>
+        public int type { get; set; }                               // 
+        /// <summary>
+        /// Найменування
+        /// </summary>
+        public string name { get; set; }                            // 
+        /// <summary>
+        /// Код ІНП / Єдрпоу
+        /// </summary>
+        public string code { get; set; }                            // 
     }
 }

@@ -72,52 +72,124 @@ namespace vkursi_api_example.organizations
 
             return GOPFResponse;
         }
-
-        public class GetOrgPubliicFundsRequestBodyModel                             // Модель Body запиту
-        {
-            public List<string> Edrpou { get; set; }                                // Перелік ЄДРПОУ / ІПН (обмеження 1)
+        /// <summary>
+        /// Модель Body запиту
+        /// </summary>
+        public class GetOrgPubliicFundsRequestBodyModel                             // 
+        {/// <summary>
+         /// Перелік ЄДРПОУ / ІПН (обмеження 1)
+         /// </summary>
+            public List<string> Edrpou { get; set; }                                // 
+        }
+        /// <summary>
+        /// Модель відповіді GetOrgPubliicFunds
+        /// </summary>
+        public class GetOrgPubliicFundsResponseModel                                // 
+        {/// <summary>
+         /// Статус відповіді по API
+         /// </summary>
+            public bool IsSucces { get; set; }                                      // 
+            /// <summary>
+            /// Чи успішний запит
+            /// </summary>
+            public string Status { get; set; }                                      // 
+            /// <summary>
+            /// Дані
+            /// </summary>
+            public List<OrgPublicFundsApiAnswerModelData> Data { get; set; }        // 
+        }
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public class OrgPublicFundsApiAnswerModelData                               // 
+        {/// <summary>
+         /// ЄДРПОУ / ІПН 
+         /// </summary>
+            public string Edrpou { get; set; }                                      // 
+            /// <summary>
+            /// Сума отриманих коштів
+            /// </summary>
+            public decimal FundsReceived { get; set; }                              // 
+            /// <summary>
+            /// Кількість унікальних платників
+            /// </summary>
+            public int Payers { get; set; }                                         // 
+            /// <summary>
+            /// кількість транзакцій
+            /// </summary>
+            public int Transactions { get; set; }                                   // 
+            /// <summary>
+            /// ТОР-3 і максімальний мінамальній платіж по рокам
+            /// </summary>
+            public List<OrgPublicFundsApiAnswerModelDataDataPerYear> DataPerYear { get; set; }  // 
+        }
+        /// <summary>
+        /// ТОР-3 і максімальний мінамальній платіж по рокам
+        /// </summary>
+        public class OrgPublicFundsApiAnswerModelDataDataPerYear                    // 
+        {/// <summary>
+         /// Рік
+         /// </summary>
+            public int Year { get; set; }                                                           // 
+            /// <summary>
+            /// ТОП-3 Платники
+            /// </summary>
+            public List<OrgPublicFundsApiAnswerModelDataDataPerYearTopPay> TopPays { get; set; }    // 
+            /// <summary>
+            /// Мінімальний платіж
+            /// </summary>
+            public OrgPublicFundsApiAnswerModelDataDataPerYearMinMax Min { get; set; }              // 
+            /// <summary>
+            /// Максимальний платіж
+            /// </summary>
+            public OrgPublicFundsApiAnswerModelDataDataPerYearMinMax Max { get; set; }              // 
         }
 
-        public class GetOrgPubliicFundsResponseModel                                // Модель відповіді GetOrgPubliicFunds
-        {
-            public bool IsSucces { get; set; }                                      // Статус відповіді по API
-            public string Status { get; set; }                                      // Чи успішний запит
-            public List<OrgPublicFundsApiAnswerModelData> Data { get; set; }        // Дані
+        /// <summary>
+        /// ТОП-3 Платники
+        /// </summary>
+        public class OrgPublicFundsApiAnswerModelDataDataPerYearTopPay              // 
+        {/// <summary>
+         ///  Назва платника
+         /// </summary>
+            public string Name { get; set; }                                        //
+            /// <summary>
+            /// Код платника
+            /// </summary>
+            public string Code { get; set; }                                        // 
+            /// <summary>
+            ///Загальна сума транзакцій 
+            /// </summary>
+            public decimal Sum { get; set; }                                        // 
+            /// <summary>
+            /// Кількість транзакцій
+            /// </summary>
+            public int Count { get; set; }                                          // 
         }
-
-        public class OrgPublicFundsApiAnswerModelData                               // Дані
-        {
-            public string Edrpou { get; set; }                                      // ЄДРПОУ / ІПН 
-            public decimal FundsReceived { get; set; }                              // Сума отриманих коштів
-            public int Payers { get; set; }                                         // Кількість унікальних платників
-            public int Transactions { get; set; }                                   // кількість транзакцій
-            public List<OrgPublicFundsApiAnswerModelDataDataPerYear> DataPerYear { get; set; }  // ТОР-3 і максімальний мінамальній платіж по рокам
-        }
-
-        public class OrgPublicFundsApiAnswerModelDataDataPerYear                    // ТОР-3 і максімальний мінамальній платіж по рокам
-        {
-            public int Year { get; set; }                                                           // Рік
-            public List<OrgPublicFundsApiAnswerModelDataDataPerYearTopPay> TopPays { get; set; }    // ТОП-3 Платники
-            public OrgPublicFundsApiAnswerModelDataDataPerYearMinMax Min { get; set; }              // Мінімальний платіж
-            public OrgPublicFundsApiAnswerModelDataDataPerYearMinMax Max { get; set; }              // Максимальний платіж
-        }
-
-
-        public class OrgPublicFundsApiAnswerModelDataDataPerYearTopPay              // ТОП-3 Платники
-        {
-            public string Name { get; set; }                                        // Назва платника
-            public string Code { get; set; }                                        // Код платника
-            public decimal Sum { get; set; }                                        // Загальна сума транзакцій
-            public int Count { get; set; }                                          // Кількість транзакцій
-        }
-
-        public class OrgPublicFundsApiAnswerModelDataDataPerYearMinMax              // Мінімальний / Максимальний платіж
-        {
-            public string namepayer { get; set; }                                   // Назва платника
-            public string codepayer { get; set; }                                   // Код платника
-            public DateTime? date { get; set; }                                     // Дата транзакції
-            public string purpose { get; set; }                                     // Призначення
-            public decimal? sum { get; set; }                                       // Сума
+        /// <summary>
+        ///Мінімальний / Максимальний платіж 
+        /// </summary>
+        public class OrgPublicFundsApiAnswerModelDataDataPerYearMinMax              // 
+        {/// <summary>
+         /// Назва платника
+         /// </summary>
+            public string namepayer { get; set; }                                   // 
+            /// <summary>
+            /// Код платника
+            /// </summary>
+            public string codepayer { get; set; }                                   // 
+            /// <summary>
+            /// Дата транзакції
+            /// </summary>
+            public DateTime? date { get; set; }                                     // 
+            /// <summary>
+            /// Призначення
+            /// </summary>
+            public string purpose { get; set; }                                     // 
+            /// <summary>
+            /// Сума
+            /// </summary>
+            public decimal? sum { get; set; }                                       // 
         }
     }
 }

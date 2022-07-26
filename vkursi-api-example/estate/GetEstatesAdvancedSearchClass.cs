@@ -71,37 +71,59 @@ namespace vkursi_api_example.estate
             return GEASResponse;
         }
     }
-
-    public class GetEstatesAdvancedSearchBodyModel                              // Модель Body запиту
-    {
-        public List<SubjectSearchInfoAdvanced> RequestList { get; set; }        // Параметри пошуку (обеження 1)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetEstatesAdvancedSearchBodyModel                              // 
+    {/// <summary>
+     /// Параметри пошуку (обеження 1)
+     /// </summary>
+        public List<SubjectSearchInfoAdvanced> RequestList { get; set; }        // 
     }
-
-    public class SubjectSearchInfoAdvanced                                      // Параметри пошуку (обеження 1)
-    {
+    /// <summary>
+    /// Параметри пошуку (обеження 1)
+    /// </summary>
+    public class SubjectSearchInfoAdvanced                                      // 
+    {/// <summary>
+     /// Тип пошуку - Пошук за: «частковим співпадінням» (1) або «повним співпадінням» (2)
+     /// </summary>
         [JsonProperty("dcSearchAlgorithm", NullValueHandling = NullValueHandling.Ignore)]
-        public string DcSearchAlgorithm { get; set; }                           // Тип пошуку - Пошук за: «частковим співпадінням» (1) або «повним співпадінням» (2)
-        
+        public string DcSearchAlgorithm { get; set; }                           // 
+        /// <summary>
+        /// Тип суб’єкта - "enum": ["1", "2"]
+        /// </summary>
         [JsonProperty("sbjType", NullValueHandling = NullValueHandling.Ignore)]
-        public string SbjType { get; set; }                                     // Тип суб’єкта - "enum": ["1", "2"]
-
+        public string SbjType { get; set; }                                     // 
+        /// <summary>
+        /// Назва/ПІБ
+        /// </summary>
         [JsonProperty("sbjName", NullValueHandling = NullValueHandling.Ignore)]
-        public string SbjName { get; set; }                                     // Назва/ПІБ
-
+        public string SbjName { get; set; }                                     // 
+        /// <summary>
+        /// РНОКПП/ЄДРПОУякщо обрано Тип особи = фізична особа, - {10} якщо обрано Тип особи = юридична особа, - {8, 9, 12}
+        /// </summary>
         [JsonProperty("sbjCode", NullValueHandling = NullValueHandling.Ignore)]
-        public string SbjCode { get; set; }                                     // РНОКПП/ЄДРПОУякщо обрано Тип особи = фізична особа, - {10} якщо обрано Тип особи = юридична особа, - {8, 9, 12}
-
+        public string SbjCode { get; set; }                                     // 
+        /// <summary>
+        /// Серія,номер документа
+        /// </summary>
         [JsonProperty("seriesNum", NullValueHandling = NullValueHandling.Ignore)]
-        public string SeriesNum { get; set; }                                   // Серія,номер документа
-
+        public string SeriesNum { get; set; }                                   // 
+        /// <summary>
+        /// УНЗР значення повинно відповідати YYYYYYYY-YYYYY, допустимі значення[0 - 9]та символ -
+        /// </summary>
         [JsonProperty("idEddr", NullValueHandling = NullValueHandling.Ignore)]
-        public string IdEddr { get; set; }                                      // УНЗР значення повинно відповідати YYYYYYYY-YYYYY, допустимі значення[0 - 9]та символ -
-
+        public string IdEddr { get; set; }                                      // 
+        /// <summary>
+        /// ознака «Код РНОКПП відсутній»
+        /// </summary>
         [JsonProperty("codeAbsence", NullValueHandling = NullValueHandling.Ignore)]
-        public string CodeAbsence { get; set; }                                 // ознака «Код РНОКПП відсутній»
-
+        public string CodeAbsence { get; set; }                                 // 
+        /// <summary>
+        /// Роль суб’єкта
+        /// </summary>
         [JsonProperty("dcSbjRlNames", NullValueHandling = NullValueHandling.Ignore)]
-        public string DcSbjRlNames { get; set; }                                // Роль суб’єкта
+        public string DcSbjRlNames { get; set; }                                // 
     }
 
     // Модель відповіді така ж як в 24. ДРРП отримання скороченных данных по ІПН / ЄДРПОУ https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetEstatesClass.cs

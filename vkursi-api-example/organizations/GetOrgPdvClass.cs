@@ -69,23 +69,50 @@ namespace vkursi_api_example.organizations
             return GOPResponse;
         }
     }
-
-    public class GetOrgPdvRequestBodyModel                                          // Модель запиту (Example: {"code":["21560766"]})
-    {
-        public List<string> Code { get; set; }                                      // Код ЄДРПОУ
+    /// <summary>
+    /// Модель запиту (Example: {"code":["21560766"]})
+    /// </summary>
+    public class GetOrgPdvRequestBodyModel                                          // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public List<string> Code { get; set; }                                      // 
     }
-
-    public class GetOrgPdvResponseModel                                             // Модель на відповідь GetKilkistPracivnukiv
-    {
-        public string Status { get; set; }                                          // Статус запиту (maxLength:128)
-        public bool IsSuccess { get; set; }                                         // Запит виконано успішно (true - так / false - ні)
-        public List<OrgPdvInfo> Data { get; set; }                                  // Дані відповіді
-    }
-    public class OrgPdvInfo                                                         // Дані відповіді
-    {
-        public string Code { get; set; }                                            // Код ЄДРПОУ
-        public DateTime? DateRegInn { get; set; }                                   // Дата отримання свідоцтва ПДВ
-        public string Inn { get; set; }                                             // ІПН
-        public string Info { get; set; }                                            // Загальній статус (платник ПДВ / не платник ПДВ)
+    /// <summary>
+    /// Модель на відповідь GetKilkistPracivnukiv
+    /// </summary>
+    public class GetOrgPdvResponseModel                                             // 
+    {/// <summary>
+     /// Статус запиту (maxLength:128)
+     /// </summary>
+        public string Status { get; set; }                                          // 
+        /// <summary>
+        /// Запит виконано успішно (true - так / false - ні)
+        /// </summary>
+        public bool IsSuccess { get; set; }                                         // 
+        /// <summary>
+        /// Дані відповіді
+        /// </summary>
+        public List<OrgPdvInfo> Data { get; set; }                                  // 
+    }/// <summary>
+     /// Дані відповіді
+     /// </summary>
+    public class OrgPdvInfo                                                         // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Code { get; set; }                                            // 
+        /// <summary>
+        /// Дата отримання свідоцтва ПДВ
+        /// </summary>
+        public DateTime? DateRegInn { get; set; }                                   // 
+        /// <summary>
+        /// ІПН
+        /// </summary>
+        public string Inn { get; set; }                                             // 
+        /// <summary>
+        /// Загальній статус (платник ПДВ / не платник ПДВ)
+        /// </summary>
+        public string Info { get; set; }                                            // 
     }
 }

@@ -80,34 +80,94 @@ namespace vkursi_api_example.organizations
             return FopsShortList;
         }
     }
-
-    public class GetFopsRequestBodyModel                            // Модель Body запиту
-    {
-        public List<string> code = new List<string>();              // Перелік кодів ІПН
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetFopsRequestBodyModel                            
+    {/// <summary>
+     /// Перелік кодів ІПН
+     /// </summary>
+        public List<string> code = new List<string>();               
     }
-
-    public class GetFopsResponseModel                               // Модель відповіді
-    {
-        public Guid Id { get; set; }                                // Системний Id Fop
-        public string Name { get; set; }                            // ПІБ ФОПа (maxLength:256)
-        public string State { get; set; }                           // Статус реєстрації (maxLength:64)
-        public string Code { get; set; }                            // Код ІПН (maxLength:10)
-        public string Inn { get; set; }                             // Код ІПН (ПДВ) (maxLength:10)
-        public DateTime? DateCanceledInn { get; set; }              // Дата анулючання свідоцтва платника ПДВ
-        public DateTime? DateRegInn { get; set; }                   // Дата реєстрації платником ПДВ
-        public int? Introduction { get; set; }                      // Наявні виконавчі провадження
-        public int? ExpressScore { get; set; }                      // Загальна кількість ризиків
-        public bool? HasBorg { get; set; }                          // Наявний податковий борг (true - так / false - ні)
-        public bool? InSanctions { get; set; }                      // Наявні санкції (true - так / false - ні)
-        public SingleTaxPayer singleTaxPayer { get; set; }          // Відомості про платника ЄП
-    }
-    public class SingleTaxPayer                                     // Відомості про платника ЄП
-    {
-        public DateTime dateStart { get; set; }                     // Дата реєстрації платником ЄП
-        public double rate { get; set; }                            // Ставка
-        public int group { get; set; }                              // Група
-        public DateTime? dateEnd { get; set; }                      // Дата анулювання
-        public string kindOfActivity { get; set; }                  // Вид діяльності (maxLength:256)
-        public bool status { get; set; }                            // Статус (true - платник ЄП / false - не платник ЄП)
+    /// <summary>
+    /// Модель відповіді
+    /// </summary>
+    public class GetFopsResponseModel                                
+    {/// <summary>
+     /// Системний Id Fop
+     /// </summary>
+        public Guid Id { get; set; }                                 
+        /// <summary>
+        /// ПІБ ФОПа (maxLength:256)
+        /// </summary>
+        public string Name { get; set; }                             
+        /// <summary>
+        /// Статус реєстрації (maxLength:64)
+        /// </summary>
+        public string State { get; set; }                            
+        /// <summary>
+        /// Код ІПН (maxLength:10)
+        /// </summary>
+        public string Code { get; set; }                             
+        /// <summary>
+        /// Код ІПН (ПДВ) (maxLength:10)
+        /// </summary>
+        public string Inn { get; set; }                             
+        /// <summary>
+        /// Дата анулючання свідоцтва платника ПДВ
+        /// </summary>
+        public DateTime? DateCanceledInn { get; set; }               
+        /// <summary>
+        /// Дата реєстрації платником ПДВ
+        /// </summary>
+        public DateTime? DateRegInn { get; set; }                    
+        /// <summary>
+        /// Наявні виконавчі провадження
+        /// </summary>
+        public int? Introduction { get; set; }                       
+        /// <summary>
+        /// Загальна кількість ризиків
+        /// </summary>
+        public int? ExpressScore { get; set; }                       
+        /// <summary>
+        /// Наявний податковий борг (true - так / false - ні)
+        /// </summary>
+        public bool? HasBorg { get; set; }                           
+        /// <summary>
+        /// Наявні санкції (true - так / false - ні)
+        /// </summary>
+        public bool? InSanctions { get; set; }                       
+        /// <summary>
+        /// Відомості про платника ЄП
+        /// </summary>
+        public SingleTaxPayer singleTaxPayer { get; set; }           
+    }/// <summary>
+     /// Відомості про платника ЄП
+     /// </summary>
+    public class SingleTaxPayer                                      
+    {/// <summary>
+     /// Дата реєстрації платником ЄП
+     /// </summary>
+        public DateTime dateStart { get; set; }                      
+        /// <summary>
+        /// Ставка
+        /// </summary>
+        public double rate { get; set; }                            
+        /// <summary>
+        /// Група
+        /// </summary>
+        public int group { get; set; }                              
+        /// <summary>
+        /// Дата анулювання
+        /// </summary>
+        public DateTime? dateEnd { get; set; }                      
+        /// <summary>
+        /// Вид діяльності (maxLength:256)
+        /// </summary>
+        public string kindOfActivity { get; set; }                   
+        /// <summary>
+        /// Статус (true - платник ЄП / false - не платник ЄП)
+        /// </summary>
+        public bool status { get; set; }                            
     }
 }

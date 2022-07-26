@@ -95,9 +95,13 @@ namespace vkursi_api_example.monitoring
 
      
     */
-
-    public class AddNewReestrResponseModel                                              // Модель Body запиту
-    {
-        public string reestrName { get; set; }                                          // Назва нового списку (який буде створено)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class AddNewReestrResponseModel                                              // 
+    {/// <summary>
+     /// Назва нового списку (який буде створено)
+     /// </summary>
+        public string reestrName { get; set; }                                          // 
     }
 }

@@ -74,54 +74,88 @@ namespace vkursi_api_example.podatkova
         }
     }
 
-
-    public class CabinetTaxEdpodEpRequestBodyModel                              // Модель запиту (Example: {"tin":"21560766"}) 
-    {
+    /// <summary>
+    ///  Модель запиту (Example: {"tin":"21560766"}) 
+    /// </summary>
+    public class CabinetTaxEdpodEpRequestBodyModel                              //
+    {/// <summary>
+     /// Код ІПН
+     /// </summary>
         [JsonProperty("tins")]
-        public string Tins { get; set; }                                        // Код ІПН
-
+        public string Tins { get; set; }                                        // 
+        /// <summary>
+        /// Потрібна перевірка статуса ФОП Nais
+        /// </summary>
         [JsonProperty("updateNais")]
-        public bool? UpdateNais { get; set; }                                   // Потрібна перевірка статуса ФОП Nais
+        public bool? UpdateNais { get; set; }                                   // 
     }
-
-    public class CabinetTaxEdpodEpResponseModel                                // Модель на відповідь CabinetTaxRegistration
-    {
+    /// <summary>
+    /// Модель на відповідь CabinetTaxRegistration
+    /// </summary>
+    public class CabinetTaxEdpodEpResponseModel                                // 
+    {/// <summary>
+     /// Назва / ПІБ (на Nais)
+     /// </summary>
         [JsonProperty("NAIS_NAME")]
-        public string NaisName { get; set; }                                    // Назва / ПІБ (на Nais)
-
+        public string NaisName { get; set; }                                    // 
+        /// <summary>
+        /// Стан (на Nais) { "Зареєстровано", 1},{"В стані припинення",2},{"Припинено", 3},{ "Відомості про банкрутство", 4},{ "Санація", 5},{ "Свідоцтво недійсне", 6},{ "Статус не визначено", 99}
+        /// </summary>
         [JsonProperty("NAIS_STATE")]
-        public int? NaisState { get; set; }                                     // Стан (на Nais) { "Зареєстровано", 1},{"В стані припинення", 2},{"Припинено", 3},{ "Відомості про банкрутство", 4},{ "Санація", 5},{ "Свідоцтво недійсне", 6},{ "Статус не визначено", 99}
-
+        public int? NaisState { get; set; }                                     //  
+        /// <summary>
+        /// Стан Id (на Nais)
+        /// </summary>
         [JsonProperty("NAIS_STATETEXT")]
-        public string NaisStateText { get; set; }                               // Стан Id (на Nais)
-
+        public string NaisStateText { get; set; }                               // 
+        /// <summary>
+        /// Назва / ПІБ (на ДФС)
+        /// </summary>
         [JsonProperty("FULL_NAME")]
-        public string FullName { get; set; }                                    // Назва / ПІБ (на ДФС)
-
+        public string FullName { get; set; }                                    // 
+        /// <summary>
+        /// Код
+        /// </summary>
         [JsonProperty("TIN")]
-        public string Tin { get; set; }                                         // Код
-
+        public string Tin { get; set; }                                         // 
+        /// <summary>
+        /// Дата включенння до реєстру
+        /// </summary>
         [JsonProperty("DATA_N")]
-        public string DataN { get; set; }                                       // Дата включенння до реєстру
-
+        public string DataN { get; set; }                                       // 
+        /// <summary>
+        /// Ставка ЄП
+        /// </summary>
         [JsonProperty("STAVKA")]
-        public double? Stavka { get; set; }                                     // Ставка ЄП
-
+        public double? Stavka { get; set; }                                     // 
+        /// <summary>
+        /// Група ЄП
+        /// </summary>
         [JsonProperty("GRUP")]
-        public double? Grup { get; set; }                                       // Група ЄП
-
+        public double? Grup { get; set; }                                       // 
+        /// <summary>
+        /// Дата виключення з реєстру
+        /// </summary>
         [JsonProperty("DATA_K")]
-        public string DataK { get; set; }                                       // Дата виключення з реєстру
-
+        public string DataK { get; set; }                                       // 
+        /// <summary>
+        /// КВЕДи
+        /// </summary>
         [JsonProperty("KVEDS")]
-        public List<Kved> Kveds { get; set; }                                   // КВЕДи
+        public List<Kved> Kveds { get; set; }                                   // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class Kved
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         [JsonProperty("KVED")]
         public string KvedKved { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("NU")]
         public string Nu { get; set; }
     }

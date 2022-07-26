@@ -106,39 +106,99 @@ namespace vkursi_api_example.organizations
         Response response = client.newCall(request).execute();
 
     */
-    public class GetOrgShareholdersRequestBodyModel                             // Модель Body запиту
-    {
-        public List<string> Edrpou { get; set; }                                // Перелік кодів ЄДРПОУ (обеження 1)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetOrgShareholdersRequestBodyModel                             // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ (обеження 1)
+     /// </summary>
+        public List<string> Edrpou { get; set; }                                // 
     }
-
-    public class GetOrgShareholdersResponseModel                                // Модель відповіді GetEstates
-    {
-        public bool IsSucces { get; set; }                                      // Успішний запит (true - так / false - ні)
-        public string Status { get; set; }                                      // Статус запиту
-        public List<OrgShareHoldersApiAnswerModelData> Data { get; set; }       // Дані запиту
+    /// <summary>
+    /// Модель відповіді GetEstates
+    /// </summary>
+    public class GetOrgShareholdersResponseModel                                // 
+    {/// <summary>
+     /// Успішний запит (true - так / false - ні)
+     /// </summary>
+        public bool IsSucces { get; set; }                                      // 
+        /// <summary>
+        /// Статус запиту
+        /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Дані запиту
+        /// </summary>
+        public List<OrgShareHoldersApiAnswerModelData> Data { get; set; }       // 
     }
-
-    public class OrgShareHoldersApiAnswerModelData                                              // Дані запиту
-    {
-        public string Edrpou { get; set; }                                                      // Код ЄДРПОУ
-        public List<OrgShareHoldersApiAnswerModelDataPerKvartal> PerYearKvartals { get; set; }  // Дані
-    }
-    public class OrgShareHoldersApiAnswerModelDataPerKvartal                                    // Дані
-    {
-        public int Year { get; set; }                                                           // Рік
-        public int Kvartal { get; set; }                                                        // Квартал
-        public List<OrgShareHoldersApiAnswerModelDataShareHolder> ShareHolders { get; set; }    // Перелік власників пакетів акцій
-    }
-    public class OrgShareHoldersApiAnswerModelDataShareHolder                   // Перелік власників пакетів акцій
-    {
-        public string Name { get; set; }                                        // Назва
-        public string IdentifikatsiyniyKod { get; set; }                        // Код ЄДРПОУ
-        public string Country { get; set; }                                     // Країна реєстрації
-        public string TypeOfDepositor { get; set; }                             // Вид депонента
-        public string ViewOfTheSecurity { get; set; }                           // Вид цінного паперу
-        public string IsinCode { get; set; }                                    // Код ISIN
-        public double? NominalValue { get; set; }                               // Номінальна вартість
-        public double? Count { get; set; }                                      // Кількість
-        public double? CapitalPercent { get; set; }                             // Відсоток акцій
+    /// <summary>
+    /// Дані запиту
+    /// </summary>
+    public class OrgShareHoldersApiAnswerModelData                                              // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Edrpou { get; set; }                                                      // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public List<OrgShareHoldersApiAnswerModelDataPerKvartal> PerYearKvartals { get; set; }  // 
+    }/// <summary>
+     /// Дані
+     /// </summary>
+    public class OrgShareHoldersApiAnswerModelDataPerKvartal                                    // 
+    {/// <summary>
+     /// Рік
+     /// </summary>
+        public int Year { get; set; }                                                           // 
+        /// <summary>
+        /// Квартал
+        /// </summary>
+        public int Kvartal { get; set; }                                                        // 
+        /// <summary>
+        /// Перелік власників пакетів акцій
+        /// </summary>
+        public List<OrgShareHoldersApiAnswerModelDataShareHolder> ShareHolders { get; set; }    // 
+    }/// <summary>
+     /// Перелік власників пакетів акцій
+     /// </summary>
+    public class OrgShareHoldersApiAnswerModelDataShareHolder                   // 
+    {/// <summary>
+     /// Назва
+     /// </summary>
+        public string Name { get; set; }                                        // 
+        /// <summary>
+        /// Код ЄДРПОУ
+        /// </summary>
+        public string IdentifikatsiyniyKod { get; set; }                        // 
+        /// <summary>
+        /// Країна реєстрації
+        /// </summary>
+        public string Country { get; set; }                                     // 
+        /// <summary>
+        /// Вид депонента
+        /// </summary>
+        public string TypeOfDepositor { get; set; }                             // 
+        /// <summary>
+        /// Вид цінного паперу
+        /// </summary>
+        public string ViewOfTheSecurity { get; set; }                           // 
+        /// <summary>
+        /// Код ISIN
+        /// </summary>
+        public string IsinCode { get; set; }                                    // 
+        /// <summary>
+        /// Номінальна вартість
+        /// </summary>
+        public double? NominalValue { get; set; }                               // 
+        /// <summary>
+        /// Кількість
+        /// </summary>
+        public double? Count { get; set; }                                      // 
+        /// <summary>
+        /// Відсоток акцій
+        /// </summary>
+        public double? CapitalPercent { get; set; }                             // 
     }
 }

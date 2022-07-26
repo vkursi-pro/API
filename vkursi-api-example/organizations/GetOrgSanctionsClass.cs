@@ -72,28 +72,67 @@ namespace vkursi_api_example.organizations
             return GORSanctions;
         }
     }
-
-    public class GetOrgSanctionsRequestBodyModel                                // Модель запиту (Example: {"code":["21560766"]})
-    {
-        public List<string> Code { get; set; }                                  // Код ЄДРПОУ
-        public bool? IncludeFounders { get; set; }                              // Розширений пошук санкцій (включає пошук по засновниках та бенефіціарах)
+    /// <summary>
+    /// Модель запиту (Example: {"code":["21560766"]})
+    /// </summary>
+    public class GetOrgSanctionsRequestBodyModel                                // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public List<string> Code { get; set; }                                  // 
+        /// <summary>
+        /// Розширений пошук санкцій (включає пошук по засновниках та бенефіціарах)
+        /// </summary>
+        public bool? IncludeFounders { get; set; }                              // 
     }
-
-    public class GetOrgSanctionsResponseModel                                   // Модель на відповідь GetKilkistPracivnukiv
-    {
-        public string Status { get; set; }                                      // Статус відповіді по API
-        public bool IsSuccess { get; set; }                                     // Чи успішний запит
-        public List<OrganizationSanctionDetail> Data { get; set; }              // Дані відповіді по санкціях
-    }
-    public class OrganizationSanctionDetail                                     // Дані відповіді по санкціях
-    {
-        public DateTime? SanctionStart { get; set; }                            // Дата початку санкцій
-        public DateTime? SanctionEnd { get; set; }                              // Дата закійнченн санкцій
-        public string SanctionName { get; set; }                                // Назва санкцыйного списку
-        public string Code { get; set; }                                        // Код ЄДРПОУ (по якому санкції)
-        public bool IsActive { get; set; }                                      // Чи активна санкція
-        public int? SanctionId { get; set; }                                    // Ід санкції
-        public object Details { get; set; }                                     // Json з додатковими атрибумами саккції
+    /// <summary>
+    /// Модель на відповідь GetKilkistPracivnukiv
+    /// </summary>
+    public class GetOrgSanctionsResponseModel                                   // 
+    {/// <summary>
+     /// Статус відповіді по API
+     /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Чи успішний запит
+        /// </summary>
+        public bool IsSuccess { get; set; }                                     // 
+        /// <summary>
+        /// Дані відповіді по санкціях
+        /// </summary>
+        public List<OrganizationSanctionDetail> Data { get; set; }              // 
+    }/// <summary>
+     /// Дані відповіді по санкціях
+     /// </summary>
+    public class OrganizationSanctionDetail                                     // 
+    {/// <summary>
+     /// Дата початку санкцій
+     /// </summary>
+        public DateTime? SanctionStart { get; set; }                            // 
+        /// <summary>
+        /// Дата закійнченн санкцій
+        /// </summary>
+        public DateTime? SanctionEnd { get; set; }                              // 
+        /// <summary>
+        /// Назва санкцыйного списку
+        /// </summary>
+        public string SanctionName { get; set; }                                // 
+        /// <summary>
+        /// Код ЄДРПОУ (по якому санкції)
+        /// </summary>
+        public string Code { get; set; }                                        // 
+        /// <summary>
+        /// Чи активна санкція
+        /// </summary>
+        public bool IsActive { get; set; }                                      // 
+        /// <summary>
+        /// Ід санкції
+        /// </summary>
+        public int? SanctionId { get; set; }                                    // 
+        /// <summary>
+        /// Json з додатковими атрибумами саккції
+        /// </summary>
+        public object Details { get; set; }                                     // 
 
         public List<string> PersonNames { get; set; }
         public HashSet<string> SearchedByNames { get; set; }

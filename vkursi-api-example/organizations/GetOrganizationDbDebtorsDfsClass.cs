@@ -69,26 +69,54 @@ namespace vkursi_api_example.organizations
             return GODDDResponse;
         }
     }
-
-    public class GetOrganizationDbDebtorsDfsRequestBodyModel                        // Модель запиту (Example: {"code":["21560766"]})
-    {
-        public List<string> Code { get; set; }                                      // Код ЄДРПОУ
+    /// <summary>
+    /// Модель запиту (Example: {"code":["21560766"]})
+    /// </summary>
+    public class GetOrganizationDbDebtorsDfsRequestBodyModel                        // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public List<string> Code { get; set; }                                      // 
     }
-
-    public class GetOrganizationDbDebtorsDfsResponseModel                           // Модель на відповідь GetOrganizationDbDebtorsDfs
-    {
-        public string Status { get; set; }                                          // Статус відповіді по API
-        public bool IsSuccess { get; set; }                                         // Чи успішний запит
-        public List<DebtData> Data { get; set; }                                    // Дані відповіді
-    }
-    public class DebtData                                                           // Дані відповіді
-    {
-        public string Code { get; set; }                                            // Код ЄДРПОУ
-        public OrganizationDbDebtorsDfsAll Debt { get; set; }                       // Борг
-    }
-    public class OrganizationDbDebtorsDfsAll                                        // Борг
-    {
-        public double? BorgTotal { get; set; }                                      // Державний борг
-        public double? LocalBorg { get; set; }                                      // Місцевий борг
+    /// <summary>
+    /// Модель на відповідь GetOrganizationDbDebtorsDfs
+    /// </summary>
+    public class GetOrganizationDbDebtorsDfsResponseModel                           // 
+    {/// <summary>
+     /// Статус відповіді по API
+     /// </summary>
+        public string Status { get; set; }                                          // 
+        /// <summary>
+        /// Чи успішний запит
+        /// </summary>
+        public bool IsSuccess { get; set; }                                         // 
+        /// <summary>
+        /// Дані відповіді
+        /// </summary>
+        public List<DebtData> Data { get; set; }                                    // 
+    }/// <summary>
+     /// Дані відповіді
+     /// </summary>
+    public class DebtData                                                           // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Code { get; set; }                                            // 
+        /// <summary>
+        /// Борг
+        /// </summary>
+        public OrganizationDbDebtorsDfsAll Debt { get; set; }                       // 
+    }/// <summary>
+     /// Борг
+     /// </summary>
+    public class OrganizationDbDebtorsDfsAll                                        // 
+    {/// <summary>
+     /// Державний борг
+     /// </summary>
+        public double? BorgTotal { get; set; }                                      // 
+        /// <summary>
+        /// Місцевий борг
+        /// </summary>
+        public double? LocalBorg { get; set; }                                      // 
     }
 }

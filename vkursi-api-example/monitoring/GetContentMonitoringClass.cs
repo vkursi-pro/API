@@ -63,13 +63,29 @@ namespace vkursi_api_example.monitoring
         }
     }
 
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class GetContentMonitoringResponseModel
-    {
-        public string Name { get; set; }                        // Назва
-        public int? Type { get; set; }                          // Тип (1 - компания, 2 - фоп, 3 - мониторинг по ПИБ, 4 - мониторинг по адресу, 5 - DueDiligence по отчёту, 6 - DueDiligence по организации, 7 - отображаем отчёт по земле (estate), 8 - Судебные решения по критериям, 9 - пользовательские связи (страница newRelations))
-        public string Code { get; set; }                        // Код
-        public DateTime? CreateDate { get; set; }               // Дата додавання
-        public bool IsOnMonitoring { get; set; }                // На моныторингу
+    {/// <summary>
+     /// Назва
+     /// </summary>
+        public string Name { get; set; }                        // 
+        /// <summary>
+        /// Тип (1 - компания, 2 - фоп, 3 - мониторинг по ПИБ, 4 - мониторинг по адресу, 5 - DueDiligence по отчёту,6 - DueDiligence по организации, 7 - отображаем отчёт по земле (estate), 8 - Судебные решения по критериям, 9 - пользовательские связи (страница newRelations))
+        /// </summary>
+        public int? Type { get; set; }                          //  
+        /// <summary>
+        /// Код
+        /// </summary>
+        public string Code { get; set; }                        // 
+        /// <summary>
+        /// Дата додавання
+        /// </summary>
+        public DateTime? CreateDate { get; set; }               // 
+        /// <summary>
+        /// На моныторингу
+        /// </summary>
+        public bool IsOnMonitoring { get; set; }                // 
     }
 }

@@ -90,10 +90,17 @@ namespace vkursi_api_example.monitoring
         Response response = client.newCall(request).execute();
 
      */
-
-    public class GetAllReestrResponseModel                                      // Модель відповіді GetAllReestr
-    {
-        public Guid Id { get; set; }                                            // Id списку
-        public string Name { get; set; }                                        // Назва списку
+    /// <summary>
+    /// Модель відповіді GetAllReestr
+    /// </summary>
+    public class GetAllReestrResponseModel                                      // 
+    {/// <summary>
+     /// Id списку
+     /// </summary>
+        public Guid Id { get; set; }                                            // 
+        /// <summary>
+        /// Назва списку
+        /// </summary>
+        public string Name { get; set; }                                        // 
     }
 }

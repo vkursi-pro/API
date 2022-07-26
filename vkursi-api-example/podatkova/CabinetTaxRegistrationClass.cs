@@ -81,62 +81,106 @@ namespace vkursi_api_example.podatkova
         }
     }
 
-
-    public class CabinetTaxRegistrationRequestBodyModel                             // Модель запиту (Example: {"tin":"21560766"})
-    {
-        public string Tin { get; set; }                                             // Код ЄДРПОУ або ІПН
+    /// <summary>
+    /// Модель запиту (Example: {"tin":"21560766"})
+    /// </summary>
+    public class CabinetTaxRegistrationRequestBodyModel                             // 
+    {/// <summary>
+     /// Код ЄДРПОУ або ІПН
+     /// </summary>
+        public string Tin { get; set; }                                             // 
     }
-
-    public class CabinetTaxRegistrationResponseModel                                // Модель на відповідь CabinetTaxRegistration
-    {
-        public bool Success { get; set; }                                           // Чи успішний запит
-        public string Status { get; set; }                                          // Статус відповіді по API
-        public CabinetTaxRegistrationResponse Response { get; set; }                // Дані відповіді
+    /// <summary>
+    /// Модель на відповідь CabinetTaxRegistration
+    /// </summary>
+    public class CabinetTaxRegistrationResponseModel                                // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool Success { get; set; }                                           // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                          // 
+        /// <summary>
+        /// Дані відповіді
+        /// </summary>
+        public CabinetTaxRegistrationResponse Response { get; set; }                // 
     }
-
-    public class CabinetTaxRegistrationResponse                                     // Дані відповіді
-    {
+    /// <summary>
+    /// Дані відповіді
+    /// </summary>
+    public class CabinetTaxRegistrationResponse                                     // 
+    {/// <summary>
+     /// Назва
+     /// </summary>
         [JsonProperty("FULL_NAME")]
-        public string FullName { get; set; }                                        // Назва
-
+        public string FullName { get; set; }                                        // 
+        /// <summary>
+        /// ЄДРПОУ
+        /// </summary>
         [JsonProperty("TIN_S")]
-        public object TinS { get; set; }                                            // ЄДРПОУ
-
+        public object TinS { get; set; }                                            // 
+        /// <summary>
+        /// Юридична адреса
+        /// </summary>
         [JsonProperty("ADRESS")]
-        public object Adress { get; set; }                                          // Юридична адреса
-
+        public object Adress { get; set; }                                          // 
+        /// <summary>
+        /// Дата реєстрації в органах ДПС
+        /// </summary>
         [JsonProperty("D_REG_STI")]
-        public string DRegSti { get; set; }                                         // Дата реєстрації в органах ДПС
-
+        public string DRegSti { get; set; }                                         // 
+        /// <summary>
+        /// Номер реєстрації в органах ДПС
+        /// </summary>
         [JsonProperty("N_REG_STI")]
-        public string NRegSti { get; set; }                                         // Номер реєстрації в органах ДПС
-
+        public string NRegSti { get; set; }                                         // 
+        /// <summary>
+        /// Назва органу ДПС де зареєстрований платник
+        /// </summary>
         [JsonProperty("C_STI_MAIN_NAME")]
-        public string CStiMainName { get; set; }                                    // Назва органу ДПС де зареєстрований платник
-
+        public string CStiMainName { get; set; }                                    // 
+        /// <summary>
+        /// Ознака зовнішньоекономічної діяльності
+        /// </summary>
         [JsonProperty("VED_LIC")]
-        public object VedLic { get; set; }                                          // Ознака зовнішньоекономічної діяльності
-
+        public object VedLic { get; set; }                                          // 
+        /// <summary>
+        /// Тип платника
+        /// </summary>
         [JsonProperty("FACE_MODE")]
-        public long? FaceMode { get; set; }                                         // Тип платника
-
+        public long? FaceMode { get; set; }                                         // 
+        /// <summary>
+        /// Стан платника
+        /// </summary>
         [JsonProperty("C_STAN")]
-        public long? CStan { get; set; }                                            // Стан платника
-
+        public long? CStan { get; set; }                                            // 
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("D_ZAKR_STI")]
         public string DZakrSti { get; set; }                                        // 
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("C_KIND")]
         public long? CKind { get; set; }                                            // 
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("C_CLOSE")]
         public long? CClose { get; set; }                                           // 
-
+        /// <summary>
+        /// Відомості про помилку
+        /// </summary>
         [JsonProperty("error")]
-        public string Error { get; set; }                                           // Відомості про помилку
-
+        public string Error { get; set; }                                           // 
+        /// <summary>
+        /// Опис помилки
+        /// </summary>
         [JsonProperty("error_description")]
-        public string ErrorDescription { get; set; }                                // Опис помилки
+        public string ErrorDescription { get; set; }                                // 
     }
 
 

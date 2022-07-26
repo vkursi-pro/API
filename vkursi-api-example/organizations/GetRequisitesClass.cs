@@ -121,112 +121,236 @@ namespace vkursi_api_example.organizations
         Response response = client.newCall(request).execute();
      
      */
-
-    public class GetRequisitesRequestBodyModel                                          // Модель запиту 
-    {
-        public List<string> Code { get; set; }                                          // Перелік кодів (обеження 100)
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class GetRequisitesRequestBodyModel                                          // 
+    {/// <summary>
+     /// Перелік кодів (обеження 100)
+     /// </summary>
+        public List<string> Code { get; set; }                                          // 
     }
-
-    public class GetRequisitesResponseModel                                             // Модель на відповідь
-    {
-        public bool IsSucces { get; set; }                                              // Чи успішний запит
-        public string Status { get; set; }                                              // Статус відповіді по API
-        public List<GetRequisitesResponseData> Data { get; set; }                       // Перелік даних
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class GetRequisitesResponseModel                                             // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool IsSucces { get; set; }                                              // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Перелік даних
+        /// </summary>
+        public List<GetRequisitesResponseData> Data { get; set; }                       // 
     }
-
-    public class GetRequisitesResponseData                                              // Перелік даних
-    {
-        public string Name { get; set; }                                                // Повна назва організації / ФОП (maxLength:512)
-        public string ShortName { get; set; }                                           // Скорочена назва організації (maxLength:512)
-        public string EngName { get; set; }                                             // Назва організації на англійський мові (maxLength:512)
-        public string Opf { get; set; }                                                 // Організаційно-правова форма
-        public string SgdStatus { get; set; }                                           // Статус реєстрації суб'єкта господарювання
-        public string Address { get; set; }                                             // Адреса
-        public string Kved { get; set; }                                                // КВЕД (основний)
-        public string Chief { get; set; }                                               // Керівник ПІБ
-        public GetRequisitesRequestAnswerDataReestrPdv ReestrPdv { get; set; }          // Відомості про ПДВ
-        public GetRequisitesRequestAnswerDataReestrPdvCancel ReestrPdvCancel { get; set; }// Відомості про анульоване ПДВ
-        public GetRequisitesRequestAnswerDataReestrPed ReestrPed { get; set; }          // Відомості з реєстру платників єдиного податку
-        public NeprubutkovaUstanovaInfo ReestrNeprubutkovuhkUstanov { get; set; }       // Відомості з реєстру неприбуткових установ
-
+    /// <summary>
+    /// Перелік даних
+    /// </summary>
+    public class GetRequisitesResponseData                                              // 
+    {/// <summary>
+     /// Повна назва організації / ФОП (maxLength:512)
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Скорочена назва організації (maxLength:512)
+        /// </summary>
+        public string ShortName { get; set; }                                           // 
+        /// <summary>
+        /// Назва організації на англійський мові (maxLength:512)
+        /// </summary>
+        public string EngName { get; set; }                                             // 
+        /// <summary>
+        /// Організаційно-правова форма
+        /// </summary>
+        public string Opf { get; set; }                                                 // 
+        /// <summary>
+        /// Статус реєстрації суб'єкта господарювання
+        /// </summary>
+        public string SgdStatus { get; set; }                                           // 
+        /// <summary>
+        /// Адреса
+        /// </summary>
+        public string Address { get; set; }                                             // 
+        /// <summary>
+        /// КВЕД (основний)
+        /// </summary>
+        public string Kved { get; set; }                                                // 
+        /// <summary>
+        /// Керівник ПІБ
+        /// </summary>
+        public string Chief { get; set; }                                               // 
+        /// <summary>
+        /// Відомості про ПДВ
+        /// </summary>
+        public GetRequisitesRequestAnswerDataReestrPdv ReestrPdv { get; set; }          // 
+        /// <summary>
+        /// Відомості про анульоване ПДВ
+        /// </summary>
+        public GetRequisitesRequestAnswerDataReestrPdvCancel ReestrPdvCancel { get; set; }// 
+        /// <summary>
+        /// Відомості з реєстру платників єдиного податку
+        /// </summary>
+        public GetRequisitesRequestAnswerDataReestrPed ReestrPed { get; set; }          // 
+        /// <summary>
+        ///Відомості з реєстру неприбуткових установ 
+        /// </summary>
+        public NeprubutkovaUstanovaInfo ReestrNeprubutkovuhkUstanov { get; set; }       // 
+        /// <summary>
+        /// Адреса в окремих полях
+        /// </summary>
         [JsonProperty("addressParts")]
-        public AddressParts AddressParts { get; set; }                                  // Адреса в окремих полях
+        public AddressParts AddressParts { get; set; }                                  // 
     }
-
-    public class GetRequisitesRequestAnswerDataReestrPdv                                // Відомості про ПДВ
-    {
-        public string State { get; set; }                                               // Статус платника ПДВ
-        public DateTime? RegDate { get; set; }                                          // Дата реєстрації платником ПДВ
-        public string Ipn { get; set; }                                                 // ІПН
+    /// <summary>
+    /// Відомості про ПДВ
+    /// </summary>
+    public class GetRequisitesRequestAnswerDataReestrPdv                                // 
+    {/// <summary>
+     /// Статус платника ПДВ
+     /// </summary>
+        public string State { get; set; }                                               // 
+        /// <summary>
+        /// Дата реєстрації платником ПДВ
+        /// </summary>
+        public DateTime? RegDate { get; set; }                                          // 
+        /// <summary>
+        /// ІПН
+        /// </summary>
+        public string Ipn { get; set; }                                                 // 
+    }/// <summary>
+     /// Відомості про анульоване ПДВ
+     /// </summary>
+    public class GetRequisitesRequestAnswerDataReestrPdvCancel                          // 
+    {/// <summary>
+     /// Статус анулювання ПДВ
+     /// </summary>
+        public string State { get; set; }                                               // 
+        /// <summary>
+        /// Дата анулювання ПДВ
+        /// </summary>
+        public DateTime? CancelDate { get; set; }                                       // 
+    }/// <summary>
+     /// Відомості з реєстру платників єдиного податку (ЄП)
+     /// </summary>
+    public class GetRequisitesRequestAnswerDataReestrPed                                // 
+    {/// <summary>
+     /// Статус платника ЄП
+     /// </summary>
+        public string State { get; set; }                                               // 
+        /// <summary>
+        /// Дата включенння до реєстру
+        /// </summary>
+        public DateTime? DateStart { get; set; }                                        // 
+        /// <summary>
+        /// Дата виключення з реєстру
+        /// </summary>
+        public DateTime? DateEnd { get; set; }                                          // 
+        /// <summary>
+        /// Ставка
+        /// </summary>
+        public decimal? Stavka { get; set; }                                            // 
+        /// <summary>
+        /// Група
+        /// </summary>
+        public int? Grupa { get; set; }                                                 // 
     }
-    public class GetRequisitesRequestAnswerDataReestrPdvCancel                          // Відомості про анульоване ПДВ
-    {
-        public string State { get; set; }                                               // Статус анулювання ПДВ
-        public DateTime? CancelDate { get; set; }                                       // Дата анулювання ПДВ
-    }
-    public class GetRequisitesRequestAnswerDataReestrPed                                // Відомості з реєстру платників єдиного податку (ЄП)
-    {
-        public string State { get; set; }                                               // Статус платника ЄП
-        public DateTime? DateStart { get; set; }                                        // Дата включенння до реєстру
-        public DateTime? DateEnd { get; set; }                                          // Дата виключення з реєстру
-        public decimal? Stavka { get; set; }                                            // Ставка
-        public int? Grupa { get; set; }                                                 // Група
-    }
-
-    public class NeprubutkovaUstanovaInfo                                               // Відомості з реєстру неприбуткових установ
-    {
+    /// <summary>
+    /// Відомості з реєстру неприбуткових установ
+    /// </summary>
+    public class NeprubutkovaUstanovaInfo                                               // 
+    {/// <summary>
+     /// Дата включення до Реєстру
+     /// </summary>
         [JsonProperty("DRegNoPr")]
-        public string DRegNoPr { get; set; }                                            // Дата включення до Реєстру
-
+        public string DRegNoPr { get; set; }                                            // 
+        /// <summary>
+        /// Код ознаки неприбутковості
+        /// </summary>
         [JsonProperty("CNonpr")]
-        public string CNonpr { get; set; }                                              // Код ознаки неприбутковості
-
+        public string CNonpr { get; set; }                                              // 
+        /// <summary>
+        /// Назва ознаки неприбутковості
+        /// </summary>
         [JsonProperty("Nonpr")]
-        public string Nonpr { get; set; }                                               // Назва ознаки неприбутковості
-
+        public string Nonpr { get; set; }                                               // 
+        /// <summary>
+        /// Дата присвоєння ознаки або її зміни
+        /// </summary>
         [JsonProperty("DNonpr")]
-        public string DNonpr { get; set; }                                              // Дата присвоєння ознаки або її зміни
-
+        public string DNonpr { get; set; }                                              // 
+        /// <summary>
+        /// Дата прийняття рішення контролюючим органом
+        /// </summary>
         [JsonProperty("DRish")]
-        public string DRish { get; set; }                                               // Дата прийняття рішення контролюючим органом
-
+        public string DRish { get; set; }                                               // 
+        /// <summary>
+        /// Номер рішення контролюючого органу
+        /// </summary>
         [JsonProperty("NRish")]
-        public string NRish { get; set; }                                               // Номер рішення контролюючого органу
-
+        public string NRish { get; set; }                                               // 
+        /// <summary>
+        /// Тип рішення
+        /// </summary>
         [JsonProperty("TRish")]
-        public string TRish { get; set; }                                               // Тип рішення
-
+        public string TRish { get; set; }                                               // 
+        /// <summary>
+        /// Код контролюючого органу, який прийняв рішення
+        /// </summary>
         [JsonProperty("CSti")]
-        public string CSti { get; set; }                                                // Код контролюючого органу, який прийняв рішення
+        public string CSti { get; set; }                                                // 
     }
-
-    public partial class AddressParts                                                   // Адреса в окремих полях
-    {
+    /// <summary>
+    /// Адреса в окремих полях
+    /// </summary>
+    public partial class AddressParts                                                   // 
+    {/// <summary>
+     /// Область
+     /// </summary>
         [JsonProperty("atu")]
-        public string Atu { get; set; }                                                 // Область
-
+        public string Atu { get; set; }                                                 // 
+        /// <summary>
+        /// Код КОАТУУ
+        /// </summary>
         [JsonProperty("atu_code")]
-        public string AtuCode { get; set; }                                             // Код КОАТУУ
-
+        public string AtuCode { get; set; }                                             // 
+        /// <summary>
+        /// Назва вулиці
+        /// </summary>
         [JsonProperty("street")]
-        public string Street { get; set; }                                              // Назва вулиці
-
+        public string Street { get; set; }                                              // 
+        /// <summary>
+        /// Тип будівлі ('буд.', 'інше')
+        /// </summary>
         [JsonProperty("house_type")]
-        public string HouseType { get; set; }                                           // Тип будівлі ('буд.', 'інше')
-
+        public string HouseType { get; set; }                                           // 
+        /// <summary>
+        /// Номер будинку, якщо тип - 'буд.'
+        /// </summary>
         [JsonProperty("house")]
-        public string House { get; set; }                                               // Номер будинку, якщо тип - 'буд.'
-
+        public string House { get; set; }                                               // 
+        /// <summary>
+        /// Тип будівлі
+        /// </summary>
         [JsonProperty("building_type")]
-        public string BuildingType { get; set; }                                        // Тип будівлі
-
+        public string BuildingType { get; set; }                                        // 
+        /// <summary>
+        /// Номер будівлі
+        /// </summary>
         [JsonProperty("building")]
-        public string Building { get; set; }                                            // Номер будівлі
-
+        public string Building { get; set; }                                            // 
+        /// <summary>
+        /// Тип приміщення
+        /// </summary>
         [JsonProperty("num_type")]
-        public string NumType { get; set; }                                             // Тип приміщення
-
+        public string NumType { get; set; }                                             // 
+        /// <summary>
+        /// Номер приміщення
+        /// </summary>
         [JsonProperty("num")]
-        public string Num { get; set; }                                                 // Номер приміщення
+        public string Num { get; set; }                                                 // 
     }
 }

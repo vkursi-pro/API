@@ -131,34 +131,91 @@ namespace vkursi_api_example.monitoring
         Response response = client.newCall(request).execute();
 
      */
-
-    public class AddToControlRequestBodyModel                                   // Модель Body запиту
-    {
-        public List<string> Codes { get; set; }                                 // Перелік кодів ЄДРПОУ
-        public List<string> FopsId { get; set; }                                // Перелік Id ФОП
-        public List<string> Koatuus { get; set; }                               // Перелік КОАТУУ
-        public string ReestrId { get; set; }                                    // Id списка(реєстра) в який будуть додані записи
-        public bool? IsOnMonitoring { get; set; }                               // Автоматично додати до моніторингу (true - так / false - ні)
-        public List<EventControlPersonAddItemModel> Persons { get; set; }       // Перелік фізичних осіб для додавання в списки
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class AddToControlRequestBodyModel                                   // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ
+     /// </summary>
+        public List<string> Codes { get; set; }                                 // 
+        /// <summary>
+        /// Перелік Id ФОП
+        /// </summary>
+        public List<string> FopsId { get; set; }                                // 
+        /// <summary>
+        /// Перелік КОАТУУ
+        /// </summary>
+        public List<string> Koatuus { get; set; }                               // 
+        /// <summary>
+        /// Id списка(реєстра) в який будуть додані записи
+        /// </summary>
+        public string ReestrId { get; set; }                                    // 
+        /// <summary>
+        /// Автоматично додати до моніторингу (true - так / false - ні)
+        /// </summary>
+        public bool? IsOnMonitoring { get; set; }                               // 
+        /// <summary>
+        /// Перелік фізичних осіб для додавання в списки
+        /// </summary>
+        public List<EventControlPersonAddItemModel> Persons { get; set; }       // 
     }
-
-    public class EventControlPersonAddItemModel                                 // Перелік фізичних осіб для додавання в списки
-    {
-        public string Name { get; set; }                                        // ПІБ фізичної особи
-        public string Ipn { get; set; }                                         // ІПН фізичної особи
-        public string Birthday { get; set; }                                    // Дата народження
-        public string PassportCode { get; set; }                                // Серія та номер паспорта
+    /// <summary>
+    /// Перелік фізичних осіб для додавання в списки
+    /// </summary>
+    public class EventControlPersonAddItemModel                                 // 
+    {/// <summary>
+     /// ПІБ фізичної особи
+     /// </summary>
+        public string Name { get; set; }                                        // 
+        /// <summary>
+        /// ІПН фізичної особи
+        /// </summary>
+        public string Ipn { get; set; }                                         // 
+        /// <summary>
+        /// Дата народження
+        /// </summary>
+        public string Birthday { get; set; }                                    // 
+        /// <summary>
+        /// Серія та номер паспорта
+        /// </summary>
+        public string PassportCode { get; set; }                                // 
     }
-
-    public class AddToControlResponseModel                                      // Модель відповіді AddToControl
-    {
-        public string name { get; set; }                                        // Назва 
-        public string shortName { get; set; }                                   // Скорочена назва
-        public string code { get; set; }                                        // Код
-        public string boss { get; set; }                                        // Керівник
-        public string location { get; set; }                                    // Адреса
-        public string kved { get; set; }                                        // КВЕД
-        public string state { get; set; }                                       // Стан
-        public string dateAddedToMonitoring { get; set; }                       // Дата додавання
+    /// <summary>
+    /// Модель відповіді AddToControl
+    /// </summary>
+    public class AddToControlResponseModel                                      // 
+    {/// <summary>
+     /// Назва 
+     /// </summary>
+        public string name { get; set; }                                        // 
+        /// <summary>
+        /// Скорочена назва
+        /// </summary>
+        public string shortName { get; set; }                                   // 
+        /// <summary>
+        /// Код
+        /// </summary>
+        public string code { get; set; }                                        // 
+        /// <summary>
+        /// Керівник
+        /// </summary>
+        public string boss { get; set; }                                        // 
+        /// <summary>
+        /// Адреса
+        /// </summary>
+        public string location { get; set; }                                    // 
+        /// <summary>
+        /// КВЕД
+        /// </summary>
+        public string kved { get; set; }                                        // 
+        /// <summary>
+        /// Стан
+        /// </summary>
+        public string state { get; set; }                                       // 
+        /// <summary>
+        /// Дата додавання
+        /// </summary>
+        public string dateAddedToMonitoring { get; set; }                       // 
     }
 }

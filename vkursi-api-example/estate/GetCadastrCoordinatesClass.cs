@@ -106,10 +106,17 @@ namespace vkursi_api_example.estate
         Response response = client.newCall(request).execute();
 
     */
-
-    public class GetCadastrCoordinatesRequestBodyModel                          // Модель Body запиту
-    {
-        public List<string> CadNumb { get; set; }                               // Масив кадастрових номерів
-        public string Format { get; set; }                                      // Формат відповіді (geoJson, kml, shp)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetCadastrCoordinatesRequestBodyModel                          // 
+    {/// <summary>
+     /// Масив кадастрових номерів
+     /// </summary>
+        public List<string> CadNumb { get; set; }                               // 
+        /// <summary>
+        /// Формат відповіді (geoJson, kml, shp)
+        /// </summary>
+        public string Format { get; set; }                                      // 
     }
 }

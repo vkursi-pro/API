@@ -69,46 +69,120 @@ namespace vkursi_api_example.organizations
             return GOEResponse;
         }
     }
-
-    public class GetOpenEnforcementsRequestBodyModel                                // Модель запиту (Example: {"code":["21560766"]})
-    {
-        public List<string> Code { get; set; }                                      // Код ЄДРПОУ
+    /// <summary>
+    ///  Модель запиту (Example: {"code":["21560766"]})
+    /// </summary>
+    public class GetOpenEnforcementsRequestBodyModel                                //
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public List<string> Code { get; set; }                                      // 
     }
+    /// <summary>
+    /// Модель на відповідь GetOpenEnforcements
+    /// </summary>
+    public class GetOpenEnforcementsResponseModel                                   // 
+    {/// <summary>
+     /// Статус запиту (maxLength:128)
+     /// </summary>
+        public string Status { get; set; }                                          // 
+        /// <summary>
+        /// Запит виконано успішно (true - так / false - ні)
+        /// </summary>
+        public bool IsSuccess { get; set; }                                         // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public List<EnforcementsData> Data { get; set; }                            // 
+    }/// <summary>
+     /// Дані
+     /// </summary>
+    public class EnforcementsData                                                   // 
+    {/// <summary>
+     /// Код ЕДРПОУ (за яким знайдено дані)
+     /// </summary>
+        public string Code { get; set; }                                            // 
+        /// <summary>
+        /// Перелік проваджень
+        /// </summary>
+        public List<EnforcementsDataList> EnforcementsList { get; set; }            // 
+    }/// <summary>
+     /// Перелік проваджень
+     /// </summary>
+    public class EnforcementsDataList                                               // 
+    {/// <summary>
+     /// Номер ВП (maxLength:32)
+     /// </summary>
+        public string VpNum { get; set; }                                               // 
+        /// <summary>
+        /// Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)
+        /// </summary>
+        public string State { get; set; }                                               // 
+        /// <summary>
+        /// Документ виданий
+        /// </summary>
+        public string Publisher { get; set; }                                           // 
+        /// <summary>
+        /// Зв'язок з виконавцем: Назва виконавця
+        /// </summary>
+        public string DepartmentName { get; set; }                                      // 
+        /// <summary>
+        /// Зв'язок з виконавцем: Номер телефону виконавця
+        /// </summary>
+        public string DepartmentPhone { get; set; }                                     // 
+        /// <summary>
+        /// ПІБ виконавця
+        /// </summary>
+        public string Executor { get; set; }                                            // 
+        /// <summary>
+        /// Номер телефону виконавця
+        /// </summary>
+        public string ExecutorPhone { get; set; }                                       // 
+        /// <summary>
+        /// Email виконавця
+        /// </summary>
+        public string ExecutorEmail { get; set; }                                       // 
+        /// <summary>
+        /// (in orgId) ? боржник : стягувач
+        /// </summary>
+        public string StateCurrentOrganization { get; set; }                        // 
+        /// <summary>
+        /// Тип відрахування
+        /// </summary>
+        public string DeductionType { get; set; }                                   // 
+        /// <summary>
+        /// Дата відкриття ВП
+        /// </summary>
+        public DateTime? EnforcementDate { get; set; }                              // 
+        /// <summary>
+        /// Дата останньої внесеної зміни в ВП
+        /// </summary>
+        public DateTime? ModifyDate { get; set; }                                   // 
+        /// <summary>
+        /// Відомості про іншу сторону (якщо наша компанія позивач то відомості про відповідача, якщо позивач навпаки)
+        /// </summary>
+        public EnforcementsDataOtherSite OtherSite { get; set; }                    // 
 
-    public class GetOpenEnforcementsResponseModel                                   // Модель на відповідь GetOpenEnforcements
-    {
-        public string Status { get; set; }                                          // Статус запиту (maxLength:128)
-        public bool IsSuccess { get; set; }                                         // Запит виконано успішно (true - так / false - ні)
-        public List<EnforcementsData> Data { get; set; }                            // Дані
     }
-    public class EnforcementsData                                                   // Дані
-    {
-        public string Code { get; set; }                                            // Код ЕДРПОУ (за яким знайдено дані)
-        public List<EnforcementsDataList> EnforcementsList { get; set; }            // Перелік проваджень
-    }
-    public class EnforcementsDataList                                               // Перелік проваджень
-    {
-        public string VpNum { get; set; }                                               // Номер ВП (maxLength:32)
-        public string State { get; set; }                                               // Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)
-        public string Publisher { get; set; }                                           // Документ виданий
-        public string DepartmentName { get; set; }                                      // Зв'язок з виконавцем: Назва виконавця
-        public string DepartmentPhone { get; set; }                                     // Зв'язок з виконавцем: Номер телефону виконавця
-        public string Executor { get; set; }                                            // ПІБ виконавця
-        public string ExecutorPhone { get; set; }                                       // Номер телефону виконавця
-        public string ExecutorEmail { get; set; }                                       // Email виконавця
-        public string StateCurrentOrganization { get; set; }                        // (in orgId) ? боржник : стягувач
-        public string DeductionType { get; set; }                                   // Тип відрахування
-        public DateTime? EnforcementDate { get; set; }                              // Дата відкриття ВП
-        public DateTime? ModifyDate { get; set; }                                   // Дата останньої внесеної зміни в ВП
-        public EnforcementsDataOtherSite OtherSite { get; set; }                    // Відомості про іншу сторону (якщо наша компанія позивач то відомості про відповідача, якщо позивач навпаки)
-
-    }
-
-    public class EnforcementsDataOtherSite                                          // Відомості про іншу сторону (якщо наша компанія позивач то відомості про відповідача, якщо позивач навпаки)
-    {
-        public string Name { get; set; }                                            // Назва
-        public string Code { get; set; }                                            // Код ЄДРПОУ
-        public string Type { get; set; }                                            // Тип сторони (Фізична / Юридична)
-        public string State { get; set; }                                           // Стан (зареєстровано, припинено)
+    /// <summary>
+    /// Відомості про іншу сторону (якщо наша компанія позивач то відомості про відповідача, якщо позивач навпаки)
+    /// </summary>
+    public class EnforcementsDataOtherSite                                          // 
+    {/// <summary>
+     /// Назва
+     /// </summary>
+        public string Name { get; set; }                                            // 
+        /// <summary>
+        /// Код ЄДРПОУ
+        /// </summary>
+        public string Code { get; set; }                                            // 
+        /// <summary>
+        /// Тип сторони (Фізична / Юридична)
+        /// </summary>
+        public string Type { get; set; }                                            // 
+        /// <summary>
+        /// Стан (зареєстровано, припинено)
+        /// </summary>
+        public string State { get; set; }                                           // 
     }
 }

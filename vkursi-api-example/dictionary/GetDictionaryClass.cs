@@ -126,17 +126,34 @@ namespace vkursi_api_example.dictionary
         Response response = client.newCall(request).execute();
 
      */
-
-    public class GetDictionaryRequestBodyModel                          // Модель Body запиту
-    {
-        public string DictionaryName { get; set; }                      // Назва словника
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetDictionaryRequestBodyModel                          // 
+    {/// <summary>
+     /// Назва словника
+     /// </summary>
+        public string DictionaryName { get; set; }                      // 
     }
-
-    public class GetDictionaryResponseModel                             // Модель відповіді GetDictionary
-    {
-        public bool isSucces { get; set; }                              // Запит виконано успішно (true - так / false - ні)
-        public string succes { get; set; }                              // Статус відповіді
-        public Dictionary<int, string> data { get; set; }               // Зміст словника
-        public DateTime updateDate { get; set; }                        // Дата останнього оновлення словника
+    /// <summary>
+    /// Модель відповіді GetDictionary
+    /// </summary>
+    public class GetDictionaryResponseModel                             // 
+    {/// <summary>
+     /// Запит виконано успішно (true - так / false - ні)
+     /// </summary>
+        public bool isSucces { get; set; }                              // 
+        /// <summary>
+        /// Статус відповіді
+        /// </summary>
+        public string succes { get; set; }                              // 
+        /// <summary>
+        /// Зміст словника
+        /// </summary>
+        public Dictionary<int, string> data { get; set; }               // 
+        /// <summary>
+        /// Дата останнього оновлення словника
+        /// </summary>
+        public DateTime updateDate { get; set; }                        // 
     }
 }

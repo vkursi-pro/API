@@ -95,19 +95,42 @@ namespace vkursi_api_example.estate
     */
 
 
+    /// <summary>
+    /// Модель відповіді EstateCurrentOnMonitoring
+    /// </summary>
+    public partial class EstateCurrentOnMonitoringResponseModel                         // 
+    {/// <summary>
+     /// Успішний запит (true - так / false - ні)
+     /// </summary>
+        public bool IsSuccess { get; set; }                                             // 
+        /// <summary>
+        /// Статус відповіді (maxLength:128)
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public List<MonitoringListData> MonitoringList { get; set; }                    // 
+    }/// <summary>
+     /// Дані
+     /// </summary>
 
-    public partial class EstateCurrentOnMonitoringResponseModel                         // Модель відповіді EstateCurrentOnMonitoring
-    {
-        public bool IsSuccess { get; set; }                                             // Успішний запит (true - так / false - ні)
-        public string Status { get; set; }                                              // Статус відповіді (maxLength:128)
-        public List<MonitoringListData> MonitoringList { get; set; }                    // Дані
-    }
-
-    public partial class MonitoringListData                                             // Дані
-    {
-        public string RegNumber { get; set; }                                           // ОНМ
-        public string RegName { get; set; }                                             // Назва обьекта 
-        public DateTime? EndDate { get; set; }                                          // Дата початку моніторинга
-        public DateTime? StartDate { get; set; }                                        // Дата закінчення моніторинга
+    public partial class MonitoringListData                                             // 
+    {/// <summary>
+     /// ОНМ
+     /// </summary>
+        public string RegNumber { get; set; }                                           // 
+        /// <summary>
+        /// Назва обьекта 
+        /// </summary>
+        public string RegName { get; set; }                                             // 
+        /// <summary>
+        /// Дата початку моніторинга
+        /// </summary>
+        public DateTime? EndDate { get; set; }                                          // 
+        /// <summary>
+        /// Дата закінчення моніторинга
+        /// </summary>
+        public DateTime? StartDate { get; set; }                                        // 
     }
 }

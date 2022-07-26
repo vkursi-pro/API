@@ -94,28 +94,67 @@ namespace vkursi_api_example.changes
 
     */
 
-
-    public class GetChangesByCodeRequestBodyModel                               // Модель Body запиту
-    {
-        public string Code { get; set; }                                        // Код ЄДРПОУ
-        public string FromDate { get; set; }                                    // Дата від (включно)
-        public string ToDate { get; set; }                                      // Дата до (не включно)
-        public int? FieldType { get; set; }                                     // Тип зміни (словник FieldTypeDict можна отритами в  - 31. Основні словники сервісу [POST] /api/1.0/Dictionary/getdictionary)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetChangesByCodeRequestBodyModel                               // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Code { get; set; }                                        // 
+        /// <summary>
+        /// Дата від (включно)
+        /// </summary>
+        public string FromDate { get; set; }                                    // 
+        /// <summary>
+        /// Дата до (не включно)
+        /// </summary>
+        public string ToDate { get; set; }                                      // 
+        /// <summary>
+        /// Тип зміни (словник FieldTypeDict можна отритами в  - 31. Основні словники сервісу [POST] /api/1.0/Dictionary/getdictionary)
+        /// </summary>
+        public int? FieldType { get; set; }                                     // 
     }
-
-    public class GetChangesByCodeResponseModel                                  // Модель відповіді
-    {
-        public DateTime dateOfChange { get; set; }                              // Дата зміни
-        public string changeType { get; set; }                                  // Тип зміни (текст)
-        public string change { get; set; }                                      // Текст зміни
-        public OwnerChangesInfoModel ownerChangesInfo { get; set; }             // Відомості про організацію 
+    /// <summary>
+    /// Модель відповіді
+    /// </summary>
+    public class GetChangesByCodeResponseModel                                  // 
+    {/// <summary>
+     /// Дата зміни
+     /// </summary>
+        public DateTime dateOfChange { get; set; }                              // 
+        /// <summary>
+        /// Тип зміни (текст)
+        /// </summary>
+        public string changeType { get; set; }                                  // 
+        /// <summary>
+        /// Текст зміни
+        /// </summary>
+        public string change { get; set; }                                      // 
+        /// <summary>
+        /// Відомості про організацію 
+        /// </summary>
+        public OwnerChangesInfoModel ownerChangesInfo { get; set; }             // 
     }
-
-    public class OwnerChangesInfoModel                                          // Відомості про організацію                   
-    {
-        public string id { get; set; }                                          // Системий Id в сервісі Vkursi
-        public int type { get; set; }                                           // Тип (організація / ФОП)
-        public string name { get; set; }                                        // Назва 
-        public string code { get; set; }                                        // Код ЄДРПОУ
+    /// <summary>
+    /// Відомості про організацію 
+    /// </summary>
+    public class OwnerChangesInfoModel                                          //                   
+    {/// <summary>
+     /// Системий Id в сервісі Vkursi
+     /// </summary>
+        public string id { get; set; }                                          // 
+        /// <summary>
+        /// Тип (організація / ФОП)
+        /// </summary>
+        public int type { get; set; }                                           // 
+        /// <summary>
+        /// Назва 
+        /// </summary>
+        public string name { get; set; }                                        // 
+        /// <summary>
+        /// Код ЄДРПОУ
+        /// </summary>
+        public string code { get; set; }                                        // 
     }
 }

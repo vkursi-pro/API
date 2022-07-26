@@ -102,13 +102,19 @@ namespace vkursi_api_example.organizations
         Response response = client.newCall(request).execute();
 
     */
-
-    public class GetOrgFinanceRequestBodyModel      // Модель запиту 
-    {
-        public List<string> Code { get; set; }      // Перелік кодів ЄДРПОУ (обмеження 1)
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class GetOrgFinanceRequestBodyModel      // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ (обмеження 1)
+     /// </summary>
+        public List<string> Code { get; set; }      // 
     }
-
-    public class GetOrgFinanceResponseModel         // Відповідь на запит
+    /// <summary>
+    /// Відповідь на запит
+    /// </summary>
+    public class GetOrgFinanceResponseModel         // 
     {
         [JsonProperty("status")]
         public string Status { get; set; }

@@ -110,18 +110,28 @@ namespace vkursi_api_example.organizations
             Response response = client.newCall(request).execute();
 
      */
-
-    public partial class PaynaisErrorResponseModel                              // Модель відповіді з помилкою Paynais
-    {
+    /// <summary>
+    /// Модель відповіді з помилкою Paynais
+    /// </summary>
+    public partial class PaynaisErrorResponseModel                              // 
+    {/// <summary>
+    /// ???
+    /// </summary>
         [JsonProperty("errors")]
         public List<Error> Errors { get; set; }
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public partial class Error
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         [JsonProperty("message")]
         public string Message { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("code")]
         public long Code { get; set; }
     }

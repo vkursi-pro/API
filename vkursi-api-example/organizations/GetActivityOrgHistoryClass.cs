@@ -118,40 +118,104 @@ namespace vkursi_api_example.organizations
         print(data.decode("utf-8"))
      
     */
-
-    public class GetActivityOrgHistoryRequestBodyModel                          // Модель запиту (Example: {"Codes":["21560766","3334800417"]})
-    {
-        public List<string> Code { get; set; }                                  // Перелік кодів ЕДРПОУ / ІПН
+    /// <summary>
+    /// Модель запиту (Example: {"Codes":["21560766","3334800417"]})
+    /// </summary>
+    public class GetActivityOrgHistoryRequestBodyModel                          // 
+    {/// <summary>
+     /// Перелік кодів ЕДРПОУ / ІПН
+     /// </summary>
+        public List<string> Code { get; set; }                                  // 
     }
-
-    public class GetActivityOrgHistoryResponseModel                             // Модель відповіді
-    {
-        public bool IsSucces { get; set; }                                      // Чи успішний запит
-        public string Status { get; set; }                                      // Статус відповіді по API
-        public List<ActivityOrgHistoryApiModelAnswerData> Data { get; set; }    // Дані методу
+    /// <summary>
+    /// Модель відповіді
+    /// </summary>
+    public class GetActivityOrgHistoryResponseModel                             // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool IsSucces { get; set; }                                      // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Дані методу
+        /// </summary>
+        public List<ActivityOrgHistoryApiModelAnswerData> Data { get; set; }    // 
     }
-
-    public class ActivityOrgHistoryApiModelAnswerData                           // Дані методу
-    {
-        public string Code { get; set; }                                        // Код ЕДРПОУ
-        public bool KvedChange { get; set; }                                    // Чи змінювався КВЕД (за попередні 12 міс)
-        public List<ActivityOrgHistoryApiModelAnswerDataChanges> ListKvedChange { get; set; } // Перелік записів про зміну КВЕД (за попередні 12 міс)
-        public bool CompanyStructureChange { get; set; }                        // Чи були зміни в структурі власності (за попередні 12 міс)   
-        public List<ActivityOrgHistoryApiModelAnswerDataChanges> ListCompanyStructureChange { get; set; }   // // Перелік записів про зміни в структурі власності (за попередні 12 міс)  
-        public bool StatCapitalChangeToLower { get; set; }                      // Чи змінювався статутний капітал (за попередні 12 міс)  
-        public List<ActivityOrgHistoryApiModelAnswerDataChanges> ListStatCapitalChangeToLower { get; set; } // Перелік записів про зміну статутного капіталу (за попередні 12 міс)  
-        public bool ReorganizeChange { get; set; }                              // Реорганізація (за попередні 12 мес) 
-        public List<ActivityOrgHistoryApiModelAnswerDataChanges> ListReorganizeChange { get; set; } // Перелік записів про реорганізаційні зміни (за попередні 12 мес) 
-        public bool Error { get; set; }                                         // Перелік кодів ЕДРПОУ по яким метод відпрацював з помилкою
-        public bool NotFound { get; set; }                                      // Перелік кодів ЕДРПОУ по яким компаній в ЕДР не знайдено
+    /// <summary>
+    /// Дані методу
+    /// </summary>
+    public class ActivityOrgHistoryApiModelAnswerData                           // 
+    {/// <summary>
+     /// Код ЕДРПОУ
+     /// </summary>
+        public string Code { get; set; }                                        // 
+        /// <summary>
+        /// Чи змінювався КВЕД (за попередні 12 міс)
+        /// </summary>
+        public bool KvedChange { get; set; }                                    // 
+        /// <summary>
+        /// Перелік записів про зміну КВЕД (за попередні 12 міс)
+        /// </summary>
+        public List<ActivityOrgHistoryApiModelAnswerDataChanges> ListKvedChange { get; set; } // 
+        /// <summary>
+        /// Чи були зміни в структурі власності (за попередні 12 міс) 
+        /// </summary>
+        public bool CompanyStructureChange { get; set; }                        //   
+        /// <summary>
+        /// Перелік записів про зміни в структурі власності (за попередні 12 міс) 
+        /// </summary>
+        public List<ActivityOrgHistoryApiModelAnswerDataChanges> ListCompanyStructureChange { get; set; }   // //  
+        /// <summary>
+        /// Чи змінювався статутний капітал (за попередні 12 міс)
+        /// </summary>
+        public bool StatCapitalChangeToLower { get; set; }                      //   
+        /// <summary>
+        /// Перелік записів про зміну статутного капіталу (за попередні 12 міс)  
+        /// </summary>
+        public List<ActivityOrgHistoryApiModelAnswerDataChanges> ListStatCapitalChangeToLower { get; set; } // 
+        /// <summary>
+        /// Реорганізація (за попередні 12 мес) 
+        /// </summary>
+        public bool ReorganizeChange { get; set; }                              // 
+        /// <summary>
+        /// Перелік записів про реорганізаційні зміни (за попередні 12 мес) 
+        /// </summary>
+        public List<ActivityOrgHistoryApiModelAnswerDataChanges> ListReorganizeChange { get; set; } // 
+        /// <summary>
+        /// Перелік кодів ЕДРПОУ по яким метод відпрацював з помилкою
+        /// </summary>
+        public bool Error { get; set; }                                         
+        /// <summary>
+        /// Перелік кодів ЕДРПОУ по яким компаній в ЕДР не знайдено
+        /// </summary>
+        public bool NotFound { get; set; }                                      
     }
-
-    public class ActivityOrgHistoryApiModelAnswerDataChanges                    // Перелік записів про зімни
-    {
-        public Guid Id { get; set; }                                            // Унікальний id запису про зміну в системі Вкурсі
-        public string CurrentValue { get; set; }                                // Попереднє значення
-        public string PreviousValue { get; set; }                               // Нове значення
-        public DateTime DataOfChange { get; set; }                              // Дата зміни
-        public string ChangeType { get; set; }                                  // Тип зміни
+    /// <summary>
+    /// Перелік записів про зімни
+    /// </summary>
+    public class ActivityOrgHistoryApiModelAnswerDataChanges                    
+    {/// <summary>
+     /// Унікальний id запису про зміну в системі Вкурсі
+     /// </summary>
+        public Guid Id { get; set; }                                            
+        /// <summary>
+        /// Попереднє значення
+        /// </summary>
+        public string CurrentValue { get; set; }                                
+        /// <summary>
+        /// Нове значення
+        /// </summary>
+        public string PreviousValue { get; set; }                               
+        /// <summary>
+        /// Дата зміни
+        /// </summary>
+        public DateTime DataOfChange { get; set; }                              
+        /// <summary>
+        /// Тип зміни
+        /// </summary>
+        public string ChangeType { get; set; }                                  
     }
 }

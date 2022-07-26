@@ -119,25 +119,55 @@ namespace vkursi_api_example.courtdecision
         Response response = client.newCall(request).execute();
 
      */
-
-    public class GetDecisionsRequestBodyModel                                   // Модель Body запиту
-    {
-        public string Edrpou { get; set; }                                      // Код ЄДРПОУ
-        public int? Skip { get; set; }                                          // К-ть документів які необхідно пропустити (щоб взяти наступні 100)
-        public int? TypeSide { get; set; }                                      // null - all, 1 - Plaintiffs; 2 - Defendants; 3 - Other;
-        public int? JusticeKindId { get; set; }                                 // null - all, 0 - "Iнше", 1 - "Цивільне", 2 - "Кримінальне", 3 - "Господарське", 4 - "Адміністративне", 5 - "Адмінправопорушення"
-        public List<string> Npas { get; set; }                                  // Id статті НПА (можна отримати в розробника)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetDecisionsRequestBodyModel                                   // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Edrpou { get; set; }                                      // 
+        /// <summary>
+        /// К-ть документів які необхідно пропустити (щоб взяти наступні 100)
+        /// </summary>
+        public int? Skip { get; set; }                                          // 
+        /// <summary>
+        /// null - all, 1 - Plaintiffs; 2 - Defendants; 3 - Other;
+        /// </summary>
+        public int? TypeSide { get; set; }                                      // 
+        /// <summary>
+        /// null - all, 0 - "Iнше", 1 - "Цивільне", 2 - "Кримінальне", 3 - "Господарське", 4 - "Адміністративне", 5 - "Адмінправопорушення"
+        /// </summary>
+        public int? JusticeKindId { get; set; }                                 // 
+        /// <summary>
+        /// Id статті НПА (можна отримати в розробника)
+        /// </summary>
+        public List<string> Npas { get; set; }                                  // 
     }
+    /// <summary>
+    /// Модель відповіді GetDecisions
+    /// </summary>
+    public class GetDecisionsResponseModel                                      // 
+    {/// <summary>
+     /// Загальна кількість судових документів
+     /// </summary>
+        public double totalDecision { get; set; }                               // 
+        /// <summary>
+        /// Перелік Id судових документів
+        /// </summary>
+        public List<ListDecisions> list { get; set; }                           // 
+    }/// <summary>
+     /// Перелік Id судових документів
+     /// </summary>
 
-    public class GetDecisionsResponseModel                                      // Модель відповіді GetDecisions
-    {
-        public double totalDecision { get; set; }                               // Загальна кількість судових документів
-        public List<ListDecisions> list { get; set; }                           // Перелік Id судових документів
-    }
-
-    public class ListDecisions                                                  // Перелік Id судових документів
-    {
-        public int id { get; set; }                                             // Id документа
-        public DateTime adjudicationDate { get; set; }                          // Дата судовога засідання
+    public class ListDecisions                                                  // 
+    {/// <summary>
+     /// Id документа
+     /// </summary>
+        public int id { get; set; }                                             // 
+        /// <summary>
+        /// Дата судовога засідання
+        /// </summary>
+        public DateTime adjudicationDate { get; set; }                          // 
     }
 }

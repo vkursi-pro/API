@@ -26,7 +26,7 @@ namespace vkursi_api_example.token
            
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
-                Email = "admin@admin.com",       // Логін (Email)
+                Email = "test@testemail.com",       // Логін (Email)
                 Password = "123456"                 // Пароль
             };
 
@@ -100,20 +100,30 @@ namespace vkursi_api_example.token
         Response response = client.newCall(request).execute();
 
      */
-
-    public class AuthorizeRequestBodyModel          // Модель запиту
-    {
+    /// <summary>
+    /// Модель запиту
+    /// </summary>
+    public class AuthorizeRequestBodyModel          // 
+    {/// <summary>
+     /// Логін від облікового запису vkursi.pro
+     /// </summary>
         [JsonProperty("email")]
-        public string Email { get; set; }           // Логін від облікового запису vkursi.pro
-
+        public string Email { get; set; }           // 
+        /// <summary>
+        /// Пароль
+        /// </summary>
         [JsonProperty("password")]
-        public string Password { get; set; }        // Пароль
+        public string Password { get; set; }        // 
     }
-
-    public class AuthorizeResponseModel             // Модель відповіді
-    {
+    /// <summary>
+    /// Модель відповіді
+    /// </summary>
+    public class AuthorizeResponseModel             // 
+    {/// <summary>
+     /// Token
+     /// </summary>
         [JsonProperty("Token")]
-        public string Token { get; set; }           // Token
+        public string Token { get; set; }           // 
     }
 
 }

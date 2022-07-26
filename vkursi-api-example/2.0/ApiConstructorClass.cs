@@ -328,7 +328,9 @@ namespace vkursi_api_example._2._0
     /// Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
     /// </summary>
     public class Api2AnswerModelRelationData
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public string Edrpou { get; set; }
         /// <summary>
         /// Відповідь по методу 41. Отримати список пов'язаних з компанією бенеціціарів, керівників, адрес, власників пакетів акцій
@@ -341,8 +343,13 @@ namespace vkursi_api_example._2._0
     /// https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceClass.cs#L123
     /// </summary>
     public class Api2AnswerModelOrgFinanceData
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public string Code { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public object Data { get; set; }
     }
 
@@ -350,7 +357,9 @@ namespace vkursi_api_example._2._0
     /// Отримати дані реквізитів для строреня картки
     /// </summary>
     public class Api2AnswerModelGetRequisites
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public string Code { get; set; }
 
         /// <summary>
@@ -364,7 +373,9 @@ namespace vkursi_api_example._2._0
     /// Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
     /// </summary>
     public class Api2AnswerModelVehicleData
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public string Code { get; set; }
         /// <summary>
         /// Відповідь по методу 32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
@@ -396,9 +407,17 @@ namespace vkursi_api_example._2._0
     /// Судові рішення
     /// </summary>
     public class CourtDecisionExtendedModelFilterData
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public string Code { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public string ScrollToken { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public long? DecisionsCount { get; set; }
         /// <summary>
         /// 67. Рекізити судового документа
@@ -411,8 +430,13 @@ namespace vkursi_api_example._2._0
     /// URL на API для отримання відомостей по нерухомості
     /// </summary>
     public class EstateData
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public string Code { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public string HrefToGetData { get; set; }
     }
 
@@ -508,13 +532,18 @@ namespace vkursi_api_example._2._0
     /// ДРОРМ отримання скороченных даних про наявні обтяження на рухоме майно по ІПН / ЄДРПОУ
     /// </summary>
     public class MovableData
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public string Code { get; set; }
         /// <summary>
         /// ДРОРМ отримання скороченных даних про наявні обтяження на рухоме майно по ІПН / ЄДРПОУ
         /// /api/1.0/MovableLoads/getmovableloads
         /// </summary>
         public List<MovableLoadsDatum> MovableDataList { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public DateTime? ActualData { get; set; }
     }
 

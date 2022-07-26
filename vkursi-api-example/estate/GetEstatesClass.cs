@@ -109,72 +109,200 @@ namespace vkursi_api_example.estate
         Response response = client.newCall(request).execute();
 
     */
-
-    public class GetEstatesRequestBodyModel                                     // Модель Body запиту
-    {
-        public List<string> Edrpou { get; set; }                                // Масив кодів ЄДРПОУ (обеження 1)
-        public List<string> Ipn { get; set; }                                   // Масив кодів ІПН (обеження 1)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetEstatesRequestBodyModel                                     // 
+    {/// <summary>
+     /// Масив кодів ЄДРПОУ (обеження 1)
+     /// </summary>
+        public List<string> Edrpou { get; set; }                                // 
+        /// <summary>
+        /// Масив кодів ІПН (обеження 1)
+        /// </summary>
+        public List<string> Ipn { get; set; }                                   // 
     }
 
-
-    public class GetEstatesResponseModel                                        // Модель відповіді GetEstates
-    {
-        public bool isSuccess { get; set; }                                     // Успішний запит (true - так / false - ні)
-        public string status { get; set; }                                      // Статус запиту (maxLength:256)
-        public GetEstateApiFreeModelAnswerData data { get; set; }               // Дані
+    /// <summary>
+    /// Модель відповіді GetEstates
+    /// </summary>
+    public class GetEstatesResponseModel                                        // 
+    {/// <summary>
+     /// Успішний запит (true - так / false - ні)
+     /// </summary>
+        public bool isSuccess { get; set; }                                     // 
+        /// <summary>
+        /// Статус запиту (maxLength:256)
+        /// </summary>
+        public string status { get; set; }                                      // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public GetEstateApiFreeModelAnswerData data { get; set; }               // 
     }
-
-    public class GetEstateApiFreeModelAnswerData                                // Дані
-    {
-        public string dataObjectOriginal { get; set; }                          // Оригінал відповіді від ДП Nais (1в1).                            // https://nais.gov.ua/files/general/2019/07/30/20190730154716-22.docx (maxLength:1000000)
-        public EstateResponceWithParsedResultData dataObject { get; set; }      // Витяг (Оригінальні дані відповіді Nais перетворені в об'єкт).    // https://nais.gov.ua/files/general/2019/07/30/20190730154716-22.docx
+    /// <summary>
+    /// Дані
+    /// </summary>
+    public class GetEstateApiFreeModelAnswerData                                // 
+    {/// <summary>
+     /// Оригінал відповіді від ДП Nais (1в1). https://nais.gov.ua/files/general/2019/07/30/20190730154716-22.docx (maxLength:1000000)
+     /// </summary>
+        public string dataObjectOriginal { get; set; }                          //                            // 
+        /// <summary>
+        /// Витяг (Оригінальні дані відповіді Nais перетворені в об'єкт). https://nais.gov.ua/files/general/2019/07/30/20190730154716-22.docx
+        /// </summary>
+        public EstateResponceWithParsedResultData dataObject { get; set; }      //    // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public Dictionary<string, List<int>> types { get; set; }                // 
-    }
-    public class EstateResponceWithParsedResultData                             // Витяг (Оригінальні дані відповіді Nais перетворені в об'єкт).    // https://nais.gov.ua/files/general/2019/07/30/20190730154716-22.docx
-    {
-        public string entity { get; set; }                                      // Системна інформація Nais (maxLength:128)
-        public string method { get; set; }                                      // Системна інформація Nais. Назва методу (maxLength:128)
-        public string sign { get; set; }                                        // Системна інформація Nais. Підпис ЕЦП (maxLength:2048)
-        public SearchParams searchParams { get; set; }                          // Системна інформація Nais. Параметри пошуку (за якими була знайдені об'єкти)
-        public int resultID { get; set; }                                       // Системна інформація Nais. 
+    }/// <summary>
+     /// Витяг (Оригінальні дані відповіді Nais перетворені в об'єкт). https://nais.gov.ua/files/general/2019/07/30/20190730154716-22.docx
+     /// </summary>
+    public class EstateResponceWithParsedResultData                             //    // 
+    {/// <summary>
+     /// Системна інформація Nais (maxLength:128)
+     /// </summary>
+        public string entity { get; set; }                                      // 
+        /// <summary>
+        /// Системна інформація Nais. Назва методу (maxLength:128)
+        /// </summary>
+        public string method { get; set; }                                      // 
+        /// <summary>
+        /// Системна інформація Nais. Підпис ЕЦП (maxLength:2048)
+        /// </summary>
+        public string sign { get; set; }                                        // 
+        /// <summary>
+        /// Системна інформація Nais. Параметри пошуку (за якими була знайдені об'єкти)
+        /// </summary>
+        public SearchParams searchParams { get; set; }                          // 
+        /// <summary>
+        /// Системна інформація Nais. 
+        /// </summary>
+        public int resultID { get; set; }                                       // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public ResponseEstateData resultData { get; set; }                      // 
-        public long reportResultID { get; set; }                                // Системна інформація Nais. 
-        public int groupID { get; set; }                                        // Системна інформація Nais. 
-    }
-    public class SearchParams                                                   // Системна інформація Nais. Параметри пошуку (за якими була знайдені об'єкти)
-    {
-        public bool isShowHistoricalNames { get; set; }                         // Відображати історичність назв
-        public string searchType { get; set; }                                  // Для пошуку по об’єкту ="1" для пошуку по суб’єкту = "2"
-        public SubjectSearchInfo subjectSearchInfo { get; set; }                // ПІБ користувача/Назва
-        public string reason { get; set; }                                      // Підстава виникнення речового права
+        /// <summary>
+        /// Системна інформація Nais. 
+        /// </summary>
+        public long reportResultID { get; set; }                                // 
+        /// <summary>
+        /// Системна інформація Nais. 
+        /// </summary>
+        public int groupID { get; set; }                                        // 
+    }/// <summary>
+     /// Системна інформація Nais. Параметри пошуку (за якими була знайдені об'єкти)
+     /// </summary>
+    public class SearchParams                                                   // 
+    {/// <summary>
+     /// Відображати історичність назв
+     /// </summary>
+        public bool isShowHistoricalNames { get; set; }                         // 
+        /// <summary>
+        /// Для пошуку по об’єкту ="1" для пошуку по суб’єкту = "2"
+        /// </summary>
+        public string searchType { get; set; }                                  // 
+        /// <summary>
+        /// ПІБ користувача/Назва
+        /// </summary>
+        public SubjectSearchInfo subjectSearchInfo { get; set; }                // 
+        /// <summary>
+        /// Підстава виникнення речового права
+        /// </summary>
+        public string reason { get; set; }                                      // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public bool isDelayed { get; set; }                                     // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public string dcReqtypeSubject { get; set; }                            // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public bool isExternal { get; set; }                                    // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public bool isSuspend { get; set; }                                     // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public int totalLength { get; set; }                                    // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public int resultCount { get; set; }                                    // 
-        public int regNum { get; set; }                                         // Реєстраційний номер ОНМ
+        /// <summary>
+        /// Реєстраційний номер ОНМ
+        /// </summary>
+        public int regNum { get; set; }                                         // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public DateTime date { get; set; }                                      // 
-    }
+    }/// <summary>
+    /// ???
+    /// </summary>
     public class SubjectSearchInfo
-    {
-        public string sbjType { get; set; }                                     // Тип суб'єкта: 1 - (фіз.особа) / 2 - (юр.особа)
-        public string dcSbjRlNames { get; set; }                                // Роль суб’єкта Значення відповідно довидника StatusPropertyOwnersDict (14. Довідник статусів власників речового майна StatusPropertyOwners)
-        public string sbjCode { get; set; }                                     // ЄДРПОУ, передається для значень юридична особа (maxLength:12)
+    {/// <summary>
+     /// Тип суб'єкта: 1 - (фіз.особа) / 2 - (юр.особа)
+     /// </summary>
+        public string sbjType { get; set; }                                     // 
+        /// <summary>
+        /// Роль суб’єкта Значення відповідно довидника StatusPropertyOwnersDict (14. Довідник статусів власників речового майна StatusPropertyOwners)
+        /// </summary>
+        public string dcSbjRlNames { get; set; }                                // 
+        /// <summary>
+        /// ЄДРПОУ, передається для значень юридична особа (maxLength:12)
+        /// </summary>
+        public string sbjCode { get; set; }                                     // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public bool generalSubjectSearch { get; set; }                          // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public int irIrID { get; set; }                                         // 
-    }
+    }/// <summary>
+    /// ???
+    /// </summary>
     public class ResponseEstateData
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         public int? resultID { get; set; }                                      // 
-        public long? reportResultID { get; set; }                               // Для пошуку по об’єкту ="1" для пошуку по суб’єкту = "2" // "enum": ["1", "2"]
-        public List<GroupResult> groupResult { get; set; }                      // 2 >> 3 
-        public string code { get; set; }                                        // (maxLength:32)
-    }
-    public class GroupResult                                                    // 2 >> 3 
-    {
-        public int? id { get; set; }                                            // Номер групи, для повторного пошуку
-        public string dcGroupType { get; set; }                                 // Тип групи (назва в GroupResult.name) (maxLength:64)
-        public string name { get; set; }                                        // Опис групи, передається значення адреси, або кадастровий номер, або невизначене майно (maxLength:128)
+        /// <summary>
+        /// Для пошуку по об’єкту ="1" для пошуку по суб’єкту = "2" // "enum": ["1", "2"]
+        /// </summary>
+        public long? reportResultID { get; set; }                               // 
+        /// <summary>
+        /// 2 >> 3 
+        /// </summary>
+        public List<GroupResult> groupResult { get; set; }                      // 
+        /// <summary>
+        /// (maxLength:32)
+        /// </summary>
+        public string code { get; set; }                                        // 
+    }/// <summary>
+     /// 2 >> 3 
+     /// </summary>
+    public class GroupResult                                                    // 
+    {/// <summary>
+     /// Номер групи, для повторного пошуку
+     /// </summary>
+        public int? id { get; set; }                                            // 
+        /// <summary>
+        /// Тип групи (назва в GroupResult.name) (maxLength:64)
+        /// </summary>
+        public string dcGroupType { get; set; }                                 // 
+        /// <summary>
+        /// Опис групи, передається значення адреси, або кадастровий номер, або невизначене майно (maxLength:128)
+        /// </summary>
+        public string name { get; set; }                                        // 
     }
 }

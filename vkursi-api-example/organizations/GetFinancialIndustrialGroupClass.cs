@@ -115,34 +115,80 @@ namespace vkursi_api_example.organizations
         print(data.decode("utf-8"))
      
     */
-
-    public class GetFinancialIndustrialGroupRequestBodyModel                            // Модель запиту (Example: {"searchType":1,"code":"32352162"})
-    {
-        public List<string> Codes { get; set; }                                         // Перелык Кодів ЄДРПОУ
+    /// <summary>
+    /// Модель запиту (Example: {"searchType":1,"code":"32352162"})
+    /// </summary>
+    public class GetFinancialIndustrialGroupRequestBodyModel                            
+    {/// <summary>
+     /// Перелык Кодів ЄДРПОУ
+     /// </summary>
+        public List<string> Codes { get; set; }                                          
     }
-
-    public class GetFinancialIndustrialGroupResponseModel                               // Модель на відповідь GetFinancialIndustrialGroup
-    {
-        public bool IsSuccess { get; set; }                                             // Чи успішний запит
-        public string Status { get; set; }                                              // Статус відповіді по API
-        public List<GetFinancialIndustrialGroupResponseDataModel> Data { get; set; }    // Дані методу
+    /// <summary>
+    /// Модель на відповідь GetFinancialIndustrialGroup
+    /// </summary>
+    public class GetFinancialIndustrialGroupResponseModel                                
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool IsSuccess { get; set; }                                              
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                               
+        /// <summary>
+        /// Дані методу
+        /// </summary>
+        public List<GetFinancialIndustrialGroupResponseDataModel> Data { get; set; }     
     }
-
-    public class GetFinancialIndustrialGroupResponseDataModel                           // Дані методу
-    {
-        public string Code { get; set; }                                                // Код ЄДРПОУ
-        public List<FinancialIndustrialGroupModel> Data { get; set; }                   // Перелік груп
+    /// <summary>
+    /// Дані методу
+    /// </summary>
+    public class GetFinancialIndustrialGroupResponseDataModel                           
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Code { get; set; }                                                 
+        /// <summary>
+        /// Перелік груп
+        /// </summary>
+        public List<FinancialIndustrialGroupModel> Data { get; set; }                    
     }
-
-    public class FinancialIndustrialGroupModel                                          // Перелік груп
-    {
-        public Guid Id { get; set; }                                                    // Системний id в сервісі Vkursi
-        public string OrganizationName { get; set; }                                    // Назва організації
-        public string OrganizationCode { get; set; }                                    // Код ЄДРПОУ
-        public string FinancialGroupName { get; set; }                                  // Назва группи
-        public int FinancialGroupId { get; set; }                                       // Id группи
-        public Guid? OrganizationId { get; set; }                                       // Системний id організації в сервісі Vkursi
-        public string RelationPersonName { get; set; }                                  // Особа через яку повязана группа
-        public decimal? FpgNetIncom { get; set; }                                       // Оборот групи грн.
+    /// <summary>
+    /// Перелік груп
+    /// </summary>
+    public class FinancialIndustrialGroupModel                                          
+    {/// <summary>
+     /// Системний id в сервісі Vkursi
+     /// </summary>
+        public Guid Id { get; set; }                                                    
+        /// <summary>
+        /// Назва організації
+        /// </summary>
+        public string OrganizationName { get; set; }                                    
+        /// <summary>
+        /// Код ЄДРПОУ
+        /// </summary>
+        public string OrganizationCode { get; set; }                                    
+        /// <summary>
+        /// Назва группи
+        /// </summary>
+        public string FinancialGroupName { get; set; }                                   
+        /// <summary>
+        /// Id группи
+        /// </summary>
+        public int FinancialGroupId { get; set; }                                       
+        /// <summary>
+        /// Системний id організації в сервісі Vkursi
+        /// </summary>
+        public Guid? OrganizationId { get; set; }                                       
+        /// <summary>
+        /// Особа через яку повязана группа
+        /// </summary>
+        public string RelationPersonName { get; set; }                                  
+        /// <summary>
+        /// Оборот групи грн.
+        /// </summary>
+        public decimal? FpgNetIncom { get; set; }                                        
     }
 }

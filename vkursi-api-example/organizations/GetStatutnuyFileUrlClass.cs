@@ -64,16 +64,30 @@ namespace vkursi_api_example.organizations
             return GSFUResponse;
         }
     }
-
-    public class GetStatutnuyFileUrlBodyModel                                    // Модель запиту 
-    {
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class GetStatutnuyFileUrlBodyModel                                    // 
+    {/// <summary>
+    /// ???
+    /// </summary>
         public string Code { get; set; }
     }
-
-    public class GetStatutnuyFileUrlResponseModel                                // Модель на відповідь
-    {
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class GetStatutnuyFileUrlResponseModel                                // 
+    {/// <summary>
+    /// ???
+    /// </summary>
         public bool IsSucces { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public string Status { get; set; }
+        /// <summary>
+        /// ???
+        /// </summary>
         public string Url { get; set; }
     }
 }

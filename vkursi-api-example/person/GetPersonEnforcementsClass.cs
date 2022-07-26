@@ -111,14 +111,30 @@ namespace vkursi_api_example.person
         Response response = client.newCall(request).execute();
      
     */
-
-    public class GetPersonEnforcementsBodyModel                                         // Модель запиту 
-    {
-        public string Code { get; set; }                                                // Код ІПН
-        public string LastName { get; set; }                                            // Прізвище 
-        public string FirstName { get; set; }                                           // Ім'я
-        public string SecondName { get; set; }                                          // По батькові
-        public List<int> FilterStatusList { get; set; }                                 // Стан ВП (Приклад: Завершено, Примусове виконання, ...) enum - FilterStatusList
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class GetPersonEnforcementsBodyModel                                         // 
+    {/// <summary>
+     /// Код ІПН
+     /// </summary>
+        public string Code { get; set; }                                                // 
+        /// <summary>
+        /// Прізвище 
+        /// </summary>
+        public string LastName { get; set; }                                            // 
+        /// <summary>
+        /// Ім'я
+        /// </summary>
+        public string FirstName { get; set; }                                           // 
+        /// <summary>
+        /// По батькові
+        /// </summary>
+        public string SecondName { get; set; }                                          // 
+        /// <summary>
+        /// Стан ВП (Приклад: Завершено, Примусове виконання, ...) enum - FilterStatusList
+        /// </summary>
+        public List<int> FilterStatusList { get; set; }                                 // 
     }
 
     public enum FilterStatusList
@@ -150,58 +166,131 @@ namespace vkursi_api_example.person
         [Display(Name = "Нема кредитора")]
         NoCreditor = 101
     }
-
-    public class GetPersonEnforcementsResponseModel                                     // Модель на відповідь
-    {
-        public bool IsSucces { get; set; }                                              // Успішний запит (true - так / false - ні)
-        public string Status { get; set; }                                              // Статус відповіді (maxLength:128)
-        public List<OrgEnforcementApiAnswerModelData> Data { get; set; }                // Дані
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class GetPersonEnforcementsResponseModel                                     // 
+    {/// <summary>
+     /// Успішний запит (true - так / false - ні)
+     /// </summary>
+        public bool IsSucces { get; set; }                                              // 
+        /// <summary>
+        /// Статус відповіді (maxLength:128)
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public List<OrgEnforcementApiAnswerModelData> Data { get; set; }                // 
     }
-
-    public class OrgEnforcementApiAnswerModelData                                       // Дані
-    {
-        public string Edrpou { get; set; }                                              // Код ЄДРПОУ (за яким бувВП запит) (maxLength:12)
-        public int TotalCount { get; set; }                                             // Загальна кількість 
-        public List<OrgEnforcementApiAnswerModelDataVehicle> Enforcements { get; set; } // Пелелік виконавчих проваджень
+    /// <summary>
+    /// Дані
+    /// </summary>
+    public class OrgEnforcementApiAnswerModelData                                       // 
+    {/// <summary>
+     /// Код ЄДРПОУ (за яким бувВП запит) (maxLength:12)
+     /// </summary>
+        public string Edrpou { get; set; }                                              // 
+        /// <summary>
+        /// Загальна кількість 
+        /// </summary>
+        public int TotalCount { get; set; }                                             // 
+        /// <summary>
+        /// Пелелік виконавчих проваджень
+        /// </summary>
+        public List<OrgEnforcementApiAnswerModelDataVehicle> Enforcements { get; set; } // 
     }
-
-    public class OrgEnforcementApiAnswerModelDataVehicle                                // Пелелік виконавчих проваджень
-    {
-        public DateTime? DateOpen { get; set; }                                         // Дата відкриття ВП
-        public string VpNumber { get; set; }                                            // Номер ВП (maxLength:32)
-        public string Status { get; set; }                                              // Статус ВП (Приклад: Боржник, Стягувач, ...) (maxLength:128)
-        public string Category { get; set; }                                            // Категорія ВП (maxLength:256)
-        public string State { get; set; }                                               // Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)
-        public string Contractor { get; set; }                                          // Інша сторона (Приклад: Київське міжрегіональне управління укртрансбезпеки Код ЄДРПОУ: 37995466) (maxLength:512)
-        public string Publisher { get; set; }                                           // Документ виданий
-        public string DepartmentName { get; set; }                                      // Зв'язок з виконавцем: Назва виконавця
-        public string DepartmentPhone { get; set; }                                     // Зв'язок з виконавцем: Номер телефону виконавця
-        public string Executor { get; set; }                                            // ПІБ виконавця
-        public string ExecutorPhone { get; set; }                                       // Номер телефону виконавця
-        public string ExecutorEmail { get; set; }                                       // Email виконавця
-
+    /// <summary>
+    /// Пелелік виконавчих проваджень
+    /// </summary>
+    public class OrgEnforcementApiAnswerModelDataVehicle                                // 
+    {/// <summary>
+     /// Дата відкриття ВП
+     /// </summary>
+        public DateTime? DateOpen { get; set; }                                         // 
+        /// <summary>
+        /// Номер ВП (maxLength:32)
+        /// </summary>
+        public string VpNumber { get; set; }                                            // 
+        /// <summary>
+        /// Статус ВП (Приклад: Боржник, Стягувач, ...) (maxLength:128)
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Категорія ВП (maxLength:256)
+        /// </summary>
+        public string Category { get; set; }                                            // 
+        /// <summary>
+        /// Стан (Приклад: Завершено, Примусове виконання, ...) (maxLength:128)
+        /// </summary>
+        public string State { get; set; }                                               // 
+        /// <summary>
+        /// Інша сторона (Приклад: Київське міжрегіональне управління укртрансбезпеки Код ЄДРПОУ: 37995466) (maxLength:512)
+        /// </summary>
+        public string Contractor { get; set; }                                          // 
+        /// <summary>
+        /// Документ виданий
+        /// </summary>
+        public string Publisher { get; set; }                                           // 
+        /// <summary>
+        /// Зв'язок з виконавцем: Назва виконавця
+        /// </summary>
+        public string DepartmentName { get; set; }                                      // 
+        /// <summary>
+        /// Зв'язок з виконавцем: Номер телефону виконавця
+        /// </summary>
+        public string DepartmentPhone { get; set; }                                     // 
+        /// <summary>
+        /// ПІБ виконавця
+        /// </summary>
+        public string Executor { get; set; }                                            // 
+        /// <summary>
+        /// Номер телефону виконавця
+        /// </summary>
+        public string ExecutorPhone { get; set; }                                       // 
+        /// <summary>
+        /// Email виконавця
+        /// </summary>
+        public string ExecutorEmail { get; set; }                                       // 
+        /// <summary>
+        /// Тип стягувача (Фізична / Юридична / Держава / ...)
+        /// </summary>
         [JsonProperty("creditorType")]
-        public string CreditorType { get; set; }                                        // Тип стягувача (Фізична / Юридична / Держава / ...)
-
+        public string CreditorType { get; set; }                                        // 
+        /// <summary>
+        /// Назва стягувача
+        /// </summary>
         [JsonProperty("creditorName")]
-        public string CreditorName { get; set; }                                        // Назва стягувача
-
+        public string CreditorName { get; set; }                                        // 
+        /// <summary>
+        /// Дата народження стягувача (якщо ФО)
+        /// </summary>
         [JsonProperty("creditorBithday")]
-        public object CreditorBithday { get; set; }                                     // Дата народження стягувача (якщо ФО)
-
+        public object CreditorBithday { get; set; }                                     // 
+        /// <summary>
+        /// Назва боржника
+        /// </summary>
         [JsonProperty("debtorName")]
-        public string DebtorName { get; set; }                                          // Назва боржника
-
+        public string DebtorName { get; set; }                                          // 
+        /// <summary>
+        /// Код боржника
+        /// </summary>
         [JsonProperty("debtorCode")]
-        public object DebtorCode { get; set; }                                          // Код боржника
-
+        public object DebtorCode { get; set; }                                          // 
+        /// <summary>
+        /// Тип боржника (Фізична / Юридична / Держава / ...)
+        /// </summary>
         [JsonProperty("debtorType")]
-        public string DebtorType { get; set; }                                          // Тип боржника (Фізична / Юридична / Держава / ...)
-
+        public string DebtorType { get; set; }                                          // 
+        /// <summary>
+        /// Дата народження боржника (якщо ФО)
+        /// </summary>
         [JsonProperty("debtorBithday")]
-        public DateTimeOffset DebtorBithday { get; set; }                               // Дата народження боржника (якщо ФО)
-
+        public DateTimeOffset DebtorBithday { get; set; }                               // 
+        /// <summary>
+        /// Час запиту
+        /// </summary>
         [JsonProperty("requestDate")]
-        public DateTimeOffset RequestDate { get; set; }                                 // Час запиту
+        public DateTimeOffset RequestDate { get; set; }                                 // 
     }
 }

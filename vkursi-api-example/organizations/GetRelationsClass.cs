@@ -128,94 +128,179 @@ namespace vkursi_api_example.organizations
         Response response = client.newCall(request).execute();
 
     */
-
-    public class GetRelationsRequestBodyModel                                           // Модель запиту 
-    {
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class GetRelationsRequestBodyModel                                           // 
+    {/// <summary>
+     /// Перелік кодів ЕДРПОУ за якими буде проведений пошук зв'язків
+     /// </summary>
         [JsonProperty("edrpou", NullValueHandling = NullValueHandling.Ignore)]
-        public List<string> Edrpou { get; set; }                                        // Перелік кодів ЕДРПОУ за якими буде проведений пошук зв'язків
-
+        public List<string> Edrpou { get; set; }                                        // 
+        /// <summary>
+        /// Перелік Id зв'язків за якими буде проведений пошук зв'язків
+        /// </summary>
         [JsonProperty("relationId", NullValueHandling = NullValueHandling.Ignore)]
-        public List<string> RelationId { get; set; }                                    // Перелік Id зв'язків за якими буде проведений пошук зв'язків
-
+        public List<string> RelationId { get; set; }                                    // 
+        /// <summary>
+        /// Перелік ПІБ зв'язків за якими буде проведений пошук зв'язків (мах 1)
+        /// </summary>
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-        public List<string> Name { get; set; }                                          // Перелік ПІБ зв'язків за якими буде проведений пошук зв'язків (мах 1)
-        public List<int> FilterRelationType { get; set; }                               // Фільтр по типам зв'язків (LocationType = 1, ChiefType = 2, FounderType = 3, OldNodeNameType = 4, OldNodeChiefType = 5, OldNodeAdressType = 6, OldNodeFounder = 7, Branch = 8, Assignee = 9, Signatorie = 10, Shareholder = 11, ContactType = 12)
-        public int? MaxRelationLevel { get; set; }                                      // Фільтр по к-ті рівнів зв'язків які будуть отриммані в відповіді
+        public List<string> Name { get; set; }                                          // 
+        /// <summary>
+        /// Фільтр по типам зв'язків (LocationType = 1,ChiefType = 2, FounderType = 3, OldNodeNameType = 4,OldNodeChiefType = 5, OldNodeAdressType = 6, OldNodeFounder = 7, Branch = 8, Assignee = 9, Signatorie = 10, Shareholder = 11, ContactType = 12)
+        /// </summary>
+        public List<int> FilterRelationType { get; set; }                               //   
+        /// <summary>
+        /// Фільтр по к-ті рівнів зв'язків які будуть отриммані в відповіді
+        /// </summary>
+        public int? MaxRelationLevel { get; set; }                                      // 
     }
-
-    public class GetRelationsResponseModel                                              // Модель на відповідь
-    {
-        public bool IsSucces { get; set; }                                              // Чи успішний запит
-        public string Status { get; set; }                                              // Статус відповіді по API
-        public List<GetRelationApiModelAnswerData> Data { get; set; }                   // Перелік даних
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class GetRelationsResponseModel                                              // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool IsSucces { get; set; }                                              // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Перелік даних
+        /// </summary>
+        public List<GetRelationApiModelAnswerData> Data { get; set; }                   // 
     }
+    /// <summary>
+    /// Перелік даних
+    /// </summary>
+    public class GetRelationApiModelAnswerData                                          // 
+    {/// <summary>
+     /// Id зв'язку (maxlength:36)
+     /// </summary>
+        public string ParentId { get; set; }                                            // 
+        /// <summary>
+        /// Id дочірнього зв'язку (maxlength:36)
+        /// </summary>
+        public string ChildId { get; set; }                                             // 
+        /// <summary>
+        /// Назва зв'язку (керівник, бенефіціар) (maxlength:511)
+        /// </summary>
+        public string ParentName { get; set; }                                          // 
+        /// <summary>
+        /// ЄДРПОУ зв'язку (maxlength:12)
+        /// </summary>
+        public string ParentEdrpou { get; set; }                                        // 
+        /// <summary>
+        /// Назва дочірнього зв'язку (maxlength:511)
+        /// </summary>
+        public string ChildName { get; set; }                                           // 
+        /// <summary>
+        /// ЄДРПОУ дочірнього зв'язку (maxlength:12)
+        /// </summary>
+        public string ChildEdrpou { get; set; }                                         // 
+        /// <summary>
+        /// Санкції
+        /// </summary>
+        public List<int> ParentSanctions { get; set; }                                  // 
+        /// <summary>
+        /// татус публічної особи (// 0 - не публічна особа, 1 - звязана с публічною особою,С 2 - публічная особо, 3 - невідомо, null - нема інформації)
+        /// </summary>
+        public int? ParentPublicPerson { get; set; }                                    // 
+        /// <summary>
+        /// Дочірній  зв'язок
+        /// </summary>
+        public int? ChildPublicPerson { get; set; }                                     // 
+        /// <summary>
+        /// Відсоток володіння (якщо бенефіціар / засновник / або власник пакетік акцій)
+        /// </summary>
+        public double? Percent { get; set; }                                            // 
+        /// <summary>
+        /// Санкції дочірнього зв'язку
+        /// </summary>
+        public List<int> ChildSanctions { get; set; }                                   // 
+        /// <summary>
+        /// Рівень зв'язків
+        /// </summary>
+        public int? RelationLevel { get; set; }                                         // 
+        /// <summary>
+        /// Тип зв'язку (керівник, бенефіціар) (maxlength:31) ВІдповідно по переліку:
+        /// FounderType Засновник
+        /// LocationType Адреса
+        /// ChiefType Керівник
+        /// OldNodeAdressType Попередня адреса
+        /// OldNodeFounder Попередній засновник
+        /// OldNodeChiefType Попередній керівник
+        /// OldNodeNameType Попередня назва
+        /// Branch Філія
+        /// Shareholder Власники пакетів акцій
+        /// Assignee Правонаступник
+        /// Signatorie Підписант
+        /// OldSignatorie Попередній підписант
+        /// ContactType контактні інформація (телефон Email)
+        /// BeneficiarType Бенефіціар
+        /// OldBeneficiarType Попередній бенефіціар
+        /// Predecessor Попередник
+        /// Fop ФОП
+        /// </summary>
+        public string Type { get; set; }                                                // 
 
-    public class GetRelationApiModelAnswerData                                          // Перелік даних
-    {
-        public string ParentId { get; set; }                                            // Id зв'язку (maxlength:36)
-        public string ChildId { get; set; }                                             // Id дочірнього зв'язку (maxlength:36)
-        public string ParentName { get; set; }                                          // Назва зв'язку (керівник, бенефіціар) (maxlength:511)
-        public string ParentEdrpou { get; set; }                                        // ЄДРПОУ зв'язку (maxlength:12)
-        public string ChildName { get; set; }                                           // Назва дочірнього зв'язку (maxlength:511)
-        public string ChildEdrpou { get; set; }                                         // ЄДРПОУ дочірнього зв'язку (maxlength:12)
-        public List<int> ParentSanctions { get; set; }                                  // Санкції
-        public int? ParentPublicPerson { get; set; }                                    // Статус публічної особи (// 0 - не публічна особа, 1 - звязана с публічною особою, 2 - публічная особо, 3 - невідомо, null - нема інформації)
-        public int? ChildPublicPerson { get; set; }                                     // Дочірній  зв'язок
-        public double? Percent { get; set; }                                            // Відсоток володіння (якщо бенефіціар / засновник / або власник пакетік акцій)
-        public List<int> ChildSanctions { get; set; }                                   // Санкції дочірнього зв'язку
-        public int? RelationLevel { get; set; }                                         // Рівень зв'язків
-        public string Type { get; set; }                                                // Тип зв'язку (керівник, бенефіціар) (maxlength:31) ВІдповідно по переліку:
-
-        // FounderType Засновник
-        // LocationType Адреса
-        // ChiefType Керівник
-        // OldNodeAdressType Попередня адреса
-        // OldNodeFounder Попередній засновник
-        // OldNodeChiefType Попередній керівник
-        // OldNodeNameType Попередня назва
-        // Branch Філія
-        // Shareholder Власники пакетів акцій
-        // Assignee Правонаступник
-        // Signatorie Підписант
-        // OldSignatorie Попередній підписант
-        // ContactType контактні інформація (телефон Email)
-        // BeneficiarType Бенефіціар
-        // OldBeneficiarType Попередній бенефіціар
-        // Predecessor Попередник
-        // Fop ФОП
-
-
+        /// <summary>
+        /// Адреса(maxlength:127)
+        /// </summary>
         [JsonProperty("adresa")]
-        public string Adresa { get; set; }                                              // Адреса(maxlength:127)
-
+        public string Adresa { get; set; }                                              // 
+        /// <summary>
+        /// Тип бенефіціарного володіння (maxlength:63)
+        /// </summary>
         [JsonProperty("typBenefVolodinnya")]
-        public string TypBenefVolodinnya { get; set; }                                  // Тип бенефіціарного володіння (maxlength:63)
-
+        public string TypBenefVolodinnya { get; set; }                                  // 
+        /// <summary>
+        /// Має вплив через компанію (maxlength:511)
+        /// </summary>
         [JsonProperty("vplyvCherezUO")]
-        public string VplyvCherezUo { get; set; }                                       // Має вплив через компанію (maxlength:511)
-
+        public string VplyvCherezUo { get; set; }                                       // 
+        /// <summary>
+        /// Відомості про власника паветів акцій > 5%
+        /// </summary>
         [JsonProperty("aktsiy")]
-        public List<AktsiyRelationModel> Aktsiy { get; set; }                           // Відомості про власника паветів акцій > 5%
+        public List<AktsiyRelationModel> Aktsiy { get; set; }                           // 
     }
-
-    public class AktsiyRelationModel                                                    // Відомості про власника паветів акцій > 5%
-    {
+    /// <summary>
+    /// Відомості про власника паветів акцій > 5%
+    /// </summary>
+    public class AktsiyRelationModel                                                    // 
+    {/// <summary>
+     /// Вид депондента (maxlength:511)
+     /// </summary>
         [JsonProperty("vydDeponenta")]
-        public string VydDeponenta { get; set; }                                        // Вид депондента (maxlength:511)
-
+        public string VydDeponenta { get; set; }                                        // 
+        /// <summary>
+        /// Тип цінного паперу (maxlength:31)
+        /// </summary>
         [JsonProperty("vydTsinnohoPaperu")]
-        public string VydTsinnohoPaperu { get; set; }                                   // Тип цінного паперу (maxlength:31)
-
+        public string VydTsinnohoPaperu { get; set; }                                   // 
+        /// <summary>
+        /// Код ІСІН (maxlength:31)
+        /// </summary>
         [JsonProperty("kodIsin")]
-        public string KodIsin { get; set; }                                             // Код ІСІН (maxlength:31)
-
+        public string KodIsin { get; set; }                                             // 
+        /// <summary>
+        /// Номінальна вартість (maxlength:63)
+        /// </summary>
         [JsonProperty("nominalVartist")]
-        public string NominalVartist { get; set; }                                      // Номінальна вартість (maxlength:63)
-
+        public string NominalVartist { get; set; }                                      // 
+        /// <summary>
+        /// Кількість акцій (maxlength:31)
+        /// </summary>
         [JsonProperty("kilkistAktsiy")]
-        public string KilkistAktsiy { get; set; }                                       // Кількість акцій (maxlength:31)
-
+        public string KilkistAktsiy { get; set; }                                       // 
+        /// <summary>
+        /// Відсоток акцій (maxlength:31)
+        /// </summary>
         [JsonProperty("vidsotokAktsiy")]
-        public string VidsotokAktsiy { get; set; }                                      // Відсоток акцій (maxlength:31)
+        public string VidsotokAktsiy { get; set; }                                      // 
     }
 }

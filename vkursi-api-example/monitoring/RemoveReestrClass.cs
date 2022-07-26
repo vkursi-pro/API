@@ -103,9 +103,13 @@ namespace vkursi_api_example.monitoring
         Response response = client.newCall(request).execute();
 
      */
-
-    public class RemoveReestrRequestBodyModel                                   // Модель Body запиту
-    {
-        public string reestrId { get; set; }                                    // Id реєстра який буде видалено (перелік всіх реєстрів можа отримати на api/1.0/monitoring/getAllReestr)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class RemoveReestrRequestBodyModel                                    
+    {/// <summary>
+     /// Id реєстра який буде видалено (перелік всіх реєстрів можа отримати на api/1.0/monitoring/getAllReestr)
+     /// </summary>
+        public string reestrId { get; set; }                                   
     }
 }

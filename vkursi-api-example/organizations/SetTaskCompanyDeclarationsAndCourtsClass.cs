@@ -62,16 +62,30 @@ namespace vkursi_api_example.organizations
             return STCDACResponseRow;
         }
     }
-
-    public class SetTaskCompanyDeclarationsAndCourtsBodyModel                           // Модель запиту 
-    {
-        public string Edrpou { get; set; }                                              // Перелік кодів ЄДРПОУ (обмеження 1)
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class SetTaskCompanyDeclarationsAndCourtsBodyModel                           // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ (обмеження 1)
+     /// </summary>
+        public string Edrpou { get; set; }                                              // 
     }
-
-    public class SetTaskCompanyDeclarationsAndCourtsResponseModel                       // Модель на відповідь
-    {
-        public bool IsSuccess { get; set; }                                             // Чи успішний запит
-        public string Status { get; set; }                                              // Статус відповіді по API
-        public Guid? TaskId { get; set; }                                               // Id задачі який буде використовуватися для отримання даних в api/1.0/Organizations/GetTaskCompanyDeclarationsAndCourts
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class SetTaskCompanyDeclarationsAndCourtsResponseModel                       // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool IsSuccess { get; set; }                                             // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Id задачі який буде використовуватися для отримання даних в api/1.0/Organizations/GetTaskCompanyDeclarationsAndCourts
+        /// </summary>
+        public Guid? TaskId { get; set; }                                               // 
     }
 }

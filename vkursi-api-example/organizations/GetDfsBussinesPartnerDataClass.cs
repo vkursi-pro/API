@@ -68,21 +68,42 @@ namespace vkursi_api_example.organizations
             return GDBPDResponse;
         }
     }
-
-    public class GetDfsBussinesPartnerDataRequestBodyModel                  // Модель запиту (Example: {"code":["21560766"]})
-    {
-        public List<string> Code { get; set; }                              // Код ЄДРПОУ
+    /// <summary>
+    /// Модель запиту (Example: {"code":["21560766"]})
+    /// </summary>
+    public class GetDfsBussinesPartnerDataRequestBodyModel                   
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public List<string> Code { get; set; }                              
     }
-
-    public class GetDfsBussinesPartnerDataResponseModel                     // Модель на відповідь
-    {
-        public string Status { get; set; }                                  // Статус відповіді по API
-        public bool IsSuccess { get; set; }                                 // Чи успішний запит
-        public List<OrgDfsInfo> Data { get; set; }                          // Дані відповіді
-    }
-    public class OrgDfsInfo                                                 // Дані відповіді
-    {
-        public string Code { get; set; }                                    // Код ЄДРПОУ
-        public string Info { get; set; }                                    // Текст інформації з ДФС
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class GetDfsBussinesPartnerDataResponseModel                      
+    {/// <summary>
+     /// Статус відповіді по API
+     /// </summary>
+        public string Status { get; set; }                                   
+        /// <summary>
+        /// Чи успішний запит
+        /// </summary>
+        public bool IsSuccess { get; set; }                                  
+        /// <summary>
+        /// Дані відповіді
+        /// </summary>
+        public List<OrgDfsInfo> Data { get; set; }                          
+    }/// <summary>
+     /// Дані відповіді
+     /// </summary>
+    public class OrgDfsInfo                                                  
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Code { get; set; }                                    
+        /// <summary>
+        /// Текст інформації з ДФС
+        /// </summary>
+        public string Info { get; set; }                                     
     }
 }

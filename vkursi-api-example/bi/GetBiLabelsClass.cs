@@ -62,20 +62,52 @@ namespace vkursi_api_example.bi
         }
     }
 
-    public class GetBiLabelsResponsModel                                        // Модель відповіді GetBiImportLabels
-    {
-        public bool isSuccess { get; set; }                                     // Успішно виконано?
-        public string status { get; set; }                                      // success, error
-        public List<LabelsData> data { get; set; }                              // Перелік доступних Labels
-    }
+    /// <summary>
+    /// Модель відповіді GetBiImportLabels
+    /// </summary>
 
-    public class LabelsData                                                     // Перелік доступних Labels
+    public class GetBiLabelsResponsModel                                        // 
     {
-        public Guid id { get; set; }                                            // Id label
-        public string name { get; set; }                                        // Назва label
-        public string searchParam { get; set; }                                 // Пошукові параметри за якими label був сформований 
-        public int? countRows { get; set; }                                     // Загальна кількість записів
-        public DateTime? minDate { get; set; }                                  // Мінімальна дата додавання компанії
-        public DateTime dateCreate { get; set; }                                // Дата створення label
+        /// <summary>
+        /// Успішно виконано?
+        /// </summary>
+        public bool isSuccess { get; set; }                                     // 
+        /// <summary>
+        /// success, error
+        /// </summary>
+        public string status { get; set; }                                      // 
+        /// <summary>
+        /// Перелік доступних Labels
+        /// </summary>
+        public List<LabelsData> data { get; set; }                              // 
+    }
+        /// <summary>
+        /// Перелік доступних Labels
+        /// </summary>
+    public class LabelsData                                                     // 
+    {   /// <summary>
+        /// Id label
+        /// </summary>
+        public Guid id { get; set; }                                            // 
+        /// <summary>
+        /// Назва label
+        /// </summary>
+        public string name { get; set; }                                        // 
+        /// <summary>
+        /// Пошукові параметри за якими label був сформований 
+        /// </summary>
+        public string searchParam { get; set; }                                 // 
+        /// <summary>
+        /// Загальна кількість записів
+        /// </summary>
+        public int? countRows { get; set; }                                     // 
+        /// <summary>
+        /// Мінімальна дата додавання компанії
+        /// </summary>
+        public DateTime? minDate { get; set; }                                  // 
+        /// <summary>
+        /// Дата створення label
+        /// </summary>
+        public DateTime dateCreate { get; set; }                                // 
     }
 }

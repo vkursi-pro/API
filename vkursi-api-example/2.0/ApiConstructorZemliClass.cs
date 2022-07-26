@@ -78,269 +78,785 @@ namespace vkursi_api_example._2._0
             return ACZResponseRow;
         }
     }
-
-    public class ApiConstructorZemliRequestBodyModel                             // Модель запиту 
-    {
-        public List<string> Cadastrs { get; set; }                              // Список кодастрових
-        public Guid TaskId { get; set; }                                        // Id звіту з якого будуть отримані дані (*обовязково, з часом буде прибрано)
-        public HashSet<int> MethodsList { get; set; }                           // Перелік розділів з яких будуть отримані дані:
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class ApiConstructorZemliRequestBodyModel                             // 
+    {/// <summary>
+     /// Список кодастрових
+     /// </summary>
+        public List<string> Cadastrs { get; set; }                              // 
+        /// <summary>
+        /// Id звіту з якого будуть отримані дані (*обовязково, з часом буде прибрано)
+        /// </summary>
+        public Guid TaskId { get; set; }                                        // 
+        /// <summary>
+        /// Перелік розділів з яких будуть отримані дані:
+        ///  0   Всі
+        ///  1	Загальна кадастрова інформація
+        ///  2	Загальні відомості
+        ///  3	Нормативна оцінка
+        ///  4	Обмеження
+        ///  5	Геометрія ділянки
+        ///  6	Сусідні ділянки
+        ///  7	Накладання ділянок
+        ///  8	Природні характеристики ділянки
+        ///  9	Загальна інформація про речові права
+        ///  10	Право власності
+        ///  11	Інше речове право
+        ///  12	Обтяження та іпотека
+        ///  13	Аграрні розписки
+        ///  14	Нерухомість на ділянці
+        ///  15	Судові справи
+        ///  16	Намір про продаж
+        /// </summary>
+        public HashSet<int> MethodsList { get; set; }                           // 
 
         /*
         
         MethodsList:
 
-        0   Всі
-        1	Загальна кадастрова інформація
-        2	Загальні відомості
-        3	Нормативна оцінка
-        4	Обмеження
-        5	Геометрія ділянки
-        6	Сусідні ділянки
-        7	Накладання ділянок
-        8	Природні характеристики ділянки
-        9	Загальна інформація про речові права
-        10	Право власності
-        11	Інше речове право
-        12	Обтяження та іпотека
-        13	Аграрні розписки
-        14	Нерухомість на ділянці
-        15	Судові справи
-        16	Намір про продаж 
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+         
 
         */
     }
-
-    public class ApiConstructorZemliResponseModel                                                       // Відповідь на запит
-    {
-        public string Cadastr { get; set; }                                                             // Кадастровий номер
-        public List<ConstructorZemliPlotGeneralInfo> PlotGeneralInfo { get; set; }			            // Загальна інформація
-        public List<ConstructorZemliPlotOwnershipInfo> PlotOwnershipInfo { get; set; }	            	// Право власності
-        public List<ConstructorZemliPlotUseRightInfo> PlotUseRightInfo { get; set; }                    // Інше речове право
-        public List<ConstructorZemliPlotEncumbranceInfo> PlotEncumbranceInfo { get; set; }	          	// Обтяження
-        public List<ConstructorZemliPlotSaleIntention> PlotSaleIntention { get; set; }                  // Намір про продаж
-        public List<ConstructorZemliPlotMortgageInfo> PlotMortgageInfo { get; set; }                    // Іпотека
-        public List<ConstructorZemliPlotLimitationInfo> PlotLimitationInfo { get; set; }                // Обмеження
-        public List<ConstructorZemliPlotNGOInfo> PlotNgoInfo { get; set; }                              // Нормативна грошова оцінка
-        public List<ConstructorZemliPlotRealtyInfo> PlotRealtyInfo { get; set; }                        // Нерухомість
-        public List<ConstructorZemliPlotGeometry> PlotGeometry { get; set; }                            // Геометрія ділянки
-        public List<ConstructorZemliPlotCaseInfo> PlotCaseInfo { get; set; }                            // Судові справи
-        public List<ConstructorZemliPlotNaturalAnalytics> PlotNaturalAnalytics { get; set; }            // Природні характеристики
-        public List<ConstructorZemliPlotAdjacentAreas> PlotAdjacentAreas { get; set; }                  // Сусідні ділянки
-        public List<ConstructorZemliPlotOverlapAnalytics> PlotOverlapAnalytics { get; set; }            // Накладання ділянок
-        public List<ConstructorZemliPlotAgriculturalReceipts> PlotAgriculturalReceipts { get; set; }    // Аграрні розписки
+    /// <summary>
+    /// Відповідь на запит
+    /// </summary>
+    public class ApiConstructorZemliResponseModel                                                       // 
+    {/// <summary>
+     /// Кадастровий номер
+     /// </summary>
+        public string Cadastr { get; set; }                                                             // 
+        /// <summary>
+        /// Загальна інформація
+        /// </summary>
+        public List<ConstructorZemliPlotGeneralInfo> PlotGeneralInfo { get; set; }			            // 
+        /// <summary>
+        /// Право власності
+        /// </summary>
+        public List<ConstructorZemliPlotOwnershipInfo> PlotOwnershipInfo { get; set; }	            	// 
+        /// <summary>
+        /// Інше речове право
+        /// </summary>
+        public List<ConstructorZemliPlotUseRightInfo> PlotUseRightInfo { get; set; }                    // 
+        /// <summary>
+        /// Обтяження
+        /// </summary>
+        public List<ConstructorZemliPlotEncumbranceInfo> PlotEncumbranceInfo { get; set; }	          	// 
+        /// <summary>
+        /// Намір про продаж
+        /// </summary>
+        public List<ConstructorZemliPlotSaleIntention> PlotSaleIntention { get; set; }                  // 
+        /// <summary>
+        /// Іпотека
+        /// </summary>
+        public List<ConstructorZemliPlotMortgageInfo> PlotMortgageInfo { get; set; }                    // 
+        /// <summary>
+        /// Обмеження
+        /// </summary>
+        public List<ConstructorZemliPlotLimitationInfo> PlotLimitationInfo { get; set; }                // 
+        /// <summary>
+        /// Нормативна грошова оцінка
+        /// </summary>
+        public List<ConstructorZemliPlotNGOInfo> PlotNgoInfo { get; set; }                              // 
+        /// <summary>
+        /// Нерухомість
+        /// </summary>
+        public List<ConstructorZemliPlotRealtyInfo> PlotRealtyInfo { get; set; }                        // 
+        /// <summary>
+        /// Геометрія ділянки
+        /// </summary>
+        public List<ConstructorZemliPlotGeometry> PlotGeometry { get; set; }                            // 
+        /// <summary>
+        /// Судові справи
+        /// </summary>
+        public List<ConstructorZemliPlotCaseInfo> PlotCaseInfo { get; set; }                            // 
+        /// <summary>
+        /// Природні характеристики
+        /// </summary>
+        public List<ConstructorZemliPlotNaturalAnalytics> PlotNaturalAnalytics { get; set; }            // 
+        /// <summary>
+        /// Сусідні ділянки
+        /// </summary>
+        public List<ConstructorZemliPlotAdjacentAreas> PlotAdjacentAreas { get; set; }                  // 
+        /// <summary>
+        /// Накладання ділянок
+        /// </summary>
+        public List<ConstructorZemliPlotOverlapAnalytics> PlotOverlapAnalytics { get; set; }            // 
+        /// <summary>
+        /// Аграрні розписки
+        /// </summary>
+        public List<ConstructorZemliPlotAgriculturalReceipts> PlotAgriculturalReceipts { get; set; }    // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotGeneralInfo
-    {
-        public double? Area { get; set; }                                                               // Площа ділянки
-        public string LandZone { get; set; }                                                            // Цільове призначення
-        public string Category { get; set; }                                                            // Категорія
-        public string LandType { get; set; }                                                            // Вид угіддя
-        public string OwnershipForm { get; set; }                                                       // Форма власності
-        public string Region { get; set; }                                                              // Область
-        public string District { get; set; }                                                            // Район
-        public string Hromada { get; set; }                                                             // Громада
-        public string VillageCouncil { get; set; }                                                      // Сільрада
-        public string Koatuu { get; set; }                                                              // КОАТУУ
-        public string ONM { get; set; }                                                                 // Реєстраційний номер об'єкта нерухомості ОНМ
-        public bool? Realty { get; set; }                                                               // Наявність зареєстрованої нерухомості в ДРРП
+    {/// <summary>
+     /// Площа ділянки
+     /// </summary>
+        public double? Area { get; set; }                                                               // 
+        /// <summary>
+        /// Цільове призначення
+        /// </summary>
+        public string LandZone { get; set; }                                                            // 
+        /// <summary>
+        /// Категорія
+        /// </summary>
+        public string Category { get; set; }                                                            // 
+        /// <summary>
+        /// Вид угіддя
+        /// </summary>
+        public string LandType { get; set; }                                                            // 
+        /// <summary>
+        /// Форма власності
+        /// </summary>
+        public string OwnershipForm { get; set; }                                                       // 
+        /// <summary>
+        /// Область
+        /// </summary>
+        public string Region { get; set; }                                                              // 
+        /// <summary>
+        /// Район
+        /// </summary>
+        public string District { get; set; }                                                            // 
+        /// <summary>
+        /// Громада
+        /// </summary>
+        public string Hromada { get; set; }                                                             // 
+        /// <summary>
+        /// Сільрада
+        /// </summary>
+        public string VillageCouncil { get; set; }                                                      // 
+        /// <summary>
+        /// КОАТУУ
+        /// </summary>
+        public string Koatuu { get; set; }                                                              // 
+        /// <summary>
+        /// Реєстраційний номер об'єкта нерухомості ОНМ
+        /// </summary>
+        public string ONM { get; set; }                                                                 // 
+        /// <summary>
+        /// Наявність зареєстрованої нерухомості в ДРРП
+        /// </summary>
+        public bool? Realty { get; set; }                                                               // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotOwnershipInfo
-    {
-        public string OwnershipForm { get; set; }                                                       // Форма власності
-        public string OwnershipType { get; set; }                                                       // Тип власності
-        public double? Part { get; set; }                                                               // Частка власності
-        public string OwnerName { get; set; }                                                           // Назва власника
-        public string OwnerCode { get; set; }                                                           // Код власника
-        public string OwnerSubjectType { get; set; }                                                    // Тип суб'єкта власника
-        public int? RegNum { get; set; }                                                                // Реєстраційний номер власності
-        public DateTime? RegDate { get; set; }                                                          // Дата реєстрації права власності
-        public string Register { get; set; }                                                            // Реєстратор права власності
-        public string OperationReason { get; set; }                                                     // Підстава реєстрації права власності
-        public string OwnershipDocName { get; set; }                                                    // Документ підстави реєстрації права власності
-        public string OwnershipDocNum { get; set; }                                                     // Номер документу підстави реєстрації права власності
-        public DateTime? OwnershipDocDate { get; set; }                                                 // Дата видачі документу підстави реєстрації права власності
-        public string OwnershipDocPublisher { get; set; }                                               // Видавник документу підстави реєстрації права власності
+    {/// <summary>
+     /// Форма власності
+     /// </summary>
+        public string OwnershipForm { get; set; }                                                       // 
+        /// <summary>
+        /// Тип власності
+        /// </summary>
+        public string OwnershipType { get; set; }                                                       // 
+        /// <summary>
+        /// Частка власності
+        /// </summary>
+        public double? Part { get; set; }                                                               // 
+        /// <summary>
+        /// Назва власника
+        /// </summary>
+        public string OwnerName { get; set; }                                                           // 
+        /// <summary>
+        /// Код власника
+        /// </summary>
+        public string OwnerCode { get; set; }                                                           // 
+        /// <summary>
+        /// Тип суб'єкта власника
+        /// </summary>
+        public string OwnerSubjectType { get; set; }                                                    // 
+        /// <summary>
+        /// Реєстраційний номер власності
+        /// </summary>
+        public int? RegNum { get; set; }                                                                // 
+        /// <summary>
+        /// Дата реєстрації права власності
+        /// </summary>
+        public DateTime? RegDate { get; set; }                                                          // 
+        /// <summary>
+        /// Реєстратор права власності
+        /// </summary>
+        public string Register { get; set; }                                                            // 
+        /// <summary>
+        /// Підстава реєстрації права власності
+        /// </summary>
+        public string OperationReason { get; set; }                                                     // 
+        /// <summary>
+        /// Документ підстави реєстрації права власності
+        /// </summary>
+        public string OwnershipDocName { get; set; }                                                    // 
+        /// <summary>
+        /// Номер документу підстави реєстрації права власності
+        /// </summary>
+        public string OwnershipDocNum { get; set; }                                                     // 
+        /// <summary>
+        /// Дата видачі документу підстави реєстрації права власності
+        /// </summary>
+        public DateTime? OwnershipDocDate { get; set; }                                                 // 
+        /// <summary>
+        /// Видавник документу підстави реєстрації права власності
+        /// </summary>
+        public string OwnershipDocPublisher { get; set; }                                               // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotUseRightInfo
-    {
-        public string RightType { get; set; }                                                           // Вид іншого речового права
-        public string UserName { get; set; }                                                            // Назва користувача
-        public string UserCode { get; set; }                                                            // Код користувача
-        public List<ConstructorZemliSubjectInfo> Landlords { get; set; }                                 // Перелік власників ділянки
-        public int? RightRegNum { get; set; }                                                           // Реєстраційний номер іншого речового права
-        public DateTime? RightRegDate { get; set; }                                                     // Дата реєстрації іншого речового права
-        public string RightRegister { get; set; }                                                       // Реєстратор іншого речового права
-        public string OperationReason { get; set; }                                                     // Підстава реєстрації іншого речового права
-        public List<ConstructorZemliCauseDocument> CauseDocuments { get; set; }                          // Перелік документів іншого речового права
-        public bool? IsAutomaticProlongation { get; set; }                                              // Автоматична пролонгація
+    {/// <summary>
+     /// Вид іншого речового права
+     /// </summary>
+        public string RightType { get; set; }                                                           // 
+        /// <summary>
+        /// Назва користувача
+        /// </summary>
+        public string UserName { get; set; }                                                            // 
+        /// <summary>
+        /// Код користувача
+        /// </summary>
+        public string UserCode { get; set; }                                                            // 
+        /// <summary>
+        /// Перелік власників ділянки
+        /// </summary>
+        public List<ConstructorZemliSubjectInfo> Landlords { get; set; }                                 // 
+        /// <summary>
+        /// Реєстраційний номер іншого речового права
+        /// </summary>
+        public int? RightRegNum { get; set; }                                                           // 
+        /// <summary>
+        /// Дата реєстрації іншого речового права
+        /// </summary>
+        public DateTime? RightRegDate { get; set; }                                                     // 
+        /// <summary>
+        /// Реєстратор іншого речового права
+        /// </summary>
+        public string RightRegister { get; set; }                                                       // 
+        /// <summary>
+        ///Підстава реєстрації іншого речового права 
+        /// </summary>
+        public string OperationReason { get; set; }                                                     // 
+        /// <summary>
+        /// Перелік документів іншого речового права
+        /// </summary>
+        public List<ConstructorZemliCauseDocument> CauseDocuments { get; set; }                          // 
+        /// <summary>
+        /// Автоматична пролонгація
+        /// </summary>
+        public bool? IsAutomaticProlongation { get; set; }                                              // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public bool? IsRightToSublease { get; set; }                                // 
-        public DateTime? StartDate { get; set; }                                    // Дата початку дії іншого речового права
-        public string ContractPeriod { get; set; }                                  // Термін дії іншого речового права
-        public DateTime? EndDate { get; set; }                                                          // Дата завершення дії іншого речового права
-        public DateTime? RightStartDate { get; set; }                                                   // Нормалізована дата початку дії іншого речового права
-        public DateTime? RightEndDate { get; set; }                                                     // Нормалізована дата завершення дії іншого речового права
-        public string RightEndDateStatus { get; set; }                                                  // Вид визначення дати завершення іншого речового права
-        public double? PaymentPercent { get; set; }                                                     // Відсоток орендної плати
-        public double? AnnualPaymentAmount { get; set; }                                                // Сума річного внеску орендної плати за ділянку
+        /// <summary>
+        /// Дата початку дії іншого речового права
+        /// </summary>
+        public DateTime? StartDate { get; set; }                                    // 
+        /// <summary>
+        /// Термін дії іншого речового права
+        /// </summary>
+        public string ContractPeriod { get; set; }                                  // 
+        /// <summary>
+        /// Дата завершення дії іншого речового права
+        /// </summary>
+        public DateTime? EndDate { get; set; }                                                          // 
+        /// <summary>
+        /// Нормалізована дата початку дії іншого речового права
+        /// </summary>
+        public DateTime? RightStartDate { get; set; }                                                   // 
+        /// <summary>
+        /// Нормалізована дата завершення дії іншого речового права
+        /// </summary>
+        public DateTime? RightEndDate { get; set; }                                                     // 
+        /// <summary>
+        /// Вид визначення дати завершення іншого речового права
+        /// </summary>
+        public string RightEndDateStatus { get; set; }                                                  // 
+        /// <summary>
+        /// Відсоток орендної плати
+        /// </summary>
+        public double? PaymentPercent { get; set; }                                                     // 
+        /// <summary>
+        /// Сума річного внеску орендної плати за ділянку
+        /// </summary>
+        public double? AnnualPaymentAmount { get; set; }                                                // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public double? OneTimePaymentAmount { get; set; }
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotEncumbranceInfo
-    {
-        public string EncumbranceType { get; set; }                                                     // Тип обтяження
-        public int? EncumbranceRegNum { get; set; }                                                     // Реєстраційний номер обтяження
-        public DateTime? EncumbranceRegDate { get; set; }                                               // Дата реєстрації обтяження 
-        public string EncumbranceRegister { get; set; }                                                 // Реєстратор обтяження
-        public string EncumbranceOperationReason { get; set; }                                          // Підстава реєстрації обтяження
-        public string EncumbranceDocName { get; set; }                                                  // Документ обтяження
-        public string EncumbranceDocNum { get; set; }                                                   // Номер документу обтяження
-        public DateTime? EncumbranceDocDate { get; set; }                                               // Дата видачі документу обтяження
-        public string EncumbranceDocPublisher { get; set; }                                             // Видавник документу підстави реєстрації обтяження
-        public string EncumbrancerName { get; set; }                                                    // Назва обтяжувача
-        public string EncumbrancerCode { get; set; }                                                    // Код обтяжувача
-        public List<ConstructorZemliSubjectInfo> Owners { get; set; }                                    // Перелік власників ділянки
-        public List<ConstructorZemliSubjectInfo> EncumberedPerson { get; set; }                          // Перелік осіб права яких обтяжуються
-        public string BenefitedPersonName { get; set; }                                                 // Назва особи, на користь якої встановлено обтяження
-        public string BenefitedPersonCode { get; set; }                                                 // Код особи, на користь якої встановлено обтяження
+    {/// <summary>
+     /// Тип обтяження
+     /// </summary>
+        public string EncumbranceType { get; set; }                                                     // 
+        /// <summary>
+        /// Реєстраційний номер обтяження
+        /// </summary>
+        public int? EncumbranceRegNum { get; set; }                                                     // 
+        /// <summary>
+        /// Дата реєстрації обтяження 
+        /// </summary>
+        public DateTime? EncumbranceRegDate { get; set; }                                               // 
+        /// <summary>
+        /// Реєстратор обтяження
+        /// </summary>
+        public string EncumbranceRegister { get; set; }                                                 // 
+        /// <summary>
+        /// Підстава реєстрації обтяження
+        /// </summary>
+        public string EncumbranceOperationReason { get; set; }                                          // 
+        /// <summary>
+        /// Документ обтяження
+        /// </summary>
+        public string EncumbranceDocName { get; set; }                                                  // 
+        /// <summary>
+        /// Номер документу обтяження
+        /// </summary>
+        public string EncumbranceDocNum { get; set; }                                                   // 
+        /// <summary>
+        /// Дата видачі документу обтяження
+        /// </summary>
+        public DateTime? EncumbranceDocDate { get; set; }                                               // 
+        /// <summary>
+        /// Видавник документу підстави реєстрації обтяження
+        /// </summary>
+        public string EncumbranceDocPublisher { get; set; }                                             // 
+        /// <summary>
+        /// Назва обтяжувача
+        /// </summary>
+        public string EncumbrancerName { get; set; }                                                    // 
+        /// <summary>
+        /// Код обтяжувача
+        /// </summary>
+        public string EncumbrancerCode { get; set; }                                                    // 
+        /// <summary>
+        /// Перелік власників ділянки
+        /// </summary>
+        public List<ConstructorZemliSubjectInfo> Owners { get; set; }                                    // 
+        /// <summary>
+        /// Перелік осіб права яких обтяжуються
+        /// </summary>
+        public List<ConstructorZemliSubjectInfo> EncumberedPerson { get; set; }                          // 
+        /// <summary>
+        /// Назва особи, на користь якої встановлено обтяження
+        /// </summary>
+        public string BenefitedPersonName { get; set; }                                                 // 
+        /// <summary>
+        /// Код особи, на користь якої встановлено обтяження
+        /// </summary>
+        public string BenefitedPersonCode { get; set; }                                                 // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotSaleIntention
-    {
-        public string SaleIntentionType { get; set; }                                                   // Тип наміру
-        public int? SaleIntentionRegNum { get; set; }                                                   // Реєстраційний номер наміру про продаж
-        public DateTime? SaleIntentionRegDate { get; set; }                                             // Дата реєстрації наміру про продаж
-        public string SaleIntentionRegister { get; set; }                                               // Реєстратор наміру про продаж
-        public string SaleIntentionOperationReason { get; set; }                                        // Підстава реєстрації наміру про продаж
-        public string SaleIntentionDocName { get; set; }                                                // Документ підстави реєстрації наміру про продаж
-        public string SaleIntentionDocNum { get; set; }                                                 // Номер документу підстави реєстрації наміру
-        public DateTime? SaleIntentionDocDate { get; set; }                                             // Дата видачі документу підстави реєстрації наміру
-        public string SaleIntentionDocPublisher { get; set; }                                           // Видавник документу підстави реєстрації наміру
+    {/// <summary>
+     /// Тип наміру
+     /// </summary>
+        public string SaleIntentionType { get; set; }                                                   // 
+        /// <summary>
+        /// Реєстраційний номер наміру про продаж
+        /// </summary>
+        public int? SaleIntentionRegNum { get; set; }                                                   // 
+        /// <summary>
+        /// Дата реєстрації наміру про продаж
+        /// </summary>
+        public DateTime? SaleIntentionRegDate { get; set; }                                             // 
+        /// <summary>
+        /// Реєстратор наміру про продаж
+        /// </summary>
+        public string SaleIntentionRegister { get; set; }                                               // 
+        /// <summary>
+        /// Підстава реєстрації наміру про продаж
+        /// </summary>
+        public string SaleIntentionOperationReason { get; set; }                                        // 
+        /// <summary>
+        /// Документ підстави реєстрації наміру про продаж
+        /// </summary>
+        public string SaleIntentionDocName { get; set; }                                                // 
+        /// <summary>
+        /// Номер документу підстави реєстрації наміру
+        /// </summary>
+        public string SaleIntentionDocNum { get; set; }                                                 // 
+        /// <summary>
+        /// Дата видачі документу підстави реєстрації наміру
+        /// </summary>
+        public DateTime? SaleIntentionDocDate { get; set; }                                             // 
+        /// <summary>
+        /// Видавник документу підстави реєстрації наміру
+        /// </summary>
+        public string SaleIntentionDocPublisher { get; set; }                                           // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotMortgageInfo
-    {
-        public DateTime MortgageRegDate { get; set; }                                                   // Дата реєстрації іпотеки
-        public string MortgageRegister { get; set; }                                                    // Реєстратор іпотеки
-        public int? MortgageRegNum { get; set; }                                                        // Реєстраційний номер іпотеки
-        public string MortgageOperationReason { get; set; }                                             // Підстава реєстрації іпотеки
-        public double? MortgageAmount { get; set; }                                                     // Сума іпотечного зобов'язання
-        public string CurrencyType { get; set; }                                                        // Валюта іпотечного зобов'язання
-        public DateTime? MortgageExecTerm { get; set; }                                                 // Дата погашення іпотеки
-        public List<ConstructorZemliSubjectInfo> Mortgagors { get; set; }                                // Перелік іпотекодавців
-        public string MortgageeName { get; set; }                                                       // Назва іпотекодержателя
-        public string MortgageeCode { get; set; }                                                       // Код іпотекодержателя
-        public string DebtorName { get; set; }                                                          // Назва боржника
-        public string DebtorCode { get; set; }                                                          // Код боржника
-        public string GuarantorName { get; set; }                                                       // Назва майнового поручителя
-        public string GuarantorCode { get; set; }                                                       // Код майнового поручителя
+    {/// <summary>
+     /// Дата реєстрації іпотеки
+     /// </summary>
+        public DateTime MortgageRegDate { get; set; }                                                   // 
+        /// <summary>
+        /// Реєстратор іпотеки
+        /// </summary>
+        public string MortgageRegister { get; set; }                                                    // 
+        /// <summary>
+        /// Реєстраційний номер іпотеки
+        /// </summary>
+        public int? MortgageRegNum { get; set; }                                                        // 
+        /// <summary>
+        /// Підстава реєстрації іпотеки
+        /// </summary>
+        public string MortgageOperationReason { get; set; }                                             // 
+        /// <summary>
+        /// Сума іпотечного зобов'язання
+        /// </summary>
+        public double? MortgageAmount { get; set; }                                                     // 
+        /// <summary>
+        /// Валюта іпотечного зобов'язання
+        /// </summary>
+        public string CurrencyType { get; set; }                                                        // 
+        /// <summary>
+        /// Дата погашення іпотеки
+        /// </summary>
+        public DateTime? MortgageExecTerm { get; set; }                                                 // 
+        /// <summary>
+        /// Перелік іпотекодавців
+        /// </summary>
+        public List<ConstructorZemliSubjectInfo> Mortgagors { get; set; }                                // 
+        /// <summary>
+        /// Назва іпотекодержателя
+        /// </summary>
+        public string MortgageeName { get; set; }                                                       // 
+        /// <summary>
+        /// Код іпотекодержателя
+        /// </summary>
+        public string MortgageeCode { get; set; }                                                       // 
+        /// <summary>
+        /// Назва боржника
+        /// </summary>
+        public string DebtorName { get; set; }                                                          // 
+        /// <summary>
+        /// Код боржника
+        /// </summary>
+        public string DebtorCode { get; set; }                                                          // 
+        /// <summary>
+        /// Назва майнового поручителя
+        /// </summary>
+        public string GuarantorName { get; set; }                                                       // 
+        /// <summary>
+        /// Код майнового поручителя
+        /// </summary>
+        public string GuarantorCode { get; set; }                                                       // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotLimitationInfo
-    {
-        public string LimitationType { get; set; }                                                      // Тип обмеження
-        public DateTime? LimitationRegDate { get; set; }                                                // Дата реєстрації обмеження
-        public string LimitationRightHolderName { get; set; }                                           // Назва особи, на користь якої встановленно обмеження
-        public string LimitationRightHolderCode { get; set; }                                           // Код особи, на користь якої встановленно обмеження 
-        public int? LimitationRegNum { get; set; }                                                      // Реєстраційний номер права обмеження
-        public string LimitationRegister { get; set; }                                                  // Реєстратор права обмеження
+    {/// <summary>
+     /// Тип обмеження
+     /// </summary>
+        public string LimitationType { get; set; }                                                      // 
+        /// <summary>
+        /// Дата реєстрації обмеження
+        /// </summary>
+        public DateTime? LimitationRegDate { get; set; }                                                // 
+        /// <summary>
+        /// Назва особи, на користь якої встановленно обмеження
+        /// </summary>
+        public string LimitationRightHolderName { get; set; }                                           // 
+        /// <summary>
+        /// Код особи, на користь якої встановленно обмеження 
+        /// </summary>
+        public string LimitationRightHolderCode { get; set; }                                           // 
+        /// <summary>
+        /// Реєстраційний номер права обмеження
+        /// </summary>
+        public int? LimitationRegNum { get; set; }                                                      // 
+        /// <summary>
+        /// Реєстратор права обмеження
+        /// </summary>
+        public string LimitationRegister { get; set; }                                                  // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotNGOInfo
-    {
-        public double? NGOPerPlot { get; set; }                                                         // НГО за ділянку
-        public double? NGOPerHa { get; set; }                                                           // НГО за гектар
-        public DateTime? PlotEvaluationDate { get; set; }                                               // Дата проведення НГО
+    {/// <summary>
+     /// НГО за ділянку
+     /// </summary>
+        public double? NGOPerPlot { get; set; }                                                         // 
+        /// <summary>
+        /// НГО за гектар
+        /// </summary>
+        public double? NGOPerHa { get; set; }                                                           // 
+        /// <summary>
+        /// Дата проведення НГО
+        /// </summary>
+        public DateTime? PlotEvaluationDate { get; set; }                                               // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotRealtyInfo
-    {
-        public string RealtyType { get; set; }                                                          // Тип об'єкту нерухомості
-        public string RealtyTypeDetail { get; set; }                                                    // Доповнення до типу об'єкту нерухомості
-        public double? Area { get; set; }                                                               // Площа об'єкту нерухомості
-        public string TechDescription { get; set; }                                                     // Опис об'єкту нерухомості
+    {/// <summary>
+     /// Тип об'єкту нерухомості
+     /// </summary>
+        public string RealtyType { get; set; }                                                          // 
+        /// <summary>
+        /// Доповнення до типу об'єкту нерухомості
+        /// </summary>
+        public string RealtyTypeDetail { get; set; }                                                    // 
+        /// <summary>
+        /// Площа об'єкту нерухомості
+        /// </summary>
+        public double? Area { get; set; }                                                               // 
+        /// <summary>
+        /// Опис об'єкту нерухомості
+        /// </summary>
+        public string TechDescription { get; set; }                                                     // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotGeometry
-    {
-        public string PlotCoordinates { get; set; }                                                     // Координати ділянки
-        public List<double> PlotCenterCoordinates { get; set; }                                         // Координати центру ділянки
-        public double? AreaMap { get; set; }                                                            // Площа по карті
+    {/// <summary>
+     /// Координати ділянки
+     /// </summary>
+        public string PlotCoordinates { get; set; }                                                     // 
+        /// <summary>
+        /// Координати центру ділянки
+        /// </summary>
+        public List<double> PlotCenterCoordinates { get; set; }                                         // 
+        /// <summary>
+        /// Площа по карті
+        /// </summary>
+        public double? AreaMap { get; set; }                                                            // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotCaseInfo
-    {
-        public int? AllCasesQuantity { get; set; }                                                       // Кількість судових справ, виявлених по ділянці
-        public int? ActiveCasesQuantity { get; set; }                                                    // Кількість відкритих судових справ, виявлених по ділянці
-        public List<string> CaseId { get; set; }                                                         // Перелік Id судових справ
-        public List<ConstructorZemliActiveCase> ActiveCases { get; set; }                                 // Перелік активних судових справ
+    {/// <summary>
+     /// Кількість судових справ, виявлених по ділянці
+     /// </summary>
+        public int? AllCasesQuantity { get; set; }                                                       // 
+        /// <summary>
+        /// Кількість відкритих судових справ, виявлених по ділянці
+        /// </summary>
+        public int? ActiveCasesQuantity { get; set; }                                                    // 
+        /// <summary>
+        /// Перелік Id судових справ
+        /// </summary>
+        public List<string> CaseId { get; set; }                                                         // 
+        /// <summary>
+        /// Перелік активних судових справ
+        /// </summary>
+        public List<ConstructorZemliActiveCase> ActiveCases { get; set; }                                 // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliActiveCase
-    {
-        public string ActiveCaseId { get; set; }                                                         // Id документа
-        public string Url { get; set; }                                                                  // Посилання
-        public string JusticeKind { get; set; }                                                          // Форма судочинства
-        public string Instance { get; set; }                                                             // Інстанція
-        public double? ClaimAmount { get; set; }                                                         // Сума позову
-        public string CurrencyType { get; set; }                                                         // Тип валюти
-        public List<ConstructorZemliCaseParty> CaseParties { get; set; }                                  // Сторони справи
+    {/// <summary>
+     /// Id документа
+     /// </summary>
+        public string ActiveCaseId { get; set; }                                                         // 
+        /// <summary>
+        /// Посилання
+        /// </summary>
+        public string Url { get; set; }                                                                  // 
+        /// <summary>
+        /// Форма судочинства
+        /// </summary>
+        public string JusticeKind { get; set; }                                                          // 
+        /// <summary>
+        /// Інстанція
+        /// </summary>
+        public string Instance { get; set; }                                                             // 
+        /// <summary>
+        /// Сума позову
+        /// </summary>
+        public double? ClaimAmount { get; set; }                                                         // 
+        /// <summary>
+        /// Тип валюти
+        /// </summary>
+        public string CurrencyType { get; set; }                                                         // 
+        /// <summary>
+        /// Сторони справи
+        /// </summary>
+        public List<ConstructorZemliCaseParty> CaseParties { get; set; }                                  // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotNaturalAnalytics
-    {
-        public string SoilType { get; set; }                                                             // Тип грунту
-        public string SlopeExposition { get; set; }                                                      // Експозиція схилу
-        public double? SurfaceAngle { get; set; }                                                        // Кут ухилу поверхні
-    }
+    {/// <summary>
+     /// Тип грунту
+     /// </summary>
+        public string SoilType { get; set; }                                                             // 
+        /// <summary>
+        /// Експозиція схилу
+        /// </summary>
+        public string SlopeExposition { get; set; }                                                      // 
+        /// <summary>
+        /// Кут ухилу поверхні
+        /// </summary>
+        public double? SurfaceAngle { get; set; }                                                        // 
+    }/// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotAdjacentAreas
-    {
-        public List<string> AdjacentPlotCadastrNumber { get; set; }                                      // Перелік кадстрових номерів сусідніх ділянок
-    }
+    {/// <summary>
+     /// Перелік кадстрових номерів сусідніх ділянок
+     /// </summary>
+        public List<string> AdjacentPlotCadastrNumber { get; set; }                                      // 
+    }/// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotOverlapAnalytics
-    {
-        public string OverlapedPlotCadastrNumber { get; set; }                                           // Кадастровий номер ділянки накладання
-        public double? OverlapArea { get; set; }                                                         // Площа накладання
-        public List<List<Coordinate>> Geometry { get; set; }                                             // Координати зони накладання
-    }
+    {/// <summary>
+     /// Кадастровий номер ділянки накладання
+     /// </summary>
+        public string OverlapedPlotCadastrNumber { get; set; }                                           // 
+        /// <summary>
+        /// Площа накладання
+        /// </summary>
+        public double? OverlapArea { get; set; }                                                         // 
+        /// <summary>
+        /// Координати зони накладання
+        /// </summary>
+        public List<List<Coordinate>> Geometry { get; set; }                                             // 
+    }/// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliPlotAgriculturalReceipts
-    {
-        public List<AgroRegisters> AgroRegistersList { get; set; }                                       // Аграрні розписки
-    }
+    {/// <summary>
+     /// Аграрні розписки
+     /// </summary>
+        public List<AgroRegisters> AgroRegistersList { get; set; }                                       // 
+    }/// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliCaseParty
-    {
-        public string PartyName { get; set; }                                                            // Назва сторони
-        public string PartyCode { get; set; }                                                            // Код сторони
-        public string PartType { get; set; }                                                             // Тип сторони
-    }
+    {/// <summary>
+     /// Назва сторони
+     /// </summary>
+        public string PartyName { get; set; }                                                            // 
+        /// <summary>
+        /// Код сторони
+        /// </summary>
+        public string PartyCode { get; set; }                                                            // 
+        /// <summary>
+        /// Тип сторони
+        /// </summary>
+        public string PartType { get; set; }                                                             // 
+    }/// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliSubjectInfo
-    {
-        public string SubjectName { get; set; }                                                          // Назва власника
-        public string SubjectCode { get; set; }                                                          // Код власника
-    }
+    {/// <summary>
+     /// Назва власника
+     /// </summary>
+        public string SubjectName { get; set; }                                                          // 
+        /// <summary>
+        /// Код власника
+        /// </summary>
+        public string SubjectCode { get; set; }                                                          // 
+    }/// <summary>
+    /// ???
+    /// </summary>
     public class ConstructorZemliCauseDocument
-    {
-        public string UseRightDocName { get; set; }                                                      // Документ підстави реєстрації іншого речового прав
-        public string UseRightDocNum { get; set; }                                                       // Номер документу підстави іншого речового права
-        public DateTime? UseRightDocDate { get; set; }                                                   // Дата документу підстави іншого речового права
-        public string UseRightDocPublisher { get; set; }                                                 // Видавник документу підстави іншого речового права
+    {/// <summary>
+     /// Документ підстави реєстрації іншого речового прав
+     /// </summary>
+        public string UseRightDocName { get; set; }                                                      // 
+        /// <summary>
+        /// Номер документу підстави іншого речового права
+        /// </summary>
+        public string UseRightDocNum { get; set; }                                                       // 
+        /// <summary>
+        /// Дата документу підстави іншого речового права
+        /// </summary>
+        public DateTime? UseRightDocDate { get; set; }                                                   // 
+        /// <summary>
+        /// Видавник документу підстави іншого речового права
+        /// </summary>
+        public string UseRightDocPublisher { get; set; }                                                 // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class AgroRegisters
-    {
-        public int Id { get; set; }                                 // Id розписки
-        public int TypeReceipt { get; set; }                        // Тип розписки
-        public string NotarizedForms { get; set; }                  // Номери нотаріальних бланків
+    {/// <summary>
+     /// Id розписки
+     /// </summary>
+        public int Id { get; set; }                                 // 
+        /// <summary>
+        /// Тип розписки
+        /// </summary>
+        public int TypeReceipt { get; set; }                        // 
+        /// <summary>
+        /// Номери нотаріальних бланків
+        /// </summary>
+        public string NotarizedForms { get; set; }                  // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public string DeliveryTermCalcDesc { get; set; }            // 
-        public DateTime DeliveryTermDeadline { get; set; }          // Строк сплати коштів
-        public string DeliveryTermAmountCurrency { get; set; }      // Сума (оціночна вартість)
-        public string Collateral { get; set; }                      // Опис предмету застави за аграрною розпискою
-        public string CollateralInsurance { get; set; }             // Умови страхування
-        public double CollateralEstimation { get; set; }            // Оцінка предмету застави
-        public DateTime? EndDate { get; set; }                      // Кінцева дата зобов'язання
-        public DateTime CrDate { get; set; }                        // Дата реєстрації розписки
-        public string Debtors { get; set; }                         // Боржники
+        /// <summary>
+        /// Строк сплати коштів
+        /// </summary>
+        public DateTime DeliveryTermDeadline { get; set; }          // 
+        /// <summary>
+        /// Сума (оціночна вартість)
+        /// </summary>
+        public string DeliveryTermAmountCurrency { get; set; }      // 
+        /// <summary>
+        /// Опис предмету застави за аграрною розпискою
+        /// </summary>
+        public string Collateral { get; set; }                      // 
+        /// <summary>
+        /// Умови страхування
+        /// </summary>
+        public string CollateralInsurance { get; set; }             // 
+        /// <summary>
+        /// Оцінка предмету застави
+        /// </summary>
+        public double CollateralEstimation { get; set; }            // 
+        /// <summary>
+        /// Кінцева дата зобов'язання
+        /// </summary>
+        public DateTime? EndDate { get; set; }                      // 
+        /// <summary>
+        /// Дата реєстрації розписки
+        /// </summary>
+        public DateTime CrDate { get; set; }                        // 
+        /// <summary>
+        /// Боржники
+        /// </summary>
+        public string Debtors { get; set; }                         // 
     }
 }

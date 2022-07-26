@@ -93,10 +93,22 @@ namespace vkursi_api_example.bi
 
      */
 
-    public class GetBiImportLabelsResponsModel                                  // Модель відповіді GetBiImportLabels
+    /// <summary>
+    /// Модель відповіді GetBiImportLabels
+    /// </summary>
+    public class GetBiImportLabelsResponsModel                                  // 
     {
-        public bool isSuccess { get; set; }                                     // Успішно виконано?
-        public string status { get; set; }                                      // success, error
-        public List<string> data { get; set; }                                  // Перелік доступних Labels
+        /// <summary>
+        /// Успішно виконано?
+        /// </summary>
+        public bool isSuccess { get; set; }                                     // 
+        /// <summary>
+        /// success, error
+        /// </summary>
+        public string status { get; set; }                                      // 
+        /// <summary>
+        /// Перелік доступних Labels
+        /// </summary>
+        public List<string> data { get; set; }                                  // 
     }
 }

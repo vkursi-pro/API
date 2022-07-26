@@ -73,32 +73,72 @@ namespace vkursi_api_example.organizations
             return GOVResponse;
         }
     }
-
-    public class GetOrgVehicleRequestBodyModel                                  // Модель Body запиту
-    {
-        public List<string> Edrpou { get; set; }                                // Перелік ЄДРПОУ / ІПН (обмеження 1)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetOrgVehicleRequestBodyModel                                  // 
+    {/// <summary>
+     /// Перелік ЄДРПОУ / ІПН (обмеження 1)
+     /// </summary>
+        public List<string> Edrpou { get; set; }                                // 
     }
-
-    public class GetOrgVehicleResponseModel                                     // Модель відповіді GetOrgVehicle
-    {
-        public string Status { get; set; }                                      // Статус відповіді по API (maxLength:128)
-        public bool IsSucces { get; set; }                                      // Чи успішний запит
-        public VehicleOrgApiAnswerModelData Data { get; set; }                  // Дані
+    /// <summary>
+    /// Модель відповіді GetOrgVehicle
+    /// </summary>
+    public class GetOrgVehicleResponseModel                                     // 
+    {/// <summary>
+     /// Статус відповіді по API (maxLength:128)
+     /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Чи успішний запит
+        /// </summary>
+        public bool IsSucces { get; set; }                                      // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public VehicleOrgApiAnswerModelData Data { get; set; }                  // 
     }
-
-    public class VehicleOrgApiAnswerModelData                                   // Дані
-    {
-        public string Edrpou { get; set; }                                      // ЄДРПОУ / ІПН (maxLength:12)
-        public List<VehicleOrgApiAnswerModelDataVehicle> Vehicles { get; set; } // Перелік ТЗ (транспортних засобів)
+    /// <summary>
+    /// Дані
+    /// </summary>
+    public class VehicleOrgApiAnswerModelData                                   // 
+    {/// <summary>
+     /// ЄДРПОУ / ІПН (maxLength:12)
+     /// </summary>
+        public string Edrpou { get; set; }                                      // 
+        /// <summary>
+        /// Перелік ТЗ (транспортних засобів)
+        /// </summary>
+        public List<VehicleOrgApiAnswerModelDataVehicle> Vehicles { get; set; } // 
     }
-
-    public class VehicleOrgApiAnswerModelDataVehicle                            // Перелік ТЗ (транспортних засобів)
-    {
-        public string Brand { get; set; }                                       // Марка ТЗ (maxLength:128)
-        public string Name { get; set; }                                        // Модель (maxLength:128)
-        public int? ReleaseYear { get; set; }                                   // Год випуска
-        public int? Capacity { get; set; }                                      // Об'єм двигуна 
-        public DateTime? RegDate { get; set; }                                  // Дата реєстраційної дії
-        public string OperationName { get; set; }                               // Тип реєстраційної дії (maxLength:512)
+    /// <summary>
+    /// Перелік ТЗ (транспортних засобів)
+    /// </summary>
+    public class VehicleOrgApiAnswerModelDataVehicle                            // 
+    {/// <summary>
+     /// Марка ТЗ (maxLength:128)
+     /// </summary>
+        public string Brand { get; set; }                                       // 
+        /// <summary>
+        /// Модель (maxLength:128)
+        /// </summary>
+        public string Name { get; set; }                                        // 
+        /// <summary>
+        /// Год випуска
+        /// </summary>
+        public int? ReleaseYear { get; set; }                                   // 
+        /// <summary>
+        /// Об'єм двигуна 
+        /// </summary>
+        public int? Capacity { get; set; }                                      // 
+        /// <summary>
+        /// Дата реєстраційної дії
+        /// </summary>
+        public DateTime? RegDate { get; set; }                                  // 
+        /// <summary>
+        /// Тип реєстраційної дії (maxLength:512)
+        /// </summary>
+        public string OperationName { get; set; }                               // 
     }
 }

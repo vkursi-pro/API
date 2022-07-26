@@ -112,44 +112,111 @@ namespace vkursi_api_example.organizations
         Response response = client.newCall(request).execute();
      
      */
-
-    public class GetOwnershipStructureBodyModel                                         // Модель запиту (Example: {"edrpou":"31077508"})
-    {
+    /// <summary>
+    /// Модель запиту (Example: {"edrpou":"31077508"})
+    /// </summary>
+    public class GetOwnershipStructureBodyModel                                         // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
         [JsonProperty("edrpou")]
-        public string Edrpou { get; set; }                                              // Код ЄДРПОУ
+        public string Edrpou { get; set; }                                              // 
     }
-
-    public class GetOwnershipStructureResponseModel                                     // Модель на відповідь GetExpressScore
-    {
+    /// <summary>
+    /// Модель на відповідь GetExpressScore
+    /// </summary>
+    public class GetOwnershipStructureResponseModel                                     // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
         [JsonProperty("isSuccess")]
-        public bool IsSuccess { get; set; }                                             // Чи успішний запит
-
+        public bool IsSuccess { get; set; }                                             // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
         [JsonProperty("status")]
-        public string Status { get; set; }                                              // Статус відповіді по API
-
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Дані методу
+        /// </summary>
         [JsonProperty("data")]
-        public List<GetOwnershipStructureRequestData> Data { get; set; }                // Дані методу
+        public List<GetOwnershipStructureRequestData> Data { get; set; }                // 
     }
-
-    public class GetOwnershipStructureRequestData                                       // Дані методу
-    {
-        public string Id { get; set; }                                                  // Id
-        public string Name { get; set; }                                                // Назва
-        public string Adress { get; set; }                                              // Адреса
-        public string Country { get; set; }                                             // Країна
-        public bool IsFounder { get; set; }                                             // Чи є бенефіціаром
-        public string RelationType { get; set; }                                        // Тип зв'язку
-        public string NodeType { get; set; }                                            // Тип об'єкта ("company" или "people")
-        public double? Persent { get; set; }                                            // Відсоток власності до запитуваної компанії
-        public double? PersentOriginal { get; set; }                                    // Відсоток власності до компанії
-        public string FounderAdress { get; set; }                                       // Адреса засновника
-        public string Code { get; set; }                                                // Код ЄДРПОУ
-        public string DirectControl { get; set; }                                       // Вплив. (Непрямий вирішальний вплив ≥ 25% / Прямий вирішальний вплив ≥ 25% / Непрямий не вирішальний вплив / Прямий не вирішальний вплив)
-        public int? CountDirectControlPower { get; set; }                               // Прямий вирішальний вплив ≥ 25%
-        public int? CountNotDirectControlPower { get; set; }                            // Непрямий вирішальний вплив ≥ 25%
-        public int? CountDirectLessControlPower { get; set; }                           // Прямий вплив
-        public int? CountNotDirectLessControlPower { get; set; }                        // Непрямий вплив
+    /// <summary>
+    /// Дані методу
+    /// </summary>
+    public class GetOwnershipStructureRequestData                                       // 
+    {/// <summary>
+     /// Id
+     /// </summary>
+        public string Id { get; set; }                                                  // 
+        /// <summary>
+        /// Назва
+        /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Адреса
+        /// </summary>
+        public string Adress { get; set; }                                              // 
+        /// <summary>
+        /// Країна
+        /// </summary>
+        public string Country { get; set; }                                             // 
+        /// <summary>
+        /// Чи є бенефіціаром
+        /// </summary>
+        public bool IsFounder { get; set; }                                             // 
+        /// <summary>
+        /// Тип зв'язку
+        /// </summary>
+        public string RelationType { get; set; }                                        // 
+        /// <summary>
+        /// Тип об'єкта ("company" или "people")
+        /// </summary>
+        public string NodeType { get; set; }                                            // 
+        /// <summary>
+        /// Відсоток власності до запитуваної компанії
+        /// </summary>
+        public double? Persent { get; set; }                                            // 
+        /// <summary>
+        /// Відсоток власності до компанії
+        /// </summary>
+        public double? PersentOriginal { get; set; }                                    // 
+        /// <summary>
+        /// Адреса засновника
+        /// </summary>
+        public string FounderAdress { get; set; }                                       // 
+        /// <summary>
+        /// Код ЄДРПОУ
+        /// </summary>
+        public string Code { get; set; }                                                // 
+        /// <summary>
+        /// Вплив. (Непрямий вирішальний вплив ≥ 25% / Прямий вирішальний вплив ≥ 25% / Непрямий не вирішальний вплив / Прямий не вирішальний вплив)
+        /// </summary>
+        public string DirectControl { get; set; }                                       // 
+        /// <summary>
+        /// Прямий вирішальний вплив ≥ 25%
+        /// </summary>
+        public int? CountDirectControlPower { get; set; }                               // 
+        /// <summary>
+        /// Непрямий вирішальний вплив ≥ 25%
+        /// </summary>
+        public int? CountNotDirectControlPower { get; set; }                            // 
+        /// <summary>
+        /// Прямий вплив
+        /// </summary>
+        public int? CountDirectLessControlPower { get; set; }                           // 
+        /// <summary>
+        /// Непрямий вплив
+        /// </summary>
+        public int? CountNotDirectLessControlPower { get; set; }                        // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public int? CountTotal { get; set; }                                            // 
-        public List<GetOwnershipStructureRequestData> Child { get; set; }               // Вкладені елементи
+        /// <summary>
+        /// Вкладені елементи
+        /// </summary>
+        public List<GetOwnershipStructureRequestData> Child { get; set; }               // 
     }
 }

@@ -69,21 +69,42 @@ namespace vkursi_api_example.organizations
             return GOAPResponse;
         }
     }
-
-    public class GetOrgAnulPdvRequestBodyModel                                      // Модель запиту 
-    {
-        public List<string> Code { get; set; }                                      // Код ЄДРПОУ
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class GetOrgAnulPdvRequestBodyModel                                      // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public List<string> Code { get; set; }                                      // 
     }
-
-    public class GetOrgAnulPdvResponseModel                                         // Модель відповіді
-    {
-        public string Status { get; set; }                                          // Статус запиту (maxLength:128)
-        public bool IsSuccess { get; set; }                                         // Запит виконано успішно (true - так / false - ні)
-        public List<OrgAnulPdvInfo> Data { get; set; }                              // Дані відповіді
-    }
-    public class OrgAnulPdvInfo                                                     // Дані відповіді
-    {
-        public string Code { get; set; }                                            // Код ЕДРПОУ
-        public DateTime? AnulDateTime { get; set; }                                 // Дата анулювання
+    /// <summary>
+    /// Модель відповіді
+    /// </summary>
+    public class GetOrgAnulPdvResponseModel                                         // 
+    {/// <summary>
+     /// Статус запиту (maxLength:128)
+     /// </summary>
+        public string Status { get; set; }                                          // 
+        /// <summary>
+        /// Запит виконано успішно (true - так / false - ні)
+        /// </summary>
+        public bool IsSuccess { get; set; }                                         // 
+        /// <summary>
+        /// Дані відповіді
+        /// </summary>
+        public List<OrgAnulPdvInfo> Data { get; set; }                              // 
+    }/// <summary>
+     /// Дані відповіді
+     /// </summary>
+    public class OrgAnulPdvInfo                                                     // 
+    {/// <summary>
+     /// Код ЕДРПОУ
+     /// </summary>
+        public string Code { get; set; }                                            // 
+        /// <summary>
+        /// ата анулювання
+        /// </summary>
+        public DateTime? AnulDateTime { get; set; }                                 // Д
     }
 }

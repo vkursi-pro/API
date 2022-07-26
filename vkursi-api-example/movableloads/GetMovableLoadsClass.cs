@@ -113,56 +113,148 @@ namespace vkursi_api_example.movableloads
         Response response = client.newCall(request).execute();
 
     */
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class GetMovableLoadsRequestBodyModel
-    {
+    {/// <summary>
+     /// Перелік кодів ІПН (обмеження 1)
+     /// </summary>
         [JsonProperty("edrpou", NullValueHandling = NullValueHandling.Ignore)]
-        public List<string> Edrpou { get; set; }    // Перелік кодів ІПН (обмеження 1)
+        public List<string> Edrpou { get; set; }    
+        /// <summary>
+        /// Перелік кодів ЄДРПОУ (обмеження 1)
+        /// </summary>
         [JsonProperty("ipn", NullValueHandling = NullValueHandling.Ignore)]
-        public List<string> Ipn { get; set; }       // Перелік кодів ЄДРПОУ (обмеження 1)
+        public List<string> Ipn { get; set; }       
     }
 
-
-    public class GetMovableLoadsResponseModel       // Відповідь на запит
-    {
-        public bool isSuccess { get; set; }         // Запит виконано успішно (true - так / false - ні)
-        public string status { get; set; }          // Статус запиту (maxLength:128)
-        public List<MovableLoadsDatum> data { get; set; }       // Перелік обтяжень
+    /// <summary>
+    /// Відповідь на запит
+    /// </summary>
+    public class GetMovableLoadsResponseModel       
+    {/// <summary>
+     /// Запит виконано успішно (true - так / false - ні)
+     /// </summary>
+        public bool isSuccess { get; set; }         
+        /// <summary>
+        /// Статус запиту (maxLength:128)
+        /// </summary>
+        public string status { get; set; }          
+        /// <summary>
+        /// Перелік обтяжень
+        /// </summary>
+        public List<MovableLoadsDatum> data { get; set; }       
+        /// <summary>
+        /// ???
+        /// </summary>
         public Dictionary<string, string> originalData { get; set; }
     }
-
-    public class SidesBurdenList                    // Перелік обтяжувачів
-    {
-        public string sideId { get; set; }          // Системний id vkursi (maxLength:64)
-        public string burdenName { get; set; }      // Назва (maxLength:512)
-        public string burdenCode { get; set; }      // Код (maxLength:10)
+    /// <summary>
+    /// Перелік обтяжувачів
+    /// </summary>
+    public class SidesBurdenList                    
+    {/// <summary>
+     /// Системний id vkursi (maxLength:64)
+     /// </summary>
+        public string sideId { get; set; }          
+        /// <summary>
+        /// Назва (maxLength:512)
+        /// </summary>
+        public string burdenName { get; set; }       
+        /// <summary>
+        /// Код (maxLength:10)
+        /// </summary>
+        public string burdenCode { get; set; }       
     }
-
-    public class SidesDebtorList                    // Перелік боржників
-    {
-        public string sideId { get; set; }          // Системний id vkursi (maxLength:64)
-        public string debtorName { get; set; }      // Назва (maxLength:512)
-        public string debtorCode { get; set; }      // Код (maxLength:10)
-        public List<string> organizationIdList { get; set; }        // Системний id vkursi
-        public List<string> personCardIdList { get; set; }                // Системний id vkursi
+    /// <summary>
+    /// Перелік боржників
+    /// </summary>
+    public class SidesDebtorList                    
+    {/// <summary>
+     /// Системний id vkursi (maxLength:64)
+     /// </summary>
+        public string sideId { get; set; }          
+        /// <summary>
+        /// Назва (maxLength:512)
+        /// </summary>
+        public string debtorName { get; set; }     
+        /// <summary>
+        /// Код (maxLength:10)
+        /// </summary>
+        public string debtorCode { get; set; }      
+        /// <summary>
+        /// Системний id vkursi
+        /// </summary>
+        public List<string> organizationIdList { get; set; }         
+        /// <summary>
+        /// Системний id vkursi
+        /// </summary>
+        public List<string> personCardIdList { get; set; }                
     }
-
-    public class MovableLoadsDatum                              // Перелік обтяжень
-    {
-        public string Number { get; set; }          // Номер обтяження  (maxLength:32)
-        public DateTime? RegDate { get; set; }       // Дата реєстрації обтяження
-        public bool IsActive { get; set; }          // Діюче (true - так / false - ні)
-        public List<SidesBurdenList> SidesBurdenList { get; set; }  // Перелік обтяжувачів
-        public List<SidesDebtorList> SidesDebtorList { get; set; }  // Перелік боржників
-        public string Property { get; set; }        // Опис майна (maxLength:512)
-        public Guid Id { get; set; }                // Системний id обтяження в сервісі Vkursi
-        public DateTime? RequestDate { get; set; }  // Дата запиту до розпорядника
-        public string ObjectEncumbrance { get; set; }// Об’єкт обтяження
-        public string Type { get; set; }            // Вид обтяження
-        public string OriginalCurrency { get; set; }// Валюта обтяження
-        public decimal? OriginalSum { get; set; }   // Сума обтяження (в валюті яка вказана в OriginalCurrency)
-        public decimal? SumUah { get; set; }        // Сума обтяження в грн по курсу на дату реєстрації обтяження
-        public DateTime? EndDate { get; set; }      // Термін дії
-        public DateTime? CreateDate { get; set; }   // Дата коли обтяження з'явисоль в сервісі Vkursi
+    /// <summary>
+    /// Перелік обтяжень
+    /// </summary>
+    public class MovableLoadsDatum                              
+    {/// <summary>
+     /// Номер обтяження  (maxLength:32)
+     /// </summary>
+        public string Number { get; set; }          
+        /// <summary>
+        /// Дата реєстрації обтяження
+        /// </summary>
+        public DateTime? RegDate { get; set; }       
+        /// <summary>
+        /// Діюче (true - так / false - ні)
+        /// </summary>
+        public bool IsActive { get; set; }          
+        /// <summary>
+        /// Перелік обтяжувачів
+        /// </summary>
+        public List<SidesBurdenList> SidesBurdenList { get; set; }  
+        /// <summary>
+        /// Перелік боржників
+        /// </summary>
+        public List<SidesDebtorList> SidesDebtorList { get; set; }  
+        /// <summary>
+        /// Опис майна (maxLength:512)
+        /// </summary>
+        public string Property { get; set; }         
+        /// <summary>
+        /// Системний id обтяження в сервісі Vkursi
+        /// </summary>
+        public Guid Id { get; set; }                
+        /// <summary>
+        /// Дата запиту до розпорядника
+        /// </summary>
+        public DateTime? RequestDate { get; set; }  
+        /// <summary>
+        /// Об’єкт обтяження
+        /// </summary>
+        public string ObjectEncumbrance { get; set; }
+        /// <summary>
+        /// Вид обтяження
+        /// </summary>
+        public string Type { get; set; }            
+        /// <summary>
+        /// Валюта обтяження
+        /// </summary>
+        public string OriginalCurrency { get; set; } 
+        /// <summary>
+        /// Сума обтяження (в валюті яка вказана в OriginalCurrency)
+        /// </summary>
+        public decimal? OriginalSum { get; set; }   
+        /// <summary>
+        /// Сума обтяження в грн по курсу на дату реєстрації обтяження
+        /// </summary>
+        public decimal? SumUah { get; set; }        
+        /// <summary>
+        /// Термін дії
+        /// </summary>
+        public DateTime? EndDate { get; set; }      
+        /// <summary>
+        /// Дата коли обтяження з'явисоль в сервісі Vkursi
+        /// </summary>
+        public DateTime? CreateDate { get; set; }   
     }
 }

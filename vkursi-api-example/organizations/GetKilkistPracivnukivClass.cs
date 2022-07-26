@@ -69,27 +69,58 @@ namespace vkursi_api_example.organizations
             return GKPResponse;
         }
     }
-
-    public class GetKilkistPracivnukivRequestBodyModel                              // Модель запиту (Example: {"code":["21560766"]})
-    {
-        public List<string> Code { get; set; }                                      // Код ЄДРПОУ
+    /// <summary>
+    /// Модель запиту (Example: {"code":["21560766"]})
+    /// </summary>
+    public class GetKilkistPracivnukivRequestBodyModel                              
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public List<string> Code { get; set; }                                       
     }
-
-    public class GetKilkistPracivnukivResponseModel                                 // Модель на відповідь GetKilkistPracivnukiv
-    {
-        public string Status { get; set; }                                          // Статус відповіді по API
-        public bool IsSuccess { get; set; }                                         // Чи успішний запит
-        public List<EmployeesData> Data { get; set; }                               // Дані відповіді (в розрізі кодів ЄДРПОУ)
-    }
-    public class EmployeesData                                                      // Дані відповіді (в розрізі кодів ЄДРПОУ)
-    {
-        public string Code { get; set; }                                            // Код ЄДРПОУ
-        public List<KilkistPracivnukivModel> EmployeesList { get; set; }            // Перелік по рокам
-    }
-    public class KilkistPracivnukivModel                                            // Перелік по рокам
-    {
-        public int? year { get; set; }                                              // Рік
-        public int? count { get; set; }                                             // К-ть працівників
-        public int? differentPrevCount { get; set; }                                // Різниця з попереднім
+    /// <summary>
+    /// Модель на відповідь GetKilkistPracivnukiv
+    /// </summary>
+    public class GetKilkistPracivnukivResponseModel                                  
+    {/// <summary>
+     /// Статус відповіді по API
+     /// </summary>
+        public string Status { get; set; }                                           
+        /// <summary>
+        /// Чи успішний запит
+        /// </summary>
+        public bool IsSuccess { get; set; }                                          
+        /// <summary>
+        /// Дані відповіді (в розрізі кодів ЄДРПОУ)
+        /// </summary>
+        public List<EmployeesData> Data { get; set; }                                
+    }/// <summary>
+     /// Дані відповіді (в розрізі кодів ЄДРПОУ)
+     /// </summary>
+    public class EmployeesData                                                      
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Code { get; set; }                                            
+        /// <summary>
+        /// Перелік по рокам
+        /// </summary>
+        public List<KilkistPracivnukivModel> EmployeesList { get; set; }            
+    }/// <summary>
+     /// Перелік по рокам
+     /// </summary>
+    public class KilkistPracivnukivModel                                            
+    {/// <summary>
+     /// Рік
+     /// </summary>
+        public int? year { get; set; }                                              
+        /// <summary>
+        /// К-ть працівників
+        /// </summary>
+        public int? count { get; set; }                                             
+        /// <summary>
+        /// Різниця з попереднім
+        /// </summary>
+        public int? differentPrevCount { get; set; }                                
     }
 }

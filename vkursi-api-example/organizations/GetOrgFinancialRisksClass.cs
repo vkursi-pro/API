@@ -68,30 +68,67 @@ namespace vkursi_api_example.organizations
             return GOFRResponse;
         }
     }
-
-    public class GetOrgFinancialRisksRequestBodyModel                           // Модель Body запиту
-    {
-        public List<string> Edrpou { get; set; }                                // Перелік ЄДРПОУ / ІПН (обмеження 1)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetOrgFinancialRisksRequestBodyModel                           // 
+    {/// <summary>
+     /// Перелік ЄДРПОУ / ІПН (обмеження 1)
+     /// </summary>
+        public List<string> Edrpou { get; set; }                                // 
     }
-
-    public class GetOrgFinancialRisksResponseModel                              // Модель відповіді GetOrgFinancialRisks
-    {
-        public bool IsSucces { get; set; }                                      // Чи успішний запит
-        public string Status { get; set; }                                      // Статус відповіді по API
-        public List<OrgFinancialRisksApiAnswerModelData> Data { get; set; }     // Дані
+    /// <summary>
+    /// Модель відповіді GetOrgFinancialRisks
+    /// </summary>
+    public class GetOrgFinancialRisksResponseModel                              // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool IsSucces { get; set; }                                      // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public List<OrgFinancialRisksApiAnswerModelData> Data { get; set; }     // 
+    }/// <summary>
+     /// Дані
+     /// </summary>
+    public class OrgFinancialRisksApiAnswerModelData                            // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public string Edrpou { get; set; }                                      // 
+        /// <summary>
+        /// Дані по рокам
+        /// </summary>
+        public List<OrgFinancialRisksApiAnswerModelDataPerYear> DataPerYear { get; set; }       // 
     }
-    public class OrgFinancialRisksApiAnswerModelData                            // Дані
-    {
-        public string Edrpou { get; set; }                                      // Код ЄДРПОУ
-        public List<OrgFinancialRisksApiAnswerModelDataPerYear> DataPerYear { get; set; }       // Дані по рокам
-    }
-
-    public class OrgFinancialRisksApiAnswerModelDataPerYear                     // Дані по рокам
-    {
-        public int Year { get; set; }                                           // Рік
-        public string BorgClass { get; set; }                                   // Клас боржника
-        public string FinanceState { get; set; }                                // Фінансовий стан
-        public string Rating { get; set; }                                      // Міжнародна рейтингова оцінка
-        public string Obligation { get; set; }                                  // Зобов'язання
+    /// <summary>
+    /// Дані по рокам
+    /// </summary>
+    public class OrgFinancialRisksApiAnswerModelDataPerYear                     // 
+    {/// <summary>
+     /// Рік
+     /// </summary>
+        public int Year { get; set; }                                           // 
+        /// <summary>
+        /// Клас боржника
+        /// </summary>
+        public string BorgClass { get; set; }                                   // 
+        /// <summary>
+        /// Фінансовий стан
+        /// </summary>
+        public string FinanceState { get; set; }                                // 
+        /// <summary>
+        /// Міжнародна рейтингова оцінка
+        /// </summary>
+        public string Rating { get; set; }                                      // 
+        /// <summary>
+        /// Зобов'язання
+        /// </summary>
+        public string Obligation { get; set; }                                  // 
     }
 }

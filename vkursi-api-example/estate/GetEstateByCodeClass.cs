@@ -124,17 +124,25 @@ namespace vkursi_api_example.estate
         Response response = client.newCall(request).execute();
 
      */
-
-    public class GetRealEstateRightsResponseModel                               // Модель відповіді GetRealEstateRights
-    {
+    /// <summary>
+    /// Модель відповіді GetRealEstateRights
+    /// </summary>
+    public class GetRealEstateRightsResponseModel                               // 
+    {/// <summary>
+     /// Загальна статистика по об'єктам нерухомого майна (НМ)
+     /// </summary>
         [JsonPropertyName("total")]
-        public EstateTotalApi Total { get; set; }                               // Загальна статистика по об'єктам нерухомого майна (НМ)
-        
+        public EstateTotalApi Total { get; set; }                               // 
+        /// <summary>
+        /// Об'єкти НМ
+        /// </summary>
         [JsonPropertyName("estates")]
-        public List<EstateApi> Estates { get; set; }                            // Об'єкти НМ
-        
+        public List<EstateApi> Estates { get; set; }                            // 
+        /// <summary>
+        /// Код ЄДРПОУ / ІПН (maxLength:10)
+        /// </summary>
         [JsonPropertyName("code")]
-        public string Code { get; set; }                                        // Код ЄДРПОУ / ІПН (maxLength:10)
+        public string Code { get; set; }                                        // 
         
         [JsonPropertyName("actualDate")]
         public DateTime? ActualDate { get; set; }                               // 
@@ -144,95 +152,187 @@ namespace vkursi_api_example.estate
     }
 
     public class EstateTotalApi
-    {
+    {/// <summary>
+     /// К-ть участків
+     /// </summary>
         [JsonPropertyName("landsCount")]
-        public int LandsCount { get; set; }                                     // К-ть участків
-        
+        public int LandsCount { get; set; }                                     // 
+        /// <summary>
+        /// К-ть об'єктів НМ
+        /// </summary>
         [JsonPropertyName("housesCount")]
-        public int HousesCount { get; set; }                                    // К-ть об'єктів НМ
-        
+        public int HousesCount { get; set; }                                    // 
+        /// <summary>
+        /// Об'єкти за типами
+        /// </summary>
         [JsonPropertyName("typeCount")]
-        public List<EstateTypeTotal> TypeCount { get; set; }                    // Об'єкти за типами
-        
+        public List<EstateTypeTotal> TypeCount { get; set; }                    // 
+        /// <summary>
+        /// Об'єкти за категоріями
+        /// </summary>
         [JsonPropertyName("globalTypeCount")]
-        public List<EstateTypeTotal> GlobalTypeCount { get; set; }              // Об'єкти за категоріями
+        public List<EstateTypeTotal> GlobalTypeCount { get; set; }              // 
     }
-
-    public class EstateTypeTotal                                                // Об'єкти за типами
-    {
+    /// <summary>
+    /// Об'єкти за типами
+    /// </summary>
+    public class EstateTypeTotal                                                // 
+    {/// <summary>
+     /// Id типу відповідно таблиці № 1
+     /// </summary>
         [JsonPropertyName("type")]
-        public int Type { get; set; }                                           // Id типу відповідно таблиці № 1
-        
+        public int Type { get; set; }                                           // 
+        /// <summary>
+        /// К-ть об'ектів (указаногго типу)
+        /// </summary>
         [JsonPropertyName("count")]
-        public int Count { get; set; }                                          // К-ть об'ектів (указаногго типу)
+        public int Count { get; set; }                                          // 
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class EstateApi                                                      // 
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         [JsonPropertyName("id")]
         public Guid Id { get; set; }                                            // 
-        
+        /// <summary>
+        /// Назва об'єкта | кадастровий номер  (maxLength:256)
+        /// </summary>
         [JsonPropertyName("estateObjectName")]
-        public string EstateObjectName { get; set; }                            // Назва об'єкта | кадастровий номер  (maxLength:256)
-        
+        public string EstateObjectName { get; set; }                            // 
+        /// <summary>
+        /// Центральна координата 
+        /// </summary>
         [JsonPropertyName("location")]
-        public EstateCoordinates Location { get; set; }                         // Центральна координата 
-        
+        public EstateCoordinates Location { get; set; }                         // 
+        /// <summary>
+        /// Тип об'єкта (true - земля)
+        /// </summary>
         [JsonPropertyName("land")]
-        public bool Land { get; set; }                                          // Тип об'єкта (true - земля)
-        
+        public bool Land { get; set; }                                          // 
+        /// <summary>
+        /// Дата відчуження 
+        /// </summary>
         [JsonPropertyName("dateEnd")]
-        public DateTime? DateEnd { get; set; }                                  // Дата відчуження 
-        
+        public DateTime? DateEnd { get; set; }                                  // 
+        /// <summary>
+        /// Дата створення запису по об'єкт (сервісне полк Vkursi)
+        /// </summary>
         [JsonPropertyName("dateStart")]
-        public DateTime? DateStart { get; set; }                                // Дата створення запису по об'єкт (сервісне полк Vkursi)
-
+        public DateTime? DateStart { get; set; }                                // 
+        /// <summary>
+        /// Дата модицікації (сервісне поле Vkursi)
+        /// </summary>
         [JsonPropertyName("dateModified")]
-        public DateTime DateModified { get; set; }                              // Дата модицікації (сервісне поле Vkursi)
-        
+        public DateTime DateModified { get; set; }                              // 
+        /// <summary>
+        /// Тип власності (Власник / Правонабувач / ... )
+        /// </summary>
         [JsonPropertyName("typeArray")]
-        public List<int> TypeArray { get; set; }                                // Тип власності (Власник / Правонабувач / ... )
-        
+        public List<int> TypeArray { get; set; }                                // 
+        /// <summary>
+        /// Об'єкти за категоріями
+        /// </summary>
         [JsonPropertyName("globalTypeArray")]
-        public List<int> GlobalTypeArray { get; set; }                          // Об'єкти за категоріями
-
+        public List<int> GlobalTypeArray { get; set; }                          // 
+        /// <summary>
+        /// Детальна інформмація з ДЗК (Державного земельного кадастру)
+        /// </summary>
         [JsonPropertyName("detailedCadastrInfo")]
-        public DetailsJObjectEstate DetailedCadastrInfo { get; set; }           // Детальна інформмація з ДЗК (Державного земельного кадастру)
-        
+        public DetailsJObjectEstate DetailedCadastrInfo { get; set; }           // 
+        /// <summary>
+        /// К-ть судових рішень
+        /// </summary>
         [JsonPropertyName("courtCount")]
-        public int? CourtCount { get; set; }                                    // К-ть судових рішень
-
+        public int? CourtCount { get; set; }                                    // 
+        /// <summary>
+        /// Id об'єкта Nais (для отримання витяга)
+        /// </summary>
         [JsonPropertyName("objectId")]
-        public long? ObjectId { get; set; }                                      // Id об'єкта Nais (для отримання витяга)
-        public string Code { get; set; }                                        // Код ЄДРПОУ / ІПН (maxLength:10)
+        public long? ObjectId { get; set; }                                      // 
+        /// <summary>
+        /// Код ЄДРПОУ / ІПН (maxLength:10)
+        /// </summary>
+        public string Code { get; set; }                                        // 
     }
-
-    public class EstateCoordinates                                              // Центральна координата 
-    {
+    /// <summary>
+    /// Центральна координата 
+    /// </summary>
+    public class EstateCoordinates                                              // 
+    {/// <summary>
+     /// Довгота
+     /// </summary>
         [JsonPropertyName("longtitude")]
-        public decimal Longtitude { get; set; }                                 // Довгота
-
+        public decimal Longtitude { get; set; }                                 // 
+        /// <summary>
+        /// Широта
+        /// </summary>
         [JsonPropertyName("latitude")]
-        public decimal Latitude { get; set; }                                   // Широта
+        public decimal Latitude { get; set; }                                   // 
     }
-
-    public class DetailsJObjectEstate                                           // Детальна інформмація з ДЗК (Державного земельного кадастру)
-    {
+    /// <summary>
+    /// Детальна інформмація з ДЗК (Державного земельного кадастру)
+    /// </summary>
+    public class DetailsJObjectEstate                                           // 
+    {/// <summary>
+     /// КОАТУУ
+     /// </summary>
         [JsonPropertyName("koatuu")]
-        public long? koatuu { get; set; }                                       // КОАТУУ
-        public int? zona { get; set; }                                          // Зона
-        public int? kvartal { get; set; }                                       // Квартал
-        public int? parcel { get; set; }                                        // Парсель
-        public string cadnum { get; set; }                                      // Кадастровый номер (maxLength:64)
-        public int? ownershipcode { get; set; }                                 // Тип власності (100 Приватна власність | 200 Комунальна власність | 300 Державна власність)
-        public string purpose { get; set; }                                     // Цільове призначення (maxLength:256)
-        public string use { get; set; }                                         // Використання (maxLength:256)
-        public string area { get; set; }                                        // Площа (maxLength:64)
-        public string unit_area { get; set; }                                   // Одиниця площі (maxLength:64)
-        public string ownershipvalue { get; set; }                              // Тип власності (назва) (maxLength:64)
-        public int? id_office { get; set; }                                     // Офіс реїстрації
-        public string region { get; set; }                                      // Область (maxLength:64)
-        public string district { get; set; }                                    // Район (maxLength:64)
+        public long? koatuu { get; set; }                                       // 
+        /// <summary>
+        /// Зона
+        /// </summary>
+        public int? zona { get; set; }                                          // 
+        /// <summary>
+        /// Квартал
+        /// </summary>
+        public int? kvartal { get; set; }                                       // 
+        /// <summary>
+        /// Парсель
+        /// </summary>
+        public int? parcel { get; set; }                                        // 
+        /// <summary>
+        /// Кадастровый номер (maxLength:64)
+        /// </summary>
+        public string cadnum { get; set; }                                      // 
+        /// <summary>
+        /// Тип власності (100 Приватна власність | 200 Комунальна власність | 300 Державна власність)
+        /// </summary>
+        public int? ownershipcode { get; set; }                                 // 
+        /// <summary>
+        /// Цільове призначення (maxLength:256)
+        /// </summary>
+        public string purpose { get; set; }                                     // 
+        /// <summary>
+        /// Використання (maxLength:256)
+        /// </summary>
+        public string use { get; set; }                                         // 
+        /// <summary>
+        /// Площа (maxLength:64)
+        /// </summary>
+        public string area { get; set; }                                        // 
+        /// <summary>
+        /// Одиниця площі (maxLength:64)
+        /// </summary>
+        public string unit_area { get; set; }                                   // 
+        /// <summary>
+        /// Тип власності (назва) (maxLength:64)
+        /// </summary>
+        public string ownershipvalue { get; set; }                              // 
+        /// <summary>
+        /// Офіс реїстрації
+        /// </summary>
+        public int? id_office { get; set; }                                     // 
+        /// <summary>
+        /// Область (maxLength:64)
+        /// </summary>
+        public string region { get; set; }                                      // 
+        /// <summary>
+        /// Район (maxLength:64)
+        /// </summary>
+        public string district { get; set; }                                    // 
     }
 }
                                                                                 // Таблиця № 1

@@ -68,26 +68,59 @@ namespace vkursi_api_example.organizations
             return GYPResponse;
         }
     }
-
-    public class GetYedynyyPodatokRequestBodyModel                              // Модель запиту (Example: {"code":["21560766"]})
-    {
-        public List<string> Code { get; set; }                                  // Код ЄДРПОУ
+    /// <summary>
+    /// Модель запиту (Example: {"code":["21560766"]})
+    /// </summary>
+    public class GetYedynyyPodatokRequestBodyModel                              // 
+    {/// <summary>
+     /// Код ЄДРПОУ
+     /// </summary>
+        public List<string> Code { get; set; }                                  // 
     }
 
-
-    public class GetYedynyyPodatokResponseModel                                 // Модель на відповідь GetYedynyyPodatok
-    {
-        public string Status { get; set; }                                      // Статус запиту (maxLength:128)
-        public bool IsSuccess { get; set; }                                     // Запит виконано успішно (true - так / false - ні)
-        public List<OrgYedunuyPodatok> Data { get; set; }                       // Дані
-    }
-    public class OrgYedunuyPodatok                                              // Дані
-    {
-        public string Code { get; set; }                                        // Код ЄДРПОУ за яким знайдено дані
-        public decimal? Stavka { get; set; }                                    // Ставка ЄП
-        public int? Grup { get; set; }                                          // Група ЄП
-        public DateTime? DateStart { get; set; }                                // Дата отримання
-        public DateTime? DateEnd { get; set; }                                  // Дата анулювання
-        public string Info { get; set; }                                        // Статус (1 Группа ПДВ / 2 Группа без ПДВ / 3 Группа без ПДВ / 3 Группа ПДВ" / Не платник ЄП)
+    /// <summary>
+    /// Модель на відповідь GetYedynyyPodatok
+    /// </summary>
+    public class GetYedynyyPodatokResponseModel                                 // 
+    {/// <summary>
+     /// Статус запиту (maxLength:128)
+     /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Запит виконано успішно (true - так / false - ні)
+        /// </summary>
+        public bool IsSuccess { get; set; }                                     // 
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public List<OrgYedunuyPodatok> Data { get; set; }                       // 
+    }/// <summary>
+     /// Дані
+     /// </summary>
+    public class OrgYedunuyPodatok                                              // 
+    {/// <summary>
+     /// Код ЄДРПОУ за яким знайдено дані
+     /// </summary>
+        public string Code { get; set; }                                        // 
+        /// <summary>
+        /// Ставка ЄП
+        /// </summary>
+        public decimal? Stavka { get; set; }                                    // 
+        /// <summary>
+        /// Група ЄП
+        /// </summary>
+        public int? Grup { get; set; }                                          // 
+        /// <summary>
+        /// Дата отримання
+        /// </summary>
+        public DateTime? DateStart { get; set; }                                // 
+        /// <summary>
+        /// Дата анулювання
+        /// </summary>
+        public DateTime? DateEnd { get; set; }                                  // 
+        /// <summary>
+        /// Статус (1 Группа ПДВ / 2 Группа без ПДВ / 3 Группа без ПДВ / 3 Группа ПДВ" / Не платник ЄП)
+        /// </summary>
+        public string Info { get; set; }                                        // 
     }
 }

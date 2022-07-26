@@ -125,91 +125,193 @@ namespace vkursi_api_example.person
     print(data.decode("utf-8"))
 
     */
-
-    public class CheckFopStatusRequestBodyModel                                 // Модель запиту 
-    {
-        public List<string> Codes { get; set; }                                 // Перелік кодів ЄДРПОУ / ІПН (обмеження 5 кодів)
-        public bool GetDrorm { get; set; }                                      // Чи потрібен ДРОРМ
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class CheckFopStatusRequestBodyModel                                 // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ / ІПН (обмеження 5 кодів)
+     /// </summary>
+        public List<string> Codes { get; set; }                                 // 
+        /// <summary>
+        /// Чи потрібен ДРОРМ
+        /// </summary>
+        public bool GetDrorm { get; set; }                                      // 
     }
-
-    public class CheckFopStatusResponseModel                                    // Відповідь на запит
-    {
-        public bool IsSuccess { get; set; }                                     // Запит виконано успішно (true - так / false - ні)
-        public string Status { get; set; }                                      // Статус запиту (maxLength:128)
-        public List<CheckFopStatusModelAnswerData> Data { get; set; }           // Дані відповіді
+    /// <summary>
+    /// Відповідь на запит
+    /// </summary>
+    public class CheckFopStatusResponseModel                                    // 
+    {/// <summary>
+     /// Запит виконано успішно (true - так / false - ні)
+     /// </summary>
+        public bool IsSuccess { get; set; }                                     // 
+        /// <summary>
+        /// Статус запиту (maxLength:128)
+        /// </summary>
+        public string Status { get; set; }                                      // 
+        /// <summary>
+        /// Дані відповіді
+        /// </summary>
+        public List<CheckFopStatusModelAnswerData> Data { get; set; }           // 
     }
-
-    public class CheckFopStatusModelAnswerData                                  // Дані відповіді
-    {
-        public string Code { get; set; }                                        // Код ІПН
-        public bool IsFop { get; set; }                                         // ФОП / не ФОП (true - так ФОП / false - ні не ФОП)
-        public string FopState { get; set; }                                    // Стан ФОПа (зареєстровано, припинено, в стані припинення)
-        public List<MovableViewModel> Movables { get; set; }                    // Обтяження
-        public List<CheckFopStatusModelAnswerDataReestrInfo> ReestrInfo { get; set; }   // Відомості про наявні ліцензії адвокатів / нотаріусів
-        public CabinetTaxRegistrationResponse RegistrationData { get; set; }    // Статус реестрації за інформацією з ДПС
-        public string RegistrationDataStatus { get; set; }                      // Дані знайдено / Не стоїть на обліку ДФС / Дані не знайдено
+    /// <summary>
+    /// Дані відповіді
+    /// </summary>
+    public class CheckFopStatusModelAnswerData                                  // 
+    {/// <summary>
+     /// Код ІПН
+     /// </summary>
+        public string Code { get; set; }                                        // 
+        /// <summary>
+        /// ФОП / не ФОП (true - так ФОП / false - ні не ФОП)
+        /// </summary>
+        public bool IsFop { get; set; }                                         // 
+        /// <summary>
+        /// Стан ФОПа (зареєстровано, припинено, в стані припинення)
+        /// </summary>
+        public string FopState { get; set; }                                    // 
+        /// <summary>
+        /// Обтяження
+        /// </summary>
+        public List<MovableViewModel> Movables { get; set; }                    // 
+        /// <summary>
+        /// Відомості про наявні ліцензії адвокатів / нотаріусів
+        /// </summary>
+        public List<CheckFopStatusModelAnswerDataReestrInfo> ReestrInfo { get; set; }   // 
+        /// <summary>
+        /// Статус реестрації за інформацією з ДПС
+        /// </summary>
+        public CabinetTaxRegistrationResponse RegistrationData { get; set; }    // 
+        /// <summary>
+        /// Дані знайдено / Не стоїть на обліку ДФС / Дані не знайдено
+        /// </summary>
+        public string RegistrationDataStatus { get; set; }                      // 
     }
-
-    public class CheckFopStatusModelAnswerDataReestrInfo                        // Відомості про наявні ліцензії адвокатів / нотаріусів
-    {
-        public string ReestrNumber { get; set; }                                // Номер ліцензії
-        public DateTime? StartDate { get; set; }                                // Дата початку дії
-        public DateTime? EndDate { get; set; }                                  // Дата закінчення дії
-        public int StatusOfLicenseInt { get; set; }                             // Стан ліцензії (1 - діюча / 2 - не діюча)
-        public string TypeOfLicense { get; set; }                               // Тип ліцензії
-        public int TypeOfLicenseInt { get; set; }                               // Id типу ліцензії (TypeOfLicense)
-        public string Organ { get; set; }                                       // Орган що видав
-        public int? OrganInt { get; set; }                                      // Id органу що видав
-        public string PersonName { get; set; }                                  // ПІБ власника ліцензії
-        public CheckFopStatusLicensesInfoModel Info { get; set; }               // Відосмості про ліцензію
+    /// <summary>
+    /// Відомості про наявні ліцензії адвокатів / нотаріусів
+    /// </summary>
+    public class CheckFopStatusModelAnswerDataReestrInfo                        // 
+    {/// <summary>
+     /// Номер ліцензії
+     /// </summary>
+        public string ReestrNumber { get; set; }                                // 
+        /// <summary>
+        /// Дата початку дії
+        /// </summary>
+        public DateTime? StartDate { get; set; }                                // 
+        /// <summary>
+        /// Дата закінчення дії
+        /// </summary>
+        public DateTime? EndDate { get; set; }                                  // 
+        /// <summary>
+        /// Стан ліцензії (1 - діюча / 2 - не діюча)
+        /// </summary>
+        public int StatusOfLicenseInt { get; set; }                             // 
+        /// <summary>
+        /// Тип ліцензії
+        /// </summary>
+        public string TypeOfLicense { get; set; }                               // 
+        /// <summary>
+        /// Id типу ліцензії (TypeOfLicense)
+        /// </summary>
+        public int TypeOfLicenseInt { get; set; }                               // 
+        /// <summary>
+        /// Орган що видав
+        /// </summary>
+        public string Organ { get; set; }                                       // 
+        /// <summary>
+        /// Id органу що видав
+        /// </summary>
+        public int? OrganInt { get; set; }                                      // 
+        /// <summary>
+        /// ПІБ власника ліцензії
+        /// </summary>
+        public string PersonName { get; set; }                                  // 
+        /// <summary>
+        /// Відосмості про ліцензію
+        /// </summary>
+        public CheckFopStatusLicensesInfoModel Info { get; set; }               // 
     }
-
-    public class CabinetTaxRegistrationResponse                                     // Статус реестрації за інформацією з ДПС
-    {
+    /// <summary>
+    /// Статус реестрації за інформацією з ДПС
+    /// </summary>
+    public class CabinetTaxRegistrationResponse                                     // 
+    {/// <summary>
+     /// Назва
+     /// </summary>
         [JsonProperty("FULL_NAME")]
-        public string FullName { get; set; }                                        // Назва
-
+        public string FullName { get; set; }                                        // 
+        /// <summary>
+        /// ЄДРПОУ
+        /// </summary>
         [JsonProperty("TIN_S")]
-        public object TinS { get; set; }                                            // ЄДРПОУ
-
+        public object TinS { get; set; }                                            // 
+        /// <summary>
+        /// Юридична адреса
+        /// </summary>
         [JsonProperty("ADRESS")]
-        public object Adress { get; set; }                                          // Юридична адреса
-
+        public object Adress { get; set; }                                          // 
+        /// <summary>
+        /// Дата реєстрації в органах ДПС
+        /// </summary>
         [JsonProperty("D_REG_STI")]
-        public string DRegSti { get; set; }                                         // Дата реєстрації в органах ДПС
-
+        public string DRegSti { get; set; }                                         // 
+        /// <summary>
+        /// Номер реєстрації в органах ДПС
+        /// </summary>
         [JsonProperty("N_REG_STI")]
-        public string NRegSti { get; set; }                                         // Номер реєстрації в органах ДПС
-
+        public string NRegSti { get; set; }                                         // 
+        /// <summary>
+        /// Назва органу ДПС де зареєстрований платник
+        /// </summary>
         [JsonProperty("C_STI_MAIN_NAME")]
-        public string CStiMainName { get; set; }                                    // Назва органу ДПС де зареєстрований платник
-
+        public string CStiMainName { get; set; }                                    // 
+        /// <summary>
+        /// Ознака зовнішньоекономічної діяльності
+        /// </summary>
         [JsonProperty("VED_LIC")]
-        public object VedLic { get; set; }                                          // Ознака зовнішньоекономічної діяльності
-
+        public object VedLic { get; set; }                                          // 
+        /// <summary>
+        /// Тип платника
+        /// </summary>
         [JsonProperty("FACE_MODE")]
-        public long? FaceMode { get; set; }                                         // Тип платника
-
+        public long? FaceMode { get; set; }                                         // 
+        /// <summary>
+        /// Стан платника
+        /// </summary>
         [JsonProperty("C_STAN")]
-        public long? CStan { get; set; }                                            // Стан платника
-
+        public long? CStan { get; set; }                                            // 
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("D_ZAKR_STI")]
         public string DZakrSti { get; set; }                                        // 
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("C_KIND")]
         public long? CKind { get; set; }                                            // 
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("C_CLOSE")]
         public long? CClose { get; set; }                                           // 
-
+        /// <summary>
+        /// Відомості про помилку
+        /// </summary>
         [JsonProperty("error")]
-        public string Error { get; set; }                                           // Відомості про помилку
-
+        public string Error { get; set; }                                           // 
+        /// <summary>
+        /// Опис помилки
+        /// </summary>
         [JsonProperty("error_description")]
-        public string ErrorDescription { get; set; }                                // Опис помилки
+        public string ErrorDescription { get; set; }                                // 
     }
-
-    public class CheckFopStatusLicensesInfoModel                                // Відосмості про ліцензію
+    /// <summary>
+    /// Відосмості про ліцензію
+    /// </summary>
+    public class CheckFopStatusLicensesInfoModel                                // 
     {
         // Для адвокатів
         public string Name { get; set; }

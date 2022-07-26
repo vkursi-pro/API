@@ -112,418 +112,1262 @@ namespace vkursi_api_example.person
         Response response = client.newCall(request).execute();
 
     */
-
-    public class CheckPersonRequestBodyModel                                            // Модель запиту (обмеження 1)
+    /// <summary>
+    /// Модель запиту (обмеження 1)
+    /// </summary>
+    public class CheckPersonRequestBodyModel                                            // 
     {
         /// <summary>
         /// ПІБ
         /// </summary>
         /// <example>ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ</example>
-        public string FullName { get; set; }                                            // ПІБ
-        public string FirstName { get; set; }                                           // Призвище (необовязкове якщо вказаний FullName)
-        public string SecondName { get; set; }                                          // Ім'я (необовязкове якщо вказаний FullName)
-        public string LastName { get; set; }                                            // По батькові (необовязкове)
-        public string Ipn { get; set; }                                                 // ІНП
-        public string Doc { get; set; }                                                 // Серія номер пасторта (XX123456)
-        public DateTime? Birthday { get; set; }                                         // Дата народження
-        public string RuName { get; set; }                                              // ПІБ на російській мові
+        public string FullName { get; set; }                                            // 
+        /// <summary>
+        /// Призвище (необовязкове якщо вказаний FullName)
+        /// </summary>
+        public string FirstName { get; set; }                                           // 
+        /// <summary>
+        /// Ім'я (необовязкове якщо вказаний FullName)
+        /// </summary>
+        public string SecondName { get; set; }                                          // 
+        /// <summary>
+        /// По батькові (необовязкове)
+        /// </summary>
+        public string LastName { get; set; }                                            // 
+        /// <summary>
+        /// ІНП
+        /// </summary>
+        public string Ipn { get; set; }                                                 // 
+        /// <summary>
+        /// Серія номер пасторта (XX123456)
+        /// </summary>
+        public string Doc { get; set; }                                                 // 
+        /// <summary>
+        /// Серія номер пасторта (XX123456)
+        /// </summary>
+        public DateTime? Birthday { get; set; }                                         // 
+        /// <summary>
+        /// ПІБ на російській мові
+        /// </summary>
+        public string RuName { get; set; }                                              // 
     }
 
-
-    public class CheckPersonResponseModel                                               // Модель на відповідь
-    {
-        public string Status { get; set; }                                              // Статус відповіді по API
-        public bool IsSucces { get; set; }                                              // Чи успішний запит
-        public string Name { get; set; }                                                // ПІБ
-        public string Ipn { get; set; }                                                 // ІНП
-        public string Passport { get; set; }                                            // Серія номер пасторта (XX123456)
-        public string NameRu { get; set; }                                              // ПІБ на російській мові
-        public DateTime? DateBirth { get; set; }                                        // Дата народження
-        public PersonsInBorgModel Borg { get; set; }                                    // Відомості про наявність боргу
-        public List<MovableViewModel> Movables { get; set; }                            // Обтяження (ДРОРМ)
-        public List<PersonsInFopsModel> PersonsInFopsModelList { get; set; }            // Перелік знайдених ФОП
-        public List<AuditsResult> Audits { get; set; }                                  // Відомосто про перевірки контролюючих органів 
-        public PersonEnforcementsModel Enforcements { get; set; }                       // Виконавчі провадження
-        public PersonsInEstates Estates { get; set; }                                   // Об'єкти нерухомого майна
-        public List<VehicleViewModel> Vehicles { get; set; }                            // Відомості про транспорт (реєстраційні дії)
-        public List<PersonsInOrganizationsModel> PersonsInOrganizationsModelsList { get; set; } // Перелік знайдених компаний
-        public List<FairModelView> FairModels { get; set; }                             // Судові рішення (стан розгляду справ)
-        public PersonInIntellectualProperty IntellectualProperty { get; set; }          // Інтелектуальна власність
-        public List<PersonsInDeclarationsModel> Declarations { get; set; }              // Декларації
-        public PersonInLicenses Licenses { get; set; }                                  // Ліцензії, дозволи, реєстри
-        public List<PersonsHidingViewModel> Hiding { get; set; }                        //  Відомості про осіб що переховуються від органів влади
-        public List<PersonLostDoc> LostDocuments { get; set; }                          // Відомості про втрачені документи
-        public CourtDecisionAggregationModel CourtAnalytic { get; set; }                // Судові рішення (призначені по розгляду)
-        public List<PersonInBancrutcy> Bancrutcy { get; set; }                          // Відомості про банкрутство
-        public List<PersonSanctionsData> SanctionsDetails { get; set; }                 // Санкції
-        public bool? PublicPerson { get; set; }                                         // Статус публічної особи (ПЕП) (// 0 - не публічна особа, 1 - звязана с публічною особою, 2 - публічная особо, 3 - невідомо, null - нема інформації)
-        public PersonApiResponseDataRecived CheckList { get; set; }                     // Перелік реєстрів з яких ми успішно/не успішно перевірили дані по ФО
-        public List<int> Sanctions { get; set; }                                        // Санкції перелік id (розширена інформація в SanctionsDetails)
-        public Guid? Id { get; set; }                                                   // Внутрішній id Vkursi
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class CheckPersonResponseModel                                               // 
+    {/// <summary>
+     /// Статус відповіді по API
+     /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Чи успішний запит
+        /// </summary>
+        public bool IsSucces { get; set; }                                              // 
+        /// <summary>
+        /// ПІБ
+        /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// ІНП
+        /// </summary>
+        public string Ipn { get; set; }                                                 // 
+        /// <summary>
+        /// Серія номер пасторта (XX123456)
+        /// </summary>
+        public string Passport { get; set; }                                            // 
+        /// <summary>
+        /// ПІБ на російській мові
+        /// </summary>
+        public string NameRu { get; set; }                                              // 
+        /// <summary>
+        /// Дата народження
+        /// </summary>
+        public DateTime? DateBirth { get; set; }                                        // 
+        /// <summary>
+        /// Відомості про наявність боргу
+        /// </summary>
+        public PersonsInBorgModel Borg { get; set; }                                    // 
+        /// <summary>
+        /// Обтяження (ДРОРМ)
+        /// </summary>
+        public List<MovableViewModel> Movables { get; set; }                            // 
+        /// <summary>
+        /// Перелік знайдених ФОП
+        /// </summary>
+        public List<PersonsInFopsModel> PersonsInFopsModelList { get; set; }            // 
+        /// <summary>
+        /// Відомосто про перевірки контролюючих органів 
+        /// </summary>
+        public List<AuditsResult> Audits { get; set; }                                  // 
+        /// <summary>
+        /// Виконавчі провадження
+        /// </summary>
+        public PersonEnforcementsModel Enforcements { get; set; }                       // 
+        /// <summary>
+        /// Об'єкти нерухомого майна
+        /// </summary>
+        public PersonsInEstates Estates { get; set; }                                   // 
+        /// <summary>
+        /// Відомості про транспорт (реєстраційні дії)
+        /// </summary>
+        public List<VehicleViewModel> Vehicles { get; set; }                            // 
+        /// <summary>
+        /// Перелік знайдених компаний
+        /// </summary>
+        public List<PersonsInOrganizationsModel> PersonsInOrganizationsModelsList { get; set; } // 
+        /// <summary>
+        /// Судові рішення (стан розгляду справ)
+        /// </summary>
+        public List<FairModelView> FairModels { get; set; }                             // 
+        /// <summary>
+        /// Інтелектуальна власність
+        /// </summary>
+        public PersonInIntellectualProperty IntellectualProperty { get; set; }          // 
+        /// <summary>
+        /// Декларації
+        /// </summary>
+        public List<PersonsInDeclarationsModel> Declarations { get; set; }              // 
+        /// <summary>
+        /// Ліцензії, дозволи, реєстри
+        /// </summary>
+        public PersonInLicenses Licenses { get; set; }                                  // 
+        /// <summary>
+        /// Відомості про осіб що переховуються від органів влади
+        /// </summary>
+        public List<PersonsHidingViewModel> Hiding { get; set; }                        //  
+        /// <summary>
+        /// Відомості про втрачені документи
+        /// </summary>
+        public List<PersonLostDoc> LostDocuments { get; set; }                          // 
+        /// <summary>
+        /// Судові рішення (призначені по розгляду)
+        /// </summary>
+        public CourtDecisionAggregationModel CourtAnalytic { get; set; }                // 
+        /// <summary>
+        /// Відомості про банкрутство
+        /// </summary>
+        public List<PersonInBancrutcy> Bancrutcy { get; set; }                          // 
+        /// <summary>
+        /// Санкції
+        /// </summary>
+        public List<PersonSanctionsData> SanctionsDetails { get; set; }                 // 
+        /// <summary>
+        /// Статус публічної особи (ПЕП) (// 0 - не публічна особа,1 - звязана с публічною особою, 2 - публічная особо, 3 - невідомо, null - нема інформації)
+        /// </summary>
+        public bool? PublicPerson { get; set; }                                         //  
+        /// <summary>
+        /// Перелік реєстрів з яких ми успішно/не успішно перевірили дані по ФО
+        /// </summary>
+        public PersonApiResponseDataRecived CheckList { get; set; }                     // 
+        /// <summary>
+        /// Санкції перелік id (розширена інформація в SanctionsDetails)
+        /// </summary>
+        public List<int> Sanctions { get; set; }                                        // 
+        /// <summary>
+        /// Внутрішній id Vkursi
+        /// </summary>
+        public Guid? Id { get; set; }                                                   // 
 
     }
-
-    public class PersonsInBorgModel                                                     // Відомості про наявність боргу
-    {
-        public List<PodatokBorg> PadatokBorg { get; set; }                              // Податковий борг
-        public List<PaymentBorg> PaymentBorg { get; set; }                              // Заборгованість по заробітній платі
-        public List<ChildBorg> ChildBorg { get; set; }                                  // Аліменти
+    /// <summary>
+    /// Відомості про наявність боргу
+    /// </summary>
+    public class PersonsInBorgModel                                                     // 
+    {/// <summary>
+     /// Податковий борг
+     /// </summary>
+        public List<PodatokBorg> PadatokBorg { get; set; }                              // 
+        /// <summary>
+        /// Заборгованість по заробітній платі
+        /// </summary>
+        public List<PaymentBorg> PaymentBorg { get; set; }                              // 
+        /// <summary>
+        /// Аліменти
+        /// </summary>
+        public List<ChildBorg> ChildBorg { get; set; }                                  // 
     }
-
-    public class PodatokBorg                                                            // Податковий борг
-    {
-        public string Name { get; set; }                                                // ПІБ
-        public string DFSUName { get; set; }                                            // Назва податкової (перед якою є заборгованість)
-        public double? LocalDebt { get; set; }                                          // Заборгованість перед місцевим бюджетом
-        public double? TotalDebt { get; set; }                                          // Заборгованість перед державним бюджетом
+    /// <summary>
+    /// Податковий борг
+    /// </summary>
+    public class PodatokBorg                                                            // 
+    {/// <summary>
+     /// ПІБ
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Назва податкової (перед якою є заборгованість)
+        /// </summary>
+        public string DFSUName { get; set; }                                            // 
+        /// <summary>
+        /// Заборгованість перед місцевим бюджетом
+        /// </summary>
+        public double? LocalDebt { get; set; }                                          // 
+        /// <summary>
+        /// Заборгованість перед державним бюджетом
+        /// </summary>
+        public double? TotalDebt { get; set; }                                          // 
     }
-
-    public class PaymentBorg                                                             // Заборгованість по заробітній платі
-    {
-        public string Name { get; set; }                                                // ПІБ боржника
-        public int? EnforcementsCount { get; set; }                                     // Кількість проваджень
-        public double? PaymentDebt { get; set; }                                        // Сума боргу
+    /// <summary>
+    /// Заборгованість по заробітній платі
+    /// </summary>
+    public class PaymentBorg                                                             // 
+    {/// <summary>
+     /// ПІБ боржника
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Кількість проваджень
+        /// </summary>
+        public int? EnforcementsCount { get; set; }                                     // 
+        /// <summary>
+        /// Сума боргу
+        /// </summary>
+        public double? PaymentDebt { get; set; }                                        // 
     }
-
-    public class ChildBorg                                                              // Аліменти
-    {
-        public string Name { get; set; }                                                // ПІБ боржника
-        public DateTime? BirthDay { get; set; }                                         // Дата народження
-        public string Type { get; set; }                                                // Тип заборгованності
+    /// <summary>
+    /// Аліменти
+    /// </summary>
+    public class ChildBorg                                                              // 
+    {/// <summary>
+     /// ПІБ боржника
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Дата народження
+        /// </summary>
+        public DateTime? BirthDay { get; set; }                                         // 
+        /// <summary>
+        /// Тип заборгованності
+        /// </summary>
+        public string Type { get; set; }                                                // 
     }
-
-    public class MovableViewModel                                                       // Обтяження (ДРОРМ)
-    {
-        public string Number { get; set; }                                              // Номер обтяження
-        public DateTime? RegDate { get; set; }                                          // Дата реїстрації обтяження
-        public bool IsActive { get; set; }                                              // Активно (true - так/ false - ні)
-        public List<MovableViewModelSidesBurden> SidesBurdenList { get; set; }          // Відомості про обтяжувачів (ДРОРМ)
-        public List<MovableViewModelSidesDebtor> SidesDebtorList { get; set; }          // Відомості про боржників (ДРОРМ)
+    /// <summary>
+    /// Обтяження (ДРОРМ)
+    /// </summary>
+    public class MovableViewModel                                                       // 
+    {/// <summary>
+     /// Номер обтяження
+     /// </summary>
+        public string Number { get; set; }                                              // 
+        /// <summary>
+        /// Дата реїстрації обтяження
+        /// </summary>
+        public DateTime? RegDate { get; set; }                                          // 
+        /// <summary>
+        /// Активно (true - так/ false - ні)
+        /// </summary>
+        public bool IsActive { get; set; }                                              // 
+        /// <summary>
+        /// Відомості про обтяжувачів (ДРОРМ)
+        /// </summary>
+        public List<MovableViewModelSidesBurden> SidesBurdenList { get; set; }          // 
+        /// <summary>
+        /// Відомості про боржників (ДРОРМ)
+        /// </summary>
+        public List<MovableViewModelSidesDebtor> SidesDebtorList { get; set; }          // 
+        /// <summary>
+        /// ???
+        /// </summary>
         public string Property { get; set; }
     }
+    /// <summary>
+    /// Відомості про обтяжувачів (ДРОРМ)
+    /// </summary>
+    public class MovableViewModelSidesBurden                                            // 
+    {/// <summary>
+     /// Системний id Vkursi
+     /// </summary>
+        public Guid? SideId { get; set; }                                               // 
+        /// <summary>
+        /// Назва обтяжувача
+        /// </summary>
+        public string BurdenName { get; set; }                                          // 
+        /// <summary>
+        /// Код обтяжувача
+        /// </summary>
+        public string BurdenCode { get; set; }                                          // 
+    }/// <summary>
+     /// Відомості про боржників (ДРОРМ)
+     /// </summary>
+    public class MovableViewModelSidesDebtor                                            // 
+    {/// <summary>
+     /// Системний id Vkursi
+     /// </summary>
+        public Guid? SideId { get; set; }                                               // 
+        /// <summary>
+        /// Назва боржника
+        /// </summary>
+        public string DebtorName { get; set; }                                          // 
+        /// <summary>
+        /// Код боржника
+        /// </summary>
+        public string DebtorCode { get; set; }                                          // 
+        /// <summary>
+        /// Системна інформація Vkursi
+        /// </summary>
+        public List<Guid> OrganizationIdList { get; set; }                              // 
+        /// <summary>
+        /// Системна інформація Vkursi
+        /// </summary>
+        public List<Guid> PersonCardIdList { get; set; }                                // 
+    }
+    /// <summary>
+    /// Перелік знайдених ФОП
+    /// </summary>
+    public class PersonsInFopsModel                                                     // 
+    {/// <summary>
+     /// Id ФОП-а
+     /// </summary>
+        public Guid FopId { get; set; }                                                 // 
+        /// <summary>
+        /// Назва ФОП-а (ПІБ)
+        /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Область
+        /// </summary>
+        public string RegionName { get; set; }                                          // 
+        /// <summary>
+        /// Квед
+        /// </summary>
+        public string Kved { get; set; }                                                // 
+        /// <summary>
+        /// Статус реєстрації
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Посилання
+        /// </summary>
+        public string Reference { get; set; }                                           // 
+    }
+    /// <summary>
+    /// Відомосто про перевірки контролюючих органів
+    /// </summary>
+    public class AuditsResult                                                           //  
+    {/// <summary>
+     /// Системний id Vkursi
+     /// </summary>
+        public string Id { get; set; }                                                  // 
+        /// <summary>
+        /// Планова перевірка (true - так/ false - ні)
+        /// </summary>
+        public int IsPlanned { get; set; }                                              // 
+        /// <summary>
+        /// Контролюючай орган
+        /// </summary>
+        public string Regulator { get; set; }                                           // 
+        /// <summary>
+        /// Id контролюючого органу
+        /// </summary>
+        public int? RegulatorId { get; set; }                                           // 
+        /// <summary>
+        /// Код ІПН
+        /// </summary>
+        public string Code { get; set; }                                                // 
+        /// <summary>
+        /// Системний id Vkursi
+        /// </summary>
+        public Guid? OrganizationId { get; set; }                                       // 
+        /// <summary>
+        /// Назва суб'єкта перевірки
+        /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Статус перевірки (проведена, не буде проведена, ...)
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Id статуса перевірки
+        /// </summary>
+        public int? StatusInt { get; set; }                                             // 
+        /// <summary>
+        /// Id перевірки
+        /// </summary>
+        public int InternalId { get; set; }                                             // 
+        /// <summary>
+        /// Дата початку перевірки
+        /// </summary>
+        public DateTime? DateStart { get; set; }                                        // 
+        /// <summary>
+        /// Дата завершення перевірки
+        /// </summary>
+        public DateTime? DateFinish { get; set; }                                       // 
+        /// <summary>
+        /// Дата останньої зміни
+        /// </summary>
+        public DateTime? LastModify { get; set; }                                       // 
+        /// <summary>
+        /// Тип застосованіх санкцій
+        /// </summary>
+        public string SanctionType { get; set; }                                        // 
+        /// <summary>
+        /// Сума санкцій
+        /// </summary>
+        public int? SanctionAmount { get; set; }                                        // 
+        /// <summary>
+        /// Наявність апеляції на результат перевірки
+        /// </summary>
+        public int? AppealStage { get; set; }                                           // 
+        /// <summary>
+        /// Повний об'єкт перевірки
+        /// </summary>
+        public string AuditObject { get; set; }                                         // 
+        /// <summary>
+        /// Мета перевірки
+        /// </summary>
+        public string ActivityType { get; set; }                                        // 
+        /// <summary>
+        /// Системний id Vkursi
+        /// </summary>
+        public int? MonitoringCheck { get; set; }                                       // 
+        /// <summary>
+        /// Системний id Vkursi
+        /// </summary>
+        public Guid? PersonNameId { get; set; }                                         // 
+        /// <summary>
+        /// Системний id Vkursi
+        /// </summary>
+        public Guid? FopId { get; set; }                                                // 
+    }
+    /// <summary>
+    /// Виконавчі провадження
+    /// </summary>
+    public class PersonEnforcementsModel                                                // 
+    {/// <summary>
+     /// Кількість ВП
+     /// </summary>
+        public int Count { get; set; }                                                  // 
+        /// <summary>
+        /// Кількість ВП в яких стягувач
+        /// </summary>
+        public int CreditorCount { get; set; }                                          // 
+        /// <summary>
+        /// Кількість ВП в яких боржник
+        /// </summary>
+        public int DebtorCount { get; set; }                                            // 
+        /// <summary>
+        /// Кількість відкритих ВП
+        /// </summary>
+        public int OpenCount { get; set; }                                              // 
+        /// <summary>
+        /// Кількість закритих ВП
+        /// </summary>
+        public int CloseCount { get; set; }                                             // 
+        /// <summary>
+        /// Кількість ВП з інштм статусом
+        /// </summary>
+        public int OtherCount { get; set; }                                             // 
+        /// <summary>
+        /// Список ВП
+        /// </summary>
+        public List<PersonEnforcement> PersonEnforcementsList { get; set; }             // 
 
-    public class MovableViewModelSidesBurden                                            // Відомості про обтяжувачів (ДРОРМ)
-    {
-        public Guid? SideId { get; set; }                                               // Системний id Vkursi
-        public string BurdenName { get; set; }                                          // Назва обтяжувача
-        public string BurdenCode { get; set; }                                          // Код обтяжувача
     }
-    public class MovableViewModelSidesDebtor                                            // Відомості про боржників (ДРОРМ)
-    {
-        public Guid? SideId { get; set; }                                               // Системний id Vkursi
-        public string DebtorName { get; set; }                                          // Назва боржника
-        public string DebtorCode { get; set; }                                          // Код боржника
-        public List<Guid> OrganizationIdList { get; set; }                              // Системна інформація Vkursi
-        public List<Guid> PersonCardIdList { get; set; }                                // Системна інформація Vkursi
+    /// <summary>
+    /// Список ВП
+    /// </summary>
+    public class PersonEnforcement                                                      // 
+    {/// <summary>
+     /// Дата відкриття ВП
+     /// </summary>
+        public DateTime? DateOpened { get; set; }                                       // 
+        /// <summary>
+        /// Номер ВП
+        /// </summary>
+        public string VpNumber { get; set; }                                            // 
+        /// <summary>
+        /// Назва стягувача
+        /// </summary>
+        public string CreditorName { get; set; }                                        // 
+        /// <summary>
+        /// Код стягувача
+        /// </summary>
+        public string CreditorCode { get; set; }                                        // 
+        /// <summary>
+        /// Посилання на стягувача
+        /// </summary>
+        public string CreditorReference { get; set; }                                   // 
+        /// <summary>
+        /// Тип стягувача
+        /// </summary>
+        public string CreditorType { get; set; }                                        // 
+        /// <summary>
+        /// Категорія ВП
+        /// </summary>
+        public string Category { get; set; }                                            // 
+        /// <summary>
+        /// Стан ВП
+        /// </summary>
+        public string State { get; set; }                                               // 
+        /// <summary>
+        /// Назва боржника
+        /// </summary>
+        public string DebtorName { get; set; }                                          // 
+        /// <summary>
+        /// Код боржника
+        /// </summary>
+        public string DebtorCode { get; set; }                                          // 
+        /// <summary>
+        /// Посилання на боржника
+        /// </summary>
+        public string DebtorReference { get; set; }                                     // 
+        /// <summary>
+        /// Тип боржника
+        /// </summary>
+        public string DebtorType { get; set; }                                          // 
     }
-
-    public class PersonsInFopsModel                                                     // Перелік знайдених ФОП
-    {
-        public Guid FopId { get; set; }                                                 // Id ФОП-а
-        public string Name { get; set; }                                                // Назва ФОП-а (ПІБ)
-        public string RegionName { get; set; }                                          // Область
-        public string Kved { get; set; }                                                // Квед
-        public string Status { get; set; }                                              // Статус реєстрації
-        public string Reference { get; set; }                                           // Посилання
+    /// <summary>
+    /// Об'єкти нерухомого майна
+    /// </summary>
+    public class PersonsInEstates                                                       // 
+    {/// <summary>
+     /// Об'єкти нерухомого майна наявні
+     /// </summary>
+        public bool StatusExist { get; set; }                                           // 
+        /// <summary>
+        /// Земельні ділянки
+        /// </summary>
+        public List<PersonEstate> PersonEstatesLandList { get; set; }                   // 
+        /// <summary>
+        /// Об'єкти нерухомості
+        /// </summary>
+        public List<PersonEstate> PersonEstatesObjectList { get; set; }                 // 
+        /// <summary>
+        /// Статискика за цільовим призначення
+        /// </summary>
+        public List<SwotEstatePurposeNRegionStatisticByCadastrModel> Purposes { get; set; }     // 
+        /// <summary>
+        /// Статискика за регіоном
+        /// </summary>
+        public List<SwotEstatePurposeNRegionStatisticByCadastrModel> Regions { get; set; }      // 
+        /// <summary>
+        /// Тим права власності 
+        /// </summary>
+        public Dictionary<string, int> OwnershipType { get; set; }                      // 
+        /// <summary>
+        /// В процесі оновлення
+        /// </summary>
+        public bool UpdateInProgres { get; set; }                                       // 
+        /// <summary>
+        /// Помилка при оновленні
+        /// </summary>
+        public bool Error { get; set; }                                                 // 
     }
-
-    public class AuditsResult                                                           // Відомосто про перевірки контролюючих органів 
-    {
-        public string Id { get; set; }                                                  // Системний id Vkursi
-        public int IsPlanned { get; set; }                                              // Планова перевірка (true - так/ false - ні)
-        public string Regulator { get; set; }                                           // Контролюючай орган
-        public int? RegulatorId { get; set; }                                           // Id контролюючого органу
-        public string Code { get; set; }                                                // Код ІПН
-        public Guid? OrganizationId { get; set; }                                       // Системний id Vkursi
-        public string Name { get; set; }                                                // Назва суб'єкта перевірки
-        public string Status { get; set; }                                              // Статус перевірки (проведена, не буде проведена, ...)
-        public int? StatusInt { get; set; }                                             // Id статуса перевірки
-        public int InternalId { get; set; }                                             // Id перевірки
-        public DateTime? DateStart { get; set; }                                        // Дата початку перевірки
-        public DateTime? DateFinish { get; set; }                                       // Дата завершення перевірки
-        public DateTime? LastModify { get; set; }                                       // Дата останньої зміни
-        public string SanctionType { get; set; }                                        // Тип застосованіх санкцій
-        public int? SanctionAmount { get; set; }                                        // Сума санкцій
-        public int? AppealStage { get; set; }                                           // Наявність апеляції на результат перевірки
-        public string AuditObject { get; set; }                                         // Повний об'єкт перевірки
-        public string ActivityType { get; set; }                                        // Мета перевірки
-        public int? MonitoringCheck { get; set; }                                       // Системний id Vkursi
-        public Guid? PersonNameId { get; set; }                                         // Системний id Vkursi
-        public Guid? FopId { get; set; }                                                // Системний id Vkursi
+    /// <summary>
+    /// Земельні ділянки | Об'єкти нерухомості
+    /// </summary>
+    public class PersonEstate                                                           // 
+    {/// <summary>
+     /// Системний id Vkursi
+     /// </summary>
+        public Guid Id { get; set; }                                                    // 
+        /// <summary>
+        /// Системний id Vkursi
+        /// </summary>
+        public Guid PersonCardId { get; set; }                                          // 
+        /// <summary>
+        /// ПІБ
+        /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Кількість судових рішень
+        /// </summary>
+        public int Court { get; set; }                                                  // 
+        /// <summary>
+        /// Системна інформація Vkursi
+        /// </summary>
+        public bool LocationChecked { get; set; }                                       // 
+        /// <summary>
+        /// Розташування 
+        /// </summary>
+        public string LocationName { get; set; }                                        // 
+        /// <summary>
+        /// Координати (широта / довгота)
+        /// </summary>
+        public string LocationCoordinates { get; set; }                                 // 
+        /// <summary>
+        /// Формма власності
+        /// </summary>
+        public string FormaVlasnosti { get; set; }                                      // 
+        /// <summary>
+        /// Площа
+        /// </summary>
+        public double? Area { get; set; }                                               // 
+        /// <summary>
+        /// Цільове призначення
+        /// </summary>
+        public string Purpose { get; set; }                                             // 
+        /// <summary>
+        /// Перелік категорій 
+        /// </summary>
+        public List<int> CategoryList { get; set; }                                     // 
+        /// <summary>
+        /// Перелік статусів
+        /// </summary>
+        public List<int> StatusList { get; set; }                                       // 
+    }/// <summary>
+     /// Статискика за цільовим призначення | Статискика за регіоном
+     /// </summary>
+    public class SwotEstatePurposeNRegionStatisticByCadastrModel                        // 
+    {/// <summary>
+     /// Назва (регіону | цільового призначення) 
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Кількість об'єктів
+        /// </summary>
+        public int LandCount { get; set; }                                              // 
+        /// <summary>
+        /// Площа, га
+        /// </summary>
+        public double Area { get; set; }                                                // 
+        /// <summary>
+        /// Кількість судових рішень
+        /// </summary>
+        public int CourtCount { get; set; }                                             // 
     }
-
-    public class PersonEnforcementsModel                                                // Виконавчі провадження
-    {
-        public int Count { get; set; }                                                  // Кількість ВП
-        public int CreditorCount { get; set; }                                          // Кількість ВП в яких стягувач
-        public int DebtorCount { get; set; }                                            // Кількість ВП в яких боржник
-        public int OpenCount { get; set; }                                              // Кількість відкритих ВП
-        public int CloseCount { get; set; }                                             // Кількість закритих ВП
-        public int OtherCount { get; set; }                                             // Кількість ВП з інштм статусом
-        public List<PersonEnforcement> PersonEnforcementsList { get; set; }             // Список ВП
-
+    /// <summary>
+    /// Відомості про транспорт (реєстраційні дії)
+    /// </summary>
+    public class VehicleViewModel                                                       // 
+    {/// <summary>
+     /// Назва ТЗ (транспортного засобу)
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Тип ТЗ
+        /// </summary>
+        public string Type { get; set; }                                                // 
+        /// <summary>
+        /// Марка ТЗ
+        /// </summary>
+        public string Brand { get; set; }                                               // 
+        /// <summary>
+        /// Рік реєстраційної дії
+        /// </summary>
+        public int? ReleaseYear { get; set; }                                           // 
+        /// <summary>
+        /// Об'єм двигуна
+        /// </summary>
+        public int? Capacity { get; set; }                                              // 
+        /// <summary>
+        /// Дата реєстраційної дії
+        /// </summary>
+        public DateTime? RegDate { get; set; }                                          // 
+        /// <summary>
+        /// ПІБ
+        /// </summary>
+        public string PersonName { get; set; }                                          // 
+        /// <summary>
+        /// Назва реєстраційної дії
+        /// </summary>
+        public string OperationName { get; set; }                                       // 
     }
-
-    public class PersonEnforcement                                                      // Список ВП
-    {
-        public DateTime? DateOpened { get; set; }                                       // Дата відкриття ВП
-        public string VpNumber { get; set; }                                            // Номер ВП
-        public string CreditorName { get; set; }                                        // Назва стягувача
-        public string CreditorCode { get; set; }                                        // Код стягувача
-        public string CreditorReference { get; set; }                                   // Посилання на стягувача
-        public string CreditorType { get; set; }                                        // Тип стягувача
-        public string Category { get; set; }                                            // Категорія ВП
-        public string State { get; set; }                                               // Стан ВП
-        public string DebtorName { get; set; }                                          // Назва боржника
-        public string DebtorCode { get; set; }                                          // Код боржника
-        public string DebtorReference { get; set; }                                     // Посилання на боржника
-        public string DebtorType { get; set; }                                          // Тип боржника
+    /// <summary>
+    /// Перелік знайдених компаний
+    /// </summary>
+    public class PersonsInOrganizationsModel                                            // 
+    {/// <summary>
+     /// ПІБ
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Назва компанії
+        /// </summary>
+        public string OrgName { get; set; }                                             // 
+        /// <summary>
+        /// Код компанії
+        /// </summary>
+        public string OrgCode { get; set; }                                             // 
+        /// <summary>
+        /// Стан компанії
+        /// </summary>
+        public string OrgStatus { get; set; }                                           // 
+        /// <summary>
+        /// Країна
+        /// </summary>
+        public int? CountryCode { get; set; }                                           // 
+        /// <summary>
+        /// Тип відношення (керівник, власник, ...)
+        /// </summary>
+        public string ConnectionType { get; set; }                                      // 
+        /// <summary>
+        /// Адреса
+        /// </summary>
+        public string Address { get; set; }                                             // 
+        /// <summary>
+        /// Посилання
+        /// </summary>
+        public string Reference { get; set; }                                           // 
     }
-
-    public class PersonsInEstates                                                       // Об'єкти нерухомого майна
-    {
-        public bool StatusExist { get; set; }                                           // Об'єкти нерухомого майна наявні
-        public List<PersonEstate> PersonEstatesLandList { get; set; }                   // Земельні ділянки
-        public List<PersonEstate> PersonEstatesObjectList { get; set; }                 // Об'єкти нерухомості
-        public List<SwotEstatePurposeNRegionStatisticByCadastrModel> Purposes { get; set; }     // Статискика за цільовим призначення
-        public List<SwotEstatePurposeNRegionStatisticByCadastrModel> Regions { get; set; }      // Статискика за регіоном
-        public Dictionary<string, int> OwnershipType { get; set; }                      // Тим права власності 
-        public bool UpdateInProgres { get; set; }                                       // В процесі оновлення
-        public bool Error { get; set; }                                                 // Помилка при оновленні
+    /// <summary>
+    /// Судові рішення (стан розгляду справ)
+    /// </summary>
+    public class FairModelView                                                          // 
+    {/// <summary>
+     /// Номер рішення
+     /// </summary>
+        public string CaseNumber { get; set; }                                          // 
+        /// <summary>
+        /// Назва суду
+        /// </summary>
+        public string CourtName { get; set; }                                           // 
+        /// <summary>
+        /// Дата назходження судового докуммента
+        /// </summary>
+        public DateTime? DateNadhodgennia { get; set; }                                 // 
+        /// <summary>
+        /// Id документа
+        /// </summary>
+        public int? CaseId { get; set; }                                                // 
+        /// <summary>
+        /// Номер провадження
+        /// </summary>
+        public string NumberProvadgennia { get; set; }                                  // 
+        /// <summary>
+        /// Сторон (перелік)
+        /// </summary>
+        public string Sides { get; set; }                                               // 
+        /// <summary>
+        /// Тип сторони в справі
+        /// </summary>
+        public string PersonSide { get; set; }                                          // 
+        /// <summary>
+        /// ПІБ
+        /// </summary>
+        public string PersonName { get; set; }                                          // 
+        /// <summary>
+        /// Предмет позову
+        /// </summary>
+        public string PredmetPozovu { get; set; }                                       // 
+        /// <summary>
+        /// Стадія розгляду
+        /// </summary>
+        public string Stadia { get; set; }                                              // 
+        /// <summary>
+        /// Категорія рішення
+        /// </summary>
+        public string DecisionCategory { get; set; }                                    // 
+        /// <summary>
+        /// Дата рішення
+        /// </summary>
+        public DateTime? Date { get; set; }                                             // 
     }
-
-    public class PersonEstate                                                           // Земельні ділянки | Об'єкти нерухомості
-    {
-        public Guid Id { get; set; }                                                    // Системний id Vkursi
-        public Guid PersonCardId { get; set; }                                          // Системний id Vkursi
-        public string Name { get; set; }                                                // ПІБ
-        public int Court { get; set; }                                                  // Кількість судових рішень
-        public bool LocationChecked { get; set; }                                       // Системна інформація Vkursi
-        public string LocationName { get; set; }                                        // Розташування 
-        public string LocationCoordinates { get; set; }                                 // Координати (широта / довгота)
-        public string FormaVlasnosti { get; set; }                                      // Формма власності
-        public double? Area { get; set; }                                               // Площа
-        public string Purpose { get; set; }                                             // Цільове призначення
-        public List<int> CategoryList { get; set; }                                     // Перелік категорій 
-        public List<int> StatusList { get; set; }                                       // Перелік статусів
+    /// <summary>
+    /// Інтелектуальна власність
+    /// </summary>
+    public class PersonInIntellectualProperty                                           // 
+    {/// <summary>
+     /// Торгові марки
+     /// </summary>
+        public List<PersonTrademark> PersonTrademarkList { get; set; }                  // 
+        /// <summary>
+        /// Патенти
+        /// </summary>
+        public List<PersonPatent> PersonPatentList { get; set; }                        // 
+        /// <summary>
+        /// Корисні моделі
+        /// </summary>
+        public List<PersonUsefulModel> UsefulModelList { get; set; }                    // 
     }
-    public class SwotEstatePurposeNRegionStatisticByCadastrModel                        // Статискика за цільовим призначення | Статискика за регіоном
-    {
-        public string Name { get; set; }                                                // Назва (регіону | цільового призначення) 
-        public int LandCount { get; set; }                                              // Кількість об'єктів
-        public double Area { get; set; }                                                // Площа, га
-        public int CourtCount { get; set; }                                             // Кількість судових рішень
+    /// <summary>
+    /// Торгові марки
+    /// </summary>
+    public class PersonTrademark                                                        // 
+    {/// <summary>
+     /// Номер торгової марки
+     /// </summary>
+        public string Number { get; set; }                                              // 
+        /// <summary>
+        /// Дата реєстрації
+        /// </summary>
+        public DateTime? RegistrationDate { get; set; }                                 // 
+        /// <summary>
+        /// ПІБ
+        /// </summary>
+        public string OwnerName { get; set; }                                           // 
+        /// <summary>
+        /// Кількість власників
+        /// </summary>
+        public int TotalOwners { get; set; }                                            // 
+        /// <summary>
+        /// Посилання яна зображення
+        /// </summary>
+        public string ImageUrl { get; set; }                                            // 
+        /// <summary>
+        /// Перелік категорій за МКТП
+        /// </summary>
+        public List<string> MKTPIndex { get; set; }                                     // 
+    }/// <summary>
+     /// Патенти
+     /// </summary>
+    public class PersonPatent                                                           // 
+    {/// <summary>
+     /// ПІБ
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Кількість власників
+        /// </summary>
+        public int? TotalOwners { get; set; }                                           // 
+        /// <summary>
+        /// Кількість заявників
+        /// </summary>
+        public int? TotalDeclarants { get; set; }                                       // 
+        /// <summary>
+        /// Кількість винахідників
+        /// </summary>
+        public int? TotalInventors { get; set; }                                        // 
+        /// <summary>
+        /// Назва патенту
+        /// </summary>
+        public string PatentName { get; set; }                                          // 
+        /// <summary>
+        /// Номер патенту
+        /// </summary>
+        public string Number { get; set; }                                              // 
+        /// <summary>
+        /// Дата реєстрації
+        /// </summary>
+        public DateTime? RegistrationDate { get; set; }                                 // 
+    }/// <summary>
+     /// Корисні моделі
+     /// </summary>
+    public class PersonUsefulModel                                                      // 
+    {/// <summary>
+     /// ПІБ
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Кількість власників
+        /// </summary>
+        public int? TotalOwners { get; set; }                                           // 
+        /// <summary>
+        /// Кількість заявників
+        /// </summary>
+        public int? TotalDeclarants { get; set; }                                       // 
+        /// <summary>
+        /// Кількість винахідників
+        /// </summary>
+        public int? TotalInventors { get; set; }                                        // 
+        /// <summary>
+        /// Назва корисної моделі
+        /// </summary>
+        public string PatentName { get; set; }                                          // 
+        /// <summary>
+        /// Номер корисної моделі
+        /// </summary>
+        public string Number { get; set; }                                              // 
+        /// <summary>
+        /// Дата реєстрації
+        /// </summary>
+        public DateTime? RegistrationDate { get; set; }                                 // 
     }
-
-    public class VehicleViewModel                                                       // Відомості про транспорт (реєстраційні дії)
-    {
-        public string Name { get; set; }                                                // Назва ТЗ (транспортного засобу)
-        public string Type { get; set; }                                                // Тип ТЗ
-        public string Brand { get; set; }                                               // Марка ТЗ
-        public int? ReleaseYear { get; set; }                                           // Рік реєстраційної дії
-        public int? Capacity { get; set; }                                              // Об'єм двигуна
-        public DateTime? RegDate { get; set; }                                          // Дата реєстраційної дії
-        public string PersonName { get; set; }                                          // ПІБ
-        public string OperationName { get; set; }                                       // Назва реєстраційної дії
+    /// <summary>
+    /// Декларації
+    /// </summary>
+    public class PersonsInDeclarationsModel                                             // 
+    {/// <summary>
+     /// ПіБ
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Посилання
+        /// </summary>
+        public string Reference { get; set; }                                           // 
+        /// <summary>
+        /// Рік
+        /// </summary>
+        public int Year { get; set; }                                                   // 
+        /// <summary>
+        /// Тип
+        /// </summary>
+        public string Type { get; set; }                                                // 
+        /// <summary>
+        /// Посада
+        /// </summary>
+        public string WorkPost { get; set; }                                            // 
+        /// <summary>
+        /// Місце роботі
+        /// </summary>
+        public string WorkPlace { get; set; }                                           // 
+        /// <summary>
+        /// Наявна нерухомість (true - так / false - ні)
+        /// </summary>
+        public bool Estates { get; set; }                                               // 
+        /// <summary>
+        /// Наявні об'єкти незавершеного будівництва (true - так / false - ні)
+        /// </summary>
+        public bool NotFinishedBuildings { get; set; }                                  // 
+        /// <summary>
+        /// Наявні обтяження (true - так / false - ні)
+        /// </summary>
+        public bool Movables { get; set; }                                              // 
+        /// <summary>
+        /// Наявні транспортні засоби (true - так / false - ні)
+        /// </summary>
+        public bool Transport { get; set; }                                             // 
+        /// <summary>
+        /// Наявні цінні папери (true - так / false - ні)
+        /// </summary>
+        public bool Securities { get; set; }                                            // 
+        /// <summary>
+        /// Наявні корморативні права (true - так / false - ні)
+        /// </summary>
+        public bool CorporateRights { get; set; }                                       // 
+        /// <summary>
+        /// Наявні нематеріальні активи (true - так / false - ні)
+        /// </summary>
+        public bool Intangible { get; set; }                                            // 
+        /// <summary>
+        /// Наявні відомості про доходи (true - так / false - ні)
+        /// </summary>
+        public bool Income { get; set; }                                                // 
+        /// <summary>
+        /// Статус ПЕП:
+        /// 0 - Не публічна особа (ПІБ вказано в декларації і він не ПЕП)
+        /// 1 - Особа яку вказано в декларації публічної особи (ПІБ вказано в декларації особи яка є ПЕП)
+        /// 2 - Публічна особа (ПІБ вказано в декларації і він є ПЕП)
+        /// </summary>
+        public int? PublicStatus { get; set; }                                           
+                                                                                        
+                                                                                        
+                                                                                         
     }
-
-    public class PersonsInOrganizationsModel                                            // Перелік знайдених компаний
-    {
-        public string Name { get; set; }                                                // ПІБ
-        public string OrgName { get; set; }                                             // Назва компанії
-        public string OrgCode { get; set; }                                             // Код компанії
-        public string OrgStatus { get; set; }                                           // Стан компанії
-        public int? CountryCode { get; set; }                                           // Країна
-        public string ConnectionType { get; set; }                                      // Тип відношення (керівник, власник, ...)
-        public string Address { get; set; }                                             // Адреса
-        public string Reference { get; set; }                                           // Посилання
+    /// <summary>
+    /// Ліцензії, дозволи, реєстри
+    /// </summary>
+    public class PersonInLicenses                                                       // 
+    {/// <summary>
+     /// Кількість діючих ліцензій
+     /// </summary>
+        public int ActualLicenseCount { get; set; }                                     // 
+        /// <summary>
+        /// Кількість не діючих ліцензій
+        /// </summary>
+        public int NonActualLicenseCount { get; set; }                                  // 
+        /// <summary>
+        /// Перелік ліцензій
+        /// </summary>
+        public List<PersonLicense> LicensesList { get; set; }                           // 
+        /// <summary>
+        /// Відомості з реєстру корупційних правопорушень
+        /// </summary>
+        public List<PersonCorruption> CorruptionsList { get; set; }                     // 
+        /// <summary>
+        /// Відомості з реєстру про люстрацію
+        /// </summary>
+        public List<PersonLustration> LustrationsList { get; set; }                     // 
     }
-
-    public class FairModelView                                                          // Судові рішення (стан розгляду справ)
-    {
-        public string CaseNumber { get; set; }                                          // Номер рішення
-        public string CourtName { get; set; }                                           // Назва суду
-        public DateTime? DateNadhodgennia { get; set; }                                 // Дата назходження судового докуммента
-        public int? CaseId { get; set; }                                                // Id документа
-        public string NumberProvadgennia { get; set; }                                  // Номер провадження
-        public string Sides { get; set; }                                               // Сторон (перелік)
-        public string PersonSide { get; set; }                                          // Тип сторони в справі
-        public string PersonName { get; set; }                                          // ПІБ
-        public string PredmetPozovu { get; set; }                                       // Предмет позову
-        public string Stadia { get; set; }                                              // Стадія розгляду
-        public string DecisionCategory { get; set; }                                    // Категорія рішення
-        public DateTime? Date { get; set; }                                             // Дата рішення
+    /// <summary>
+    /// Перелік ліцензій
+    /// </summary>
+    public class PersonLicense                                                          // 
+    {/// <summary>
+     /// Назва ліцензії
+     /// </summary>
+        public string LicenseName { get; set; }                                         // 
+        /// <summary>
+        /// Номер
+        /// </summary>
+        public string LicenseNumber { get; set; }                                       // 
+        /// <summary>
+        /// Дата закінчення
+        /// </summary>
+        public DateTime? DateEnd { get; set; }                                          // 
+        /// <summary>
+        /// Системне поле
+        /// </summary>
+        public bool Actual { get; set; }                                                // 
+        /// <summary>
+        /// Системне поле
+        /// </summary>
+        public Guid LicenseId { get; set; }                                             // 
+        /// <summary>
+        /// Є співпадіння по ІПН
+        /// </summary>
+        public bool? SearchByIpn { get; set; }                                          // 
+        /// <summary>
+        /// Є співпадіння по ПІБ
+        /// </summary>
+        public bool? SearchByBirthDay { get; set; }                                     // 
+        /// <summary>
+        /// ПІБ
+        /// </summary>
+        public string PersonName { get; set; }                                          // 
+    }/// <summary>
+     /// Корупційні правопорушення
+     /// </summary>
+    public class PersonCorruption                                                       // 
+    {/// <summary>
+     /// ПІБ
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Місце роботи
+        /// </summary>
+        public string PlaceOfWork { get; set; }                                         // 
+        /// <summary>
+        /// Посада
+        /// </summary>
+        public string Position { get; set; }                                            // 
+        /// <summary>
+        /// Системний Id
+        /// </summary>
+        public Guid LicenseId { get; set; }                                             // 
+    }/// <summary>
+     /// Люстрація
+     /// </summary>
+    public class PersonLustration                                                       // 
+    {/// <summary>
+     /// ПІБ
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Місце роботи
+        /// </summary>
+        public string PlaceOfWork { get; set; }                                         // 
+        /// <summary>
+        /// Системний Id
+        /// </summary>
+        public Guid LicenseId { get; set; }                                             // 
     }
-
-    public class PersonInIntellectualProperty                                           // Інтелектуальна власність
-    {
-        public List<PersonTrademark> PersonTrademarkList { get; set; }                  // Торгові марки
-        public List<PersonPatent> PersonPatentList { get; set; }                        // Патенти
-        public List<PersonUsefulModel> UsefulModelList { get; set; }                    // Корисні моделі
+    /// <summary>
+    /// Відомості про осіб що переховуються від органів влади
+    /// </summary>
+    public class PersonsHidingViewModel                                                 // 
+    {/// <summary>
+     /// ПІБ
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Дата народження
+        /// </summary>
+        public DateTime DateBirth { get; set; }                                         // 
+        /// <summary>
+        /// Орган
+        /// </summary>
+        public string Ovd { get; set; }                                                 // 
+        /// <summary>
+        /// Категорія
+        /// </summary>
+        public string Category { get; set; }                                            // 
+        /// <summary>
+        /// Дата зникнення
+        /// </summary>
+        public DateTime? DateLost { get; set; }                                         // 
+        /// <summary>
+        /// Стаття
+        /// </summary>
+        public string Paragraph { get; set; }                                           // 
+        /// <summary>
+        /// Обмеження
+        /// </summary>
+        public string Restraint { get; set; }                                           // 
+        /// <summary>
+        /// Контакта інформація відповідного органу
+        /// </summary>
+        public string ContactInfo { get; set; }                                         // 
+        /// <summary>
+        /// Посаління на Фото
+        /// </summary>
+        public string ImageUrl { get; set; }                                            // 
     }
-
-    public class PersonTrademark                                                        // Торгові марки
-    {
-        public string Number { get; set; }                                              // Номер торгової марки
-        public DateTime? RegistrationDate { get; set; }                                 // Дата реєстрації
-        public string OwnerName { get; set; }                                           // ПІБ
-        public int TotalOwners { get; set; }                                            // Кількість власників
-        public string ImageUrl { get; set; }                                            // Посилання яна зображення
-        public List<string> MKTPIndex { get; set; }                                     // Перелік категорій за МКТП
+    /// <summary>
+    /// Відомості про втрачені документи
+    /// </summary>
+    public class PersonLostDoc                                                          // 
+    {/// <summary>
+     /// Серія номер документа
+     /// </summary>
+        public string SerialNumber { get; set; }                                        // 
+        /// <summary>
+        /// Статус
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Дата
+        /// </summary>
+        public DateTime ActualDate { get; set; }                                        // 
+        /// <summary>
+        /// Орган
+        /// </summary>
+        public string Ovd { get; set; }                                                 // 
+        /// <summary>
+        /// Дата реєстрації
+        /// </summary>
+        public DateTime? RegisterDate { get; set; }                                     // 
     }
-    public class PersonPatent                                                           // Патенти
-    {
-        public string Name { get; set; }                                                // ПІБ
-        public int? TotalOwners { get; set; }                                           // Кількість власників
-        public int? TotalDeclarants { get; set; }                                       // Кількість заявників
-        public int? TotalInventors { get; set; }                                        // Кількість винахідників
-        public string PatentName { get; set; }                                          // Назва патенту
-        public string Number { get; set; }                                              // Номер патенту
-        public DateTime? RegistrationDate { get; set; }                                 // Дата реєстрації
+    /// <summary>
+    /// Судові рішення (призначені по розгляду)
+    /// </summary>
+    public class CourtDecisionAggregationModel                                          // 
+    {/// <summary>
+     /// Всього справ
+     /// </summary>
+        public long? TotalCount { get; set; }                                           // 
+        /// <summary>
+        /// Позивач
+        /// </summary>
+        public long? PlaintiffCount { get; set; }                                       // 
+        /// <summary>
+        /// Відповідач
+        /// </summary>
+        public long? DefendantCount { get; set; }                                       // 
+        /// <summary>
+        /// Інша сторона
+        /// </summary>
+        public long? OtherSideCount { get; set; }                                       // 
+        /// <summary>
+        /// Програно
+        /// </summary>
+        public long? LoserCount { get; set; }                                           // 
+        /// <summary>
+        /// Виграно
+        /// </summary>
+        public long? WinCount { get; set; }                                             // 
+        /// <summary>
+        /// Призначено до розгляду
+        /// </summary>
+        public long? IntendedCount { get; set; }                                        // 
+        /// <summary>
+        /// Унікальних справ
+        /// </summary>
+        public long? CaseCount { get; set; }                                            // 
+        /// <summary>
+        /// В процесі розгляду
+        /// </summary>
+        public long? InProcess { get; set; }                                            // 
+        /// <summary>
+        /// загальна кількість документів
+        /// </summary>
+        public long? TotalDocuments { get; set; }                                       // 
+        /// <summary>
+        /// Форма судочинства (кримінальні, цивільні, господарські і.т.д)
+        /// </summary>
+        public IEnumerable<JusticeKinds> ListJusticeKindses { get; set; }               // 
     }
-    public class PersonUsefulModel                                                      // Корисні моделі
-    {
-        public string Name { get; set; }                                                // ПІБ
-        public int? TotalOwners { get; set; }                                           // Кількість власників
-        public int? TotalDeclarants { get; set; }                                       // Кількість заявників
-        public int? TotalInventors { get; set; }                                        // Кількість винахідників
-        public string PatentName { get; set; }                                          // Назва корисної моделі
-        public string Number { get; set; }                                              // Номер корисної моделі
-        public DateTime? RegistrationDate { get; set; }                                 // Дата реєстрації
+    /// <summary>
+    /// Відомості про банкрутство
+    /// </summary>
+    public class PersonInBancrutcy                                                      // 
+    {/// <summary>
+     /// ПІБ
+     /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Номер рішення про банкрутство 
+        /// </summary>
+        public string Number { get; set; }                                              // 
+        /// <summary>
+        /// Назва суду
+        /// </summary>
+        public string CourtName { get; set; }                                           // 
+        /// <summary>
+        /// Відомості про публікації на сайте ВГСУ (Вищого господарського суду)
+        /// </summary>
+        public List<Tuple<DateTime?, string>> Publications { get; set; }                // 
     }
-
-    public class PersonsInDeclarationsModel                                             // Декларації
-    {
-        public string Name { get; set; }                                                // ПіБ
-        public string Reference { get; set; }                                           // Посилання
-        public int Year { get; set; }                                                   // Рік
-        public string Type { get; set; }                                                // Тип
-        public string WorkPost { get; set; }                                            // Посада
-        public string WorkPlace { get; set; }                                           // Місце роботі
-        public bool Estates { get; set; }                                               // Наявна нерухомість (true - так / false - ні)
-        public bool NotFinishedBuildings { get; set; }                                  // Наявні об'єкти незавершеного будівництва (true - так / false - ні)
-        public bool Movables { get; set; }                                              // Наявні обтяження (true - так / false - ні)
-        public bool Transport { get; set; }                                             // Наявні транспортні засоби (true - так / false - ні)
-        public bool Securities { get; set; }                                            // Наявні цінні папери (true - так / false - ні)
-        public bool CorporateRights { get; set; }                                       // Наявні корморативні права (true - так / false - ні)
-        public bool Intangible { get; set; }                                            // Наявні нематеріальні активи (true - так / false - ні)
-        public bool Income { get; set; }                                                // Наявні відомості про доходи (true - так / false - ні)
-
-        public int? PublicStatus { get; set; }                                          // Статус ПЕП:
-                                                                                        // 0 - Не публічна особа (ПІБ вказано в декларації і він не ПЕП) 
-                                                                                        // 1 - Особа яку вказано в декларації публічної особи (ПІБ вказано в декларації особи яка є ПЕП)
-                                                                                        // 2 - Публічна особа (ПІБ вказано в декларації і він є ПЕП)
-    }
-
-    public class PersonInLicenses                                                       // Ліцензії, дозволи, реєстри
-    {
-        public int ActualLicenseCount { get; set; }                                     // Кількість діючих ліцензій
-        public int NonActualLicenseCount { get; set; }                                  // Кількість не діючих ліцензій
-        public List<PersonLicense> LicensesList { get; set; }                           // Перелік ліцензій
-        public List<PersonCorruption> CorruptionsList { get; set; }                     // Відомості з реєстру корупційних правопорушень
-        public List<PersonLustration> LustrationsList { get; set; }                     // Відомості з реєстру про люстрацію
-    }
-
-    public class PersonLicense                                                          // Перелік ліцензій
-    {
-        public string LicenseName { get; set; }                                         // Назва ліцензії
-        public string LicenseNumber { get; set; }                                       // Номер
-        public DateTime? DateEnd { get; set; }                                          // Дата закінчення
-        public bool Actual { get; set; }                                                // Системне поле
-        public Guid LicenseId { get; set; }                                             // Системне поле
-        public bool? SearchByIpn { get; set; }                                          // Є співпадіння по ІПН
-        public bool? SearchByBirthDay { get; set; }                                     // Є співпадіння по ПІБ
-        public string PersonName { get; set; }                                          // ПІБ
-    }
-    public class PersonCorruption                                                       // Корупційні правопорушення
-    {
-        public string Name { get; set; }                                                // ПІБ
-        public string PlaceOfWork { get; set; }                                         // Місце роботи
-        public string Position { get; set; }                                            // Посада
-        public Guid LicenseId { get; set; }                                             // Системний Id
-    }
-    public class PersonLustration                                                       // Люстрація
-    {
-        public string Name { get; set; }                                                // ПІБ
-        public string PlaceOfWork { get; set; }                                         // Місце роботи
-        public Guid LicenseId { get; set; }                                             // Системний Id
-    }
-
-    public class PersonsHidingViewModel                                                 // Відомості про осіб що переховуються від органів влади
-    {
-        public string Name { get; set; }                                                // ПІБ
-        public DateTime DateBirth { get; set; }                                         // Дата народження
-        public string Ovd { get; set; }                                                 // Орган
-        public string Category { get; set; }                                            // Категорія
-        public DateTime? DateLost { get; set; }                                         // Дата зникнення
-        public string Paragraph { get; set; }                                           // Стаття
-        public string Restraint { get; set; }                                           // Обмеження
-        public string ContactInfo { get; set; }                                         // Контакта інформація відповідного органу
-        public string ImageUrl { get; set; }                                            // Посаління на Фото
-    }
-
-    public class PersonLostDoc                                                          // Відомості про втрачені документи
-    {
-        public string SerialNumber { get; set; }                                        // Серія номер документа
-        public string Status { get; set; }                                              // Статус
-        public DateTime ActualDate { get; set; }                                        // Дата
-        public string Ovd { get; set; }                                                 // Орган
-        public DateTime? RegisterDate { get; set; }                                     // Дата реєстрації
-    }
-
-    public class CourtDecisionAggregationModel                                          // Судові рішення (призначені по розгляду)
-    {
-        public long? TotalCount { get; set; }                                           // Всього справ
-        public long? PlaintiffCount { get; set; }                                       // Позивач
-        public long? DefendantCount { get; set; }                                       // Відповідач
-        public long? OtherSideCount { get; set; }                                       // Інша сторона
-        public long? LoserCount { get; set; }                                           // Програно
-        public long? WinCount { get; set; }                                             // Виграно
-        public long? IntendedCount { get; set; }                                        // Призначено до розгляду
-
-        public long? CaseCount { get; set; }                                            // Унікальних справ
-        public long? InProcess { get; set; }                                            // В процесі розгляду
-
-        public long? TotalDocuments { get; set; }                                       // загальна кількість документів
-
-        public IEnumerable<JusticeKinds> ListJusticeKindses { get; set; }               // Форма судочинства (кримінальні, цивільні, господарські і.т.д)
-    }
-
-    public class PersonInBancrutcy                                                      // Відомості про банкрутство
-    {
-        public string Name { get; set; }                                                // ПІБ
-        public string Number { get; set; }                                              // Номер рішення про банкрутство 
-        public string CourtName { get; set; }                                           // Назва суду
-        public List<Tuple<DateTime?, string>> Publications { get; set; }                // Відомості про публікації на сайте ВГСУ (Вищого господарського суду)
-    }
-
-    public class PersonApiResponseDataRecived                                           // Перелік реєстрів з яких ми успішно/не успішно перевірили дані по ФО (true - успішно перевырили / false - не успішно перевырили)
-    {
-        public bool BorgCheck { get; set; }                                             //Борг
-        public bool MovableCheck { get; set; }                                          // ДРОРМ
-        public bool PersonsInFopsModelCheck { get; set; }                               // ФОП / не ФОП
-        public bool EnforcementsCheck { get; set; }                                     // Виконавчі провадження
-        public bool EstatesCheck { get; set; }                                          // Нерухомість
-        public bool VehiclesCheck { get; set; }                                         // Автотранспорт
-        public bool PersonsInOrganizationsModelsCheck { get; set; }                     // По компаніяї
-        public bool SanctionsCheck { get; set; }                                        // Санкції
-        public bool FairCheck { get; set; }                                             // Судові справи призначені до розгляду
-        public bool IntellectualPropertyCheck { get; set; }                             // Інтелектуальна власність
-        public bool DeclarationsCheck { get; set; }                                     // Декларації
-        public bool LicensesCheck { get; set; }                                         // Ліцензії
-        public bool HidingCheck { get; set; }                                           // Прихотуються від влади
-        public bool LostDocumentsCheck { get; set; }                                    // Втрачені документи
-        public bool BancrutcyCheck { get; set; }                                        // Банкрутство
-        public bool CourtAnalyticCheck { get; set; }                                    // Судові документи
-        public bool AuditsCheck { get; set; }                                           // План графік перевірок
-        public bool SanctionsDetailsCheck { get; set; }                                 // Санкції детально
-    }
-    public class PersonSanctionsData                                                    // Санкції
-    {
-        public int SanctionType { get; set; }                                           // Id санкції
-        public bool SearchByIpn { get; set; }                                           // Чи знайдено по ІПН
-        public DateTime? SanctionStart { get; set; }                                    // Дата початку
-        public string Name { get; set; }                                                // Назва санкції
-        public object Details { get; set; }                                             // Додаткові відомості в форматі json
+    /// <summary>
+    /// Перелік реєстрів з яких ми успішно/не успішно перевірили дані по ФО (true - успішно перевырили / false - не успішно перевырили)
+    /// </summary>
+    public class PersonApiResponseDataRecived                                           // 
+    {/// <summary>
+     /// Борг
+     /// </summary>
+        public bool BorgCheck { get; set; }                                             //
+        /// <summary>
+        /// ДРОРМ
+        /// </summary>
+        public bool MovableCheck { get; set; }                                          // 
+        /// <summary>
+        /// ФОП / не ФОП
+        /// </summary>
+        public bool PersonsInFopsModelCheck { get; set; }                               // 
+        /// <summary>
+        /// Виконавчі провадження
+        /// </summary>
+        public bool EnforcementsCheck { get; set; }                                     // 
+        /// <summary>
+        /// Нерухомість
+        /// </summary>
+        public bool EstatesCheck { get; set; }                                          // 
+        /// <summary>
+        /// Автотранспорт
+        /// </summary>
+        public bool VehiclesCheck { get; set; }                                         // 
+        /// <summary>
+        /// По компаніях
+        /// </summary>
+        public bool PersonsInOrganizationsModelsCheck { get; set; }                     // 
+        /// <summary>
+        /// Санкції
+        /// </summary>
+        public bool SanctionsCheck { get; set; }                                        // 
+        /// <summary>
+        /// Судові справи призначені до розгляду
+        /// </summary>
+        public bool FairCheck { get; set; }                                             // 
+        /// <summary>
+        /// Інтелектуальна власність
+        /// </summary>
+        public bool IntellectualPropertyCheck { get; set; }                             // 
+        /// <summary>
+        /// Декларації
+        /// </summary>
+        public bool DeclarationsCheck { get; set; }                                     // 
+        /// <summary>
+        /// Ліцензії
+        /// </summary>
+        public bool LicensesCheck { get; set; }                                         // 
+        /// <summary>
+        /// Прихотуються від влади
+        /// </summary>
+        public bool HidingCheck { get; set; }                                           // 
+        /// <summary>
+        /// Втрачені документи
+        /// </summary>
+        public bool LostDocumentsCheck { get; set; }                                    // 
+        /// <summary>
+        /// Банкрутство
+        /// </summary>
+        public bool BancrutcyCheck { get; set; }                                        // 
+        /// <summary>
+        /// Судові документи
+        /// </summary>
+        public bool CourtAnalyticCheck { get; set; }                                    // 
+        /// <summary>
+        /// План графік перевірок
+        /// </summary>
+        public bool AuditsCheck { get; set; }                                           // 
+        /// <summary>
+        /// Санкції детально
+        /// </summary>
+        public bool SanctionsDetailsCheck { get; set; }                                 // 
+    }/// <summary>
+     /// Санкції
+     /// </summary>
+    public class PersonSanctionsData                                                    // 
+    {/// <summary>
+     /// Id санкції
+     /// </summary>
+        public int SanctionType { get; set; }                                           // 
+        /// <summary>
+        /// Чи знайдено по ІПН
+        /// </summary>
+        public bool SearchByIpn { get; set; }                                           // 
+        /// <summary>
+        /// Дата початку
+        /// </summary>
+        public DateTime? SanctionStart { get; set; }                                    // 
+        /// <summary>
+        /// Назва санкції
+        /// </summary>
+        public string Name { get; set; }                                                // 
+        /// <summary>
+        /// Додаткові відомості в форматі json
+        /// </summary>
+        public object Details { get; set; }                                             // 
     }
 }

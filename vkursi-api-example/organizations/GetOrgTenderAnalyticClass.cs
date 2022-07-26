@@ -111,27 +111,63 @@ namespace vkursi_api_example.organizations
     */
 
 
-
-    public class GetOrgTenderAnalyticRequestBodyModel                                   // Модель запиту 
-    {
-        public List<string> Edrpou { get; set; }                                        // Перелік кодів ЄДРПОУ (обмеження 1)
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class GetOrgTenderAnalyticRequestBodyModel                                   // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ (обмеження 1)
+     /// </summary>
+        public List<string> Edrpou { get; set; }                                        // 
     }
-
-    public class GetOrgTenderAnalyticResponseModel                                      // Модель на відповідь
-    {
-        public bool IsSucces { get; set; }                                              // Статус відповіді по API
-        public string Succes { get; set; }                                              // Чи успішний запит (maxLength:128)
-        public List<OrgTenderAnalyticApiAnswerModelData> Data { get; set; }             // Перелік даних
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class GetOrgTenderAnalyticResponseModel                                      // 
+    {/// <summary>
+     /// Статус відповіді по API
+     /// </summary>
+        public bool IsSucces { get; set; }                                              // 
+        /// <summary>
+        /// Чи успішний запит (maxLength:128)
+        /// </summary>
+        public string Succes { get; set; }                                              // 
+        /// <summary>
+        /// Перелік даних
+        /// </summary>
+        public List<OrgTenderAnalyticApiAnswerModelData> Data { get; set; }             // 
     }
-
-    public class OrgTenderAnalyticApiAnswerModelData                                    // Перелік даних
-    {
-        public string Edrpou { get; set; }                                              // Код ЄДРПОУ (maxLength:12)
-        public int Proposals { get; set; }                                              // Подано заявок
-        public int Customers { get; set; }                                              // Замовники
-        public int Wins { get; set; }                                                   // Перемоги
-        public decimal Sum { get; set; }                                                // Сума
-        public decimal Competitions { get; set; }                                       // Конкуренція
-        public int Disqualification { get; set; }                                       // Дискваліфікації
+    /// <summary>
+    /// Перелік даних
+    /// </summary>
+    public class OrgTenderAnalyticApiAnswerModelData                                    // 
+    {/// <summary>
+     /// Код ЄДРПОУ (maxLength:12)
+     /// </summary>
+        public string Edrpou { get; set; }                                              // 
+        /// <summary>
+        /// Подано заявок
+        /// </summary>
+        public int Proposals { get; set; }                                              // 
+        /// <summary>
+        /// Замовники
+        /// </summary>
+        public int Customers { get; set; }                                              // 
+        /// <summary>
+        /// Перемоги
+        /// </summary>
+        public int Wins { get; set; }                                                   // 
+        /// <summary>
+        /// Сума
+        /// </summary>
+        public decimal Sum { get; set; }                                                // 
+        /// <summary>
+        /// Конкуренція
+        /// </summary>
+        public decimal Competitions { get; set; }                                       // 
+        /// <summary>
+        /// Дискваліфікації
+        /// </summary>
+        public int Disqualification { get; set; }                                       // 
     }
 }

@@ -114,8 +114,10 @@ namespace vkursi_api_example.organizations
 
     */
 
-
-    public class EditExpressScoreWeightRequestBodyModel                 // Модель Body запиту EditExpressScoreWeight
+    /// <summary>
+    /// Модель Body запиту EditExpressScoreWeight
+    /// </summary>
+    public class EditExpressScoreWeightRequestBodyModel                 // 
     {
         [JsonProperty("pdv")]
         public List<WeightList> Pdv { get; set; }
@@ -303,8 +305,10 @@ namespace vkursi_api_example.organizations
         [JsonProperty("weight")]
         public long Weight { get; set; }
     }
-
-    public partial class EditExpressScoreWeightResponseModel                    // Модель відповіді EditExpressScoreWeight
+    /// <summary>
+    /// Модель відповіді EditExpressScoreWeight
+    /// </summary>
+    public partial class EditExpressScoreWeightResponseModel                    // 
     {
         [JsonProperty("success")]
         public bool Success { get; set; }

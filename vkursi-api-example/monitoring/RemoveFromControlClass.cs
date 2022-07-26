@@ -112,10 +112,17 @@ namespace vkursi_api_example.monitoring
         Response response = client.newCall(request).execute();
 
      */
-
-    public class RemoveFromControlRequestBodyModel                              // Модель Body запиту
-    {
-        public List<string> codes { get; set; }                                 // Перелік кодів ЄДРПОУ / ІПН які будуть видалені
-        public string reestrId { get; set; }                                    // Id реєстра
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class RemoveFromControlRequestBodyModel                              // 
+    {/// <summary>
+     /// Перелік кодів ЄДРПОУ / ІПН які будуть видалені
+     /// </summary>
+        public List<string> codes { get; set; }                                 // 
+        /// <summary>
+        /// Id реєстра
+        /// </summary>
+        public string reestrId { get; set; }                                    // 
     }
 }

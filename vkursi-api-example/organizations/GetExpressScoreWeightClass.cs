@@ -66,63 +66,103 @@ namespace vkursi_api_example.organizations
         }
     }
 
-
-    public class GetExpressScoreWeightResponseModel                                     // Модель відповіді GetExpressScoreWeight
-    {
+    /// <summary>
+    /// Модель відповіді GetExpressScoreWeight
+    /// </summary>
+    public class GetExpressScoreWeightResponseModel                                     // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
         [JsonProperty("isSuccess")]
-        public bool IsSuccess { get; set; }                                             // Чи успішний запит
-
+        public bool IsSuccess { get; set; }                                             // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
         [JsonProperty("status")]
-        public string Status { get; set; }                                              // Статус відповіді по API
-
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Дані методу
+        /// </summary>
         [JsonProperty("data")]
-        public GetExpressScoreWeightRequestData Data { get; set; }                      // Дані методу
+        public GetExpressScoreWeightRequestData Data { get; set; }                      // 
     }
-
-    public class GetExpressScoreWeightRequestData                                       // Дані методу
-    {
+    /// <summary>
+    /// Дані методу
+    /// </summary>
+    public class GetExpressScoreWeightRequestData                                       // 
+    {/// <summary>
+    /// ???
+    /// </summary>
         [JsonProperty("pdv")]
         public List<WeightList> Pdv { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("yedynyyPodatok")]
         public List<WeightList> YedynyyPodatok { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("opf")]
         public List<WeightList> Opf { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("dataReyestratsiyi")]
         public List<WeightList> DataReyestratsiyi { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("upovnovazheniOsoby")]
         public List<WeightList> UpovnovazheniOsoby { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("statutnyyKapital")]
         public List<WeightList> StatutnyyKapital { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("statusReyestratsiyi")]
         public List<WeightList> StatusReyestratsiyi { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("adresaOkupTerytoriyi")]
         public List<WeightList> AdresaOkupTerytoriyi { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("adresaMasReyestratsiyi")]
         public List<WeightList> AdresaMasReyestratsiyi { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("rezydentDerzhavyzSanktsiyamy")]
         public List<WeightList> RezydentDerzhavyzSanktsiyamy { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("obmezhPosadovykhOsib")]
         public List<WeightList> ObmezhPosadovykhOsib { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("novyyKerivnykPidpysant")]
         public List<WeightList> NovyyKerivnykPidpysant { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("sanktsiyiRnbo")]
         public List<WeightList> SanktsiyiRnbo { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("kintseviBenefitsiary")]
         public List<WeightList> KintseviBenefitsiary { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("sanktsiyiSdn")]
         public List<WeightList> SanktsiyiSdn { get; set; }
 

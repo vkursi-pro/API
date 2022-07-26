@@ -73,34 +73,69 @@ namespace vkursi_api_example.organizations
             return GDIResponse;
         }
     }
-
-    public class GetDeclarationsInfoRequestBodyModel                            // Модель Body запиту
-    {
-        public List<string> Edrpou { get; set; }                                // Перелік ЄДРПОУ / ІПН (обмеження 1)
+    /// <summary>
+    /// Модель Body запиту
+    /// </summary>
+    public class GetDeclarationsInfoRequestBodyModel                            
+    {/// <summary>
+     /// Перелік ЄДРПОУ / ІПН (обмеження 1)
+     /// </summary>
+        public List<string> Edrpou { get; set; }                                
     }
-
-    public class GetDeclarationsInfoResponseModel                               // Модель відповіді GetDeclarationsInfo
-    {
-        public bool IsSucces { get; set; }                                      // Чи успішний запит
-        public string Status { get; set; }                                      // Статус відповіді по API
-        public List<OrgEDRApiApiAnswerModelData> Data { get; set; }             // Дані
+    /// <summary>
+    /// Модель відповіді GetDeclarationsInfo
+    /// </summary>
+    public class GetDeclarationsInfoResponseModel                               
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool IsSucces { get; set; }                                      
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                      
+        /// <summary>
+        /// Дані
+        /// </summary>
+        public List<OrgEDRApiApiAnswerModelData> Data { get; set; }             
     }
-
-    public class OrgEDRApiApiAnswerModelData                                    // Дані
-    {
-        public string Edrpou { get; set; }                                      // ЄДРПОУ / ІПН 
-        public List<OrgEDRApiApiAnswerModelDataPerYear> DataPerYear { get; set; }       // Перелік декларантів по рокам
+    /// <summary>
+    /// Дані
+    /// </summary>
+    public class OrgEDRApiApiAnswerModelData                                    
+    {/// <summary>
+     /// ЄДРПОУ / ІПН 
+     /// </summary>
+        public string Edrpou { get; set; }                                      
+        /// <summary>
+        /// Перелік декларантів по рокам
+        /// </summary>
+        public List<OrgEDRApiApiAnswerModelDataPerYear> DataPerYear { get; set; }        
     }
-
-    public class OrgEDRApiApiAnswerModelDataPerYear                             // Перелік декларантів по рокам
-    {
-        public int Year { get; set; }                                           // Рік
-        public List<OrgEDRApiApiAnswerModelDataObj> List { get; set; }          // Перелік декларантів
+    /// <summary>
+    /// Перелік декларантів по рокам
+    /// </summary>
+    public class OrgEDRApiApiAnswerModelDataPerYear                             
+    {/// <summary>
+     ///  Рік
+     /// </summary>
+        public int Year { get; set; }                                           
+        /// <summary>
+        /// Перелік декларантів
+        /// </summary>
+        public List<OrgEDRApiApiAnswerModelDataObj> List { get; set; }          
     }
-
-    public class OrgEDRApiApiAnswerModelDataObj                                 // Перелік декларантів
-    {
-        public string Name { get; set; }                                        // ПІБ + тип відношення
-        public decimal Sum { get; set; }                                        // Сума
+    /// <summary>
+    /// Перелік декларантів
+    /// </summary>
+    public class OrgEDRApiApiAnswerModelDataObj                                 
+    {/// <summary>
+     /// ПІБ + тип відношення
+     /// </summary>
+        public string Name { get; set; }                                        
+        /// <summary>
+        /// Сума
+        /// </summary>
+        public decimal Sum { get; set; }                                        
     }
 }

@@ -147,157 +147,259 @@ namespace vkursi_api_example.organizations
         Response response = client.newCall(request).execute();
 
      */
-
-    public class GetExpressScoreRequestBodyModel                                        // Модель запиту (Example: {"searchType":1,"code":"32352162"})
-    {
+    /// <summary>
+    /// Модель запиту (Example: {"searchType":1,"code":"32352162"})
+    /// </summary>
+    public class GetExpressScoreRequestBodyModel                                        // 
+    {/// <summary>
+     /// Тип пошуку (1 - по ЮО / 2 - по ФО) (обов'язковий)
+     /// </summary>
         [JsonProperty("searchType")]
-        public int SearchType { get; set; }                                             // Тип пошуку (1 - по ЮО / 2 - по ФО) (обов'язковий)
-
+        public int SearchType { get; set; }                                             // 
+        /// <summary>
+        /// Код (ЄДРПОУ для ЮО / ІПН для ФО)
+        /// </summary>
         [JsonProperty("code")]
-        public string Code { get; set; }                                                // Код (ЄДРПОУ для ЮО / ІПН для ФО)
-
+        public string Code { get; set; }                                                // 
+        /// <summary>
+        /// ПІБ ФО (якщо searchType = 2 (якщо 1 не обов'язково))
+        /// </summary>
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-        public string Name { get; set; }                                                // ПІБ ФО (якщо searchType = 2 (якщо 1 не обов'язково))
+        public string Name { get; set; }                                                // 
     }
 
-
-    public class GetExpressScoreResponseModel                                           // Модель на відповідь GetExpressScore
-    {
+    /// <summary>
+    /// Модель на відповідь GetExpressScore
+    /// </summary>
+    public class GetExpressScoreResponseModel                                           // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
         [JsonProperty("isSuccess")]
-        public bool IsSuccess { get; set; }                                             // Чи успішний запит
-
+        public bool IsSuccess { get; set; }                                             // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
         [JsonProperty("status")]
-        public string Status { get; set; }                                              // Статус відповіді по API
-
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Дані методу
+        /// </summary>
         [JsonProperty("data")]
-        public List<GetExpressScoreRequestData> Data { get; set; }                      // Дані методу
+        public List<GetExpressScoreRequestData> Data { get; set; }                      // 
     }
-
-    public class GetExpressScoreRequestData                                             // Дані методу
-    {
+    /// <summary>
+    /// Дані методу
+    /// </summary>
+    public class GetExpressScoreRequestData                                             // 
+    {/// <summary>
+     /// Назва
+     /// </summary>
         [JsonProperty("nazva")]
-        public string Nazva { get; set; }                                               // Назва
-
+        public string Nazva { get; set; }                                               // 
+        /// <summary>
+        /// Код ЄДРПОУ / ІПН
+        /// </summary>
         [JsonProperty("edppou")]
-        public string Edppou { get; set; }                                              // Код ЄДРПОУ / ІПН
-
+        public string Edppou { get; set; }                                              // 
+        /// <summary>
+        /// Платник ПДВ
+        /// </summary>
         [JsonProperty("pdv")]
-        public ExpressScore Pdv { get; set; }                                           // Платник ПДВ
-
+        public ExpressScore Pdv { get; set; }                                           // 
+        /// <summary>
+        /// Група єдиного податку
+        /// </summary>
         [JsonProperty("yedynyyPodatok")]
-        public ExpressScore YedynyyPodatok { get; set; }                                // Група єдиного податку
-
+        public ExpressScore YedynyyPodatok { get; set; }                                // 
+        /// <summary>
+        /// Організаційно-правова форма
+        /// </summary>
         [JsonProperty("opf")]
-        public ExpressScore Opf { get; set; }                                           // Організаційно-правова форма
-
+        public ExpressScore Opf { get; set; }                                           // 
+        /// <summary>
+        /// Дата реєстрації
+        /// </summary>
         [JsonProperty("dataReyestratsiyi")]
-        public ExpressScore DataReyestratsiyi { get; set; }                             // Дата реєстрації
-
+        public ExpressScore DataReyestratsiyi { get; set; }                             // 
+        /// <summary>
+        /// Уповноважені особи (керівники, підписанти)
+        /// </summary>
         [JsonProperty("statutnyyKapital")]
-        public ExpressScore StatutnyyKapital { get; set; }                              // Уповноважені особи (керівники, підписанти)
-
+        public ExpressScore StatutnyyKapital { get; set; }                              // 
+        /// <summary>
+        /// Статус реєстрації
+        /// </summary>
         [JsonProperty("statusReyestratsiyi")]
-        public ExpressScore StatusReyestratsiyi { get; set; }                           // Статус реєстрації
-
+        public ExpressScore StatusReyestratsiyi { get; set; }                           // 
+        /// <summary>
+        /// Розмір статутного капіталу
+        /// </summary>
         [JsonProperty("bankrutsvo")]
-        public ExpressScore Bankrutsvo { get; set; }                                    // Розмір статутного капіталу
-
+        public ExpressScore Bankrutsvo { get; set; }                                    // 
+        /// <summary>
+        /// Місцезнаходження на тимчасово окупованій території
+        /// </summary>
         [JsonProperty("adresaOkupTerytoriyi")]
-        public ExpressScore AdresaOkupTerytoriyi { get; set; }                          // Місцезнаходження на тимчасово окупованій території
-
+        public ExpressScore AdresaOkupTerytoriyi { get; set; }                          // 
+        /// <summary>
+        /// Адреса, що належить до адрес масової реєстрації
+        /// </summary>
         [JsonProperty("adresaMasReyestratsiyi")]
-        public ExpressScore AdresaMasReyestratsiyi { get; set; }                        // Адреса, що належить до адрес масової реєстрації
-
+        public ExpressScore AdresaMasReyestratsiyi { get; set; }                        // 
+        /// <summary>
+        /// Засновник / учасник / кінцевий бенефіціар – резидент держави, що знаходиться під санкціями
+        /// </summary>
         [JsonProperty("rezydentDerzhavyzSanktsiyamy")]
-        public ExpressScore RezydentDerzhavyzSanktsiyamy { get; set; }                  // Засновник / учасник / кінцевий бенефіціар – резидент держави, що знаходиться під санкціями
-
+        public ExpressScore RezydentDerzhavyzSanktsiyamy { get; set; }                  // 
+        /// <summary>
+        /// Санкції РНБО (Ради національної безпеки і оборони України)
+        /// </summary>
         [JsonProperty("sanktsiyiRnbo")]
-        public ExpressScore SanktsiyiRnbo { get; set; }                                 // Санкції РНБО (Ради національної безпеки і оборони України)
-
+        public ExpressScore SanktsiyiRnbo { get; set; }                                 // 
+        /// <summary>
+        /// Санкційний список Міністерства Фінансів США (SDN List)
+        /// </summary>
         [JsonProperty("sanktsiyiSdn")]
-        public ExpressScore SanktsiyiSdn { get; set; }                                  // Санкційний список Міністерства Фінансів США (SDN List)
-
+        public ExpressScore SanktsiyiSdn { get; set; }                                  // 
+        /// <summary>
+        /// Чорний список АМКУ
+        /// </summary>
         [JsonProperty("sanktsiyiAmku")]
-        public ExpressScore SanktsiyiAmku { get; set; }                                 // Чорний список АМКУ
-
+        public ExpressScore SanktsiyiAmku { get; set; }                                 // 
+        /// <summary>
+        /// Санкційний список ЄС
+        /// </summary>
         [JsonProperty("sanktsiyiYes")]
-        public ExpressScore SanktsiyiYes { get; set; }                                  // Санкційний список ЄС
-
+        public ExpressScore SanktsiyiYes { get; set; }                                  // 
+        /// <summary>
+        /// Санкційний список Великобританії
+        /// </summary>
         [JsonProperty("sanktsiyiVb")]
-        public ExpressScore SanktsiyiVb { get; set; }                                   // Санкційний список Великобританії
-
+        public ExpressScore SanktsiyiVb { get; set; }                                   // 
+        /// <summary>
+        /// Спеціальні санкції (МЕРТ)
+        /// </summary>
         [JsonProperty("sanktsiyiMert")]
-        public ExpressScore SanktsiyiMert { get; set; }                                 // Спеціальні санкції (МЕРТ)
-
+        public ExpressScore SanktsiyiMert { get; set; }                                 // 
+        /// <summary>
+        /// Згадується у кримінальних справах
+        /// </summary>
         [JsonProperty("kryminalniSpravavy")]
-        public ExpressScore KryminalniSpravavy { get; set; }                            // Згадується у кримінальних справах
-
+        public ExpressScore KryminalniSpravavy { get; set; }                            // 
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("podatkoviSporiryDps")]   
         public ExpressScore PodatkoviSporiryDps { get; set; }                           // 
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("hospodarskiSpravy")]
         public ExpressScore HospodarskiSpravy { get; set; }                             // 
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("administratyvipravy")]
         public ExpressScore Administratyvipravy { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("vidkrytiVp")]
         public ExpressScore VidkrytiVp { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("drorm")]
         public ExpressScore Drorm { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("obtyazhennyaNerukhMayna")]
         public ExpressScore ObtyazhennyaNerukhMayna { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("ahrarnіRozpysky")]
         public ExpressScore AhrarnіRozpysky { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("reyestrBorzhnykiv")]
         public ExpressScore ReyestrBorzhnykiv { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("borgZarPlati")]
         public ExpressScore BorgZarPlati { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("podatkovyyBorh")]
         public ExpressScore PodatkovyyBorh { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("podatkovyyBorhMisyatsiv")]
         public ExpressScore PodatkovyyBorhMisyatsiv { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("anulPdv")]
         public ExpressScore AnulPdv { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("zvyazkyKompbankrutamy")]
         public ExpressScore ZvyazkyKompbankrutamy { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("zvyazkyPubDiyachamy")]
         public ExpressScore ZvyazkyPubDiyachamy { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("operatsiyizOfshoramy")]
         public ExpressScore OperatsiyizOfshoramy { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("operatsiyizSanktKrayinamy")]
         public ExpressScore OperatsiyizSanktKrayinamy { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("deklaratsiyProDokhody")]
         public ExpressScore DeklaratsiyProDokhody { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("reyestrTerorystiv")]
         public ExpressScore ReyestrTerorystiv { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("totalStatus")]
         public ExpressScore TotalStatus { get; set; }
     }
-
+    /// <summary>
+    /// ???
+    /// </summary>
     public class ExpressScore
-    {
+    {/// <summary>
+    /// ???
+    /// </summary>
         [JsonProperty("indicatorValue")]
         public string IndicatorValue { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("weight", NullValueHandling = NullValueHandling.Ignore)]
         public int? Weight { get; set; }
-
+        /// <summary>
+        /// ???
+        /// </summary>
         [JsonProperty("indicatorValueList", NullValueHandling = NullValueHandling.Ignore)]
         public List<ExpressScore> IndicatorValueList { get; set; }
     }

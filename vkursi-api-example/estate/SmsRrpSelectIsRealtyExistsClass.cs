@@ -108,16 +108,30 @@ namespace vkursi_api_example.estate
         Response response = client.newCall(request).execute();
 
  */
-
-    public class SmsRrpSelectIsRealtyExistsRequestBodyModel                             // Модель запиту 
-    {
-        public List<long> OnmNumbers { get; set; }                                      // Перелік номерів ОНМ
+    /// <summary>
+    /// Модель запиту 
+    /// </summary>
+    public class SmsRrpSelectIsRealtyExistsRequestBodyModel                             // 
+    {/// <summary>
+     /// Перелік номерів ОНМ
+     /// </summary>
+        public List<long> OnmNumbers { get; set; }                                      // 
     }
-
-    public class SmsRrpSelectIsRealtyExistsResponseModel                                // Модель на відповідь
-    {
-        public bool IsSuccess { get; set; }                                             // Чи успішний запит
-        public string Status { get; set; }                                              // Статус відповіді по API
-        public List<string> NotFoundOnmOnMonitoring { get; set; }                       // Перелік не знайдених номерів ОНМ
+    /// <summary>
+    /// Модель на відповідь
+    /// </summary>
+    public class SmsRrpSelectIsRealtyExistsResponseModel                                // 
+    {/// <summary>
+     /// Чи успішний запит
+     /// </summary>
+        public bool IsSuccess { get; set; }                                             // 
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public string Status { get; set; }                                              // 
+        /// <summary>
+        /// Перелік не знайдених номерів ОНМ
+        /// </summary>
+        public List<string> NotFoundOnmOnMonitoring { get; set; }                       // 
     }
 }

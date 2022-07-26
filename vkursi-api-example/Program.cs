@@ -37,7 +37,7 @@ namespace vkursi_api_example
             // 3. Запит на отримання коротких даних по ФОП за кодом ІПН
             // [POST] /api/1.0/organizations/getfops
 
-            GetFopsClass.GetFops("3334800417", ref token); // 3334800417
+            GetFopsClass.GetFops("3292516420", ref token); // 3334800417
 
             // 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
             // [POST] /api/1.0/organizations/getadvancedorganization
@@ -122,15 +122,16 @@ namespace vkursi_api_example
             // New
             GetBiLabelsClass.GetBiLabels(token);
 
-            // 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам 
+            // 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам, та домавання обектыв до моныторингу СМС РРП
             // [POST] /api/1.0/estate/estatecreatetaskapi
 
-            EstateTaskApiClass.EstateCreateTaskApi(token);
+            EstateCreateTaskApiClass.EstateCreateTaskApi(token);
 
             // 20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
             // [GET] /api/1.0/estate/getestatetasklist
 
             EstateTaskApiClass.GetEstateTaskList(token);
+
 
             // 21. Отримання інформації про виконання формування звіту та запитів до ДРРП, НГО, ДЗК за TaskId
             // [POST] /api/1.0/estate/estategettaskdataapi

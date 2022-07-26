@@ -257,7 +257,7 @@ namespace vkursi_api_example.codeExample
 
             DirectoryInfo filePath = new DirectoryInfo(@"C:\Users\vadim\Desktop\temp");
 
-            List<movableloads.Datum> data = new List<movableloads.Datum>();
+            //List<movableloads.Datum> data = new List<movableloads.Datum>();
 
             foreach (var item in TextLineList)
             {
@@ -286,13 +286,13 @@ namespace vkursi_api_example.codeExample
 
                 if (GetMovableLoadsResponseRow.data.Count > 0)
                 {
-                    data.AddRange(GetMovableLoadsResponseRow.data);
+                    //data.AddRange(GetMovableLoadsResponseRow.data);
                 }
 
                 Console.WriteLine(count + ". " + item + " | " + GetMovableLoadsResponseRow.data.Count);
             }
 
-            WriteJsonTextToTxt(JsonConvert.SerializeObject(data, Formatting.Indented), filePath, "GetMovableLoadsResponse2.json");
+            //WriteJsonTextToTxt(JsonConvert.SerializeObject(data, Formatting.Indented), filePath, "GetMovableLoadsResponse2.json");
 
             Console.WriteLine();
         }
