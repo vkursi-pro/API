@@ -18,12 +18,16 @@ namespace vkursi_api_example.organizations
 
         /*
 
+        cURL запиту:
             curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetRussianFoundersAndBeneficiars' \
             --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsI...' \
             --header 'ContentType: application/json' \
             --header 'Content-Type: application/json' \
             --data-raw '{"EdrpouList":["00222166"]}' 
-         
+
+        Приклад відповіді:
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetRussianFoundersAndBeneficiarsResponse.json
+ 
         */
         public static GetRussianFoundersAndBeneficiarsResponseModel GetRussianFoundersAndBeneficiars(ref string token, string code)
         {
