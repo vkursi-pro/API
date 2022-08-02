@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
+using System;
 
 namespace vkursi_api_example.token
 {
@@ -26,7 +27,7 @@ namespace vkursi_api_example.token
            
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
-                Email = "test@testemail.com",       // Логін (Email)
+                Email = "test@test.com",       // Логін (Email)
                 Password = "123456"                 // Пароль
             };
 

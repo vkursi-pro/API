@@ -31,6 +31,8 @@ namespace vkursi_api_example.person
 
             string responseString = string.Empty;
 
+            System.Console.WriteLine(DateTime.Now);
+
             while (string.IsNullOrEmpty(responseString))
             {
 
@@ -54,6 +56,8 @@ namespace vkursi_api_example.person
 
                 IRestResponse response = client.Execute(request);
                 responseString = response.Content;
+
+                System.Console.WriteLine(DateTime.Now);
 
                 if ((int)response.StatusCode == 401)
                 {

@@ -469,6 +469,11 @@ namespace vkursi_api_example
 
             GetAdvancedorganizationOnlyNaisDataClass.GetAdvancedOrganizationOnlyNaisData(ref token, "00131305");
 
+            // 88. Отримання відомостей про наявних в компанії засновників / бенефіціарів / власників пакетів акцій пов'язаних з росією або білорусією
+            // [POST] /api/1.0/organizations/getRussianFoundersAndBeneficiars
+
+            GetRussianFoundersAndBeneficiarsClass.GetRussianFoundersAndBeneficiars(ref token, "00222166");
+
             // Перелік статусів відповідей API
         }
     }
