@@ -395,6 +395,10 @@ namespace vkursi_api_example.organizations
         /// Причина відсутності КБВ (якщо у юридичної особи відсутні КБВ)
         /// </summary>
         public int? reason { get; set; }                                        // 
+        /// <summary>
+        /// Країна громадянства / резиденства
+        /// </summary>
+        public string country { get; set; }                                        // 
     }
     /// <summary>
     /// Адреса

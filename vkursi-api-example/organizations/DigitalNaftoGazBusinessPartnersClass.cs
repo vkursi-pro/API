@@ -27,7 +27,7 @@ namespace vkursi_api_example.organizations
             --data-raw '{"Code":"21560045","needUpdate":true}'
         
         Приклад відповіді:
-            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/digitalNaftoGazBusinessPartnersResponse.json
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/DigitalNaftoGazBusinessPartnersResponse.json
         
          */
 
@@ -123,13 +123,12 @@ namespace vkursi_api_example.organizations
         /// Чи успішна выдповідь: true - так / false - ні
         /// </summary>
         public bool IsSuccess { get; set; }
-
         /// <summary>
-        /// Выдомосты про платника ПДВ
+        /// Відомості про платника ПДВ
         /// </summary>
         public GetAdvancedOrganizationExtendedModelResponsePdv PdvData { get; set; }
         /// <summary>
-        /// Выдомосты про санкції
+        /// Відомості про санкції
         /// </summary>
         public GetAdvancedOrganizationExtendedModelResponseSanction SanctionData { get; set; }
         /// <summary>
@@ -147,29 +146,64 @@ namespace vkursi_api_example.organizations
         /// </summary>
         public OrganizationaisElasticModel EdrData { get; set; }
     }
-
+    /// <summary>
+    /// Відомості про платника ПДВ
+    /// </summary>
     public class GetAdvancedOrganizationExtendedModelResponsePdv
     {
+        /// <summary>
+        /// Дата реєстрації свідоцтва платника ПДВ
+        /// </summary>
         public DateTime? RegInn { get; set; }
+        /// <summary>
+        /// Код ПДВ (maxLength:10)
+        /// </summary>
         public string Inn { get; set; }
+        /// <summary>
+        /// Дата анулювання свідоцтва платника ПДВ 
+        /// </summary>
         public DateTime? DateCanceledInn { get; set; }
     }
-
+    /// <summary>
+    /// Відомості про санкції
+    /// </summary>
     public class GetAdvancedOrganizationExtendedModelResponseSanction
     {
+        /// <summary>
+        /// Чи наявні відомості про санкції: true - так / false - ні
+        /// </summary>
         public bool SanctionsExist { get; set; }
+        /// <summary>
+        /// Посилання на розділ в vkursi.pro
+        /// </summary>
         public string SanctionUrl { get; set; }
     }
-
+    /// <summary>
+    /// Дані по судовим документам
+    /// </summary>
     public class GetAdvancedOrganizationExtendedModelResponseCourt
     {
+        /// <summary>
+        /// Чи наявні судові документи по кримінальних справах: true - так / false - ні
+        /// </summary>
         public bool CourtExist { get; set; }
+        /// <summary>
+        /// Посилання на розділ в vkursi.pro
+        /// </summary>
         public string CourtUrl { get; set; }
     }
-
+    /// <summary>
+    /// Дані по зв'язкам з російськими/білоруськими бенефіціарами/засновниками
+    /// </summary>
     public class GetAdvancedOrganizationExtendedModelResponseRFBRBeneficiar
     {
+        /// <summary>
+        /// Чи наявні зв'язки з російськими/білоруськими бенефіціарами/засновниками: true - так / false - ні
+        /// </summary>
         public bool BeneficiarExist { get; set; }
+        /// <summary>
+        /// Посилання на розділ в vkursi.pro
+        /// </summary>
         public string BeneficiarUrl { get; set; }
     }
 
