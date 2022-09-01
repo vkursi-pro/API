@@ -23,7 +23,9 @@ namespace vkursi_api_example.organizations
 
         public static List<GetOrganizationsResponseModel> GetOrganizations(string code, ref string token)
         {
-            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
+            if (string.IsNullOrEmpty(token)) { 
+                AuthorizeClass _authorize = new AuthorizeClass();
+                token = _authorize.Authorize();}
 
             string responseString = string.Empty;
 

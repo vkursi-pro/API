@@ -1,0 +1,167 @@
+{
+    "status": "Дані знайдено",
+    "isSuccess": true,
+    "edrData": {
+        "id": 2611789,
+        "state": 1,
+        "state_text": "зареєстровано",
+        "code": "35268354",
+        "names": {
+            "name": "\"СЕВЕРСТАЛЬ ДИСТРИБУЦІЯ\"",
+            "include_olf": true,
+            "display": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"СЕВЕРСТАЛЬ ДИСТРИБУЦІЯ\"",
+            "short": "ТОВ \"СЕВЕРСТАЛЬ ДИСТРИБУЦІЯ\""
+        },
+        "olf_code": "240",
+        "olf_name": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ",
+        "founding_document_type": "1",
+        "executive_power": {},
+        "object_name": "Печерська районна в місті Києві державна адміністрація",
+        "founders": [
+            {
+                "name": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"СЕВЕРСТАЛЬ ДИСТРИБУЦІЯ\" (SIA \"SEVERSTAL DISTRIBUTION\")",
+                "address": {
+                    "country": "Латвія",
+                    "address": "Латвія, МІСТО РИГА, ВУЛИЦЯ СТАРТУ 13, LV-1 039",
+                    "parts": {}
+                },
+                "country": "Латвія",
+                "role": 4,
+                "role_text": "засновник",
+                "capital": "15907500"
+            },
+            {
+                "name": "КІНЦЕВИЙ БЕНЕФІЦІАРНИЙ ВЛАСНИК (КОНТРОЛЕР) ЗАСНОВНИКА - ЮРИДИЧНОЇ ОСОБИ-НЕРЕЗИДЕНТА ТОВАРИСТВА З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"СЕВЕРСТАЛЬ ДИСТРИБУЦІЯ\" - ГРОМАДЯНИН РОСІЙСЬКОЇ ФЕДЕРАЦІЇ МОРДАШОВ ОЛЕКСІЙ ОЛЕКСАНДРОВИЧ  ВОЛОГОДСЬКА ОБЛАСТЬ, МІСТО ЧЕРЕПОВЕЦЬ, ВУЛИЦЯ МОНТКЛЕР, БУДИНОК 22, КВАРТИРА 77",
+                "role": 4,
+                "role_text": "засновник"
+            }
+        ],
+        "beneficiaries": [],
+        "branches": [],
+        "authorised_capital": {
+            "value": "15907500",
+            "date": "2008-07-17T00:00:00"
+        },
+        "management": "ВИКОНАВЧИЙ - ДИРЕКТОР",
+        "activity_kinds": [
+            {
+                "code": "25.62",
+                "name": "Механічне оброблення металевих виробів",
+                "is_primary": false
+            },
+            {
+                "code": "46.12",
+                "name": "Діяльність посередників у торгівлі паливом, рудами, металами та промисловими хімічними речовинами",
+                "is_primary": false
+            },
+            {
+                "code": "46.72",
+                "name": "Оптова торгівля металами та металевими рудами",
+                "is_primary": true
+            },
+            {
+                "code": "46.77",
+                "name": "Оптова торгівля відходами та брухтом",
+                "is_primary": false
+            },
+            {
+                "code": "52.10",
+                "name": "Складське господарство",
+                "is_primary": false
+            },
+            {
+                "code": "70.22",
+                "name": "Консультування з питань комерційної діяльності й керування",
+                "is_primary": false
+            }
+        ],
+        "heads": [
+            {
+                "last_name": "СУКІЯСОВ",
+                "first_middle_name": "СЕРГІЙ САМСОНОВИЧ",
+                "role": 3,
+                "role_text": "керівник",
+                "appointment_date": "2020-01-10T00:00:00"
+            }
+        ],
+        "address": {
+            "zip": "01010",
+            "country": "Україна",
+            "address": "Україна, 01010, місто Київ, ВУЛИЦЯ ЛЕВАНДОВСЬКА, будинок 3В",
+            "parts": {
+                "atu": "м. Київ",
+                "atu_code": "8038200000",
+                "street": "вул. ЛЕВАНДОВСЬКА",
+                "house_type": "буд.",
+                "house": "3В"
+            }
+        },
+        "registration": {
+            "date": "2007-07-17T00:00:00",
+            "record_number": "12241020000037961",
+            "record_date": "2007-07-17T00:00:00",
+            "is_separation": false,
+            "is_division": false,
+            "is_merge": false,
+            "is_transformation": false
+        },
+        "assignees": [],
+        "predecessors": [],
+        "registrations": [
+            {
+                "name": "ГОЛОВНЕ УПРАВЛІННЯ РЕГІОНАЛЬНОЇ СТАТИСТИКИ",
+                "code": "21680000",
+                "type": "4000",
+                "start_date": "2007-07-19T00:00:00"
+            },
+            {
+                "name": "ГОЛОВНЕ УПРАВЛІННЯ ДПС У М.КИЄВІ, ДПІ У ПЕЧЕРСЬКОМУ РАЙОНІ (ПЕЧЕРСЬКИЙ РАЙОН М.КИЄВА)",
+                "code": "43141267",
+                "type": "4002",
+                "description": "Реєстр платників податків",
+                "start_date": "2007-07-18T00:00:00",
+                "start_num": "747"
+            },
+            {
+                "name": "ГОЛОВНЕ УПРАВЛІННЯ ДПС У М.КИЄВІ, ДПІ У ПЕЧЕРСЬКОМУ РАЙОНІ (ПЕЧЕРСЬКИЙ РАЙОН М.КИЄВА)",
+                "code": "43141267",
+                "type": "4001",
+                "description": "Реєстр платників єдиного внеску",
+                "start_date": "2013-04-04T00:00:00",
+                "start_num": "04040322828"
+            }
+        ],
+        "primary_activity_kind": {
+            "name": "Оптова торгівля металами та металевими рудами",
+            "code": "46.72",
+            "reg_number": "04040322828",
+            "class": "23"
+        },
+        "contacts": {
+            "email": "in.botina@severstal.com",
+            "tel": [
+                "+380937595072"
+            ]
+        },
+        "open_enforcements": [],
+        "hash": "aabdbac0-f35b-2852-d4ce-29d6997a8dcf",
+        "createDate": "2022-09-01T22:55:34.854",
+        "modifiedDate": "2022-09-01T22:55:34.854"
+    },
+    "pdvData": {
+        "regInn": "2007-08-13T00:00:00",
+        "inn": "352683504620"
+    },
+    "sanctionData": {
+        "sanctionsExist": true,
+        "sanctionUrl": "https://vkursi.pro/card/35268354#sanctions"
+    },
+    "courtData": {
+        "courtExist": true,
+        "courtUrl": "https://vkursi.pro/vsudi?justiceKind=2&id=35268354"
+    },
+    "rfbrBeneficiarData": {
+        "beneficiarExist": true,
+        "beneficiarUrl": "https://vkursi.pro/card/35268354#russianbeneficiary"
+    }
+}
