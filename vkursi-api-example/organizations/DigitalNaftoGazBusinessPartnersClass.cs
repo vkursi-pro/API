@@ -24,7 +24,7 @@ namespace vkursi_api_example.organizations
             --header 'ContentType: application/json' \
             --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
             --header 'Content-Type: application/json' \
-            --data-raw '{"Code":"21560045","needUpdate":true}'
+            --data-raw '{"Code":"35268354","needUpdate":true}'
         
         Приклад відповіді:
             https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/DigitalNaftoGazBusinessPartnersResponse.json
