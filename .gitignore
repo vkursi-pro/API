@@ -58,6 +58,7 @@ artifacts/
 
 # StyleCop
 StyleCopReport.xml
+AuthorizeClass.cs
 
 # Files built by Visual Studio
 *_i.c
@@ -166,6 +167,7 @@ DocProject/Help/html
 
 # Click-Once directory
 publish/
+token/
 
 # Publish Web Output
 *.[Pp]ublish.xml
