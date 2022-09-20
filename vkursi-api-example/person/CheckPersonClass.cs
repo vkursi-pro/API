@@ -273,6 +273,11 @@ namespace vkursi_api_example.person
         /// </summary>
         public Guid? Id { get; set; }                                                   // 
 
+        /// <summary>
+        /// Список справ призначених до рогзляду
+        /// </summary>
+        public List<AssigmentModelView> AssigmentModels { get; set; }
+
     }
     /// <summary>
     /// Відомості про наявність боргу
@@ -1373,5 +1378,20 @@ namespace vkursi_api_example.person
         /// Додаткові відомості в форматі json
         /// </summary>
         public object Details { get; set; }                                             // 
+    }
+
+    /// <summary>
+    /// Список справ призначених до рогзляду
+    /// </summary>
+    public class AssigmentModelView
+    {
+        public string CourtName { get; set; }
+        public string CaseNumber { get; set; }
+        public string Sides { get; set; }
+        public string Judges { get; set; }
+        public string SideType { get; set; }
+        public string SideName { get; set; }
+        public string PredmetPozovu { get; set; }
+        public DateTime? Date { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace vkursi_api_example.organizations
     public class GetRussianFoundersAndBeneficiarsClass
     {
         /// <summary>
-        /// 88. Отримання відомостей про наявних в компанії засновників / бенефіціарів / власників пакетів акцій пов'язаних з росією або білорусією
+        /// 89. Отримання відомостей про наявних в компанії засновників / бенефіціарів / власників пакетів акцій пов'язаних з росією або білорусією
         /// </summary>
         /// <param name="code">Код ЄДРПОУ</param>
         /// <param name="token">Токен</param>

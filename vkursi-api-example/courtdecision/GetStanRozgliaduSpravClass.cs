@@ -221,7 +221,7 @@ namespace vkursi_api_example.courtdecision
         /// </summary>
         public string DecisionId { get; set; }                                          // 
         /// <summary>
-        /// null - all, 1 - Plaintiffs; 2 - Defendants; 3 - Other;
+        /// Тип сторони к справі: null - all, 1 - Plaintiffs; 2 - Defendants; 3 - Other;
         /// </summary>
         public int? TypeSide { get; set; }                                              //  
         /// <summary>

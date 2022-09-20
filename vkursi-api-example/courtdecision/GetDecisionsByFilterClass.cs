@@ -127,21 +127,26 @@ namespace vkursi_api_example.courtdecision
         /// <summary>
         /// Дата рішення від
         /// </summary>
-        public DateTime? AdjudicationDateFrom { get; set; }                     // 
+        public DateTime? AdjudicationDateFrom { get; set; }
         /// <summary>
         /// Дата рішення до
         /// </summary>
-        public DateTime? AdjudicationDateTo { get; set; }                       // 
+        public DateTime? AdjudicationDateTo { get; set; }
+        /// <summary>
+        /// Перелік номерів судових документів
+        /// </summary>
+        public List<string> Numbers { get; set; }
 
     }
     /// <summary>
     /// Модель відповіді
     /// </summary>
-    public class GetDecisionsByFilterResponseModel                              // 
-    {/// <summary>
-     /// Статус відповіді по API
-     /// </summary>
-        public bool IsSuccess { get; set; }                                     // 
+    public class GetDecisionsByFilterResponseModel
+    {
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public bool IsSuccess { get; set; }
         /// <summary>
         /// Чи успішний запит (maxLength:128)
         /// </summary>
@@ -155,7 +160,7 @@ namespace vkursi_api_example.courtdecision
         /// </summary>
         public long DecisionsCount { get; set; }                                // 
         /// <summary>
-        /// Переліе судовіх документів (Модель відповіди ідентична Методу № 26. Рекізити судового документа [POST] /api/1.0/courtdecision/getdecisionbyid https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionByIdClass.cs#L110)
+        /// Перелік судових документів (Модель відповіді ідентична Методу № 26. Рекізити судового документа [POST] /api/1.0/courtdecision/getdecisionbyid https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionByIdClass.cs#L110)
         /// </summary>
         public List<CourtDecisionElasticModel> Data { get; set; }               // 
     }
