@@ -1,0 +1,101 @@
+{
+   "isSuccess":false,
+   "status":"Дані знайдено",
+   "data":{
+      "organizationData":{
+         "personInCompaniesList":[
+            {
+               "id":"264d5df0-1a5a-78a2-853f-dcb35eb347e8",
+               "ipn":"3334800417",
+               "beneficiarList":[
+                  {
+                     "url":"https://85d251046a40cd79e0bbb29eadacd92c.nais.gov.ua/2.0/subjects/12044820",
+                     "id":12044820,
+                     "state":1,
+                     "state_text":"зареєстровано",
+                     "code":"41462280",
+                     "name":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ВЕБ ДРІМ ТЕХНОЛОДЖІ\""
+                  },
+                  {
+                     "url":"https://85d251046a40cd79e0bbb29eadacd92c.nais.gov.ua/2.0/subjects/13145720",
+                     "id":13145720,
+                     "state":1,
+                     "state_text":"зареєстровано",
+                     "code":"43875372",
+                     "name":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"БІНДЕР\""
+                  }
+               ],
+               "founderList":[
+                  {
+                     "url":"https://85d251046a40cd79e0bbb29eadacd92c.nais.gov.ua/2.0/subjects/11516320",
+                     "id":11516320,
+                     "state":1,
+                     "state_text":"зареєстровано",
+                     "code":"40073472",
+                     "name":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"УКРАЇНСЬКИЙ ЦЕНТР ОБСЛУГОВУВАННЯ ПЛАТНИКІВ ПОДАТКІВ\""
+                  },
+                  {
+                     "url":"https://85d251046a40cd79e0bbb29eadacd92c.nais.gov.ua/2.0/subjects/12044820",
+                     "id":12044820,
+                     "state":1,
+                     "state_text":"зареєстровано",
+                     "code":"41462280",
+                     "name":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ВЕБ ДРІМ ТЕХНОЛОДЖІ\""
+                  }
+               ],
+               "chiefList":[
+                  {
+                     "url":"https://85d251046a40cd79e0bbb29eadacd92c.nais.gov.ua/2.0/subjects/12044820",
+                     "id":12044820,
+                     "state":1,
+                     "state_text":"зареєстровано",
+                     "code":"41462280",
+                     "name":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ВЕБ ДРІМ ТЕХНОЛОДЖІ\""
+                  }
+               ],
+               "beneficiarClearList":[
+                  
+               ],
+               "founderClearList":[
+                  {
+                     "url":"https://85d251046a40cd79e0bbb29eadacd92c.nais.gov.ua/2.0/subjects/12044820",
+                     "id":12044820,
+                     "state":1,
+                     "state_text":"зареєстровано",
+                     "code":"41462280",
+                     "name":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ВЕБ ДРІМ ТЕХНОЛОДЖІ\""
+                  }
+               ],
+               "chiefClearList":[
+                  {
+                     "url":"https://85d251046a40cd79e0bbb29eadacd92c.nais.gov.ua/2.0/subjects/12044820",
+                     "id":12044820,
+                     "state":1,
+                     "state_text":"зареєстровано",
+                     "code":"41462280",
+                     "name":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ВЕБ ДРІМ ТЕХНОЛОДЖІ\""
+                  }
+               ]
+            }
+         ],
+         "notEnoughMoney":false
+      },
+      "fopData":{
+         "data":[
+            {
+               "ipn":"3334800417",
+               "data":[
+                  {
+                     "url":"https://85d251046a40cd79e0bbb29eadacd92c.nais.gov.ua/2.0/subjects/10968267",
+                     "id":10968267,
+                     "state":3,
+                     "state_text":"припинено",
+                     "code":"3334800417",
+                     "name":"ЗАПЕКА ВАДИМ ВІТАЛІЙОВИЧ"
+                  }
+               ]
+            }
+         ]
+      }
+   }
+}
