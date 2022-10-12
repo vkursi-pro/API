@@ -29,6 +29,8 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
+            GetStanRozgliaduSpravClass.GetStanRozgliaduSprav(ref token);
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -478,6 +480,11 @@ namespace vkursi_api_example
             // [POST] /api/1.0/organizations/getRussianFoundersAndBeneficiars
 
             GetRussianFoundersAndBeneficiarsClass.GetRussianFoundersAndBeneficiars(ref token, "00222166");
+
+            // 90. Перевірка ПЕП
+            // [POST] /api/1.0/person/CheckPep
+
+            CheckPepClass.CheckPep(ref token, "ОЛІЙНИК ТЕТЯНА АНАТОЛІЇВНА");
 
             // Перелік статусів відповідей API
         }

@@ -33,8 +33,9 @@ namespace vkursi_api_example.courtdecision
              GetStanRozgliaduSpravBodyModel GSRSBody = new GetStanRozgliaduSpravBodyModel
                 {
                     //CompanyEdrpou = "31729918",
-                    PersonName = "Колесник Анна Олексіївна",
+                    PersonName = "Половніков Олександр Олександрович",
                     Size = 100,    
+                    //JusticeKindId = 2
                     //DateStart = DateTime.Parse("2020-04-13T00:00:00.000Z")
                 };
 

@@ -255,6 +255,22 @@ namespace vkursi_api_example.movableloads
         /// <summary>
         /// Дата коли обтяження з'явисоль в сервісі Vkursi
         /// </summary>
-        public DateTime? CreateDate { get; set; }   
+        public DateTime? CreateDate { get; set; }
+
+
+        [JsonProperty("searchCode")]
+        public string SearchCode { get; set; }
+
+        [JsonProperty("state")]
+        public string State { get; set; }
+
+        [JsonProperty("nameRegister")]
+        public string NameRegister { get; set; }
+
+        [JsonProperty("objRegister")]
+        public string ObjRegister { get; set; }
+
+        [JsonProperty("execTerm")]
+        public DateTime? ExecTerm { get; set; }
     }
 }

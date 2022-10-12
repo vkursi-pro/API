@@ -1039,10 +1039,7 @@ namespace vkursi_api_example.person
         /// 1 - Особа яку вказано в декларації публічної особи (ПІБ вказано в декларації особи яка є ПЕП)
         /// 2 - Публічна особа (ПІБ вказано в декларації і він є ПЕП)
         /// </summary>
-        public int? PublicStatus { get; set; }                                           
-                                                                                        
-                                                                                        
-                                                                                         
+        public int? PublicStatus { get; set; }                                                                                                                          
     }
     /// <summary>
     /// Ліцензії, дозволи, реєстри
