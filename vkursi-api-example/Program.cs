@@ -281,7 +281,7 @@ namespace vkursi_api_example
 
             EstateCurrentOnMonitoringClass.EstateCurrentOnMonitoring(token);
 
-            // 51. Судові документі по ЮО/ФО
+            // 51. Стан розгляду судових справ 
             // [POST] /api/1.0/CourtDecision/getStanRozgliaduSprav
 
             GetStanRozgliaduSpravClass.GetStanRozgliaduSprav(ref token);
@@ -485,6 +485,16 @@ namespace vkursi_api_example
             // [POST] /api/1.0/person/CheckPep
 
             CheckPepClass.CheckPep(ref token, "ОЛІЙНИК ТЕТЯНА АНАТОЛІЇВНА");
+
+            // 91. Отримання переліку санкцій по ФО
+            // [POST] /api/1.0/person/GetPersonSanctions
+
+            GetPersonSanctionsClass.GetPersonSanctions(ref token, "AA100110");
+
+            // 92. Перевірка втрачених документів
+            // [POST] /api/1.0/person/getLostDocuments
+
+            GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСАНДР ВЛАДИМИРОВИЧ");
 
             // Перелік статусів відповідей API
         }
