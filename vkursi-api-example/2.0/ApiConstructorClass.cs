@@ -74,7 +74,7 @@ namespace vkursi_api_example._2._0
             ACResponseRow = JsonConvert.DeserializeObject<ApiConstructorResponseModel>(responseString);
 
             // Тут можна переглянути json відповіді
-            string apiConstructorResponseString = JsonConvert.SerializeObject(ACResponseRow, Formatting.Indented);
+            //string apiConstructorResponseString = JsonConvert.SerializeObject(ACResponseRow, Formatting.Indented);
 
             return ACResponseRow;
         }
@@ -85,6 +85,10 @@ namespace vkursi_api_example._2._0
     /// </summary>
     public class ApiConstructorRequestBodyModel
     {
+        /// <summary>
+        /// Модель body для пошуку по ФО
+        /// </summary>
+        public List<PersonDataModel> PersonData { get; set; }
         /// <summary>
         /// Код ЄДРПОУ
         /// </summary>
@@ -123,6 +127,28 @@ namespace vkursi_api_example._2._0
         public PersonApiRequest CheckPersonFilter { get; set; }
     }
 
+    /// <summary>
+    /// Модель body для пошуку по ФО
+    /// </summary>
+    public class PersonDataModel
+    {
+        /// <summary>
+        /// ПІБ
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
+        /// Код ІПН
+        /// </summary>
+        public string Code { get; set; }
+        /// <summary>
+        /// Дата народження
+        /// </summary>
+        public DateTime? BirthDate { get; set; }
+        /// <summary>
+        /// Серія номер паспорту
+        /// </summary>
+        public string Passport { get; set; }
+    }
     /// <summary>
     /// Додатковый параметр. Чи потрыбный прямий запит на Nais (true - так / false - ні)
     /// </summary>

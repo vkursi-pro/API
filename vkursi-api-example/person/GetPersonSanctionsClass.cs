@@ -18,7 +18,7 @@ namespace vkursi_api_example.person
         /// <param name="code"></param>
         /// <returns></returns>
         
-        public static GetPersonSanctionsResponseModel GetPersonSanctions(ref string token, string code)
+        public static GetPersonSanctionsResponseModel GetPersonSanctions(ref string token, string text)
         {
             if (string.IsNullOrEmpty(token))
             {
@@ -32,10 +32,10 @@ namespace vkursi_api_example.person
             {
                 GetPersonSanctionsRequestBodyModel GRFABRequestBody = new GetPersonSanctionsRequestBodyModel
                 {
-                    EdrpouList = new List<string> { code }                     // Код ЄДРПОУ / ІПН
+                    Text = text                     // ПІБ ЮО або назва (якщо компанія) 
                 };
 
-                string body = JsonConvert.SerializeObject(GRFABRequestBody);   // Example body: {"edrpouList":"00222166"}
+                string body = JsonConvert.SerializeObject(GRFABRequestBody);   // Example body: {"text":"КОРОТКИЙ АЛЕКСАНДР ВЛАДИМИРОВИЧ"}
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/person/GetPersonSanctions");
                 RestRequest request = new RestRequest(Method.POST);
@@ -78,15 +78,45 @@ namespace vkursi_api_example.person
         }
     }
 
-
+    /// <summary>
+    /// Модель Body запиту 
+    /// </summary>
     public class GetPersonSanctionsRequestBodyModel
     {
+        /// <summary>
+        /// ПІБ ЮО або назва (якщо компанія) 
+        /// </summary>
         public string Text { get; set; }
+        public double? Percent { get; set; } = 0.95;
+        public int? MaxOffset { get; set; } = 0;
     }
 
+    /// <summary>
+    /// Модель відповіді
+    /// </summary>
     public class GetPersonSanctionsResponseModel
     {
+        public string Status { get; set; }
+        public bool IsSuccess { get; set; }
+        public List<PersonSanctions> Data { get; set; }
+    }
 
+    public class PersonSanctions
+    {
+        public Guid Id { get; set; }
+        public List<GetPersonSanctionsData> Sanctions { get; set; }
+    }
+
+    public class GetPersonSanctionsData
+    {
+        public int SanctionType { get; set; }
+        public bool SearchByIpn { get; set; }
+        public DateTime? SanctionStart { get; set; }
+        public string Name { get; set; }
+        public string NameFromSanction { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public object Details { get; set; }
+        public List<string> PersonNames { get; set; }
     }
 
 }

@@ -489,12 +489,12 @@ namespace vkursi_api_example
             // 91. Отримання переліку санкцій по ФО
             // [POST] /api/1.0/person/GetPersonSanctions
 
-            GetPersonSanctionsClass.GetPersonSanctions(ref token, "AA100110");
+            GetPersonSanctionsClass.GetPersonSanctions(ref token, "КОРОТКИЙ АЛЕКСАНДР ВЛАДИМИРОВИЧ");
 
             // 92. Перевірка втрачених документів
             // [POST] /api/1.0/person/getLostDocuments
 
-            GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСАНДР ВЛАДИМИРОВИЧ");
+            GetLostDocumentsClass.GetLostDocuments(ref token, "AA100110");
 
             // Перелік статусів відповідей API
         }
