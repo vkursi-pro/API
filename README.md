@@ -672,17 +672,9 @@ GetRequisitesClass.GetRequisites(ref token, "41462280");
 
 <br>
 <br>
-      
+
 <h3>67. Запит на отримання повних реквізитів та контенту судових документів організації за критеріями</h3>
-[POST] /api/1.0/courtdecision/getdecisionsbyfilter
-
-GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
-        
-<br>
-<br>
-
- <h3>67. Запит на отримання повних реквізитів та контенту судових документів організації за критеріями</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetDecisionsByFilterClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisionsbyfilter</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetDecisionsByFilterClass.cs" target="_blank">[POST] /api/1.0/courtdecision/getdecisionsbyfilter</a></p>
 
 GetDecisionsByFilterClass.GetDecisionsByFilter("00131305", 0, 1, 2, new List<string>() { "F545D851-6015-455D-BFE7-01201B629774" }, token);
 
@@ -829,7 +821,63 @@ GetOrganizationDbDebtorsDfsClass.GetOrganizationDbDebtorsDfs(ref token, "0013130
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOpenEnforcementsClass.cs" target="_blank">[POST] /api/organizations/GetOpenEnforcements</a></p>
 
 GetOpenEnforcementsClass.GetOpenEnforcements(ref token, "00131305");
-        
+
+<br>
+<br>
+
+<h3>86. Відомості про банкрутство ВГСУ</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetBankruptcyByCodeClass.cs" target="_blank">[POST] /api/1.0/organizations/getBankruptcyByCode</a></p>
+
+GetBankruptcyByCodeClass.GetBankruptcyByCode(ref token, "00131305");
+
+<br>
+<br>
+
+<h3>87. Єдиний державний реєстр юридичних осіб, фізичних осіб-підприємців та громадських формувань</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedorganizationOnlyNaisDataClass.cs" target="_blank">[POST] /api/1.0/organizations/getadvancedorganizationOnlyNaisData</a></p>
+
+GetAdvancedorganizationOnlyNaisDataClass.GetAdvancedOrganizationOnlyNaisData(ref token, "00131305");
+ 
+<br>
+<br>
+
+<h3>88. Список справм призначених до розгляду</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetCourtAssigmentClass.cs" target="_blank">[POST] /api/1.0/courtDecision/getCourtAssigment</a></p>
+
+GetCourtAssigmentClass.GetCourtAssigment(ref token, "00222166");
+
+<br>
+<br>
+
+<h3>89. Отримання відомостей про наявних в компанії засновників / бенефіціарів / власників пакетів акцій пов'язаних з росією або білорусією</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRussianFoundersAndBeneficiarsClass.cs" target="_blank">[POST] /api/1.0/organizations/getRussianFoundersAndBeneficiars</a></p>
+
+GetRussianFoundersAndBeneficiarsClass.GetRussianFoundersAndBeneficiars(ref token, "00222166");
+
+<br>
+<br>
+
+<h3>90. Перевірка ПЕП</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/person/CheckPepClass.cs" target="_blank">[POST] /api/1.0/person/CheckPep</a></p>
+
+CheckPepClass.CheckPep(ref token, "ОЛІЙНИК ТЕТЯНА АНАТОЛІЇВНА");
+
+<br>
+<br>
+
+<h3>91. Отримання переліку санкцій по ФО</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/person/GetPersonSanctionsClass.cs" target="_blank">[POST] /api/1.0/person/GetPersonSanctions</a></p>
+
+CheckPepClass.CheckPep(ref token, "ОЛІЙНИК ТЕТЯНА АНАТОЛІЇВНА");
+
+<br>
+<br>
+
+<h3>92. Перевірка втрачених документів</h3>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/person/GetLostDocumentsClass.cs" target="_blank">[POST] /api/1.0/person/getLostDocuments</a></p>
+
+GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСАНДР ВЛАДИМИРОВИЧ");
+
 <br>
 <br>
 
