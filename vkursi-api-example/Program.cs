@@ -11,6 +11,7 @@ using vkursi_api_example.estate;
 using vkursi_api_example.monitoring;
 using vkursi_api_example.movableloads;
 using vkursi_api_example.organizations;
+using vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp;
 using vkursi_api_example.person;
 using vkursi_api_example.podatkova;
 using vkursi_api_example.token;
@@ -29,7 +30,7 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            GetStanRozgliaduSpravClass.GetStanRozgliaduSprav(ref token);
+            GetNaisOrganizationInfoWithEcpClass.GetNaisOrganizationInfoWithEcp(ref token, "00131305");
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -495,6 +496,11 @@ namespace vkursi_api_example
             // [POST] /api/1.0/person/getLostDocuments
 
             GetLostDocumentsClass.GetLostDocuments(ref token, "AA100110");
+
+            // 150. Відомості (витяг) з ЄДР з електронною печаткою (КЕП) Державного підприємства “НАІС”
+            // [POST] /api/1.0/organizations/GetNaisOrganizationInfoWithEcp
+            
+            GetNaisOrganizationInfoWithEcpClass.GetNaisOrganizationInfoWithEcp(ref token, "00131305");
 
             // Перелік статусів відповідей API
         }
