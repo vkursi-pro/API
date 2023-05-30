@@ -892,7 +892,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
             --data-raw '{"Code":"00131305"}'
 </code></pre>
 
-<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetNaisOrganizationInfoWithEcpClass.cs" target="_blank">[POST] /api/1.0/token/authorize</a></p>
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetNaisOrganizationInfoWithEcpClass.cs" target="_blank">[POST] /api/1.0/organizations/GetNaisOrganizationInfoWithEcp</a></p>
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetNaisOrganizationInfoWithEcpClass.cs#L131" target="_blank">GetNaisOrganizationInfoWithEcpModel</a></p>
 
