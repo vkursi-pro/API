@@ -882,7 +882,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 <br>
         
 <h3>150. Відомості (витяг) з ЄДР з електронною печаткою (КЕП) Державного підприємства “НАІС”</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetNaisOrganizationInfoWithEcpClass.cs" target="_blank">[POST] /api/1.0/person/GetNaisOrganizationInfoWithEcp</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetNaisOrganizationInfoWithEcpClass.cs" target="_blank">[POST] /api/1.0/organizations/GetNaisOrganizationInfoWithEcp</a></p>
 
 GetNaisOrganizationInfoWithEcpClass.GetNaisOrganizationInfoWithEcp(ref token, "00131305");
 
