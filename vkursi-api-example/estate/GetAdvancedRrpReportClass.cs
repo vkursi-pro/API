@@ -106,11 +106,18 @@ namespace vkursi_api_example.estate
 
     */
 
-
     public class GetAdvancedRrpReportRequestBodyModel
     {
         public long? GroupId { get; set; }
         public int? ObjectId { get; set; }
+        /// <summary>
+        /// Перелік номерів ОНМ
+        /// </summary>
+        public List<long> OnmNumbers { get; set; }
+        /// <summary>
+        /// Перелік кадастрових номерів
+        /// </summary>
+        public List<string> CadastrNumbers { get; set; }
     }
 
     public class GetAdvancedRrpReportResponseModel
