@@ -30,7 +30,7 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            GetNaisOrganizationInfoWithEcpClass.GetNaisOrganizationInfoWithEcp(ref token, "00131305");
+            CheckOcupLocationClass.CheckOcupLocation(ref token, "00131305");
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -501,6 +501,11 @@ namespace vkursi_api_example
             // [POST] /api/1.0/organizations/GetNaisOrganizationInfoWithEcp
             
             GetNaisOrganizationInfoWithEcpClass.GetNaisOrganizationInfoWithEcp(ref token, "00131305");
+
+            // 151. Чи знаходиться підприємство на окупованій території
+            // [POST] /api/1.0/organizations/CheckOcupLocation
+
+            CheckOcupLocationClass.CheckOcupLocation(ref token, "00131305");
 
             // Перелік статусів відповідей API
         }

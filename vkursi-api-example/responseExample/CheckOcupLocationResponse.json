@@ -1,0 +1,10 @@
+{
+   "status":"Дані знайдено",
+   "isSuccess":true,
+   "data":[
+      {
+         "ocupStatus":"Знаходиться на окупованій территорії",
+         "ocupStatusCode":2
+      }
+   ]
+}
