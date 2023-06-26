@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\vkursi-api-example",
-    "\\vkursi-api-example\\estate",
-    "\\vkursi-api-example\\organizations"
+    "\\vkursi-api-example"
   ],
-  "SelectedNode": "\\vkursi-api-example\\organizations\\GetRelationsClass.cs",
+  "SelectedNode": "\\vkursi-api-example.sln",
   "PreviewInSolutionExplorer": false
 }
