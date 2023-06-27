@@ -1,0 +1,22 @@
+{
+   "status":"Дані не знайдено",
+   "isSuccess":true,
+   "data":[
+      {
+         "code":"00131305",
+         "data":{
+            "nameSti":"ГУ ДПС У ДОНЕЦЬКІЙ ОБЛ.(МАР'ЇНСЬКИЙ Р-Н)",
+            "code":44070187,
+            "taxDepartmentId":538,
+            "cReg":5,
+            "cDst":38,
+            "cRaj":38,
+            "nameRaj":"МАР'ЇНСЬКИЙ Р-Н",
+            "tSti":2,
+            "cSti":44070187,
+            "regionTaxDepartmentCode":44070187,
+            "koatuuCode":"1423310600"
+         }
+      }
+   ]
+}

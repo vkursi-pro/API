@@ -30,6 +30,8 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
+            CompanyDpsInfoClass.CompanyDpsInfo(ref token, "00131305");
+
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -505,7 +507,7 @@ namespace vkursi_api_example
 
             CheckOcupLocationClass.CheckOcupLocation(ref token, "00131305");
 
-            // 153. Дані про ДПС платника за кодом ЕДРПОУ
+            // 153. Довідник ДПС для подання повідомлень про відкриття/закриття рахунків платників податків у банках та інших фінансових установах до контролюючих органів
             // [POST] /api/1.0/organizations/CompanyDpsInfo
 
             CompanyDpsInfoClass.CompanyDpsInfo(ref token, "00131305");
