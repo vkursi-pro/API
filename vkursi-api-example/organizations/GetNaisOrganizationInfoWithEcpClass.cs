@@ -170,10 +170,28 @@ namespace vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp
         public int? state { get; set; }                                         // Таблица ###. Стан суб’єкта
         public string state_text { get; set; }                                  // Текстове відображення стану суб’єкта (maxLength:64)
         public string code { get; set; }                                        // ЄДРПОУ (maxLength:10)
+        /// <summary>
+        /// (Тільки для ФОП) Назва країни громадянства ФОП
+        /// </summary>
+        public string country { get; set; }
         public OrgNamesModel names { get; set; }                                // Назва суб’єкта
         public string olf_code { get; set; }                                    // Код організаційно-правової форми суб’єкта, якщо суб’єкт – юридична особа (maxLength:256)
         public string olf_name { get; set; }                                    // Назва організаційно-правової форми суб’єкта, якщо суб’єкт – юридична особа (maxLength:256)
+        /// <summary>
+        /// Тип ОПФ
+        /// </summary>
+        public string olf_subtype { get; set; }
         public string founding_document { get; set; }                           // Назва установчого документа, якщо суб’єкт – юридична особа (maxLength:128)
+        /// <summary>
+        /// Діяльність на підставі: 
+        /// «1» - власного установчого документа
+        /// «2» - модельного статуту (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string founding_document_type { get; set; }
+        /// <summary>
+        /// Назва установчого документа (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string founding_document_name { get; set; }
         public OrgExecutivePower executive_power { get; set; }                  // Центральний чи місцевий орган виконавчої влади, до сфери управління якого належить державне підприємство або частка держави у статутному капіталі юридичної особи, якщо ця частка становить не менше 25 відсотків
         public string object_name { get; set; }                                 // Місцезнаходження реєстраційної справи (maxLength:256)
         public OrgFounders[] founders { get; set; }                             // Array[Founder]. Перелік засновників (учасників) юридичної особи, у тому числі прізвище, ім’я, по батькові, якщо засновник – фізична особа; найменування, місцезнаходження та ідентифікаційний код юридичної особи, якщо засновник – юридична особа
@@ -183,6 +201,10 @@ namespace vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp
         public string management { get; set; }                                  // Відомості про органи управління юридичної особи (maxLength:256)
         public string managing_paper { get; set; }                              // Найменування розпорядчого акта, якщо суб’єкт – юридична особа (maxLength:256)
         public bool? is_modal_statute { get; set; }                             // Дані про наявність відмітки про те, що юридична особа створюється та діє на підставі модельного статуту
+        /// <summary>
+        /// Відомості про структуру власності юридичної особи
+        /// </summary>
+        public PropertyStruct property_struct { get; set; }
         public OrgActivityKinds[] activity_kinds { get; set; }                  // Перелік видів економічної діяльності
         public OrgNaisHeads[] heads { get; set; }                               // Array[Head]. Прізвище, ім’я, по батькові, дата обрання (призначення) осіб, які обираються (призначаються) до органу управління юридичної особи, уповноважених представляти юридичну особу у правовідносинах з третіми особами, або осіб, які мають право вчиняти дії від імені юридичної особи без довіреності, у тому числі підписувати договори та дані про наявність обмежень щодо представництва від імені юридичної особи
         public OrgNaisAddress address { get; set; }                             // Адреса
@@ -226,20 +248,77 @@ namespace vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp
     /// </summary>
     public class OrgFounders
     {
-        public string name { get; set; }                                        // Повна назва суб’єкта (maxLength:512)
-        public string code { get; set; }                                        // ЄДРПОУ код, якщо суб’єкт – юридична особа (maxLength:10)
-        public OrganizationaisAddress address { get; set; }                     // Адреса
-        public string last_name { get; set; }                                   // Прізвище (якщо суб’єкт - приватна особа); (maxLength:256)
-        public string first_middle_name { get; set; }                           // Ім’я та по-батькові (якщо суб’єкт – приватна особа) (maxLength:256)
-        public int? role { get; set; }                                          // Таблица ###. Роль по відношенню до пов’язаного суб’єкта
-        public string role_text { get; set; }                                   // Текстове відображення ролі (maxLength:64)
-        public int? id { get; set; }                                            // Ідентифікатор суб'єкта
-        public string url { get; set; }                                         // Посилання на сторінку з детальною інформацією про суб'єкт (maxLength:64)
-        public string capital { get; set; }                                     // Розмір частки у статутному капіталі пов’язаного суб’єкта (лише для засновників) (maxLength:128)
-
-        public string beneficiaries_type { get; set; }                          // Тип бенефіцарного володіння: «5» - Прямий вирішальний вплив; / «6» - Не прямий вирішальний вплив
-        public string interest { get; set; }                                    // Відсоток частки статутного капіталу або відсоток права голосу
-        public int? reason { get; set; }                                        // Причина відсутності КБВ (якщо у юридичної особи відсутні КБВ)
+        /// <summary>
+        /// Повна назва суб’єкта (maxLength:512)
+        /// </summary>
+        public string name { get; set; }
+        /// <summary>
+        /// ЄДРПОУ код, якщо суб’єкт – юридична особа (maxLength:10)
+        /// </summary>
+        public string code { get; set; }
+        /// <summary>
+        /// Адреса
+        /// </summary>
+        public OrganizationaisAddress address { get; set; }
+        /// <summary>
+        /// Назва країни громадянства КБВ (якщо громадянств декілька, то назви країн відображені через розділовий знак «;»)
+        /// </summary>
+        public string country { get; set; }
+        /// <summary>
+        /// Прізвище (якщо суб’єкт - приватна особа); (maxLength:256)
+        /// </summary>
+        public string last_name { get; set; }
+        /// <summary>
+        /// Ім’я та по-батькові (якщо суб’єкт – приватна особа) (maxLength:256)
+        /// </summary>
+        public string first_middle_name { get; set; }
+        /// <summary>
+        /// Таблица ###. Роль по відношенню до пов’язаного суб’єкта
+        /// </summary>
+        public int? role { get; set; }
+        /// <summary>
+        /// Тип бенефіцарного володіння: 
+        /// «5» - Прямий вирішальний вплив;
+        /// «6» - Не прямий вирішальний вплив;
+        /// «7» - Прямий та непрямий вирішальний вплив;
+        /// </summary>
+        public string beneficiaries_type { get; set; }
+        /// <summary>
+        /// Відсоток частки статутного капіталу або відсоток права голосу
+        /// </summary>
+        public string interest { get; set; }
+        /// <summary>
+        /// Відсоток частки статутного капіталу або відсоток права голосу (непрямий вплив)
+        /// </summary>
+        public decimal? indirect_interest { get; set; }
+        /// <summary>
+        /// Інший характер та міра впливу
+        /// </summary>
+        public string other_impact { get; set; }
+        /// <summary>
+        /// Ознака, що можлива недостовірність інформації про КБВ
+        /// </summary>
+        public bool? beneficiary_false { get; set; }
+        /// <summary>
+        /// Текстове відображення ролі (maxLength:64)
+        /// </summary>
+        public string role_text { get; set; }
+        /// <summary>
+        /// Ідентифікатор суб'єкта
+        /// </summary>
+        public int? id { get; set; }
+        /// <summary>
+        /// Посилання на сторінку з детальною інформацією про суб'єкт (maxLength:64)
+        /// </summary>
+        public string url { get; set; }
+        /// <summary>
+        /// Розмір частки у статутному капіталі пов’язаного суб’єкта (лише для засновників) (maxLength:128)
+        /// </summary>
+        public string capital { get; set; }
+        /// <summary>
+        /// Причина відсутності КБВ (якщо у юридичної особи відсутні КБВ)
+        /// </summary>
+        public int? reason { get; set; }
     }
 
     /// <summary>
@@ -426,11 +505,109 @@ namespace vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp
     /// <summary>
     /// Контактні дані
     /// </summary>
-    public class OrgNaisContacts
+    public class OrganizationaisContacts
     {
-        public string email { get; set; }                                       // Електронна адреса (maxLength:128)
-        public string[] tel { get; set; }                                       // Перелік контактних телефонів (maxLength:128)
-        public string fax { get; set; }                                         // Номер факсимільного апарату (maxLength:128)
-        public string web_page { get; set; }                                    // Інтернет сайт (maxLength:128)
+        /// <summary>
+        /// Електронна адреса (maxLength:128)
+        /// </summary>
+        public string email { get; set; }
+        /// <summary>
+        /// Перелік контактних телефонів (maxLength:128)
+        /// </summary>
+        public List<string> tel { get; set; }
+        /// <summary>
+        /// Номер факсимільного апарату (maxLength:128)
+        /// </summary>
+        public string fax { get; set; }
+        /// <summary>
+        /// Інтернет сайт (maxLength:128)
+        /// </summary>
+        public string web_page { get; set; }
+        /// <summary>
+        /// Інші відомості (maxLength:128)
+        /// </summary>
+        public string anotherInfo { get; set; }
+    }
+
+    /// <summary>
+    /// Відомості про структуру власності юридичної особи
+    /// </summary>
+    public class PropertyStruct
+    {
+        /// <summary>
+        /// Відмітка, що структуру власності підписано
+        /// </summary>
+        public bool? struct_signed { get; set; }
+        /// <summary>
+        /// Дата структури власності
+        /// </summary>
+        public DateTime? date_struct { get; set; }
+        /// <summary>
+        /// Номер структури власності
+        /// </summary>
+        public string num_struct { get; set; }
+        /// <summary>
+        /// Прізвище особи ким підписано структуру власності
+        /// </summary>
+        public string last_name_sign { get; set; }
+        /// <summary>
+        /// Ім’я та по-батькові особи ким підписано структуру власності
+        /// </summary>
+        public string first_middle_name_sign { get; set; }
+        /// <summary>
+        /// Тип особи ким підписано структуру власності:
+        /// «1» – Керівник 
+        /// «2» – Представник
+        /// «3» – Засновник(учасник)
+        /// «4» – Інша уповноважена особа
+        /// </summary>
+        public int? type_sign { get; set; }
+        /// <summary>
+        /// Ознака, що можлива недостовірність структури власності
+        /// </summary>
+        public bool? struct_false { get; set; }
+        /// <summary>
+        /// Ознака, що структура власності визнана Національним банком України непрозорою
+        /// </summary>
+        public bool? struct_opaque { get; set; }
     }
 }
+
+
+/*
+   Можливі значення станів суб’єкта:
+
+   -1 - «скасовано»
+   1 - «зареєстровано»
+   2 - «в стані припинення»
+   3 - «припинено»
+   4 - «порушено справу про банкрутство»
+   5 - «порушено справу про банкрутство (санація)»
+   6 - «зареєстровано, свідоцтво про державну реєстрацію недійсне»
+
+*/
+
+
+/*
+   Можливі значення ролей:
+
+   1 - «суб’єкт підприємницької діяльності»
+   2 - «представник»
+   3 - «керівник»
+   4 - «засновник»
+   5 - «відокремлений підрозділ»
+   6 - «особа - управитель майна»
+   7 - «комісія з припинення (комісія з реорганізації, ліквідаційна комісія)»
+   8 - «голова комісії з припинення або ліквідатор»
+   9 - «правонаступник»
+   10 - «попередник»
+   11 - «керівник комісії з виділу»
+   12 - «член комісії з виділу»
+   13 - «ліквідатор»
+   14 - «керуючий санацією»
+   15 - «Розпорядник майна»
+   16 - «Заявник»
+   17 - «Керівний орган»
+   18 - «Уповноважена особа Фонду гарантування вкладів фізичних осіб»
+   19 - «Кінцевий бенефіціарний власник»
+*/
