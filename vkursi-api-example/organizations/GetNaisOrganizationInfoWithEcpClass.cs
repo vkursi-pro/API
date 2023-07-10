@@ -514,7 +514,7 @@ namespace vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp
         /// <summary>
         /// Перелік контактних телефонів (maxLength:128)
         /// </summary>
-        public List<string> tel { get; set; }
+        public string[] tel { get; set; }
         /// <summary>
         /// Номер факсимільного апарату (maxLength:128)
         /// </summary>

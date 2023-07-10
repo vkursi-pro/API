@@ -9,10 +9,21 @@ namespace vkursi_api_example.organizations
     public class GetOrgPdvClass
     {
         /*
-         
-        79. Реєстр платників ПДВ
-        [POST] /api/1.0/organizations/GetOrgPdv
-         
+        
+        Метод:
+            79. Реєстр платників ПДВ
+            [POST] /api/1.0/organizations/GetOrgPdv
+
+        cURL запиту:
+            curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgPdv' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1...' \
+            --header 'Content-Type: application/json' \
+            --data '{"Code":["00131305"]}'
+
+        Приклад відповіді:
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrgPdvResponse.json
+  
         */
 
         public static GetOrgPdvResponseModel GetOrgPdv(ref string token, string code)
@@ -69,8 +80,53 @@ namespace vkursi_api_example.organizations
             return GOPResponse;
         }
     }
+
+    /*
+
+    // Python - http.client example:
+
+        import http.client
+        import json
+
+        conn = http.client.HTTPSConnection("vkursi-api.azurewebsites.net")
+        payload = json.dumps({
+          "Code": [
+            "00131305"
+          ]
+        })
+        headers = {
+          'ContentType': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIU...',
+          'Content-Type': 'application/json',
+          'Cookie': 'TiPMix=55.11336512536021; x-ms-routing-name=self'
+        }
+        conn.request("POST", "/api/1.0/organizations/GetOrgPdv", payload, headers)
+        res = conn.getresponse()
+        data = res.read()
+        print(data.decode("utf-8"))
+    
+    // Java - OkHttp example:
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+          .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"Code\":[\"00131305\"]}");
+        Request request = new Request.Builder()
+          .url("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgPdv")
+          .method("POST", body)
+          .addHeader("ContentType", "application/json")
+          .addHeader("Authorization", "Bearer eyJhbGciOiJIU...")
+          .addHeader("Content-Type", "application/json")
+          .addHeader("Cookie", "TiPMix=55.11336512536021; x-ms-routing-name=self")
+          .build();
+        Response response = client.newCall(request).execute();
+
+    */
+
+
+
     /// <summary>
-    /// Модель запиту (Example: {"code":["21560766"]})
+    /// Модель запиту
     /// </summary>
     public class GetOrgPdvRequestBodyModel                                          // 
     {/// <summary>
@@ -79,7 +135,7 @@ namespace vkursi_api_example.organizations
         public List<string> Code { get; set; }                                      // 
     }
     /// <summary>
-    /// Модель на відповідь GetKilkistPracivnukiv
+    /// Модель на відповідь
     /// </summary>
     public class GetOrgPdvResponseModel                                             // 
     {/// <summary>
@@ -111,8 +167,111 @@ namespace vkursi_api_example.organizations
         /// </summary>
         public string Inn { get; set; }                                             // 
         /// <summary>
-        /// Загальній статус (платник ПДВ / не платник ПДВ)
+        /// Загальнмй статус (платник ПДВ / не платник ПДВ)
         /// </summary>
         public string Info { get; set; }                                            // 
+        /// <summary>
+        /// Перелік записів з реєстру платників ПДВ
+        /// </summary>
+        public List<VatPayersCabinetTaxUpdate> VatPayersCabinetTaxList { get; set; }
+    }
+
+    /// <summary>
+    /// Перелік записів з реєстру платників ПДВ
+    /// </summary>
+    public class VatPayersCabinetTaxUpdate
+    {
+        /// <summary>
+        /// Код ПДВ (текст)
+        /// </summary>
+        [JsonProperty("kodPdvs")]
+        public string KodPdvs { get; set; }
+        /// <summary>
+        /// Код ЕДРПОУ (текст)
+        /// </summary>
+        [JsonProperty("tins")]
+        public string Tins { get; set; }
+
+        /// <summary>
+        /// Назва суб'єкта господарювання
+        /// </summary>
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Дата реєстрації платником ПДВ
+        /// </summary>
+        [JsonProperty("datReestr")]
+        public DateTime? DatReestr { get; set; }
+        /// <summary>
+        /// Дата анулювання свідоцтва платника ПДВ
+        /// </summary>
+        [JsonProperty("datAnul")]
+        public DateTime? DatAnul { get; set; }
+
+        /// <summary>
+        /// Дата реєстрації суб’єктом спецрежиму
+        /// </summary>
+        [JsonProperty("dreestrSg")]
+        public DateTime? DreestrSg { get; set; }
+
+        [JsonProperty("datSvd")]
+        public DateTime? DatSvd { get; set; }
+
+        /// <summary>
+        /// Дата виключення з реєстру суб’єктів спецрежиму
+        /// </summary>
+        [JsonProperty("danulSg")]
+        public DateTime? DanulSg { get; set; }
+
+        /// <summary>
+        /// Причина анулювання
+        /// </summary>
+        [JsonProperty("kodAnul")]
+        public string KodAnul { get; set; }
+
+        /// <summary>
+        /// Підстава анулювання
+        /// </summary>
+        [JsonProperty("kodPid")]
+        public string KodPid { get; set; }
+
+        /// <summary>
+        /// Код ПДВ (число)
+        /// </summary>
+        [JsonProperty("kodPdv")]
+        public long? KodPdv { get; set; }
+
+        /// <summary>
+        /// Код ЕДРПОУ (число)
+        /// </summary>
+        [JsonProperty("tin")]
+        public long? Tin { get; set; }
+
+        [JsonProperty("datTerm")]
+        public DateTime? DatTerm { get; set; }
+
+        [JsonProperty("dpdvSg")]
+        public DateTime? DpdvSg { get; set; }
+
+        /// <summary>
+        /// Системне поле
+        /// </summary>
+        public Guid Hash { get; set; }
+
+        /// <summary>
+        /// Системне поле
+        /// </summary>
+        public DateTime? DateCreate { get; set; }
+
+        /// <summary>
+        /// Системне поле
+        /// </summary>
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Системний ідентифікатор
+        /// </summary>
+        public Guid Id { get; set; }
     }
 }
