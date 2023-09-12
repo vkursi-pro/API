@@ -30,6 +30,11 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
+            CheckPersonClass.CheckPerson(token, JsonConvert.DeserializeObject<CheckPersonRequestBodyModel>("{\"Id\":null, \"FullName\":\"ШЕРЕМЕТА ВАСИЛЬ АНАТОЛІЙОВИЧ\",\"FirstName\":null,\"SecondName\":null,\"LastName\":null, \"Ipn\":\"2301715013\",\"Doc\":\"BC481139\",\"Birthday\":null, \"RuName\":null}"));
+
+
+            GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+
             GetOrgPdvClass.GetOrgPdv(ref token, "00131305");
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ

@@ -40,12 +40,6 @@ namespace vkursi_api_example.person
 
                 string body = JsonConvert.SerializeObject(GPEBody);
 
-                //body = "{\"Code\":\"2951907234\",\"LastName\":null,\"FirstName\":null,\"SecondName\":null}";
-
-                // {"Code":"2951907234","LastName":null,"FirstName":null,"SecondName":null,"FilterStatusList":null}
-
-                // Example Body: {"Code":"3015301315","LastName":"СТЕЛЬМАЩУК","FirstName":"АНДРІЙ","SecondName":"ВАСИЛЬОВИЧ"}
-
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/person/GetPersonEnforcements");
                 RestRequest request = new RestRequest(Method.POST);
 

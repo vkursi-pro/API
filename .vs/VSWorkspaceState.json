@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\vkursi-api-example",
-    "\\vkursi-api-example\\organizations"
+    "\\vkursi-api-example\\organizations",
+    "\\vkursi-api-example\\person"
   ],
-  "SelectedNode": "\\vkursi-api-example\\organizations\\GetNaisOrganizationInfoWithEcpClass.cs",
+  "SelectedNode": "\\vkursi-api-example\\person\\GetPersonEnforcementsClass.cs",
   "PreviewInSolutionExplorer": false
 }

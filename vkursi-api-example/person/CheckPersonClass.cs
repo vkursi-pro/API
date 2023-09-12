@@ -988,7 +988,7 @@ namespace vkursi_api_example.person
         /// <summary>
         /// Рік
         /// </summary>
-        public int Year { get; set; }                                                   // 
+        public string Year { get; set; }                                                   // 
         /// <summary>
         /// Тип
         /// </summary>
