@@ -204,7 +204,23 @@ namespace vkursi_api_example.organizations
         /// </summary>
         public string founding_document { get; set; }                           // 
         /// <summary>
-        /// Центральний чи місцевий орган виконавчої влади, до сфери управління якого належить державне підприємство або частка держави  у статутному капіталі юридичної особи, якщо ця частка становить не менше 25 відсотків
+        /// Діяльність на підставі: 
+        /// «1» - власного установчого документа
+        /// «2» - модельного статуту (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string founding_document_type { get; set; }
+        /// <summary>
+        /// Код модельного статуту (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string founding_document_code { get; set; }
+        /// <summary>
+        /// Назва установчого документа (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string founding_document_name { get; set; }
+        /// <summary>
+        /// Центральний чи місцевий орган виконавчої влади, до сфери управління якого належить державне 
+        /// підприємство або частка держави  у статутному капіталі юридичної особи, якщо ця 
+        /// частка становить не менше 25 відсотків
         /// </summary>
         public OrganizationaisExecutivePower executive_power { get; set; }      //  
         /// <summary>

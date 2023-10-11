@@ -136,7 +136,24 @@ namespace vkursi_api_example.organizations
         public OrgNamesModel names { get; set; }                                // Назва суб’єкта
         public string olf_code { get; set; }                                    // Код організаційно-правової форми суб’єкта, якщо суб’єкт – юридична особа (maxLength:256)
         public string olf_name { get; set; }                                    // Назва організаційно-правової форми суб’єкта, якщо суб’єкт – юридична особа (maxLength:256)
-        public string founding_document { get; set; }                           // Назва установчого документа, якщо суб’єкт – юридична особа (maxLength:128)
+        /// <summary>
+        /// Назва установчого документа, якщо суб’єкт – юридична особа (maxLength:128)
+        /// </summary>
+        public string founding_document { get; set; }                           // 
+        /// <summary>
+        /// Діяльність на підставі: 
+        /// «1» - власного установчого документа
+        /// «2» - модельного статуту (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string founding_document_type { get; set; }
+        /// <summary>
+        /// Код модельного статуту (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string founding_document_code { get; set; }
+        /// <summary>
+        /// Назва установчого документа (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string founding_document_name { get; set; }
         public OrgExecutivePower executive_power { get; set; }                  // Центральний чи місцевий орган виконавчої влади, до сфери управління якого належить державне підприємство або частка держави у статутному капіталі юридичної особи, якщо ця частка становить не менше 25 відсотків
         public string object_name { get; set; }                                 // Місцезнаходження реєстраційної справи (maxLength:256)
         public OrgFounders[] founders { get; set; }                             // Array[Founder]. Перелік засновників (учасників) юридичної особи, у тому числі прізвище, ім’я, по батькові, якщо засновник – фізична особа; найменування, місцезнаходження та ідентифікаційний код юридичної особи, якщо засновник – юридична особа

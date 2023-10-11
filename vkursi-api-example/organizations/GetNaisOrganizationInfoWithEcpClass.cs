@@ -189,6 +189,10 @@ namespace vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp
         /// </summary>
         public string founding_document_type { get; set; }
         /// <summary>
+        /// Код модельного статуту (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string founding_document_code { get; set; }
+        /// <summary>
         /// Назва установчого документа (якщо суб’єкт юридична особа)
         /// </summary>
         public string founding_document_name { get; set; }
