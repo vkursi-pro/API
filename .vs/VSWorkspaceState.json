@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\vkursi-api-example",
+    "\\vkursi-api-example\\codeExample",
+    "\\vkursi-api-example\\organizations",
     "\\vkursi-api-example\\person"
   ],
-  "SelectedNode": "\\vkursi-api-example\\person\\CheckPepClass.cs",
+  "SelectedNode": "\\vkursi-api-example\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

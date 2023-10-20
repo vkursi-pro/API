@@ -129,14 +129,18 @@ namespace vkursi_api_example.person
     /// Модель запиту 
     /// </summary>
     public class CheckFopStatusRequestBodyModel                                 // 
-    {/// <summary>
-     /// Перелік кодів ЄДРПОУ / ІПН (обмеження 5 кодів)
-     /// </summary>
+    {   /// <summary>
+        /// Перелік кодів ЄДРПОУ / ІПН (обмеження 5 кодів)
+        /// </summary>
         public List<string> Codes { get; set; }                                 // 
         /// <summary>
         /// Чи потрібен ДРОРМ
         /// </summary>
         public bool GetDrorm { get; set; }                                      // 
+        /// <summary>
+        /// ПІБ фізичної особи (обмеження 5 кодів)
+        /// </summary>
+        public List<string> Names { get; set; }
     }
     /// <summary>
     /// Відповідь на запит
