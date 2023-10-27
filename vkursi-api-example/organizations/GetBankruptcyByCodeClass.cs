@@ -41,7 +41,7 @@ namespace vkursi_api_example.organizations
             {
                 GetBankruptcyByCodeRequestBodyModel GBBCRequest = new GetBankruptcyByCodeRequestBodyModel
                 {
-                    Codes = new List<string> { code }                           // Код ЄДРПОУ аба ІПН
+                    Codes = new List<string> { code }                           // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(GBBCRequest);         // Example body: {"codes":["00131305"]}

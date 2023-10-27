@@ -29,7 +29,7 @@ namespace vkursi_api_example.organizations
             {
                 GetOrgAnulPdvRequestBodyModel GOAPRBody = new GetOrgAnulPdvRequestBodyModel
                 {
-                    Code = new List<string> { code }                        // Код ЄДРПОУ аба ІПН
+                    Code = new List<string> { code }                        // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(GOAPRBody);        // Example body: {"code":["21560766"]}

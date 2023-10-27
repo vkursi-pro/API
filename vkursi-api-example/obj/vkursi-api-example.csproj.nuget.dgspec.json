@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VadymVadym\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj": {}
+    "C:\\Users\\forimportTemp\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VadymVadym\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj": {
+    "C:\\Users\\forimportTemp\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VadymVadym\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+        "projectUniqueName": "C:\\Users\\forimportTemp\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj",
         "projectName": "vkursi-api-example",
-        "projectPath": "C:\\Users\\VadymVadym\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj",
-        "packagesPath": "C:\\Users\\VadymVadym\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VadymVadym\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\obj\\",
+        "projectPath": "C:\\Users\\forimportTemp\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\vkursi-api-example.csproj",
+        "packagesPath": "C:\\Users\\forimportTemp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\forimportTemp\\Source\\Repos\\vkursi-pro\\API\\vkursi-api-example\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\VadymVadym\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\forimportTemp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -38,7 +38,7 @@ namespace vkursi_api_example.organizations
             {
                 GetAdvancedOrganizationRequestBodyModel GAORequestBody = new GetAdvancedOrganizationRequestBodyModel
                 {
-                    Code = code                                             // Код ЄДРПОУ аба ІПН
+                    Code = code                                             // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(GAORequestBody);  // Example body: {"Code":"21560045"}

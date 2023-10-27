@@ -38,7 +38,7 @@ namespace vkursi_api_example.podatkova
             {
                 CabinetTaxRegistrationRequestBodyModel CTRRBody = new CabinetTaxRegistrationRequestBodyModel
                 {
-                    Tin = code                                              // Код ЄДРПОУ аба ІПН
+                    Tin = code                                              // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(CTRRBody);        // Example body: {"tin":"21560766"}

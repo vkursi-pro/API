@@ -514,6 +514,13 @@ namespace vkursi_api_example
             CompanyDpsInfoClass.CompanyDpsInfo(ref token, "00131305");
 
             // Перелік статусів відповідей API
+
+
+            // 154.
+
+            // 155. Aрі історії реєстраційних дій
+            // [POST] /api/1.0/organizations/GetRegistrationActionsHistory
+
         }
     }
 }

@@ -31,7 +31,7 @@ namespace vkursi_api_example.podatkova
             {
                 CabinetTaxEdpodEpRequestBodyModel CTEERequestBody = new CabinetTaxEdpodEpRequestBodyModel
                 {
-                    Tins = code,                                                    // Код ЄДРПОУ аба ІПН
+                    Tins = code,                                                    // Код ЄДРПОУ або ІПН
                     UpdateNais = UpdateNais                                         // 
                 };
 

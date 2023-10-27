@@ -28,7 +28,7 @@ namespace vkursi_api_example.organizations
             {
                 GetDfsBussinesPartnerDataRequestBodyModel GDBPDRBody = new GetDfsBussinesPartnerDataRequestBodyModel
                 {
-                    Code = new List<string> { code }                        // Код ЄДРПОУ аба ІПН
+                    Code = new List<string> { code }                        // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(GDBPDRBody);        // Example body: {"code":["21560766"]}

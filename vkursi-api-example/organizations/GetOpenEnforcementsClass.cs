@@ -29,7 +29,7 @@ namespace vkursi_api_example.organizations
             {
                 GetOpenEnforcementsRequestBodyModel GOERBody = new GetOpenEnforcementsRequestBodyModel
                 {
-                    Code = new List<string> { code }                        // Код ЄДРПОУ аба ІПН
+                    Code = new List<string> { code }                        // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(GOERBody);        // Example body: {"code":["21560766"]}

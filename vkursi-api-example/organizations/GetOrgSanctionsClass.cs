@@ -31,7 +31,7 @@ namespace vkursi_api_example.organizations
 
                 GetOrgSanctionsRequestBodyModel GOSRBody = new GetOrgSanctionsRequestBodyModel
                 {
-                    Code = new List<string> { code },                       // Код ЄДРПОУ аба ІПН
+                    Code = new List<string> { code },                       // Код ЄДРПОУ або ІПН
                     IncludeFounders = true                                  // Розширений пошук санкцій (включає пошук по засновниках та бенефіціарах)
                 };
 

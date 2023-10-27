@@ -40,7 +40,7 @@ namespace vkursi_api_example.organizations
             {
                 GetAdvancedorganizationOnlyNaisDataRequestBodyModel GAOONDRequestBody = new GetAdvancedorganizationOnlyNaisDataRequestBodyModel
                 {
-                    Code =  code                                                        // Код ЄДРПОУ аба ІПН
+                    Code =  code                                                        // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(GAOONDRequestBody);           // Example body: {"Code":"00131305"}

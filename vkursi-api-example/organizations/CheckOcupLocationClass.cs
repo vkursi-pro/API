@@ -39,7 +39,7 @@ namespace vkursi_api_example.organizations
             {
                 CheckOcupLocationRequestBodyModel COLRBodyModel = new CheckOcupLocationRequestBodyModel
                 {
-                    Codes = new List<string> { code }                                   // Код ЄДРПОУ аба ІПН
+                    Codes = new List<string> { code }                                   // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(COLRBodyModel);           // Example body: {"Codes":["00131305"]}

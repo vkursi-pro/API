@@ -28,7 +28,7 @@ namespace vkursi_api_example.organizations
             {
                 GetYedynyyPodatokRequestBodyModel GYPRBody = new GetYedynyyPodatokRequestBodyModel
                 {
-                    Code = new List<string> { code }                        // Код ЄДРПОУ аба ІПН
+                    Code = new List<string> { code }                        // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(GYPRBody);        // Example body: {"code":["21560766"]}

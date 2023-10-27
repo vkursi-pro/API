@@ -44,7 +44,7 @@ namespace vkursi_api_example.organizations
             {
                 DigitalNaftoGazBusinessPartnersRequestBodyModel GAORequestBody = new DigitalNaftoGazBusinessPartnersRequestBodyModel
                 {
-                    Code = code,                                             // Код ЄДРПОУ аба ІПН
+                    Code = code,                                             // Код ЄДРПОУ або ІПН
                     NeedUpdate = true
                 };
 

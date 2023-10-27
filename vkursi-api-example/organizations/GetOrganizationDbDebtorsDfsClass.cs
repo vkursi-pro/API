@@ -8,12 +8,13 @@ namespace vkursi_api_example.organizations
 {
     public class GetOrganizationDbDebtorsDfsClass
     {
-        /*
-         
-        84. Реєстр ДФС “Стан розрахунків з бюджетом”
-        [POST] /api/organizations/GetOrganizationDbDebtorsDfs
-         
-        */
+        /// <summary>
+        /// 84. Реєстр ДФС “Стан розрахунків з бюджетом”
+        /// [POST] /api/organizations/GetOrganizationDbDebtorsDfs
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="code"></param>
+        /// <returns></returns>
 
         public static GetOrganizationDbDebtorsDfsResponseModel GetOrganizationDbDebtorsDfs(ref string token, string code)
         {
@@ -29,7 +30,7 @@ namespace vkursi_api_example.organizations
             {
                 GetOrganizationDbDebtorsDfsRequestBodyModel GODDDRBody = new GetOrganizationDbDebtorsDfsRequestBodyModel
                 {
-                    Code = new List<string> { code }                        // Код ЄДРПОУ аба ІПН
+                    Code = new List<string> { code }                        // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(GODDDRBody);        // Example body: {"code":["21560766"]}

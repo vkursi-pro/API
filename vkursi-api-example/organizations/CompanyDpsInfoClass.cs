@@ -2,21 +2,22 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example.organizations
 {
     public class CompanyDpsInfoClass
     {
+        /// <summary>
+        /// 153. Довідник ДПС для подання повідомлень про відкриття/закриття рахунків платників податків у банках та інших фінансових установах до контролюючих органів
+        /// [POST] /api/1.0/organizations/CompanyDpsInfo
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="code"></param>
+        /// <returns></returns>
+       
         /*
         
-        Метод:
-            153. Довідник ДПС для подання повідомлень про відкриття/закриття рахунків платників податків у банках та інших фінансових установах до контролюючих органів
-            [POST] /api/1.0/organizations/CompanyDpsInfo
-
         cURL запиту:
             curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/CompanyDpsInfo' \
             --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiI...' \
@@ -43,7 +44,7 @@ namespace vkursi_api_example.organizations
             {
                 CompanyDpsInfoRequestBodyModel COLRBodyModel = new CompanyDpsInfoRequestBodyModel
                 {
-                    Codes = new List<string> { code }                               // Код ЄДРПОУ аба ІПН
+                    Codes = new List<string> { code }                               // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(COLRBodyModel);           // Example body: {"Codes":["00131305"]}

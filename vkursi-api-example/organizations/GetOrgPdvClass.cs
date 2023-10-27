@@ -40,7 +40,7 @@ namespace vkursi_api_example.organizations
             {
                 GetOrgPdvRequestBodyModel GKPRBody = new GetOrgPdvRequestBodyModel
                 {
-                    Code = new List<string> { code }                        // Код ЄДРПОУ аба ІПН
+                    Code = new List<string> { code }                        // Код ЄДРПОУ або ІПН
                 };
 
                 string body = JsonConvert.SerializeObject(GKPRBody);        // Example body: {"code":["21560766"]}

@@ -39,7 +39,7 @@ namespace vkursi_api_example.organizations
                 {
                     Edrpou = new List<string>
                     {
-                        edrpou                                                    // Код ЄДРПОУ аба ІПН
+                        edrpou                                                    // Код ЄДРПОУ або ІПН
                     }
                 };
 
