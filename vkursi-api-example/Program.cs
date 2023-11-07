@@ -521,6 +521,10 @@ namespace vkursi_api_example
             // 155. Aрі історії реєстраційних дій
             // [POST] /api/1.0/organizations/GetRegistrationActionsHistory
 
+
+            // 156. Отримання статутних документів
+            // [POST] /api/1.0/organizations/GetFoundingDocuments
+
         }
     }
 }
