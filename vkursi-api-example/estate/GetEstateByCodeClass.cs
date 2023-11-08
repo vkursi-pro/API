@@ -134,7 +134,7 @@ namespace vkursi_api_example.estate
         [JsonPropertyName("total")]
         public EstateTotalApi Total { get; set; }                               // 
         /// <summary>
-        /// Об'єкти НМ
+        /// Перелік об'єктів НМ
         /// </summary>
         [JsonPropertyName("estates")]
         public List<EstateApi> Estates { get; set; }                            // 
@@ -189,12 +189,12 @@ namespace vkursi_api_example.estate
         public int Count { get; set; }                                          // 
     }
     /// <summary>
-    /// ???
+    /// Перелік об'єктів НМ
     /// </summary>
     public class EstateApi                                                      // 
-    {/// <summary>
-    /// ???
-    /// </summary>
+    {   /// <summary>
+        /// Системний id
+        /// </summary>
         [JsonPropertyName("id")]
         public Guid Id { get; set; }                                            // 
         /// <summary>
@@ -248,14 +248,20 @@ namespace vkursi_api_example.estate
         [JsonPropertyName("courtCount")]
         public int? CourtCount { get; set; }                                    // 
         /// <summary>
+        /// Код ЄДРПОУ / ІПН (maxLength:10)
+        /// </summary>
+        public string Code { get; set; }                                        // 
+
+        /// <summary>
+        /// Id групи об'єктів Nais (для отримання витяга)
+        /// </summary>
+        public long? reportResultID { get; set; }
+
+        /// <summary>
         /// Id об'єкта Nais (для отримання витяга)
         /// </summary>
         [JsonPropertyName("objectId")]
         public long? ObjectId { get; set; }                                      // 
-        /// <summary>
-        /// Код ЄДРПОУ / ІПН (maxLength:10)
-        /// </summary>
-        public string Code { get; set; }                                        // 
     }
     /// <summary>
     /// Центральна координата 
