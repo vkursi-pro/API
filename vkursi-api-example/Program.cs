@@ -7,6 +7,7 @@ using vkursi_api_example.changes;
 using vkursi_api_example.codeExample;
 using vkursi_api_example.courtdecision;
 using vkursi_api_example.dictionary;
+using vkursi_api_example.enforcement;
 using vkursi_api_example.estate;
 using vkursi_api_example.monitoring;
 using vkursi_api_example.movableloads;
@@ -29,9 +30,6 @@ namespace vkursi_api_example
 
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
-
-
-            GetAdvancedOrganizationClass.GetAdvancedOrganization("45257726", ref token); // 00131305
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -524,6 +522,11 @@ namespace vkursi_api_example
 
             // 156. Отримання статутних документів
             // [POST] /api/1.0/organizations/GetFoundingDocuments
+
+            // 157. Отримання відомостей про виконавчі провадження з ЕЦП
+            // [POST] /api/1.0/enforcement/GetCustomEnforcementsEdr
+
+            GetCustomEnforcementsEdrClass.GetCustomEnforcementsEdr(ref token, "00131305");
 
         }
     }

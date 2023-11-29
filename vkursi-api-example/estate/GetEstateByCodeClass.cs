@@ -146,9 +146,6 @@ namespace vkursi_api_example.estate
         
         [JsonPropertyName("actualDate")]
         public DateTime? ActualDate { get; set; }                               // 
-
-        [JsonPropertyName("groupRequestId")]
-        public long? GroupRequestId { get; set; }                               // 
     }
 
     public class EstateTotalApi
