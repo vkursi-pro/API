@@ -105,7 +105,11 @@ namespace vkursi_api_example.enforcement
     /// Модель запиту
     /// </summary>
     public class GetCustomEnforcementsEdrBodyModel
-    {
+    { //*** Примітка у разі пошуку за назвою можливе отримання меншої кількості виконавчих проваджень,
+        //  оскільки в реєстрі суб'єкт пошуку записаний у різній формі.
+        //  У свою чергу запит по назві чекає повного співпадіння назви компанії з ОПФ
+        //  Наприклад: АТ "Назва компанії", Акціонерне Товариство "Назва компанії", "Назва компанії"  
+
         /// <summary>
         /// Оберіть варіант пошуку за:
         /// 1 - asvp-searchAPI-bank-search1 - Запит за РНОКПП боржника; Inn обов'язковий параметр
@@ -160,7 +164,7 @@ namespace vkursi_api_example.enforcement
         /// Дата народження. У форматі YYYY-MM-DD.
         /// </summary>
         [JsonProperty("birthDate")]
-        public DateTime? BirthDate { get; set; }
+        public string? BirthDate { get; set; }
 
         /// <summary>
         /// ЄДРПОУ. 8 символів.
@@ -183,6 +187,7 @@ namespace vkursi_api_example.enforcement
 
         /// <summary>
         /// Категорія стягнення. Код категорії ВП. Від 1 до 20 символів.
+        /// словник csv по категоріям ASVP_INF.csv
         /// </summary>
         [JsonPropertyName("vdCategory")]
         public string? VdCategory { get; set; }
