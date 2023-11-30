@@ -15,7 +15,7 @@ namespace vkursi_api_example._2._0
     public class ApiConstructorClass
     {
         /*
-
+        test
         Метод:
             69. API 2.0 Конструктор API 
             [POST] /api/2.0/ApiConstructor
