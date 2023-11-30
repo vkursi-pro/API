@@ -16,7 +16,6 @@ namespace vkursi_api_example._2._0
     {
         /*
 
-        test 
         Метод:
             69. API 2.0 Конструктор API 
             [POST] /api/2.0/ApiConstructor
