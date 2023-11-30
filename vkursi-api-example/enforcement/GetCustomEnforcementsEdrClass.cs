@@ -18,6 +18,17 @@ namespace vkursi_api_example.enforcement
         /// <param name="code"></param>
         /// <param name="token"></param>
         /// <returns></returns>
+
+        /*
+        
+        cURL:
+            curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/enforcement/GetCustomEnforcementsEdr' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...' \
+            --header 'Content-Type: application/json' \
+            --data '{"Method":3,"SearchParams":{"Edrpou":"00131305"}}' 
+         
+        */
         public static GetCustomEnforcementsEdrResponseModel GetCustomEnforcementsEdr(ref string token, string code)
         {
             if (string.IsNullOrEmpty(token)) 

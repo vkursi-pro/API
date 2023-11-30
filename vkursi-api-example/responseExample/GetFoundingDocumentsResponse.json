@@ -1,0 +1,21 @@
+{
+   "status":"Дані знайдено",
+   "isSuccess":true,
+   "data":{
+      "naisId":12044820,
+      "name":"ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ВЕБ ДРІМ ТЕХНОЛОДЖІ\"",
+      "code":"41462280",
+      "documents":[
+         {
+            "docName":"Статут",
+            "fileType":"PDF",
+            "docSize":222275,
+            "number":"123",
+            "dateFrom":"2023-11-13T00:00:00Z"
+         }
+      ],
+      "link":"https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetFoundingDocuments?name=12044820__13.11.2023_14.22.38__.zip",
+      "signLink":"https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetFoundingDocuments?name=12044820__13.11.2023_14.22.38__Sign__.p7s",
+      "requestDateTime":"2023-11-30T09:33:34.82"
+   }
+}

@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example.organizations
@@ -18,6 +14,20 @@ namespace vkursi_api_example.organizations
         /// <param name="token"></param>
         /// <param name="code"></param>
         /// <returns></returns>
+
+        /*
+        
+        cURL:
+            curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetFoundingDocuments' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn...' \
+            --header 'Content-Type: application/json' \
+            --data '{"code":"41462280"}'
+
+        Приклад відповіді:
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetFoundingDocumentsResponse.json
+
+        */
         public static GetFoundingDocumentsResponseModel GetFoundingDocuments(ref string token, string code)
         {
             if (string.IsNullOrEmpty(token))

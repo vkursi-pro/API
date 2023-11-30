@@ -28,7 +28,7 @@ namespace vkursi_api_example.organizations
         Приклад відповіді:
             https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetRegistrationActionsHistoryResponse.json
         */
-        public static GetRegistrationActionsHistoryResponseModel CompanyDpsInfo(ref string token, string code)
+        public static GetRegistrationActionsHistoryResponseModel GetRegistrationActionsHistory(ref string token, string code)
         {
             if (string.IsNullOrEmpty(token))
             {

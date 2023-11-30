@@ -511,22 +511,25 @@ namespace vkursi_api_example
 
             CompanyDpsInfoClass.CompanyDpsInfo(ref token, "00131305");
 
-            // Перелік статусів відповідей API
-
-
             // 154.
 
             // 155. Aрі історії реєстраційних дій
             // [POST] /api/1.0/organizations/GetRegistrationActionsHistory
 
+            GetRegistrationActionsHistoryClass.GetRegistrationActionsHistory(ref token, "00131305");
 
             // 156. Отримання статутних документів
             // [POST] /api/1.0/organizations/GetFoundingDocuments
+
+            GetFoundingDocumentsClass.GetFoundingDocuments(ref token, "00131305");
 
             // 157. Отримання відомостей про виконавчі провадження з ЕЦП
             // [POST] /api/1.0/enforcement/GetCustomEnforcementsEdr
 
             GetCustomEnforcementsEdrClass.GetCustomEnforcementsEdr(ref token, "00131305");
+
+
+            // Перелік статусів відповідей API
 
         }
     }
