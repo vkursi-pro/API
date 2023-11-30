@@ -188,6 +188,7 @@ namespace vkursi_api_example.enforcement
         /// <summary>
         /// Категорія стягнення. Код категорії ВП. Від 1 до 20 символів.
         /// словник csv по категоріям ASVP_INF.csv
+        /// посилання: https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/enforcement/ASVP_INF.csv
         /// </summary>
         [JsonPropertyName("vdCategory")]
         public string? VdCategory { get; set; }
