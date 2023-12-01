@@ -524,9 +524,9 @@ namespace vkursi_api_example
             GetFoundingDocumentsClass.GetFoundingDocuments(ref token, "00131305");
 
             // 157. Отримання відомостей про виконавчі провадження з ЕЦП
-            // [POST] /api/1.0/enforcement/GetCustomEnforcementsEdr
+            // [POST] /api/1.0/enforcement/GetEnforcementsWithEcp
 
-            GetCustomEnforcementsEdrClass.GetCustomEnforcementsEdr(ref token, "00131305");
+            GetEnforcementsWithEcpClass.GetEnforcementsWithEcp(ref token, "00131305");
 
 
             // Перелік статусів відповідей API

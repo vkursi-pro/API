@@ -9,11 +9,11 @@ using vkursi_api_example.organizations;
 
 namespace vkursi_api_example.enforcement
 {
-    public class GetCustomEnforcementsEdrClass
+    public class GetEnforcementsWithEcpClass
     {
         /// <summary>
         /// 157. Отримання відомостей про виконавчі провадження з ЕЦП
-        /// [POST] /api/1.0/enforcement/GetCustomEnforcementsEdr
+        /// [POST] /api/1.0/enforcement/GetEnforcementsWithEcp
         /// </summary>
         /// <param name="code"></param>
         /// <param name="token"></param>
@@ -22,14 +22,14 @@ namespace vkursi_api_example.enforcement
         /*
         
         cURL:
-            curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/enforcement/GetCustomEnforcementsEdr' \
+            curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/enforcement/GetEnforcementsWithEcp' \
             --header 'ContentType: application/json' \
             --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...' \
             --header 'Content-Type: application/json' \
             --data '{"Method":3,"SearchParams":{"Edrpou":"00131305"}}' 
          
         */
-        public static GetCustomEnforcementsEdrResponseModel GetCustomEnforcementsEdr(ref string token, string code)
+        public static GetEnforcementsWithEcpResponseModel GetEnforcementsWithEcp(ref string token, string code)
         {
             if (string.IsNullOrEmpty(token)) 
             { 
@@ -41,7 +41,7 @@ namespace vkursi_api_example.enforcement
 
             while (string.IsNullOrEmpty(responseString))
             {
-                GetCustomEnforcementsEdrBodyModel COLRBodyModel = new GetCustomEnforcementsEdrBodyModel
+                GetEnforcementsWithEcpBodyModel COLRBodyModel = new GetEnforcementsWithEcpBodyModel
                 {
                     Method = 3,                                                         // Запит за: 3 - за кодом ЄДРПОУ боржника; Edrpou обов'язковий параметр
                     SearchParams = new OrganizationSearchParams { Edrpou = code },      // Код ЄДРПОУ
@@ -50,7 +50,7 @@ namespace vkursi_api_example.enforcement
                 string body = JsonConvert.SerializeObject(COLRBodyModel,                // Example body: {"Method":3,"SearchParams":{"Edrpou":"00131305"}}
                     new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore});
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/enforcement/GetCustomEnforcementsEdr");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/enforcement/GetEnforcementsWithEcp");
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
@@ -93,9 +93,9 @@ namespace vkursi_api_example.enforcement
                 }
             }
 
-            GetCustomEnforcementsEdrResponseModel GCEEResponseRow = new GetCustomEnforcementsEdrResponseModel();
+            GetEnforcementsWithEcpResponseModel GCEEResponseRow = new GetEnforcementsWithEcpResponseModel();
 
-            GCEEResponseRow = JsonConvert.DeserializeObject<GetCustomEnforcementsEdrResponseModel>(responseString);
+            GCEEResponseRow = JsonConvert.DeserializeObject<GetEnforcementsWithEcpResponseModel>(responseString);
 
             return GCEEResponseRow;
         }
@@ -104,7 +104,7 @@ namespace vkursi_api_example.enforcement
     /// <summary>
     /// Модель запиту
     /// </summary>
-    public class GetCustomEnforcementsEdrBodyModel
+    public class GetEnforcementsWithEcpBodyModel
     { //*** Примітка у разі пошуку за назвою можливе отримання меншої кількості виконавчих проваджень,
         //  оскільки в реєстрі суб'єкт пошуку записаний у різній формі.
         //  У свою чергу запит по назві чекає повного співпадіння назви компанії з ОПФ
@@ -203,7 +203,7 @@ namespace vkursi_api_example.enforcement
     /// <summary>
     /// Модель відповіді
     /// </summary>
-    public class GetCustomEnforcementsEdrResponseModel
+    public class GetEnforcementsWithEcpResponseModel
     {
         /// <summary>
         /// Статус
