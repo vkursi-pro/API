@@ -174,6 +174,7 @@ namespace vkursi_api_example.enforcement
 
         /// <summary>
         /// Найменування. Максимум 240 символів.
+        /// Регістр букв не впливає на результат запиту
         /// </summary>
         [JsonPropertyName("firmName")]
         public string? FirmName { get; set; }
