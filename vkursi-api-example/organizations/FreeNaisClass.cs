@@ -8,7 +8,7 @@ namespace vkursi_api_example.organizations
 {
     public class FreeNaisClass
     {
-        public static string FreeNais(ref string token, string code, string xml, string limit) 
+        public static string FreeNais(ref string token, string code, bool xml, string limit, string passport = null, string name = null, int? offset = null) 
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 

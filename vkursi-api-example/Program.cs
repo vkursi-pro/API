@@ -319,7 +319,7 @@ namespace vkursi_api_example
             // 58. Оригинальний метод Nais, на отримання скороченних данних по коду ІПН / ЄДРПОУ 
             // [POST] /api/1.0/organizations/freenais
 
-            FreeNaisClass.FreeNais(ref token, "00131305", "True", "100");
+            FreeNaisClass.FreeNais(ref token, "00131305", true, "100");
 
             // 59. Оригинальний метод Nais, на отримання повних данних по ЮО або ФОП за кодом NaisId (який ми отримуємо з [POST] /api/1.0/organizations/freenais)
             // [GET] /api/1.0/organizations/paynais
