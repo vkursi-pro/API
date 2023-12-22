@@ -16,13 +16,16 @@ namespace vkursi_api_example.organizations
 
             while (string.IsNullOrEmpty(responseString))
             {
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/freenais?code=" + code);
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/freenais");
                 RestRequest request = new RestRequest(Method.GET);
 
                 // string body = JsonConvert.SerializeObject(GPMLRequestBody); // Example Body: {"Id":1278898}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
+
+                request.AddParameter("code", code);
+                request.AddParameter("xml", xml);
 
                 // request.AddParameter("application/json", body, ParameterType.RequestBody);
 
