@@ -866,6 +866,21 @@ namespace vkursi_api_example.estate
         public string START_YEAR { get; set; }
     }
 
+    public class Owner
+    {
+        public string DC_SBJ_TYPE { get; set; }
+        public DateTime? RESHDATE { get; set; }
+        public string NAME { get; set; }
+        public string OSOW_TYPE { get; set; }
+        public string OSPART { get; set; }
+        /// <summary>
+        /// Підстава виникнення права власності
+        /// </summary>
+        public string PVDOC { get; set; }
+        public string Code { get; set; }
+        public string OWN_PR_SUBTYPE { get; set; }
+    }
+
     public class AllAdress
     {
         public string name { get; set; }
