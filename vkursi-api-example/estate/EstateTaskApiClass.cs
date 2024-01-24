@@ -884,7 +884,8 @@ namespace vkursi_api_example.estate
     /// Відомості з реестру РПВН
     /// </summary>
     public class oldRealty                                                      // 
-    {/// <summary>
+    {
+        /// <summary>
      /// Реєстраційний номер майна
      /// </summary>
         [JsonProperty("RE_ID")]                                                 // 
@@ -893,6 +894,9 @@ namespace vkursi_api_example.estate
         /// Тип майна
         /// </summary>
         [JsonProperty("RE_TYPENAME")]                                           // 
+
+        public List<Owner> owners { get; set; }
+
         public string RE_TYPENAME { get; set; }
         /// <summary>
         /// Додаткові відомості
@@ -1504,5 +1508,16 @@ namespace vkursi_api_example.estate
         public string RestrictionDate { get; set; }                             // 
     }
 
+    public class Owner
+    {
+        public string DC_SBJ_TYPE { get; set; }
+        public DateTime? RESHDATE { get; set; }
+        public string NAME { get; set; }
+        public string OSOW_TYPE { get; set; }
+        public string OSPART { get; set; }
+        public string PVDOC { get; set; }
+        public string Code { get; set; }
+        public string OWN_PR_SUBTYPE { get; set; }
+    }
 
 }
