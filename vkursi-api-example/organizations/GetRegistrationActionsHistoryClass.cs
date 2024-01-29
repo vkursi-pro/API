@@ -143,13 +143,13 @@ namespace vkursi_api_example.organizations
         /// Опис повної моделі: https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L173
         /// </summary>
         [JsonProperty("oldNaisValue")]
-        public OrganizationaisElasticModel OldNaisValue { get; set; }
+        public OrganizationaisElModel OldNaisValue { get; set; }
         /// <summary>
         /// Новий об'єкт (передається тільки той розділ (об'єкт/поле) в якому відбулись зміни)
         /// Опис повної моделі: https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L173
         /// </summary>
         [JsonProperty("newNaisValue")]
-        public OrganizationaisElasticModel NewNaisValue { get; set; }
+        public OrganizationaisElModel NewNaisValue { get; set; }
     }
 
     /// <summary>

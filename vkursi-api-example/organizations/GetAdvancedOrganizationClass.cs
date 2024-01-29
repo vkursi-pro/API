@@ -129,6 +129,8 @@ namespace vkursi_api_example.organizations
      /// Код ЄДРПОУ / ІПН (maxLength:10)
      /// </summary>
         public string Code { get; set; }                                        // 
+        public bool? NeedUpdate { get; set; }
+        
     }
     /// <summary>
     /// Модель відповіді GetAdvancedOrganization
@@ -137,7 +139,7 @@ namespace vkursi_api_example.organizations
     {/// <summary>
      /// Данні з ЄДРФЮО
      /// </summary>
-        public OrganizationaisElasticModel Data { get; set; }                   // 
+        public OrganizationaisElModel Data { get; set; }                   // 
         /// <summary>
         /// Експрес оцінка ризиків
         /// </summary>
@@ -165,12 +167,12 @@ namespace vkursi_api_example.organizations
         /// <summary>
         /// Якщо компанія ФІЛІЯ відомості про мотеринську компанію
         /// </summary>
-        public OrganizationaisElasticModel BranchMaster { get; set; }           // 
+        public OrganizationaisElModel BranchMaster { get; set; }           // 
     }
     /// <summary>
     /// ???
     /// </summary>
-    public class OrganizationaisElasticModel
+    public class OrganizationaisElModel
     {/// <summary>
      /// Унікальний ідентифікатор суб’єкта
      /// </summary>
@@ -311,6 +313,8 @@ namespace vkursi_api_example.organizations
         /// Дата відкриття виконавчого провадження щодо юридичної особи (для незавершених виконавчих проваджень)
         /// </summary>
         public string[] open_enforcements { get; set; }                         // 
+        public Guid? hash { get; set; }
+        
     }
     /// <summary>
     /// Назва суб’єкта

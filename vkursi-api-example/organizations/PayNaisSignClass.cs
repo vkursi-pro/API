@@ -21,7 +21,7 @@ namespace vkursi_api_example.organizations
             https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/PayNaisSignResponse.json
         */
 
-        public static OrganizationaisElasticModel PayNaisSign(ref string token, string naisId, string code, bool needXml)
+        public static OrganizationaisElModel PayNaisSign(ref string token, string naisId, string code, bool needXml)
         {
             if (string.IsNullOrEmpty(token))
             {
@@ -71,9 +71,9 @@ namespace vkursi_api_example.organizations
 
             // Модель (опис) відповіді: https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L130
 
-            OrganizationaisElasticModel OrganizationaisElastic = new OrganizationaisElasticModel();
+            OrganizationaisElModel OrganizationaisElastic = new OrganizationaisElModel();
 
-            OrganizationaisElastic = JsonConvert.DeserializeObject<OrganizationaisElasticModel>(responseString);
+            OrganizationaisElastic = JsonConvert.DeserializeObject<OrganizationaisElModel>(responseString);
 
             return OrganizationaisElastic;
         }

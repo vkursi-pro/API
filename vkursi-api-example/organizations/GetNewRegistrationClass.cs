@@ -180,6 +180,12 @@ namespace vkursi_api_example.organizations
         /// </summary>
         [JsonProperty("IsReturnAll", NullValueHandling = NullValueHandling.Ignore)]
         public bool? IsReturnAll { get; set; }                                  // 
+
+        /// <summary>
+        /// Тільки зміни
+        /// </summary>
+        [JsonProperty("ChangesOnly", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? ChangesOnly { get; set; }
     }
     /// <summary>
     /// Модель відповіді GetNewRegistration скорочена

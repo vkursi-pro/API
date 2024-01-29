@@ -211,7 +211,7 @@ namespace vkursi_api_example._2._0
         /// Відповідь по методу 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
         /// https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L124
         /// </summary>
-        public List<OrganizationaisElasticModel> GetAdvancedOrganizationData { get; set; }
+        public List<OrganizationaisElModel> GetAdvancedOrganizationData { get; set; }
         /// <summary>
         /// Відповідь по методу 66. Отримати дані реквізитів для строреня картки ФОП / ЮО
         /// </summary>
@@ -300,7 +300,7 @@ namespace vkursi_api_example._2._0
         /// 4. Реєстраційні дані мінюсту онлайн. Запит на отримання розширених реєстраційних даних по юридичним або фізичним осіб за кодом ЄДРПОУ / ІПН 
         /// /api/1.0/organizations/getadvancedorganization
         /// </summary>
-        public List<OrganizationaisElasticModel> NaisEdrData { get; set; }
+        public List<OrganizationaisElModel> NaisEdrData { get; set; }
         /// <summary>
         /// 86. Відомості про банкрутство ВГСУ
         /// /api/1.0/organizations/getBankruptcyByCode

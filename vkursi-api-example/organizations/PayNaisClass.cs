@@ -25,7 +25,7 @@ namespace vkursi_api_example.organizations
 
         */
 
-        public static OrganizationaisElasticModel PayNais(ref string token, long? naisId, string code)
+        public static OrganizationaisElModel PayNais(ref string token, long? naisId, string code)
         {
             if (string.IsNullOrEmpty(token)) 
             { 
@@ -73,9 +73,9 @@ namespace vkursi_api_example.organizations
 
             // Приклад відповіді: https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/PayNaisResponse.json
 
-            OrganizationaisElasticModel OrganizationaisElastic = new OrganizationaisElasticModel();
+            OrganizationaisElModel OrganizationaisElastic = new OrganizationaisElModel();
 
-            OrganizationaisElastic = JsonConvert.DeserializeObject<OrganizationaisElasticModel>(responseString);
+            OrganizationaisElastic = JsonConvert.DeserializeObject<OrganizationaisElModel>(responseString);
 
             return OrganizationaisElastic;
         }

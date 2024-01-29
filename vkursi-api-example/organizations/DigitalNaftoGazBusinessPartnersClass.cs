@@ -144,7 +144,7 @@ namespace vkursi_api_example.organizations
         /// Дані ЕДР від Nais за посиланням: 
         /// https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L173
         /// </summary>
-        public OrganizationaisElasticModel EdrData { get; set; }
+        public OrganizationaisElModel EdrData { get; set; }
     }
     /// <summary>
     /// Відомості про платника ПДВ
