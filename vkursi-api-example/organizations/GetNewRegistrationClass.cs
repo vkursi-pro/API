@@ -32,7 +32,8 @@ namespace vkursi_api_example.organizations
             https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L130
         */
 
-        public static string GetNewRegistration(string dateReg, string type, int? skip, int? take, bool? IsShortModel, bool? IsReturnAll, string token)
+        public static List<GetAdvancedOrganizationResponseModel> GetNewRegistration(ref string token, string dateReg, string type, 
+            int? skip, int? take, bool? IsShortModel = null, bool? IsReturnAll = null, bool? changesOnly = null)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
@@ -42,12 +43,13 @@ namespace vkursi_api_example.organizations
             {
                 GetNewRegistrationRequestBodyModel GNRRequestBody = new GetNewRegistrationRequestBodyModel
                 {
-                    DateReg = dateReg,                                          // Дата державної реєстрації (фізичної або юридичної особи)
-                    Type = type,                                                // Тип особи (1 - юридична особа/ 2 - фізичної особа)
-                    Skip = skip,                                                // К-ть записів які траба пропустити
-                    Take = take,                                                // К-ть записів які траба взяти (якщо null будуть передані всі записи)
-                    IsShortModel = IsShortModel,                                // Коротка або повна модель відповіді
-                    IsReturnAll = false                                         // Повернуті всі записи або тільки ті які раніше не отримували по API (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
+                    DateReg = dateReg,                          // Дата державної реєстрації (фізичної або юридичної особи)
+                    Type = type,                                // Тип особи (1 - юридична особа/ 2 - фізичної особа)
+                    Skip = skip,                                // К-ть записів які траба пропустити
+                    Take = take,                                // К-ть записів які траба взяти (якщо null будуть передані всі записи)
+                    IsShortModel = IsShortModel,                // Коротка або повна модель відповіді
+                    IsReturnAll = false,                        // Повернуті всі записи або тільки ті які раніше не отримували по API (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
+                    ChangesOnly = changesOnly,                  // Пармаметр який вказує повертати компанії у яких відбулись зміни в конкретну дату = true. Нові компанії = false
                 };
 
                 string body = JsonConvert.SerializeObject(GNRRequestBody);      // Example Body: {"DateReg":"29.10.2019","Type":"1","Skip":0,"Take":10,"IsShortModel":true,"IsReturnAll":true}
@@ -73,15 +75,20 @@ namespace vkursi_api_example.organizations
                     Console.WriteLine("За вказаними параметрами данных не знайдено");
                     return null;
                 }
+                else if ((int)response.StatusCode == 200 && responseString.Contains("dateReg less than a month ago"))
+                {
+                    Console.WriteLine("За вказаними параметрами данных не знайдено");
+                    return null;
+                }
                 else if ((int)response.StatusCode == 403 && responseString.Contains("Not enough cards to form a request"))
                 {
                     Console.WriteLine("Недостатньо ресурсів для виконання запиту, відповідно до вашого тарифу. Дізнатися об'єм доступних ресурсів - /api/1.0/token/gettariff");
-                    return null;
+                    responseString = null;
                 }
                 else if ((int)response.StatusCode != 200)
                 {
                     Console.WriteLine("Запит не успішний");
-                    return null;
+                    responseString = null;
                 }
             }
 
@@ -99,16 +106,16 @@ namespace vkursi_api_example.organizations
             }
 
             // Приклад відповіді(скорочена версія IsShortModel = true)
-                // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetNewRegistrationResponseShort.json
+            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetNewRegistrationResponseShort.json
             // Модель відповіді(скорочена версія IsShortModel = true)
-                // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetNewRegistrationClass.cs#L161
+            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetNewRegistrationClass.cs#L161
 
             // Приклад відповіді(повна версія IsShortModel = false)
-                // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetNewRegistrationResponseFull.json 
+            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetNewRegistrationResponseFull.json 
             // Модель відповіді(повна версія IsShortModel = false)
-                // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L130
+            // https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L130
 
-            return responseString;
+            return NewRegistrationFullList;
         }
     }
 
