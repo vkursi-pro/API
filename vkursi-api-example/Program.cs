@@ -99,7 +99,7 @@ namespace vkursi_api_example
             // 15. Новий бізнес. Запит на отримання списку новозареєстрованих фізичних та юридичних осіб
             // [POST] /api/1.0/organizations/getnewregistration
 
-            GetNewRegistrationClass.GetNewRegistration("08.09.2019", "1", 0, 10, true, true, token);
+            GetNewRegistrationClass.GetNewRegistration(ref token, "08.09.2019", "1", 0, 10, false, true);
 
             // 16. Видалити список контрагентів
             // [DELETE] /api/1.0/monitoring/removeReestr

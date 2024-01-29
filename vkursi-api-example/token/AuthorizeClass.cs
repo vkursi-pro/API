@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
+using System.IO;
 
 namespace vkursi_api_example.token
 {
@@ -26,8 +27,8 @@ namespace vkursi_api_example.token
 
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
-                Email = "test@test.com",       // Логін (Email)
-                Password = "123456"                 // Пароль
+                Email = Email,       // Логін (Email)
+                Password = Password                 // Пароль
             };
 
             AuthorizeResponseModel AuthorizeResponse = new AuthorizeResponseModel();
@@ -68,6 +69,22 @@ namespace vkursi_api_example.token
 
             return AuthorizeResponse;
         }
+
+        public AuthorizeClass()
+        {
+            string directory = Directory.GetCurrentDirectory();
+
+            FileInfo fileInfo = new FileInfo($"{directory}\\files\\authParam.txt");
+
+            if (fileInfo.Exists)
+            {
+                string[] authParam = File.ReadAllText(fileInfo.FullName).Split('\t');
+                Email = authParam[0];
+                Password = authParam[1];
+            }
+        }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 
     /*
