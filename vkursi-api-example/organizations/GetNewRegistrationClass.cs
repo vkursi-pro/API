@@ -33,7 +33,7 @@ namespace vkursi_api_example.organizations
         */
 
         public static List<GetAdvancedOrganizationResponseModel> GetNewRegistration(ref string token, string dateReg, string type, 
-            int? skip, int? take, bool? IsShortModel = null, bool? IsReturnAll = null, bool? changesOnly = null)
+            int? skip, int? take, bool? IsShortModel = false, bool? isReturnAll = null, bool? changesOnly = null)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
@@ -47,8 +47,8 @@ namespace vkursi_api_example.organizations
                     Type = type,                                // Тип особи (1 - юридична особа/ 2 - фізичної особа)
                     Skip = skip,                                // К-ть записів які траба пропустити
                     Take = take,                                // К-ть записів які траба взяти (якщо null будуть передані всі записи)
-                    IsShortModel = IsShortModel,                // Коротка або повна модель відповіді
-                    IsReturnAll = false,                        // Повернуті всі записи або тільки ті які раніше не отримували по API (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
+                    IsShortModel = false,                       // Коротка або повна модель відповіді
+                    IsReturnAll = isReturnAll,                  // Повернуті всі записи або тільки ті які раніше не отримували по API (IsReturnAll = false - будуть передаватись тільки ті записи які не передавались раніше)
                     ChangesOnly = changesOnly,                  // Пармаметр який вказує повертати компанії у яких відбулись зміни в конкретну дату = true. Нові компанії = false
                 };
 
