@@ -42,7 +42,7 @@ namespace vkursi_api_example.token
         {
             string body = JsonConvert.SerializeObject(ARBody); // Example: {"email":"test@testemail.com","password":"123456"}
 
-            RestClient client = new RestClient("https://localhost:8643/api/1.0/token/authorize");
+            RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/token/authorize");
             RestRequest request = new RestRequest(Method.POST);
 
             request.AddHeader("ContentType", "application/json");
