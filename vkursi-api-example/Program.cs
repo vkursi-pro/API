@@ -404,7 +404,7 @@ namespace vkursi_api_example
             // 74.Стан ФОПа та відомості про ЄП
             // [POST] /api/1.0/podatkova/cabinettaxedpodep
 
-            CabinetTaxEdpodEpClass.CabinetTaxEdpodEp(token, "3334800417", true);
+            CabinetTaxEdpodEpClass.CabinetTaxEdpodEp(ref token, "3334800417", true);
 
             // 75. API 2.0 Zemli конструктор API
             // [POST] /api/2.0/ApiConstructorZemli

@@ -17,7 +17,7 @@ namespace vkursi_api_example.podatkova
 
         */
 
-        public static CabinetTaxEdpodEpResponseModel CabinetTaxEdpodEp(string token, string code, bool? UpdateNais)
+        public static CabinetTaxEdpodEpResponseModel CabinetTaxEdpodEp(ref string token, string code, bool? UpdateNais)
         {
             if (string.IsNullOrEmpty(token))
             {
@@ -37,11 +37,12 @@ namespace vkursi_api_example.podatkova
 
                 string body = JsonConvert.SerializeObject(CTEERequestBody);         // Example body: {"tins":"3334800417","updateNais":true}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/podatkova/cabinettaxedpodep");
+                RestClient client = new RestClient("https://localhost:8643/api/1.0/podatkova/cabinettaxedpodep");
+
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
-                request.AddHeader("Authorization", "Bearer " + token);
+                request.AddHeader("Authorization", $"Bearer {token}");
                 request.AddParameter("application/json", body, ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute(request);
@@ -52,6 +53,10 @@ namespace vkursi_api_example.podatkova
                     Console.WriteLine("Не авторизований користувач або закінчився термін дії токену. Отримайте новый token на api/1.0/token/authorize");
                     AuthorizeClass _authorize = new AuthorizeClass();
                     token = _authorize.Authorize();
+                }
+                else if (responseString.Contains("error"))
+                {
+                    
                 }
                 else if ((int)response.StatusCode == 200 && responseString == "\"Not found\"")
                 {
@@ -65,9 +70,12 @@ namespace vkursi_api_example.podatkova
                 }
             }
 
-            CabinetTaxEdpodEpResponseModel CTEEResponse = new CabinetTaxEdpodEpResponseModel();
+            CabinetTaxEdpodEpResponseModel CTEEResponse = JsonConvert.DeserializeObject<CabinetTaxEdpodEpResponseModel>(responseString);
 
-            CTEEResponse = JsonConvert.DeserializeObject<CabinetTaxEdpodEpResponseModel>(responseString);
+            if (CTEEResponse?.Response?.NaisName == null)
+            {
+
+            }
 
             return CTEEResponse;
 
@@ -92,7 +100,14 @@ namespace vkursi_api_example.podatkova
     /// <summary>
     /// Модель на відповідь CabinetTaxRegistration
     /// </summary>
-    public class CabinetTaxEdpodEpResponseModel                                // 
+    public class CabinetTaxEdpodEpResponseModel
+    {
+        public bool Success { get; set; }
+        public string Status { get; set; }
+        public CabinetTaxEdpodEpModel Response { get; set; }
+    }
+
+    public class CabinetTaxEdpodEpModel                                // 
     {/// <summary>
      /// Назва / ПІБ (на Nais)
      /// </summary>
