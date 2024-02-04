@@ -37,7 +37,7 @@ namespace vkursi_api_example.podatkova
 
                 string body = JsonConvert.SerializeObject(CTEERequestBody);         // Example body: {"tins":"3334800417","updateNais":true}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/podatkova/cabinettaxedpodep");
+                RestClient client = new RestClient("https://localhost:8643/api/1.0/podatkova/cabinettaxedpodep");
 
                 RestRequest request = new RestRequest(Method.POST);
 
