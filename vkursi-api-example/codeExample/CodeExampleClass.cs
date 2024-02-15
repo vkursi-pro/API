@@ -32,7 +32,7 @@ namespace vkursi_api_example.codeExample
             {
                 count++;
 
-                var getFop = GetFopsClass.GetFops(item, ref token);
+                var getFop = GetFopsClass.GetFops(ref token, item);
 
                 System.Threading.Thread.Sleep(1500);
 

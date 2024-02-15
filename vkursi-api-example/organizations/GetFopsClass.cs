@@ -27,7 +27,7 @@ namespace vkursi_api_example.organizations
                 --header 'Content-Type: application/json' \
                 --data-raw '{"code": ["3334800417"]}'
         */
-        public static List<GetFopsResponseModel> GetFops(string code, ref string token)
+        public static List<GetFopsResponseModel> GetFops(ref string token, string code)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
