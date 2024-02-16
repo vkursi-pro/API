@@ -13,6 +13,11 @@ namespace vkursi_api_example.organizations
         32. Інформація про наявний авто транспорт за кодом ІПН / ЄДРПОУ
         [POST] /api/1.0/organizations/getorgvehicle
 
+        curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getorgvehicle' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1N...' \
+        --header 'Content-Type: application/json' \
+        --data '{"Edrpou":["00728629"]}'
+
         */
 
         public static GetOrgVehicleResponseModel GetOrgVehicle(ref string token, string code)
@@ -110,35 +115,81 @@ namespace vkursi_api_example.organizations
         /// <summary>
         /// Перелік ТЗ (транспортних засобів)
         /// </summary>
-        public List<VehicleOrgApiAnswerModelDataVehicle> Vehicles { get; set; } // 
+        public List<VehicleOrgApiAnswerModelDataVehicle> Vehicles { get; set; }
     }
     /// <summary>
     /// Перелік ТЗ (транспортних засобів)
     /// </summary>
-    public class VehicleOrgApiAnswerModelDataVehicle                            // 
-    {/// <summary>
-     /// Марка ТЗ (maxLength:128)
-     /// </summary>
-        public string Brand { get; set; }                                       // 
+    public class VehicleOrgApiAnswerModelDataVehicle
+    {
         /// <summary>
-        /// Модель (maxLength:128)
+        /// Назва марки транспортного засобу (maxLength:128)
         /// </summary>
-        public string Name { get; set; }                                        // 
+        /// <example>BMW</example>
+        public string Brand { get; set; }
         /// <summary>
-        /// Год випуска
+        /// Назва моделі транспортного засобу (maxLength:128)
         /// </summary>
-        public int? ReleaseYear { get; set; }                                   // 
+        /// <example>X5</example>
+        public string Name { get; set; }
         /// <summary>
-        /// Об'єм двигуна 
+        /// Рік виготовлення
         /// </summary>
-        public int? Capacity { get; set; }                                      // 
+        public int? ReleaseYear { get; set; }
         /// <summary>
-        /// Дата реєстраційної дії
+        /// Об`єм двигуна 
         /// </summary>
-        public DateTime? RegDate { get; set; }                                  // 
+        /// <example>2993</example>
+        public int? Capacity { get; set; }
+        /// <summary>
+        /// Дата проведення останньої реєстрації за власником
+        /// </summary>
+        /// <example>2023-06-06T00:00:00</example>
+        public DateTime? RegDate { get; set; }
         /// <summary>
         /// Тип реєстраційної дії (maxLength:512)
         /// </summary>
-        public string OperationName { get; set; }                               // 
+        /// <example>ПЕРЕРЕЄСТРАЦІЯ ПРИ ЗАМІНІ НОМЕРНОГО ЗНАКУ</example>
+        public string OperationName { get; set; }
+        /// <summary>
+        /// Колір транспортного засобу
+        /// </summary>
+        /// <example>БІЛИЙ</example>
+        public string Color { get; set; }
+        /// <summary>
+        /// Тип транспортного засобу
+        /// </summary>
+        /// <example>ЛЕГКОВИЙ</example>
+        public string Type { get; set; }
+        /// <summary>
+        /// Тип кузову траспортного засобу
+        /// </summary>
+        /// <example>УНІВЕРСАЛ</example>
+        public string Body { get; set; }
+        /// <summary>
+        /// Тип палива транспортного засобу 
+        /// </summary>
+        /// <example>ДИЗЕЛЬНЕ ПАЛИВО</example>
+        public string Fuel { get; set; }
+        /// <summary>
+        /// Призначення
+        /// </summary>
+        /// <example>ЗАГАЛЬНИЙ</example>
+        public string Purpose { get; set; }
+        /// <summary>
+        /// Власна вага транспортного засобу 
+        /// </summary>
+        /// <example>2185</example>
+        public double? OwnWeight { get; set; }
+        /// <summary>
+        /// Загальна вага транспортного засобу
+        /// </summary>
+        /// <example>2860</example>
+        public double? TotalWeight { get; set; }
+        /// <summary>
+        /// Код операції
+        /// </summary>
+        /// <example>540</example>
+        public int? OperCode { get; set; }
     }
 }
