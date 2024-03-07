@@ -39,6 +39,7 @@ namespace vkursi_api_example.person
                 };
 
                 string body = JsonConvert.SerializeObject(GPEBody);
+                body = "{\"code\":\"3116320127\"}"; //             GetPersonEnforcementsClass.GetPersonEnforcements(ref token, "2951907234", "ЗАЙЧЕНКО", "МАКСИМ", "ВОЛОДИМИРОВИЧ");
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/person/GetPersonEnforcements");
                 RestRequest request = new RestRequest(Method.POST);

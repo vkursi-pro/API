@@ -48,7 +48,7 @@ namespace vkursi_api_example.movableloads
                 if (!string.IsNullOrEmpty(edrpou))
                     GMLRequestBodyRow.Edrpou = new List<string>() { edrpou };
 
-                string body = JsonConvert.SerializeObject(GMLRequestBodyRow);
+                string body = " {\"Ipn\":[\"3069101534\"]}";// JsonConvert.SerializeObject(GMLRequestBodyRow); //
 
                 // Example Body: {"Ipn":["2333700948"]}  // 28169247
 
