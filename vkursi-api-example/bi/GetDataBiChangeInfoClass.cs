@@ -3,6 +3,7 @@ using RestSharp;
 using Newtonsoft.Json;
 using vkursi_api_example.token;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace vkursi_api_example.bi
 {
@@ -154,261 +155,291 @@ namespace vkursi_api_example.bi
         public OrganizationBiInfoModel Data { get; set; }                       // 
     }
     /// <summary>
-    /// Інформація про організацію
+    /// Перелік компаній
     /// </summary>
-    public class OrganizationBiInfoModel                                        // 
+    public class OrganizationBiInfoModel                                                  // 
     {
         /// <summary>
-        /// Id компанії
+        /// Унікальний ідентифікатор
         /// </summary>
-        public string Id { get; set; }                                          // 
+        [DisplayName("Унікальний ідентифікатор")]
+        public string Id { get; set; }
         /// <summary>
-        /// Дата першого додавання компанії в Label
+        /// Дата початку
         /// </summary>
-        public string DateStart { get; set; }                                   // 
+        [DisplayName("Дата початку")]
+        public string DateStart { get; set; }
         /// <summary>
-        /// Назва збереженного списку
+        /// Назва мітки
         /// </summary>
-        public string Label { get; set; }                                       // 
+        [DisplayName("Назва мітки")]
+        public string Label { get; set; }
+
+        /// <summary>
+        /// Державний класифікатор об'єктів адміністративно-територіального устрою України
+        /// </summary>
+        [DisplayName("КОАТУУ")]
+        public string Koatuu { get; set; }
+
         /// <summary>
         /// Повне найменування підприємства
         /// </summary>
-        public string NazvaPidpriyemstva { get; set; }                          // 
+        [DisplayName("Повне найменування підприємства")]
+        public string NazvaPidpriyemstva { get; set; }
+
         /// <summary>
         /// Код ЄДРПОУ
         /// </summary>
-        public string KodYedrpou { get; set; }                                  // 
+        [DisplayName("Код ЄДРПОУ")]
+        public string KodYedrpou { get; set; }
+
         /// <summary>
         /// Дата реєстрації
         /// </summary>
-        public string DataReyestratsiyi { get; set; }                           // 
+        [DisplayName("Дата реєстрації")]
+        public string DataReyestratsiyi { get; set; }
         /// <summary>
         /// Статус юридичної особи
         /// </summary>
-        public string StatusYuridichnoyiOsobi { get; set; }                     // 
+        [DisplayName("Статус юридичної особи")]
+        public string StatusYuridichnoyiOsobi { get; set; }
+
         /// <summary>
         /// Відомості про банкрутство
         /// </summary>
-        public string VidomostiProBankrutstvo { get; set; }                     // 
+        [DisplayName("Відомості про банкрутство")]
+        public string VidomostiProBankrutstvo { get; set; }
+
         /// <summary>
         /// Відомості про припинення або реорганізацію юридичної особи
         /// </summary>
-        public string VidomostiProPripinennya { get; set; }                     // 
+        [DisplayName("Відомості про припинення або реорганізацію юридичної особи")]
+        public string VidomostiProPripinennya { get; set; }
+
         /// <summary>
         /// Адреса реєстрації підприємства
         /// </summary>
-        public string AdresaReyestratsiyi { get; set; }                         // 
+        [DisplayName("Адреса реєстрації підприємства")]
+        public string AdresaReyestratsiyi { get; set; }
+
         /// <summary>
         /// КВЕД (основний)
         /// </summary>
-        public string KvedOsnovniy { get; set; }                                // 
+        [DisplayName("КВЕД (основний)")]
+        public string KvedOsnovniy { get; set; }
         /// <summary>
         /// Статутний капітал
         /// </summary>
-        public string StatutniyKapital { get; set; }                            // 
+        [DisplayName("Статутний капітал")]
+        public string StatutniyKapital { get; set; }
         /// <summary>
         /// Уповноважені особи
         /// </summary>
-        public string UpovnovazheniOsobi { get; set; }                          // 
+        [DisplayName("Уповноважені особи")]
+        public string UpovnovazheniOsobi { get; set; }
         /// <summary>
-        /// Кількість засновників 
+        /// Кількість засновників
         /// </summary>
-        public string KilkistZasnovnikiv { get; set; }                          // 
+        [DisplayName("Кількість засновників")]
+        public string KilkistZasnovnikiv { get; set; }
         /// <summary>
-        /// Інозомні бенефіціари
+        /// Іноземні бенефіціари
         /// </summary>
-        public string InozomniBenefitsiari { get; set; }                        // 
+        [DisplayName("Іноземні бенефіціари")]
+        public string InozomniBenefitsiari { get; set; }
         /// <summary>
-        /// Кількість Власників пакетів акцій 
+        /// Кількість власників пакетів акцій
         /// </summary>
-        public string KilkistVlasnikivAktsiy { get; set; }                      // 
+        [DisplayName("Кількість власників пакетів акцій")]
+        public string KilkistVlasnikivAktsiy { get; set; }
         /// <summary>
-        /// Відкремлені підрозділи
+        /// Відокремлені підрозділи
         /// </summary>
-        public string VidkremleniPidrozdili { get; set; }                       // 
+        [DisplayName("Відокремлені підрозділи")]
+        public string VidkremleniPidrozdili { get; set; }
         /// <summary>
         /// Реєстр платників ПДВ
         /// </summary>
-        public string ReyestrPlatnikivPdv { get; set; }                         // 
+        [DisplayName("Реєстр платників ПДВ")]
+        public string ReyestrPlatnikivPdv { get; set; }
+
         /// <summary>
         /// Анульована реєстрація платників ПДВ
         /// </summary>
-        public string AnulovanoPdv { get; set; }                                // 
+        [DisplayName("Анульовано ПДВ")]
+        public string AnulovanoPdv { get; set; }
         /// <summary>
-        /// Реєстр платників єдинго податку(дописать в еластик)
+        /// Реєстр платників єдиного податку
         /// </summary>
-        public string ReyestrPlatnikivYep { get; set; }                         // 
+        [DisplayName("Реєстр платників єдиного податку")]
+        public string ReyestrPlatnikivYep { get; set; }
         /// <summary>
         /// Санкційні списки
         /// </summary>
-        public string SanktsiyniSpiski { get; set; }                            // 
+        [DisplayName("Санкційні списки")]
+        public string SanktsiyniSpiski { get; set; }
         /// <summary>
         /// Виконавчі впровадження
         /// </summary>
-        public string VikonavchiVprovadzhennya { get; set; }                    // 
+        [DisplayName("Виконавчі впровадження")]
+        public string VikonavchiVprovadzhennya { get; set; }
+
         /// <summary>
-        /// Судові рішення 
+        /// Судові рішення
         /// </summary>
-        public string SudoviRishennya { get; set; }                             // 
+        [DisplayName("Судові рішення")]
+        public string SudoviRishennya { get; set; }
+
         /// <summary>
-        /// Судові засідання (Спарави призначені до розгляду)
+        /// Судові засідання (Справи призначені до розгляду)
         /// </summary>
-        public string SudoviZasidannya { get; set; }                            // 
-        /// <summary>
-        /// Включено в план-графік перевірок 2020
-        /// </summary>
-        public string PlangrafikPerevirok2020 { get; set; }                     // 
+        [DisplayName("Судові засідання")]
+        public string SudoviZasidannya { get; set; }
+
+        ///// <summary>
+        ///// Включено в план-графік перевірок 2020
+        ///// </summary>
+        //[DisplayName("План-графік перевірок 2020")]
+        //public string PlangrafikPerevirok2020 { get; set; }
         /// <summary>
         /// Перевіряючий орган
         /// </summary>
-        public string PereviryayuchiyOrgan { get; set; }                        // 
+        [DisplayName("Перевіряючий орган")]
+        public string PereviryayuchiyOrgan { get; set; }
         /// <summary>
         /// Податковий борг
         /// </summary>
-        public string PodatkoviyBorg { get; set; }                              // 
+        [DisplayName("Податковий борг")]
+        public string PodatkoviyBorg { get; set; }
         /// <summary>
         /// Перед місцевим бюджетом
         /// </summary>
-        public string PeredMistsevimByudzhetom { get; set; }                    // 
+        [DisplayName("Перед місцевим бюджетом")]
+        public string PeredMistsevimByudzhetom { get; set; }
         /// <summary>
         /// Перед державним бюджетом
         /// </summary>
-        public string PeredDerzhavnimByudzhetom { get; set; }                   // 
+        [DisplayName("Перед державним бюджетом")]
+        public string PeredDerzhavnimByudzhetom { get; set; }
         /// <summary>
-        /// За юридичним місцезнаходженням зареєстровано більше 1 суб’єкта господарювання
+        /// За юридичним місцезнаходженням зареєстровано більше 1 суб'єкта господарювання
         /// </summary>
-        public string KompaniyZaAdresoyu { get; set; }                          // 
+        [DisplayName("Компанії за адресою")]
+        public string KompaniyZaAdresoyu { get; set; }
+
         /// <summary>
-        /// Зв'язки (керівник) Аналіз компаній, які можливо пов’язані з керівником (ПІБ керівника співпадає з ПІБ керівника в інших компаніях)
+        /// Зв'язки (керівник) Аналіз компаній, які можливо пов'язані з керівником
         /// </summary>
-        public string ZvyazkyKerivnyka { get; set; }                            // 
+        [DisplayName("Зв'язки керівника")]
+        public string ZvyazkyKerivnyka { get; set; }
+
         /// <summary>
-        /// Зв'язки (засновники) Наявність можливих афілійованих зв’язків по засновникам та бенефіціарам
+        /// Зв'язки (засновники) Наявність можливих афілійованих зв'язків по засновникам та бенефіціарам
         /// </summary>
-        public string ZvyazkyBenefitsiariv { get; set; }                        // 
+        [DisplayName("Зв'язки бенефіціарів")]
+        public string ZvyazkyBenefitsiariv { get; set; }
+
         /// <summary>
         /// Зв'язки з ЄДРД (РЕР Декларанти та члени сім'ї)
         /// </summary>
-        public string ZvyazkiZYedrd { get; set; }                               // 
+        [DisplayName("Зв'язки з ЄДРД")]
+        public string ZvyazkiZYedrd { get; set; }
+
         /// <summary>
-        /// Тип/назва ліцензій/дозволів 
+        /// Тип/назва ліцензій/дозволів
         /// </summary>
-        public string TipnazvaLitsenziydozvoliv { get; set; }                   // 
+        [DisplayName("Тип/назва ліцензій/дозволів")]
+        public string TipnazvaLitsenziydozvoliv { get; set; }
+
         /// <summary>
         /// Кількість ліцензій/Дозволів
         /// </summary>
-        public string KilkistLitsenziydozvoliv { get; set; }                    // 
+        [DisplayName("Кількість ліцензій/дозволів")]
+        public string KilkistLitsenziydozvoliv { get; set; }
+
         /// <summary>
         /// Заборгованість по ЗП
         /// </summary>
-        public string ZaborgovanistPoZp { get; set; }                           // 
+        [DisplayName("Заборгованість по ЗП")]
+        public string ZaborgovanistPoZp { get; set; }
+
         /// <summary>
-        /// Кількість об'єктів нерухомості 
+        /// Кількість об'єктів нерухомості
         /// </summary>
-        public string KilkistObyektivNerukhomosti { get; set; }                 // 
+        [DisplayName("Кількість об'єктів нерухомості")]
+        public string KilkistObyektivNerukhomosti { get; set; }
+
         /// <summary>
-        /// Кількість земельних ділянок 
+        /// Кількість земельних ділянок
         /// </summary>
-        public string KilkistZemelnikhDilyanok { get; set; }                    // 
+        [DisplayName("Кількість земельних ділянок")]
+        public string KilkistZemelnikhDilyanok { get; set; }
+
         /// <summary>
         /// Площа землі
         /// </summary>
-        public string PloshchaZemli { get; set; }                               // 
+        [DisplayName("Площа землі")]
+        public string PloshchaZemli { get; set; }
+
         /// <summary>
         /// Кількість транспортних засобів
         /// </summary>
-        public string KilkistTransportnikhZasobiv { get; set; }                 // 
-        /// <summary>
-        /// Штатна чисельність працівників - 2018
+        [DisplayName("Кількість транспортних засобів")]
+        public string KilkistTransportnikhZasobiv { get; set; }
+
+        // <summary>
+        /// Кількість тендерів в яких приймав участь
         /// </summary>
-        public string Pratsivnikiv2018 { get; set; }                            // 
-        /// <summary>
-        /// Сума експортних операцій - 2018
-        /// </summary>
-        public string SumaEksportny2018 { get; set; }                           // 
-        /// <summary>
-        /// Сума імпортних операцій - 2018
-        /// </summary>
-        public string SumaImporty2018 { get; set; }                             // 
-        /// <summary>
-        /// Кіькість тендерів в яких приймав участь
-        /// </summary>
-        public string KilkistTenderivPriymavUchast { get; set; }                // 
+        [DisplayName("Кількість тендерів в яких приймав участь")]
+        public string? KilkistTenderivPriymavUchast { get; set; }
+
         /// <summary>
         /// Кількість виграних тендерів
         /// </summary>
-        public string KilkistVigranikhTenderiv { get; set; }                    // 
+        [DisplayName("Кількість виграних тендерів")]
+        public string KilkistVigranikhTenderiv { get; set; }
+
         /// <summary>
-        /// Сума виграних тендерів 
+        /// Сума виграних тендерів
         /// </summary>
-        public string SumaVigranikhTenderiv { get; set; }                       // 
+        [DisplayName("Сума виграних тендерів")]
+        public string? SumaVigranikhTenderiv { get; set; }
+
         /// <summary>
-        /// Клас боржника НБУ - 2018
+        /// Фінансовий стан
         /// </summary>
-        public string KlasBorzhnikaNbu2018 { get; set; }                        // 
+        [DisplayName("Фінансовий стан")]
+        public string? FinansoviyStan { get; set; }
+
         /// <summary>
-        /// Фінансовий стан 
+        /// Забов'язання
         /// </summary>
-        public string FinansoviyStan { get; set; }                              // 
+        [DisplayName("Забов'язання")]
+        public string? Zabovyazannya { get; set; }
+
         /// <summary>
-        /// Забов'язання 
+        /// Міжнародна рейтингова оцінка
         /// </summary>
-        public string Zabovyazannya { get; set; }                               // 
+        [DisplayName("Міжнародна рейтингова оцінка")]
+        public string MizhnarodnaReytingovaOtsinka { get; set; }
+
         /// <summary>
-        /// Міжнародна рейтингова оцінка 
+        /// Основні показники в розрізі років
         /// </summary>
-        public string MizhnarodnaReytingovaOtsinka { get; set; }                // 
-        /// <summary>
-        /// Основні засоби 2018
-        /// </summary>
-        public string OsnovniZasobi2018 { get; set; }                           // 
-        /// <summary>
-        /// Поточні забов'язання 2018
-        /// </summary>
-        public string PotochniZabovyazannya2018 { get; set; }                   // 
-        /// <summary>
-        /// Чистий дохід (виручка) 2018
-        /// </summary>
-        public string ChistiyDokhidViruchka2018 { get; set; }                   // 
-        /// <summary>
-        /// Чистий прибуток/збиток 2018
-        /// </summary>
-        public string ChistiyPributokzbitok2018 { get; set; }                   // 
+        [DisplayName("Основні показники в розрізі років")]
+        public List<BiNewExcelMainPerYearModel>? BiNewExcelMainPerYear { get; set; }
+
         /// <summary>
         /// Контактна інформація
         /// </summary>
-        public string KontaktnaInformatsiya { get; set; }                       // 
-        /// <summary>
-        /// Штатна чисельність працівників - 2019
-        /// </summary>
-        public string Pratsivnikiv2019 { get; set; }                            // 
-        /// <summary>
-        /// Сума експортних операцій - 2019
-        /// </summary>
-        public string SumaEksportny2019 { get; set; }                           // 
-        /// <summary>
-        /// Сума імпортних операцій - 2019
-        /// </summary>
-        public string SumaImporty2019 { get; set; }                             // 
+        [DisplayName("Контактна інформація")]
+        public string KontaktnaInformatsiya { get; set; }
 
-        public double? d108002UsohozarozdilomID1109502 { get; set; }
-        public double? d126002UsohozarozdilomIID1119502 { get; set; }
-        public double? d124002IIINeoborotniaktyvy { get; set; }
-        public double? d128002BalansaktivuD1130002 { get; set; }
-        public double? d138002UsohozarozdilomID1149502 { get; set; }
-        public double? d148002UsohozarozdilomIID1159502 { get; set; }
-        public double? d162002UsohozarozdilomIIID1169502 { get; set; }
-        public double? d1170002D141802IVZobovyazanny { get; set; }
-        public double? d203501Chystyydokhid { get; set; }
-        public double? d210001Finansovyyrezul { get; set; }
-        public double? d210501FinRez { get; set; }
-        public double? d217001FinRezdoopodatkuvannyaprybutok { get; set; }
-        public double? d217501FinRezdoopodatkuvannyazbytok { get; set; }
-        public double? d222001ChystyyFinRezprybutokD2235001 { get; set; }
-        public double? d222501ChystyyFinRezzbytokD2235501 { get; set; }
-        public double? d207001RazomdokhodyD2228001 { get; set; }
-        public double? d212001RazomvytratyD2228501 { get; set; }
-        public int? forma { get; set; }
+        /// <summary>
+        /// Реєстраційний номер
+        /// </summary>
+        [DisplayName("Реєстраційний номер")]
+        public string RegNumb { get; set; }
     }
 
 }
