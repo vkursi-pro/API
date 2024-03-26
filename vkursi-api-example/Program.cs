@@ -12,6 +12,7 @@ using vkursi_api_example.estate;
 using vkursi_api_example.monitoring;
 using vkursi_api_example.movableloads;
 using vkursi_api_example.organizations;
+using vkursi_api_example.organizations.Bankruptcy;
 using vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp;
 using vkursi_api_example.person;
 using vkursi_api_example.podatkova;
@@ -30,6 +31,7 @@ namespace vkursi_api_example
 
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
+
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -528,6 +530,9 @@ namespace vkursi_api_example
 
             GetEnforcementsWithEcpClass.GetEnforcementsWithEcp(ref token, "00131305");
 
+            // 162.Відомості про банкрутство ВГСУ по даті
+            // [POST] /api/1.0/organizations/getBankruptcyByDate
+            GetBankruptcyByDateClass.GetBankruptcyByDate(ref token, DateTime.Parse("2023-04-14T00:00:00"));
 
             // Перелік статусів відповідей API
 
