@@ -52,7 +52,8 @@ namespace vkursi_api_example.monitoring
                             Birthday = "09.03.1978",                        // Дата народження
                             PassportCode = "HM156253"                       // Серія та номер паспорта
                         }
-                    }
+                    },
+                    NeedReturnErrors = true                                 // Причина не додавання в список (до моніторингу)
                 };
                 
                 string body = JsonConvert.SerializeObject(ATCRBodyRow);     // Example body (ЄДРПОУ):   {"ReestrId":"1c891112-b022-4a83-ad34-d1f976c60a0b","IsOnMonitoring":true,"Codes":["00131305","41462280"]}
@@ -131,13 +132,16 @@ namespace vkursi_api_example.monitoring
         Response response = client.newCall(request).execute();
 
      */
+
     /// <summary>
     /// Модель Body запиту
     /// </summary>
     public class AddToControlRequestBodyModel                                   // 
-    {/// <summary>
-     /// Перелік кодів ЄДРПОУ
-     /// </summary>
+    {
+        /// <summary>
+        /// Перелік кодів ЄДРПОУ / ІПН 
+        /// (ІПН бажано передавати окремо )
+        /// </summary>
         public List<string> Codes { get; set; }                                 // 
         /// <summary>
         /// Перелік Id ФОП
@@ -148,13 +152,18 @@ namespace vkursi_api_example.monitoring
         /// </summary>
         public List<string> Koatuus { get; set; }                               // 
         /// <summary>
-        /// Id списка(реєстра) в який будуть додані записи
+        /// Id списка (реєстра) в який будуть додані записи
+        /// (Якщо ви не передаєте ReestId - КА додаються в дефолтну папку "Додано з API")
         /// </summary>
         public string ReestrId { get; set; }                                    // 
         /// <summary>
         /// Автоматично додати до моніторингу (true - так / false - ні)
         /// </summary>
         public bool? IsOnMonitoring { get; set; }                               // 
+        /// <summary>
+        /// Чи треба повертати перелік контрагентів які були неуспішно додані з причиною? (true - так повертати / false або null - не повертати)
+        /// </summary>
+        public bool? NeedReturnErrors { get; set; }                               // 
         /// <summary>
         /// Перелік фізичних осіб для додавання в списки
         /// </summary>
@@ -182,7 +191,9 @@ namespace vkursi_api_example.monitoring
         public string PassportCode { get; set; }                                // 
     }
     /// <summary>
-    /// Модель відповіді AddToControl
+    /// Модель відповіді AddToControl для ФОП / ЮО
+    /// У відповідь приходить перелік ФОП / ЮО які були успішно додані до списку 
+    /// У випадку якщо є вхідний параметр NeedReturnErrors = true то додатково будуть повертатись і записи якіне були додані з вказанням причини в "ReasonToNotMonitoring"
     /// </summary>
     public class AddToControlResponseModel                                      // 
     {/// <summary>
@@ -214,8 +225,23 @@ namespace vkursi_api_example.monitoring
         /// </summary>
         public string state { get; set; }                                       // 
         /// <summary>
-        /// Дата додавання
+        /// Дата додавання на моніторинг
         /// </summary>
         public string dateAddedToMonitoring { get; set; }                       // 
+        /// <summary>
+        /// Id списку в який додано 
+        /// </summary>
+        public Guid? ReestrId { get; set; }
+        /// <summary>
+        /// Назва списку в який додано 
+        /// </summary>
+        public string? ReestrName { get; set; }
+        /// <summary>
+        /// Причина не додавання в список (до моніторингу)
+        /// 1. Ми не додаємо в папку по 3 причинам:1. Контрагент вже є в папці
+        /// 2. Коректний код ЕДРПОУ ІПН(для ФОП)
+        /// 3. ЕДРПОУ ІПН(для ФОП) - відсутній в ЕДР
+        /// </summary>
+        public string? ReasonToNotMonitoring { get; set; }
     }
 }
