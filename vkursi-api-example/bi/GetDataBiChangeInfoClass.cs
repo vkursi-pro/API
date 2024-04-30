@@ -198,6 +198,13 @@ namespace vkursi_api_example.bi
         /// </summary>
         [DisplayName("Дата реєстрації")]
         public string DataReyestratsiyi { get; set; }
+
+        /// <summary>
+        /// Дата реєстрації
+        /// </summary>
+        [DisplayName("Дата реєстрації Date")]
+        public DateTime? DataReyestratsiyiDate { get; set; }
+
         /// <summary>
         /// Статус юридичної особи
         /// </summary>
