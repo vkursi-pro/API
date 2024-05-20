@@ -13,6 +13,7 @@ using vkursi_api_example.monitoring;
 using vkursi_api_example.movableloads;
 using vkursi_api_example.organizations;
 using vkursi_api_example.organizations.Bankruptcy;
+using vkursi_api_example.organizations.FinanceKvartal;
 using vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp;
 using vkursi_api_example.person;
 using vkursi_api_example.podatkova;
@@ -26,6 +27,8 @@ namespace vkursi_api_example
 
         static void Main()
         {
+
+
             // 1. Отримання токена авторизації
             // [POST] /api/1.0/token/authorize
 
@@ -532,6 +535,11 @@ namespace vkursi_api_example
             // 162.Відомості про банкрутство ВГСУ по даті
             // [POST] /api/1.0/organizations/getBankruptcyByDate
             GetBankruptcyByDateClass.GetBankruptcyByDate(ref token, DateTime.Parse("2023-04-14T00:00:00"));
+
+            // 163.Аналіз фінансових показників підприємства за кодом ЄДРПОУта обраним типом(перший квартал, півріччя, дев'ять місяців, річна)
+            //[POST] api / 1.0 / organizations / GetOrgFinanceKvartal
+
+            GetOrgFinanceKvartalClass.GetOrgFinanceKvartal(ref token, "00131512", 1);
 
             // Перелік статусів відповідей API
 
