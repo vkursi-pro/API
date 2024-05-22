@@ -18,6 +18,7 @@ using vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp;
 using vkursi_api_example.person;
 using vkursi_api_example.podatkova;
 using vkursi_api_example.token;
+using static vkursi_api_example.organizations.GetOrgFinanceOriginalDataClass;
 
 namespace vkursi_api_example
 {
@@ -28,12 +29,14 @@ namespace vkursi_api_example
         static void Main()
         {
 
-
+            
             // 1. Отримання токена авторизації
             // [POST] /api/1.0/token/authorize
 
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
+
+            GetOrgFinanceOriginalDataClass.GetOrgFinanceOriginal(ref token, "32801440", 2023, 12);
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -540,6 +543,15 @@ namespace vkursi_api_example
             //[POST] api / 1.0 / organizations / GetOrgFinanceKvartal
 
             GetOrgFinanceKvartalClass.GetOrgFinanceKvartal(ref token, "00131512", 1);
+
+            //164.Отримання відповіді з файлом zip наповненим xml та pdf файламифінансової звітності підприємств
+            //[POST] api / 1.0 / organizations / GetOrgFinanceKvartal
+
+            GetOrgFinanceFilesClass.GetOrgFinanceFiles(ref token, "00131050", 2024, 3);
+
+            //165. Отримання відповіді з даними по фінансовій звітності юридичної особи за конкретний рік, та конкретний період
+            //[POST] api / 1.0 / organizations / GetOrgFinanceOriginalData
+            GetOrgFinanceOriginalDataClass.GetOrgFinanceOriginal(ref token, "00131050", 2024, 3);
 
             // Перелік статусів відповідей API
 
