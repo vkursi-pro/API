@@ -49,7 +49,7 @@ namespace vkursi_api_example.organizations
                 {
                     Code = code,                                             //00131512
                     periodYear = periodYear,                                 //2024
-                    periodType = periodType                                  //1 - перший квартал, 2 - півріччя, 3 - за дев'ять місяців; 4 - річна
+                    periodType = periodType                                  // 3 - перший квартал, 6 - півріччя, 9 - дев'ять місяців, 12 - річна
                 };
 
                 string body = JsonConvert.SerializeObject(GOFRequesRow);      // Example: {"Code":["00131512"]}
