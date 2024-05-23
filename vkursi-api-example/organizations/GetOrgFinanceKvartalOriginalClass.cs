@@ -9,7 +9,7 @@ using vkursi_api_example.token;
 
 namespace vkursi_api_example.organizations
 {
-    public static class GetOrgFinanceOriginalDataClass
+    public static class GetOrgFinanceKvartalOriginalClass
     {
         /*
         165. Отримання відповіді з даними по фінансовій звітності юридичної особи за конкретний рік, та конкретний період
@@ -17,23 +17,21 @@ namespace vkursi_api_example.organizations
         ЗВЕРНІТЬ БУДЬ-ЛАСКА УВАГУ!!!
         
         1. У фінансовій звітності до 2024 "Форма 1", "Форма 1м", "Форма 1мс", "Форма 2" - частково відсутні загальні дані про
-        юридичну особу, які стосуються шапки звіту (всі відомості щодо фінансовий показників присутні!)
-        наприклад: кервіник, квед, адреса, теритрія і т.д.
-        Перебуває в процесі наповлення даних.
+        юридичну особу, які стосуються шапки звіту, наприклад: кервіник, квед, адреса, теритрія і т.д. Перебуває в процесі наповлення даних.
+        (всі відомості щодо фінансових показників присутні!)
         
-
         2. Для більшого сприйняття структури полів фінансової звітності, додано pdf файли з описом TeamplateFiles\FinZvitStructExample 
         (літери які присутні в назві полів можуть відрізнятись у pdf файлі та моделях, однак коди полів завжди збігаються)
         
-        [POST] api/1.0/organizations/GetOrgFinanceOriginalData
+        [POST] api/1.0/organizations/GetOrgFinanceKvartalOriginal
 
-        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceOriginalData' \
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceKvartalOriginal' \
         --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...' \
         --header 'Content-Type: application/json' \
         --data-raw '{"Code":"00131512","periodYear": 2024, "periodType": 3}'
         */
 
-        public static GetOrgFinanceOriginalDataResponse GetOrgFinanceOriginal(ref string token, string code, int periodYear, int periodType)
+        public static GetOrgFinanceOriginalDataResponse GetOrgFinanceKvartalOriginal(ref string token, string code, int periodYear, int periodType)
         {
 
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass(); token = _authorize.Authorize(); }
@@ -42,7 +40,7 @@ namespace vkursi_api_example.organizations
 
             while (string.IsNullOrEmpty(responseString))
             {
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceOriginalData");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceKvartalOriginal");
                 RestRequest request = new RestRequest(Method.POST);
 
                 GetOrgFinanceOriginalData GOFRequesRow = new GetOrgFinanceOriginalData()
