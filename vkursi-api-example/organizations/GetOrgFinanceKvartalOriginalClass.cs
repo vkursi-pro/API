@@ -1843,6 +1843,14 @@ namespace vkursi_api_example.organizations
         /// </summary>
         public double R1420G4 { get; set; }
         /// <summary>
+        /// Неоплачений капітал На початок період
+        /// </summary>
+        public double R1425G3 { get; set; }
+        /// <summary>
+        /// Неоплачений капітал На кінець період
+        /// </summary>
+        public double R1425G4 { get; set; }
+        /// <summary>
         /// Усього за розділом I На початок період
         /// </summary>
         public double R1495G3 { get; set; }
@@ -4503,8 +4511,11 @@ namespace vkursi_api_example.organizations
 
         public string? KATOTTG { get; set; }
 
-
-        [JsonProperty("A01")] public double A01 { get; set; }
+        /// <summary>
+        /// Права користування природними ресурсами
+        /// первісна (переоцінена) вартість
+        /// </summary>
+        public double A01 { get; set; }
 
         /// <summary>
         /// Права користування природними ресурсами
@@ -8714,11 +8725,6 @@ namespace vkursi_api_example.organizations
         public double N1433 { get; set; }
 
         /// <summary>
-        /// Айді основнї модель
-        ///</summary>
-        public int ParentId { get; set; }
-
-        /// <summary>
         /// *ТИП*
         /// *Один з видів забезпечень і резервів розділ VII, який зазначається особою яка подала звіт
         ///</summary>
@@ -11402,7 +11408,6 @@ namespace vkursi_api_example.organizations
     }
     public class UnitedFinZvitForm6Model
     {
-
         /// <summary>
         /// Айді
         /// </summary>
@@ -13849,7 +13854,6 @@ namespace vkursi_api_example.organizations
         /// <summary>
         /// Активи звітних сегментів  _(*значення в полі s4*)_ минулий рік
         /// </summary>
-        [JsonProperty("A200_10")]
         /// <summary>
         /// Активи звітних сегментів 
         /// </summary>
@@ -15533,8 +15537,10 @@ namespace vkursi_api_example.organizations
         /// *ТИП ВИТРАТ ЗАЗНАЧАЄТЬСЯ ОСОБОЮ ЯКА ПОДАЛА ЗВІТ
         /// </summary>
         public string? A2641 { get; set; }
-
-        [JsonProperty("A201_1")] public string? A2011 { get; set; }
+        /// <summary>
+        /// Активи звітних сегментів, вказаних юр. особою
+        /// </summary>
+        public string? A2011 { get; set; }
 
         /// <summary>
         /// Нерозподілені активи: ТИП
