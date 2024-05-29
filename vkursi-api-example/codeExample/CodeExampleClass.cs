@@ -22,7 +22,7 @@ namespace vkursi_api_example.codeExample
         {
             List<string> stringLst = new List<string>();
 
-            stringLst = FileReader(@"C:\Users\vadim\Downloads\code.txt");
+            stringLst = FileReader(@"C:\Users\forimportTemp\Downloads\temp\code.txt");
 
             string token = null;
 

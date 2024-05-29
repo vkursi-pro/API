@@ -3,6 +3,7 @@ using RestSharp;
 using Newtonsoft.Json;
 using vkursi_api_example.token;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace vkursi_api_example.estate
 {
@@ -22,7 +23,7 @@ namespace vkursi_api_example.estate
         */
         public static GetEstatesResponseModel GetEstates(string token, string edrpou, string ipn)
         {
-            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
+            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass(); token = _authorize.Authorize(); }
 
             string responseString = string.Empty;
 
@@ -64,6 +65,14 @@ namespace vkursi_api_example.estate
                     Console.WriteLine("Запит не успішний");
                     return null;
                 }
+                // Якшо є інформація що обробка запиту почалась робимо помторний запит через 15 сек
+                else if ((int)response.StatusCode == 200 && responseString.Contains("Почалася обробка даних, спробуйте їх отримати пізніше"))
+                {
+                    responseString = null;
+                    Thread.Sleep(15000);
+                }
+
+                // Почалася обробка даних, спробуйте їх отримати пізніше
             }
 
             GetEstatesResponseModel GEResponseRow = new GetEstatesResponseModel();
