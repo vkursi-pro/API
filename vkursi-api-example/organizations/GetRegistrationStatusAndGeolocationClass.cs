@@ -11,6 +11,17 @@ namespace vkursi_api_example.organizations
 {
     public static class GetRegistrationStatusAndGeolocationClass
     {
+        /*
+        165. Отримання відповіді з даними місцезнаходження юр. особи розбиту по частинам (в тому числі координати)
+
+
+        [POST] api/1.0/organizations/GetRegistrationStatusAndGeolocation
+
+        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetRegistrationStatusAndGeolocation' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...' \
+        --header 'Content-Type: application/json' \
+        --data-raw '{"Code":"00131512"}'
+        */
         public static GetRegistrationStatusAndGeolocationModelOut GetRegistrationStatusAndGeolocation(ref string token, string code)
         {
 
