@@ -1841,15 +1841,15 @@ namespace vkursi_api_example.organizations
         /// <summary>
         /// Нерозподілений прибуток (непокритий збиток) На кінець період
         /// </summary>
-        public double R1420G4 { get; set; }
+        public double? R1420G4 { get; set; }
         /// <summary>
         /// Неоплачений капітал На початок період
         /// </summary>
-        public double R1425G3 { get; set; }
+        public double? R1425G3 { get; set; }
         /// <summary>
         /// Неоплачений капітал На кінець період
         /// </summary>
-        public double R1425G4 { get; set; }
+        public double? R1425G4 { get; set; }
         /// <summary>
         /// Усього за розділом I На початок період
         /// </summary>

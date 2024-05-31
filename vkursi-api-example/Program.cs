@@ -36,7 +36,7 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            GetOrgFinanceKvartalOriginalClass.GetOrgFinanceKvartalOriginal(ref token, "01393774", 2024, 3);
+            GetRegistrationStatusAndGeolocationClass.GetRegistrationStatusAndGeolocation(ref token, "30325480");
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -552,6 +552,8 @@ namespace vkursi_api_example
             //165. Отримання відповіді з даними по фінансовій звітності юридичної особи за конкретний рік, та конкретний період
             //[POST] api / 1.0 / organizations / GetOrgFinanceOriginalData
             GetOrgFinanceKvartalOriginalClass.GetOrgFinanceKvartalOriginal(ref token, "00131050", 2024, 3);
+
+            GetRegistrationStatusAndGeolocationClass.GetRegistrationStatusAndGeolocation(ref token, "00131050");
 
             // Перелік статусів відповідей API
 
