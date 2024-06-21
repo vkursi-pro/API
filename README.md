@@ -914,7 +914,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckOcupLocationClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckOcupLocation</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckOcupLocationClass.cs#L131" target="_blank">CheckOcupLocationResponseModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckOcupLocationClass.cs#L93" target="_blank">CheckOcupLocationResponseModel</a></p>
 
 <br>
 <br>
@@ -932,7 +932,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CompanyDpsInfoClass.cs" target="_blank">[POST] /api/1.0/organizations/CompanyDpsInfo</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CompanyDpsInfoClass.cs#L131" target="_blank">CompanyDpsInfoResponseModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CompanyDpsInfoClass.cs#L96" target="_blank">CompanyDpsInfoResponseModel</a></p>
 
 
 <br>
@@ -951,7 +951,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationActionsHistoryClass.cs" target="_blank">[POST] /api/1.0/organizations/GetRegistrationActionsHistory</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationActionsHistoryClass.cs#L131" target="_blank">GetRegistrationActionsHistoryResponseModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationActionsHistoryClass.cs#L105" target="_blank">GetRegistrationActionsHistoryResponseModel</a></p>
 
 <br>
 <br>
@@ -969,7 +969,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFoundingDocumentsClass.cs" target="_blank">[POST] /api/1.0/organizations/GetFoundingDocuments</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFoundingDocumentsClass.cs#L131" target="_blank">GetFoundingDocumentsResponseModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFoundingDocumentsClass.cs#L95" target="_blank">GetFoundingDocumentsResponseModel</a></p>
 
 <br>
 <br>
@@ -987,7 +987,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/enforcement/GetEnforcementsWithEcpClass.cs" target="_blank">[POST] /api/1.0/enforcement/GetEnforcementsWithEcp</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/enforcement/GetEnforcementsWithEcpClass.cs#L131" target="_blank">GetEnforcementsWithEcpResponseModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/enforcement/GetEnforcementsWithEcpClass.cs#L207" target="_blank">GetEnforcementsWithEcpResponseModel</a></p>
 
 <br>
 <br>
@@ -1005,7 +1005,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetBankruptcyByDateClass.cs" target="_blank">[POST] /api/1.0/organizations/getBankruptcyByDate</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetBankruptcyByDateClass.cs#L131" target="_blank">GetBankruptcyByDateModelAnswer</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetBankruptcyByDateClass.cs#L108" target="_blank">GetBankruptcyByDateModelAnswer</a></p>
 
 <br>
 <br>
@@ -1023,7 +1023,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceKvartal</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalClass.cs#L131" target="_blank">GetXmlAndPdfZip</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalClass.cs#L94" target="_blank">GetOrgFinanceResponseModel</a></p>
 
 <br>
 <br>
@@ -1041,7 +1041,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceFilesClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceFiles</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceFilesClass.cs#L131" target="_blank">GetOrgFinanceFilesModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceFilesClass.cs#L106" target="_blank">GetXmlAndPdfZipResponse</a></p>
 
 <br>
 <br>
@@ -1057,9 +1057,9 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
             --data-raw '{"Code":"00131050", "Year": 2024, "Period": 3}'
 </code></pre>
 
-<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceOriginalData</a></p>
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceOriginalData.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceOriginalData</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs#L131" target="_blank">GetOrgFinanceOriginalDataResponse</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs#L107" target="_blank">GetOrgFinanceOriginalDataResponse</a></p>
 
 <br>
 <br>
