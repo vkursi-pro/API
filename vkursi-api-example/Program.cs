@@ -36,8 +36,6 @@ namespace vkursi_api_example
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
 
-            GetOrgFinanceOriginalDataClass.GetOrgFinanceOriginal(ref token, "32801440", 2023, 12);
-
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
 
@@ -552,6 +550,10 @@ namespace vkursi_api_example
             //165. Отримання відповіді з даними по фінансовій звітності юридичної особи за конкретний рік, та конкретний період
             //[POST] api / 1.0 / organizations / GetOrgFinanceOriginalData
             GetOrgFinanceOriginalDataClass.GetOrgFinanceOriginal(ref token, "00131050", 2024, 3);
+
+            //167. Перевірка реєстрації ЮО та ФОП, а також  їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих Російською Федерацією"
+            //[POST] api / 1.0 / organizations / GetOrgFinanceOriginalData
+            GetOccupiedTerritoriesModel.GetOccupiedTerritories(ref token, new List<string>() { "00131050" });
 
             // Перелік статусів відповідей API
 
