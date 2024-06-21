@@ -15,11 +15,10 @@ namespace vkursi_api_example.organizations
         /*
 
        cURL:
-           curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/enforcement/GetEnforcementsWithEcp' \
+           curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/enforcement/GetOccupiedTerritories' \
            --header 'ContentType: application/json' \
            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...' \
-           --header 'Content-Type: application/json' \
-           --data '{"Method":3,"SearchParams":{"Edrpou":"00131305"}}' 
+           --data '{ "codes": ["39214302"] }' 
 
        */
         /// <summary>
@@ -27,7 +26,7 @@ namespace vkursi_api_example.organizations
         /// </summary>
         /// <param name="token"></param>
         /// <param name="code"></param>
-        public static GetTerritoryInfoModelResponse GetOccupiedTerritories (ref string token, List<string> codes)
+        public static GetTerritoryInfoModelResponse GetOccupiedTerritories (ref string token)
         {
             if (string.IsNullOrEmpty(token))
             {
@@ -45,7 +44,7 @@ namespace vkursi_api_example.organizations
                     Codes = codes
                 };
 
-                string body = " { \"codes\": [\"39214302\"] }";// ["00131050"]              
+                string body = "{ \"codes\": [\"39214302\"] }";// ["00131050"]              
 
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOccupiedTerritories");
