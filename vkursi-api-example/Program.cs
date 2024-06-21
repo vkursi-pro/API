@@ -18,7 +18,7 @@ using vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp;
 using vkursi_api_example.person;
 using vkursi_api_example.podatkova;
 using vkursi_api_example.token;
-using static vkursi_api_example.organizations.GetOrgFinanceOriginalDataClass;
+using static vkursi_api_example.organizations.GetOrgFinanceKvartalOriginalClass;
 
 namespace vkursi_api_example
 {
@@ -549,7 +549,9 @@ namespace vkursi_api_example
 
             //165. Отримання відповіді з даними по фінансовій звітності юридичної особи за конкретний рік, та конкретний період
             //[POST] api / 1.0 / organizations / GetOrgFinanceOriginalData
-            GetOrgFinanceOriginalDataClass.GetOrgFinanceOriginal(ref token, "00131050", 2024, 3);
+            GetOrgFinanceKvartalOriginalClass.GetOrgFinanceKvartalOriginal(ref token, "00131050", 2024, 3);
+
+            GetRegistrationStatusAndGeolocationClass.GetRegistrationStatusAndGeolocation(ref token, "00131050");
 
             //167. Перевірка реєстрації ЮО та ФОП, а також  їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих Російською Федерацією"
             //[POST] api / 1.0 / organizations / GetOrgFinanceOriginalData

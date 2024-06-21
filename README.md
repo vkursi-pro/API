@@ -901,4 +901,185 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 <br>
 <br>
 
+<h3>151. Чи знаходиться підприємство на окупованій території</h3>
+
+<p><b>Дані методу: </b>Перевірка, чи знаходиться підприємство на окупованій території</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/CheckOcupLocation' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131305"}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckOcupLocationClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckOcupLocation</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckOcupLocationClass.cs#L93" target="_blank">CheckOcupLocationResponseModel</a></p>
+
+<br>
+<br>
+
+<h3>153. Довідник ДПС для подання повідомлень про відкриття/закриття рахунків платників податків у банках та інших фінансових установах до контролюючих органів</h3>
+
+<p><b>Дані методу: </b>Довідник ДПС</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/CompanyDpsInfo' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131305"}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CompanyDpsInfoClass.cs" target="_blank">[POST] /api/1.0/organizations/CompanyDpsInfo</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CompanyDpsInfoClass.cs#L96" target="_blank">CompanyDpsInfoResponseModel</a></p>
+
+
+<br>
+<br>
+
+<h3>155. Aрі історії реєстраційних дій</h3>
+
+<p><b>Дані методу: </b>Історія реєстраційних дій</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetRegistrationActionsHistory' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131305"}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationActionsHistoryClass.cs" target="_blank">[POST] /api/1.0/organizations/GetRegistrationActionsHistory</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationActionsHistoryClass.cs#L105" target="_blank">GetRegistrationActionsHistoryResponseModel</a></p>
+
+<br>
+<br>
+
+<h3>156. Отримання статутних документів</h3>
+
+<p><b>Дані методу: </b>Отримання статутних документів</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetFoundingDocuments' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131305"}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFoundingDocumentsClass.cs" target="_blank">[POST] /api/1.0/organizations/GetFoundingDocuments</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFoundingDocumentsClass.cs#L95" target="_blank">GetFoundingDocumentsResponseModel</a></p>
+
+<br>
+<br>
+
+<h3>157. Отримання відомостей про виконавчі провадження з ЕЦП</h3>
+
+<p><b>Дані методу: </b>Відомості про виконавчі провадження з ЕЦП</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/enforcement/GetEnforcementsWithEcp' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131305"}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/enforcement/GetEnforcementsWithEcpClass.cs" target="_blank">[POST] /api/1.0/enforcement/GetEnforcementsWithEcp</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/enforcement/GetEnforcementsWithEcpClass.cs#L207" target="_blank">GetEnforcementsWithEcpResponseModel</a></p>
+
+<br>
+<br>
+
+<h3>162. Відомості про банкрутство ВГСУ по даті</h3>
+
+<p><b>Дані методу: </b>Відомості про банкрутство по даті</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/getBankruptcyByDate' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Date":"2023-04-14T00:00:00"}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetBankruptcyByDateClass.cs" target="_blank">[POST] /api/1.0/organizations/getBankruptcyByDate</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetBankruptcyByDateClass.cs#L108" target="_blank">GetBankruptcyByDateModelAnswer</a></p>
+
+<br>
+<br>
+
+<h3>163. Аналіз фінансових показників підприємства за кодом ЄДРПОУ та обраним типом</h3>
+
+<p><b>Дані методу: </b>Аналіз фінансових показників підприємства</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceKvartal' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131512", "Type": 1}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceKvartal</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalClass.cs#L94" target="_blank">GetOrgFinanceResponseModel</a></p>
+
+<br>
+<br>
+
+<h3>164. Отримання відповіді з файлом zip наповненим xml та pdf файлами фінансової звітності підприємств</h3>
+
+<p><b>Дані методу: </b>Отримання фінансових файлів підприємств</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceFiles' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131050", "Year": 2024, "Period": 3}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceFilesClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceFiles</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceFilesClass.cs#L106" target="_blank">GetXmlAndPdfZipResponse</a></p>
+
+<br>
+<br>
+
+<h3>165. Отримання відповіді з даними по фінансовій звітності юридичної особи за конкретний рік та конкретний період</h3>
+
+<p><b>Дані методу: </b>Фінансова звітність за рік і період</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceOriginalData' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131050", "Year": 2024, "Period": 3}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceOriginalData.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceOriginalData</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs#L107" target="_blank">GetOrgFinanceOriginalDataResponse</a></p>
+
+<br>
+<br>
+
+<h3>Додатковий метод: Отримання статусу реєстрації та геолокації</h3>
+
+<p><b>Дані методу: </b>Отримання статусу реєстрації та геолокації</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetRegistrationStatusAndGeolocation' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131050"}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationStatusAndGeolocationClass.cs" target="_blank">[POST] /api/1.0/organizations/GetRegistrationStatusAndGeolocation</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationStatusAndGeolocationClass.cs#L131" target="_blank">GetRegistrationStatusAndGeolocationModel</a></p>
+
+<br>
+<br>
+
 <h3>Перелік статусів відповідей API</h3>

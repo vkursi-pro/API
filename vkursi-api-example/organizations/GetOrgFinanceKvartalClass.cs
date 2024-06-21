@@ -20,7 +20,7 @@ namespace vkursi_api_example.organizations.FinanceKvartal
        curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceKvartal' \
        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...' \
        --header 'Content-Type: application/json' \
-       --data-raw '{"Code": ["00131305"],"Kvartal": 1}'
+       --data-raw '{"Code": ["00131305"],"Kvartal": 3, "Year": 2024}'
        */
 
         public static GetOrgFinanceResponseModel GetOrgFinanceKvartal(ref string token, string edrpou, int kvartal)
@@ -38,7 +38,8 @@ namespace vkursi_api_example.organizations.FinanceKvartal
                 {
                     Code = new List<string> {
                         edrpou },                                             //00131512
-                    Kvartal = kvartal                                         //1 - перший квартал, 2 - півріччя, 3 - за дев'ять місяців; 4 - річна
+                    Kvartal = kvartal,                                        //3 - перший квартал, 6 - півріччя, 9 - за дев'ять місяців, 12 - рік
+                    Year = 2024
 
                 };
 
@@ -84,9 +85,11 @@ namespace vkursi_api_example.organizations.FinanceKvartal
      /// </summary>
         public List<string> Code { get; set; }      // 
         /// <summary>
-        /// 1 - перший квартал, 2 - півріччя, 3 - за дев'ять місяців, 4 - рік
+        /// 3 - перший квартал, 6 - півріччя, 9 - за дев'ять місяців, 12 - рік
         /// </summary>
         public int Kvartal { get; set; }
+
+        public int Year { get; set; }
     }
     /// <summary>
     /// Відповідь на запит
