@@ -553,7 +553,7 @@ namespace vkursi_api_example
 
             GetRegistrationStatusAndGeolocationClass.GetRegistrationStatusAndGeolocation(ref token, "00131050");
 
-            //167. Перевірка реєстрації ЮО та ФОП, а також  їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих Російською Федерацією"
+            //167. Перевірка реєстрації ЮО та ФОП, а також  їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих російською федерацією"
             //[POST] api/1.0/organizations/GetOccupiedTerritories
             GetOccupiedTerritoriesModel.GetOccupiedTerritories(ref token);
 
