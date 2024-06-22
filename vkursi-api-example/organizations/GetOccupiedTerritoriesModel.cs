@@ -38,13 +38,8 @@ namespace vkursi_api_example.organizations
 
             while (string.IsNullOrEmpty(responseString))
             {
-                // Створюємо об'єкт GetTerritoryInfoModel
-                GetTerritoryInfoModel requestModel = new GetTerritoryInfoModel
-                {
-                    Codes = codes
-                };
 
-                string body = "{ \"codes\": [\"39214302\"] }";// ["00131050"]              
+                string body = "{ \"codes\": [\"39214302\"] }";// { \"codes\": [\"39214302\"] }         
 
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOccupiedTerritories");
