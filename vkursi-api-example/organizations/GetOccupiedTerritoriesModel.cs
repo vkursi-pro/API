@@ -25,7 +25,7 @@ namespace vkursi_api_example.organizations
         /// 167. Перевірка реєстрації ЮО та ФОП, а також  їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих російською федерацією"
         /// </summary>
         /// <param name="token"></param>
-        /// <param name="code"></param>
+        /// <param name="code"></param> 
         public static GetTerritoryInfoModelResponse GetOccupiedTerritories (ref string token)
         {
             if (string.IsNullOrEmpty(token))
