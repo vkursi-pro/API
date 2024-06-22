@@ -1071,8 +1071,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
             --header 'Content-Type: application/json' \
             --data-raw '{"Code":"00131305"}'
 </code></pre>
-<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritories.cs" target="_blank">[POST] /api/1.0/organizations/GetOccupiedTerritories</a></p>
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritoriesResponse.cs#L109" target="_blank">GetTerritoryInfoModelResponse</a></p>
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritoriesModel.cs" target="_blank">[POST] /api/1.0/organizations/GetOccupiedTerritoriesModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritoriesModel.cs#L109" target="_blank">GetTerritoryInfoModelResponse</a></p>
 <br>
 <br>
 
