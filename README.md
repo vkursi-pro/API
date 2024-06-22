@@ -1063,6 +1063,18 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <br>
 <br>
+<h3>167. Перевірка реєстрації ЮО та ФОП, а також їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих Російською Федерацією</h3>
+<p><b>Дані методу: </b>Перевірка реєстрації на окупованих територіях</p>
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOccupiedTerritories' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131305"}'
+</code></pre>
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritories.cs" target="_blank">[POST] /api/1.0/organizations/GetOccupiedTerritories</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritoriesResponse.cs#L109" target="_blank">GetTerritoryInfoModelResponse</a></p>
+<br>
+<br>
 
 <h3>Додатковий метод: Отримання статусу реєстрації та геолокації</h3>
 
