@@ -916,6 +916,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckOcupLocationClass.cs#L93" target="_blank">CheckOcupLocationResponseModel</a></p>
 
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckOcupLocationResponse.json" target="_blank"> CheckOcupLocationResponse.json</a></p>
+
 <br>
 <br>
 
@@ -933,6 +935,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CompanyDpsInfoClass.cs" target="_blank">[POST] /api/1.0/organizations/CompanyDpsInfo</a></p>
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CompanyDpsInfoClass.cs#L96" target="_blank">CompanyDpsInfoResponseModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CompanyDpsInfoResponse.json" target="_blank"> CompanyDpsInfoResponse.json</a></p>
 
 
 <br>
@@ -953,6 +957,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationActionsHistoryClass.cs#L105" target="_blank">GetRegistrationActionsHistoryResponseModel</a></p>
 
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetRegistrationActionsHistoryResponse.json" target="_blank"> GetRegistrationActionsHistoryResponse.json</a></p>
+
 <br>
 <br>
 
@@ -970,6 +976,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFoundingDocumentsClass.cs" target="_blank">[POST] /api/1.0/organizations/GetFoundingDocuments</a></p>
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetFoundingDocumentsClass.cs#L95" target="_blank">GetFoundingDocumentsResponseModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetFoundingDocumentsResponse.json" target="_blank"> GetFoundingDocumentsResponse.json</a></p>
 
 <br>
 <br>
@@ -989,6 +997,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/enforcement/GetEnforcementsWithEcpClass.cs#L207" target="_blank">GetEnforcementsWithEcpResponseModel</a></p>
 
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetEnforcementsWithEcpResponse.json" target="_blank"> GetEnforcementsWithEcpResponse.json</a></p>
+
 <br>
 <br>
 
@@ -1006,6 +1016,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetBankruptcyByDateClass.cs" target="_blank">[POST] /api/1.0/organizations/getBankruptcyByDate</a></p>
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetBankruptcyByDateClass.cs#L108" target="_blank">GetBankruptcyByDateModelAnswer</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetBankruptcyByDateResponse.json" target="_blank"> GetBankruptcyByDateResponse.json</a></p>
 
 <br>
 <br>
@@ -1025,6 +1037,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalClass.cs#L94" target="_blank">GetOrgFinanceResponseModel</a></p>
 
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrgFinanceKvartalResponse.json" target="_blank"> GetOrgFinanceKvartalResponse.json</a></p>
+
 <br>
 <br>
 
@@ -1042,6 +1056,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceFilesClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceFiles</a></p>
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceFilesClass.cs#L106" target="_blank">GetXmlAndPdfZipResponse</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrgFinanceFilesResponse.json" target="_blank"> GetOrgFinanceFilesResponse.json</a></p>
 
 <br>
 <br>
@@ -1061,24 +1077,12 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs#L107" target="_blank">GetOrgFinanceOriginalDataResponse</a></p>
 
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrgFinanceKvartalOriginalResponse.json" target="_blank"> GetOrgFinanceKvartalOriginalResponse.json</a></p>
 
 <br>
 <br>
 
-<h3>167. Перевірка реєстрації ЮО та ФОП, а також їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих Російською Федерацією</h3>
-<p><b>Дані методу: </b>Перевірка реєстрації на окупованих територіях</p>
-<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOccupiedTerritories' \
-            --header 'ContentType: application/json' \
-            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
-            --header 'Content-Type: application/json' \
-            --data-raw '{"Code":"00131305"}'
-</code></pre>
-<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritoriesModel.cs" target="_blank">[POST] /api/1.0/organizations/GetOccupiedTerritoriesModel</a></p>
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritoriesModel.cs#L109" target="_blank">GetTerritoryInfoModelResponse</a></p>
-<br>
-<br>
-
-<h3>Додатковий метод: Отримання статусу реєстрації та геолокації</h3>
+<h3> 166.Отримання відповіді з даними місцезнаходження юр.особи розбиту по частинам(в тому числі координати)</h3>
 
 <p><b>Дані методу: </b>Отримання статусу реєстрації та геолокації</p>
 
@@ -1093,9 +1097,27 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationStatusAndGeolocationClass.cs#L131" target="_blank">GetRegistrationStatusAndGeolocationModel</a></p>
 
-<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/AuthorizeResponse.json" target="_blank">AuthorizeResponse.json</a></p>
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetRegistrationStatusAndGeolocationResponse.json" target="_blank">GetRegistrationStatusAndGeolocationResponse.json</a></p>
 
 <br>
 <br>
+
+<br>
+<br>
+
+<h3>167. Перевірка реєстрації ЮО та ФОП, а також їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих Російською Федерацією</h3>
+<p><b>Дані методу: </b>Перевірка реєстрації на окупованих територіях</p>
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOccupiedTerritories' \
+            --header 'ContentType: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{"Code":"00131305"}'
+</code></pre>
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritoriesModel.cs" target="_blank">[POST] /api/1.0/organizations/GetOccupiedTerritoriesModel</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOccupiedTerritoriesModel.cs#L109" target="_blank">GetTerritoryInfoModelResponse</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOccupiedTerritoriesResponse.json" target="_blank"> GetOccupiedTerritoriesResponse.json</a></p>
+
 
 <h3>Перелік статусів відповідей API</h3>
