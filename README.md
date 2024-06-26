@@ -1050,7 +1050,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Дані методу: </b>Фінансова звітність за рік і період</p>
 
-<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceOriginalData' \
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceKvartalOriginalClass' \
             --header 'ContentType: application/json' \
             --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
             --header 'Content-Type: application/json' \
