@@ -1057,7 +1057,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
             --data-raw '{"Code":"00131050", "Year": 2024, "Period": 3}'
 </code></pre>
 
-<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceOriginalData.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceOriginalData</a></p>
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceOriginalData</a></p>
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs#L107" target="_blank">GetOrgFinanceOriginalDataResponse</a></p>
 
