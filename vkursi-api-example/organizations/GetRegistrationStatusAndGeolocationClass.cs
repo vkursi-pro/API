@@ -12,9 +12,7 @@ namespace vkursi_api_example.organizations
     public static class GetRegistrationStatusAndGeolocationClass
     {
         /*
-        166. Отри
-        мання відповіді з даними місцезнаходження юр. особи розбиту по частинам (в тому числі координати)
-
+        166. Отримання відповіді з даними місцезнаходження юр. особи розбиту по частинам (в тому числі координати)
 
         [POST] api/1.0/organizations/GetRegistrationStatusAndGeolocation
 
