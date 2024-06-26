@@ -1093,6 +1093,8 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetRegistrationStatusAndGeolocationClass.cs#L131" target="_blank">GetRegistrationStatusAndGeolocationModel</a></p>
 
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/AuthorizeResponse.json" target="_blank">AuthorizeResponse.json</a></p>
+
 <br>
 <br>
 
