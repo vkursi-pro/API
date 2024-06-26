@@ -553,6 +553,10 @@ namespace vkursi_api_example
 
             GetRegistrationStatusAndGeolocationClass.GetRegistrationStatusAndGeolocation(ref token, "00131050");
 
+            //166.Отримання відповіді з даними місцезнаходження юр.особи розбиту по частинам(в тому числі координати)
+            //[POST] api/1.0/organizations/GetRegistrationStatusAndGeolocation
+            GetRegistrationStatusAndGeolocationClass.GetRegistrationStatusAndGeolocation(ref token, "00131050");
+
             //167. Перевірка реєстрації ЮО та ФОП, а також  їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих російською федерацією"
             //[POST] api/1.0/organizations/GetOccupiedTerritories
             GetOccupiedTerritoriesModel.GetOccupiedTerritories(ref token);

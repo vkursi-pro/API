@@ -12,7 +12,8 @@ namespace vkursi_api_example.organizations
     public static class GetRegistrationStatusAndGeolocationClass
     {
         /*
-        165. Отримання відповіді з даними місцезнаходження юр. особи розбиту по частинам (в тому числі координати)
+        166. Отри
+        мання відповіді з даними місцезнаходження юр. особи розбиту по частинам (в тому числі координати)
 
 
         [POST] api/1.0/organizations/GetRegistrationStatusAndGeolocation
@@ -179,11 +180,11 @@ namespace vkursi_api_example.organizations
         /// </summary>
         public string? building { get; set; }
         /// <summary>
-        /// 
+        /// Тип приміщення
         /// </summary>
         public string? num_type { get; set; }
         /// <summary>
-        /// 
+        /// Номер приміщення
         /// </summary>
         public string? num { get; set; }
         /// <summary>
@@ -198,5 +199,13 @@ namespace vkursi_api_example.organizations
         /// Тип населеного пункту
         /// </summary>
         public string? city_category { get; set; }
+        /// <summary>
+        /// Область
+        /// </summary>
+        public string? obl_name { get; set; }
+        /// <summary>
+        /// Район
+        /// </summary>
+        public string? region_name { get; set; }
     }
 }
