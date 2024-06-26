@@ -1050,14 +1050,14 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Дані методу: </b>Фінансова звітність за рік і період</p>
 
-<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceKvartalOriginalClass' \
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrgFinanceKvartalOriginal' \
             --header 'ContentType: application/json' \
             --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...' \
             --header 'Content-Type: application/json' \
             --data-raw '{"Code":"00131050", "Year": 2024, "Period": 3}'
 </code></pre>
 
-<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceOriginalData</a></p>
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrgFinanceKvartalOriginal</a></p>
 
 <p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrgFinanceKvartalOriginalClass.cs#L107" target="_blank">GetOrgFinanceOriginalDataResponse</a></p>
 
