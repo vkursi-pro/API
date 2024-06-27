@@ -188,6 +188,8 @@ namespace vkursi_api_example
             // 30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi
             // [POST] /api/1.0/movableloads/getexistedmovableloads
 
+            GetExistedMovableLoadsClass.GetExistedMovableLoads(ref token);
+
             // 31. Основні словники сервісу
             // [POST] /api/1.0/dictionary/getdictionary
 
