@@ -1,0 +1,35 @@
+{
+  "Status": "Дані знайдено",
+  "IsSuccess": true,
+  "Data": {
+    "CodeClient": "00131050",
+    "TypeClient": 1,
+    "FullName": "АКЦІОНЕРНЕ ТОВАРИСТВО \"СЄВЄРОДОНЕЦЬКА ТЕПЛОЕЛЕКТРОЦЕНТРАЛЬ\"",
+    "ShortName": "АТ \"СЄВЄРОДОНЕЦЬКА ТЕЦ\"",
+    "Address": "Україна, 04116, місто Київ, вул.Шолуденка, будинок 1",
+    "Parts": {
+      "atu": "м. Київ",
+      "atu_code": "80000000001078669",
+      "atu_code_id": 721,
+      "obj_name": null,
+      "obj_id": null,
+      "street": "ВУЛ.ШОЛУДЕНКА",
+      "street_id": 340168,
+      "house_type": "б.",
+      "house": "1",
+      "building_type": null,
+      "building": null,
+      "num_type": null,
+      "num": null,
+      "zip": null,
+      "city_name": "м.Київ",
+      "city_category": "м. ",
+      "obl_name": null,
+      "region_name": null
+    },
+    "GeoData": {
+      "Lat": 50.4506775000,
+      "Lon": 30.4755514000
+    }
+  }
+}

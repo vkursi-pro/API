@@ -1,0 +1,518 @@
+{
+  "Success": true,
+  "Status": null,
+  "Data": [
+    {
+      "Code": "40912311",
+      "VgsuData": [
+        {
+          "CaseNumber": "908/862/23",
+          "CourtName": "Господарський суд Запорізької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70402&v=beaac3a9d0&t=3",
+          "NameDebtor": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ТОРГОВИЙ ДІМ СИСТЕМ ВІДЕОНАГЛЯДУ\"",
+          "NumberAdvert": "70402",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "41475441",
+      "VgsuData": [
+        {
+          "CaseNumber": "920/78/23",
+          "CourtName": "Господарський суд Сумської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70419&v=1895efad3e&t=5",
+          "NameDebtor": "ТОВ \"НІКТА ФЛЕШ\"",
+          "NumberAdvert": "70419",
+          "PublicationType": "Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "40663329",
+      "VgsuData": [
+        {
+          "CaseNumber": "911/864/23",
+          "CourtName": "Господарський суд Київської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70399&v=9f22854d41&t=3",
+          "NameDebtor": "ТОВ \"Глорія Юкрейн\"",
+          "NumberAdvert": "70399",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "40023039",
+      "VgsuData": [
+        {
+          "CaseNumber": "910/2288/23",
+          "CourtName": "Господарський суд міста Києва",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70426&v=2e99eaf0ec&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"СПІЛЬНЕ УКРАЇНСЬКО-БІЛОРУСЬКЕ ПІДПРИЄМСТВО \"БЕЛАВТОДОР-УКРАЇНА\"",
+          "NumberAdvert": "70426",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "43313055",
+      "VgsuData": [
+        {
+          "CaseNumber": "908/857/23",
+          "CourtName": "Господарський суд Запорізької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70415&v=0b63d30c81&t=3",
+          "NameDebtor": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ПІЛІГРИМ-2\"",
+          "NumberAdvert": "70415",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "44630344",
+      "VgsuData": [
+        {
+          "CaseNumber": "908/71/23",
+          "CourtName": "Господарський суд Запорізької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70407&v=c92f89120a&t=5",
+          "NameDebtor": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ПОЛІАНА\"",
+          "NumberAdvert": "70407",
+          "PublicationType": "Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "38317985",
+      "VgsuData": [
+        {
+          "CaseNumber": "904/1817/22",
+          "CourtName": "Господарський суд Дніпропетровської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70398&v=8eaef7a2f6&t=5",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"БУШЕЛЬ-ПАК\"",
+          "NumberAdvert": "70398",
+          "PublicationType": "Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "41940177",
+      "VgsuData": [
+        {
+          "CaseNumber": "908/858/23",
+          "CourtName": "Господарський суд Запорізької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70424&v=9895fb42c8&t=3",
+          "NameDebtor": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"АТІ-2018\"",
+          "NumberAdvert": "70424",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "24811068",
+      "VgsuData": [
+        {
+          "CaseNumber": "910/3385/23",
+          "CourtName": "Господарський суд міста Києва",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70410&v=7741f30d17&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Донбаснафтопродукт\"",
+          "NumberAdvert": "70410",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "41458913",
+      "VgsuData": [
+        {
+          "CaseNumber": "904/1585/23",
+          "CourtName": "Господарський суд Дніпропетровської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70401&v=5214fce01c&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Адагма Трейд\"",
+          "NumberAdvert": "70401",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "42915230",
+      "VgsuData": [
+        {
+          "CaseNumber": "908/839/23",
+          "CourtName": "Господарський суд Запорізької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70403&v=11252c0e7a&t=3",
+          "NameDebtor": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"АЙ ПІ ФОРВАРД ІНВЕСТ\"",
+          "NumberAdvert": "70403",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "3198807944",
+      "VgsuData": [
+        {
+          "CaseNumber": "902/84/23",
+          "CourtName": "Господарський суд Вінницької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70421&v=2310fbaead&t=6",
+          "NameDebtor": "ДИКА ВІКТОРІЯ ПЕТРІВНА",
+          "NumberAdvert": "70421",
+          "PublicationType": "Оголошення про відкриття провадження у справі про неплатоспроможність",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "2040206427",
+      "VgsuData": [
+        {
+          "CaseNumber": "917/976/22",
+          "CourtName": "Господарський суд Полтавської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70408&v=c307ff6349&t=6",
+          "NameDebtor": "ПОДВОРЧАН ЮЛІЯ АНДРІЇВНА",
+          "NumberAdvert": "70408",
+          "PublicationType": "Оголошення про відкриття провадження у справі про неплатоспроможність",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "14274600",
+      "VgsuData": [
+        {
+          "CaseNumber": "910/2778/23",
+          "CourtName": "Господарський суд міста Києва",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70414&v=ac7b4e4e2d&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Експериментальний науково-виробничий центр \"Фобос\"",
+          "NumberAdvert": "70414",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "35202320",
+      "VgsuData": [
+        {
+          "CaseNumber": "908/877/23",
+          "CourtName": "Господарський суд Запорізької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70406&v=23e7b10880&t=3",
+          "NameDebtor": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"АЛЬФА-СЕРВИС-ПЛЮС\"",
+          "NumberAdvert": "70406",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "2932913982",
+      "VgsuData": [
+        {
+          "CaseNumber": "918/1014/22",
+          "CourtName": "Господарський суд Рівненської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70420&v=1e8a223714&t=9",
+          "NameDebtor": "СОКОТУН ВІКТОРІЯ В'ЯЧЕСЛАВІВНА",
+          "NumberAdvert": "70420",
+          "PublicationType": "Повідомлення про визнання боржника банкрутом і введення процедури погашення боргів боржника",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "39764546",
+      "VgsuData": [
+        {
+          "CaseNumber": "922/148/23",
+          "CourtName": "Господарський суд Харківської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70418&v=11a09c849c&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Астра Корпорейт\"",
+          "NumberAdvert": "70418",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "37065084",
+      "VgsuData": [
+        {
+          "CaseNumber": "904/1587/23",
+          "CourtName": "Господарський суд Дніпропетровської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70428&v=dc03e0324e&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Ревіталь\"",
+          "NumberAdvert": "70428",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "44597695",
+      "VgsuData": [
+        {
+          "CaseNumber": "908/15/23",
+          "CourtName": "Господарський суд Запорізької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70405&v=2ee76b7f7b&t=5",
+          "NameDebtor": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ \"ТОРГІВЕЛЬНИЙ ДІМ УКРТРЕЙД\"",
+          "NumberAdvert": "70405",
+          "PublicationType": "Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "42762454",
+      "VgsuData": [
+        {
+          "CaseNumber": "916/1285/23",
+          "CourtName": "Господарський суд Одеської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70412&v=4bb3378362&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"ФІРЛЕС КОМПАНІ\"",
+          "NumberAdvert": "70412",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "44245348",
+      "VgsuData": [
+        {
+          "CaseNumber": "902/229/23",
+          "CourtName": "Господарський суд Вінницької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70409&v=4537f0410c&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Ітакі\"",
+          "NumberAdvert": "70409",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "30034809",
+      "VgsuData": [
+        {
+          "CaseNumber": "903/248/23",
+          "CourtName": "Господарський суд Волинської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70411&v=f154ac1f36&t=6",
+          "NameDebtor": "Приватне підприємство \"КУРС\"",
+          "NumberAdvert": "70411",
+          "PublicationType": "Оголошення про відкриття провадження у справі про неплатоспроможність",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "44296785",
+      "VgsuData": [
+        {
+          "CaseNumber": "902/241/23",
+          "CourtName": "Господарський суд Вінницької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70400&v=693ead173e&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Актимет\"",
+          "NumberAdvert": "70400",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "39644769",
+      "VgsuData": [
+        {
+          "CaseNumber": "918/1045/22",
+          "CourtName": "Господарський суд Рівненської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70397&v=583e33bd0b&t=5",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"БЕНЕЛЮКС ПАЛИВО\"",
+          "NumberAdvert": "70397",
+          "PublicationType": "Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "3043303123",
+      "VgsuData": [
+        {
+          "CaseNumber": "908/692/23",
+          "CourtName": "Господарський суд Запорізької області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70417&v=d0351ef4f4&t=6",
+          "NameDebtor": "СКУБЕНКО ОЛЕНА ВАСИЛІВНА",
+          "NumberAdvert": "70417",
+          "PublicationType": "Оголошення про відкриття провадження у справі про неплатоспроможність",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "37039321",
+      "VgsuData": [
+        {
+          "CaseNumber": "910/4551/23",
+          "CourtName": "Господарський суд міста Києва",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70425&v=841a55dfde&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Енергетично-інвестиційна компанія\"",
+          "NumberAdvert": "70425",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "34119173",
+      "VgsuData": [
+        {
+          "CaseNumber": "918/1057/22",
+          "CourtName": "Господарський суд Рівненської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70423&v=df9844ab31&t=5",
+          "NameDebtor": "Приватне підприємство \"Будсервіс - Стандарт\"",
+          "NumberAdvert": "70423",
+          "PublicationType": "Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "39681732",
+      "VgsuData": [
+        {
+          "CaseNumber": "916/887/23",
+          "CourtName": "Господарський суд Одеської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70413&v=5990790bdd&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"БОНПАССАЖ ГРУП\"",
+          "NumberAdvert": "70413",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "31456050",
+      "VgsuData": [
+        {
+          "CaseNumber": "910/1006/22",
+          "CourtName": "Господарський суд міста Києва",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70427&v=e22423fa6e&t=4",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"ЛАН\"",
+          "NumberAdvert": "70427",
+          "PublicationType": "Повідомлення про введення процедури санації",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "41228094",
+      "VgsuData": [
+        {
+          "CaseNumber": "918/1047/22",
+          "CourtName": "Господарський суд Рівненської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70422&v=6bb0df1061&t=5",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Тефі Тес\"",
+          "NumberAdvert": "70422",
+          "PublicationType": "Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "39387503",
+      "VgsuData": [
+        {
+          "CaseNumber": "918/1046/22",
+          "CourtName": "Господарський суд Рівненської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70404&v=6470a3ea76&t=5",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"Агрофірма Случ\"",
+          "NumberAdvert": "70404",
+          "PublicationType": "Повідомлення про визнання боржника банкрутом і відкриття ліквідаційної процедури",
+          "StartDate": null
+        }
+      ]
+    },
+    {
+      "Code": "38334403",
+      "VgsuData": [
+        {
+          "CaseNumber": "904/1702/23",
+          "CourtName": "Господарський суд Дніпропетровської області",
+          "DateProclamation": "2023-04-14T00:00:00",
+          "EndDate": null,
+          "Link": "https://supreme.court.gov.ua/supreme/pro_sud/og_pov/?d=70416&v=fd1fd37fdb&t=3",
+          "NameDebtor": "Товариство з обмеженою відповідальністю \"СЕМКО\"",
+          "NumberAdvert": "70416",
+          "PublicationType": "Повідомлення про відкриття провадження у справі про банкрутство",
+          "StartDate": null
+        }
+      ]
+    }
+  ]
+}
