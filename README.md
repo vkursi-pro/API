@@ -363,7 +363,11 @@ CheckPersonClass.CheckPerson(token, "ШЕРЕМЕТА ВАСИЛЬ АНАТОЛ�
 <br>
 
 <h3>30. ДРОРМ отримання витягів які були замовлені раніше в сервісі Vkursi</h3>
-<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/movableloads/GetExistedMovableloadsClass.cs" target="_blank">[POST] /api/1.0/movableloads/getexistedmovableloads</a></p>
+<p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/movableloads/GetExistedMovableLoadsClass.cs" target="_blank">[POST] /api/1.0/movableloads/getexistedmovableloads</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetExistedMovableLoadsClass.cs#L127" target="_blank">ApiGetExistedAdvancedReportAnswer</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/ApiGetExistedAdvancedReportAnswerResponse.json" target="_blank">ApiGetExistedAdvancedReportAnswerResponse.json</a></p>
 
 <br>
 <br>
