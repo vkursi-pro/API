@@ -21,7 +21,7 @@ namespace vkursi_api_example.estate
 
         */
 
-        public static GetAdvancedRrpReportResponseModel GetAdvancedRrpReport(string token, long? groupId, int? objectId) 
+        public static GetAdvancedRrpReportResponseModel GetAdvancedRrpReport(ref string token, long? groupId, long? objectId) 
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
@@ -109,7 +109,7 @@ namespace vkursi_api_example.estate
     public class GetAdvancedRrpReportRequestBodyModel
     {
         public long? GroupId { get; set; }
-        public int? ObjectId { get; set; }
+        public long? ObjectId { get; set; }
         /// <summary>
         /// Перелік номерів ОНМ
         /// </summary>

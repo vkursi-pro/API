@@ -29,7 +29,7 @@ namespace vkursi_api_example.movableloads
         
         */
 
-        public static GetMovableLoadsResponseModel GetMovableLoads(ref string token, string edrpou, string ipn)
+        public static GetMovableLoadsResponseModel GetMovableLoads(ref string token, string edrpou, string ipn, bool? forceUpdate = null)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
@@ -272,5 +272,17 @@ namespace vkursi_api_example.movableloads
 
         [JsonProperty("execTerm")]
         public DateTime? ExecTerm { get; set; }
+
+        /// <summary>
+        /// Тип сторони в обтяженні боржник / обтяжувач
+        /// </summary>
+        public string SidesType { get; set; }
+
+        /// <summary>
+        /// Дата та час замовлення витягу
+        /// </summary>
+        public DateTime? ReportDate { get; set; }
+        public string SidesBurdenStr { get; set; }
+        public string SidesDebtorStr { get; set; }
     }
 }
