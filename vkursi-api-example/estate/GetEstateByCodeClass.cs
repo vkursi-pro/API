@@ -29,9 +29,13 @@ namespace vkursi_api_example.estate
             Приклад відповіді:
                 https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetEstateByCodeResponse.json      
         */
-        public static GetRealEstateRightsResponseModel GetRealEstateRights(string code, string token)
+        public static GetRealEstateRightsResponseModel GetRealEstateRights(string code, ref string token)
         {
-            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
+            if (string.IsNullOrEmpty(token)) 
+            { 
+                AuthorizeClass _authorize = new AuthorizeClass();
+                token = _authorize.Authorize();
+            }
 
             string responseString = string.Empty;
 
