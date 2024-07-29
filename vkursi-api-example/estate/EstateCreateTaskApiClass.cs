@@ -26,7 +26,16 @@ namespace vkursi_api_example.estate
 
          */
 
-        public static string EstateCreateTaskApi(string token)
+        public static EstateCreateTaskApiResponseBodyModel EstateCreateTaskApi(
+            ref string token, 
+            List<string> cadastrs = null,
+            List<string> koatuus = null,
+            List<string> edrpous = null,
+            List<string> ipns = null,
+            bool calculateCost = true, 
+            bool isNeedUpdateAll = false, 
+            string taskName = "Назва задачі",
+            EstateApiCreateTaskParamRequest paramRequest = null)
         {
             if (string.IsNullOrEmpty(token)) 
             {
@@ -43,30 +52,19 @@ namespace vkursi_api_example.estate
 
                 EstateCreateTaskApiRequestBodyModel ECTARequestBodyRow = new EstateCreateTaskApiRequestBodyModel
                 {
-                    //    Cadastrs = new List<string>         // Кадастрові номери
-                    //{
-                    //    "5621287500:03:001:0019"
-                    //},
-                    //    Koatuus = new List<string>          // КОАТУУ (обмеження 10)
-                    //{
-                    //    "5621287500"
-                    //},
-                    Edrpous = new List<string>          // Коди ЄДРПОУ (обмеження 10)
-                {
-                    "33768131"
-                },
-                    //    Ipns = new List<string>             // Коди ІПН-и (обмеження 10)
-                    //{
-                    //    "3083707142"
-                    //},
-                    CalculateCost = true,              // Якщо тільки порахувати вартість
-                    IsNeedUpdateAll = false,            // Якщо true - оновлюємо всі дані в ДЗК і РРП
-                    TaskName = "Назва задачі"           // Назва задачі (обов'язково)
+                    Cadastrs = cadastrs,                // Кадастрові номери
+                    Koatuus = koatuus,                  // КОАТУУ (обмеження 10)
+                    Edrpous = edrpous,                  // Коди ЄДРПОУ (обмеження 10)
+                    Ipns = ipns,                        // Коди ІПН-и (обмеження 10)
+                    CalculateCost = calculateCost,      // Якщо тільки порахувати вартість
+                    IsNeedUpdateAll = isNeedUpdateAll,  // Якщо true - оновлюємо всі дані в ДЗК і РРП
+                    TaskName = taskName                 // Назва задачі (обов'язково)
                     // isDzkOnly                        // Перевірка ДЗК + НГО без РРП
                 };
 
 
-                string body = JsonConvert.SerializeObject(ECTARequestBodyRow);
+                string body = JsonConvert.SerializeObject(ECTARequestBodyRow, 
+                    new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
                 // body = "{\"Edrpous\":[\"33768131\"]}";
 
@@ -75,7 +73,7 @@ namespace vkursi_api_example.estate
                 // Example Body with SMS RRP: {"Cadastrs":["5123955400:01:001:0590"],"CalculateCost":false,"InNeedUpdateAll":true,"IsReportTrue":true,"TaskName":"5123955400:01:001:0590","SmsRrpMonitoring":{"SmsRrpMonitoringType":1,"SmsRrpMonitoringTest":false,"SmsRrpMonitoringSections":{"AllInfo":true},"EndOfMonitoringDate":"2022-08-31T00:00:00"}}
 
                 request.AddHeader("ContentType", "application/json");
-                request.AddHeader("Authorization", "Bearer " + token);
+                request.AddHeader("Authorization", $"Bearer {token}");
                 request.AddParameter("application/json", body, ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute(request);
@@ -95,23 +93,24 @@ namespace vkursi_api_example.estate
                 }
             }
 
-            EstateCreateTaskApiResponseBodyModel ECTAResponseBody = new EstateCreateTaskApiResponseBodyModel();
+            EstateCreateTaskApiResponseBodyModel ECTAResponseBody = 
+                JsonConvert.DeserializeObject<EstateCreateTaskApiResponseBodyModel>(responseString);
 
-            ECTAResponseBody = JsonConvert.DeserializeObject<EstateCreateTaskApiResponseBodyModel>(responseString);
+            return ECTAResponseBody;
 
-            if (ECTAResponseBody.isSuccess == true) // ECTAResponseBody.isSuccess = true - задача створена успішно
-            {
-                return ECTAResponseBody.taskId;     // Id задачі за яким ми будемо перевіряти її виконання
-            }
-            else
-            {
-                Console.WriteLine("error: {0}", ECTAResponseBody.status);
-                return null;
+            //if (ECTAResponseBody.isSuccess == true) // ECTAResponseBody.isSuccess = true - задача створена успішно
+            //{
+            //    return ECTAResponseBody.taskId;     // Id задачі за яким ми будемо перевіряти її виконання
+            //}
+            //else
+            //{
+            //    Console.WriteLine("error: {0}", ECTAResponseBody.status);
+            //    return null;
 
-                /* ECTAResponseBody.status = "Not enough money" - недостатньо коштів
-                 * ECTAResponseBody.status = "Unexpected server error" - непередвачувана помилка
-                 */
-            }
+            //    /* ECTAResponseBody.status = "Not enough money" - недостатньо коштів
+            //     * ECTAResponseBody.status = "Unexpected server error" - непередвачувана помилка
+            //     */
+            //}
 
             /*
 
@@ -188,9 +187,8 @@ namespace vkursi_api_example.estate
         /// Вибір реестрів по яким необхідно здійснити перевірку (null - якщо по всім)
         /// </summary>
         public EstateApiCreateTaskParamRequest Param { get; set; }              // 
-
         /// <summary>
-        /// Дата закінчення моныторингу
+        /// Дата закінчення моніторингу
         /// </summary>
         public DateTime? DateTimeEnd { get; set; }                              // 
         /// <summary>
@@ -225,9 +223,10 @@ namespace vkursi_api_example.estate
     /// Вибір реестрів по яким необхідно здійснити перевірку (null - якщо по всім)
     /// </summary>
     public class EstateApiCreateTaskParamRequest                                // 
-    {/// <summary>
-     /// ДЗК (Державный земельний кадастр)
-     /// </summary>
+    {
+        /// <summary>
+        /// ДЗК (Державный земельний кадастр)
+        /// </summary>
         public bool IsWithDzk { get; set; }                                     // 
         /// <summary>
         /// РРП (Державний реєстр речових прав на нерухоме майно)
@@ -259,7 +258,7 @@ namespace vkursi_api_example.estate
         /// <summary>
         /// Id задачі за яким ми будемо перевіряти її виконання
         /// </summary>
-        public string taskId { get; set; }                                      // 
+        public Guid taskId { get; set; }                                      // 
         /// <summary>
         /// Назва задачі
         /// </summary>
@@ -268,6 +267,12 @@ namespace vkursi_api_example.estate
         /// Вартість виконання запиту
         /// </summary>
         public double? cost { get; set; }                                       // 
+        public int? objectCount { get; set; }
+        public int? DzkObjectCount { get; set; }
+        public int? RrpObjectCount { get; set; }
+        public int? NgoObjectCount { get; set; }
+        public int? PkkuObjectCount { get; set; }
+        public decimal? SmsRrpMonitoringCost { get; set; }
     }
 
     /// <summary>
