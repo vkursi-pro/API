@@ -132,7 +132,7 @@ namespace vkursi_api_example
             // 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам (додавання в чергу) та додавання об'єктів до моніторингу СМС РРП
             // [POST] /api/1.0/estate/estatecreatetaskapi
 
-            EstateCreateTaskApiClass.EstateCreateTaskApi(token);
+            EstateCreateTaskApiClass.EstateCreateTaskApi(ref token);
 
             // 20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
             // [GET] /api/1.0/estate/getestatetasklist
