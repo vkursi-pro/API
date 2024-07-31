@@ -11,7 +11,7 @@ namespace vkursi_api_example.estate
     /// </summary>
     public class GetExcelToReportClass
     {
-        public static EstateCreateTaskApiResponseBodyModel GetExcelToReport(ref string token, Guid reportId)
+        public static EstateReportFullExtendedExcelModel GetExcelToReport(ref string token, Guid reportId)
         {
             if (string.IsNullOrEmpty(token))
             {
@@ -48,8 +48,8 @@ namespace vkursi_api_example.estate
                 }
             }
 
-            EstateCreateTaskApiResponseBodyModel ECTAResponseBody =
-                JsonConvert.DeserializeObject<EstateCreateTaskApiResponseBodyModel>(responseString);
+            EstateReportFullExtendedExcelModel ECTAResponseBody =
+                JsonConvert.DeserializeObject<EstateReportFullExtendedExcelModel>(responseString);
 
             return ECTAResponseBody;
 
@@ -303,7 +303,7 @@ namespace vkursi_api_example.estate
         /// <summary>
         /// Дата завершення дії права користування (розраховано сервісом)
         /// </summary>
-        public string DateEndTenant { get; set; }
+        public DateTime? DateEndTenant { get; set; }
         /// <summary>
         /// Орендна плата, грн	
         /// </summary>
