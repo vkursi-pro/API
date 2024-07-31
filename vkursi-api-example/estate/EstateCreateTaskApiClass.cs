@@ -13,9 +13,17 @@ namespace vkursi_api_example.estate
         /// 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам (додавання в чергу) та додавання об'єктів до моніторингу СМС РРП
         /// [POST] api/1.0/estate/estatecreatetaskapi
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">Токен</param>
+        /// <param name="cadastrs"></param>
+        /// <param name="koatuus"></param>
+        /// <param name="edrpous"></param>
+        /// <param name="ipns"></param>
+        /// <param name="calculateCost"></param>
+        /// <param name="isNeedUpdateAll"></param>
+        /// <param name="taskName"></param>
+        /// <param name="paramRequest"></param>
+        /// <param name="getHistoricalData">Вибір реестрів по яким необхідно здійснити перевірку (null - якщо по всім)</param>
         /// <returns></returns>
-
         /* 
 
         curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/estatecreatetaskapi' \
@@ -35,7 +43,8 @@ namespace vkursi_api_example.estate
             bool calculateCost = true, 
             bool isNeedUpdateAll = false, 
             string taskName = "Назва задачі",
-            EstateApiCreateTaskParamRequest paramRequest = null)
+            EstateApiCreateTaskParamRequest paramRequest = null, 
+            bool getHistoricalData = false)
         {
             if (string.IsNullOrEmpty(token)) 
             {
@@ -58,8 +67,11 @@ namespace vkursi_api_example.estate
                     Ipns = ipns,                        // Коди ІПН-и (обмеження 10)
                     CalculateCost = calculateCost,      // Якщо тільки порахувати вартість
                     IsNeedUpdateAll = isNeedUpdateAll,  // Якщо true - оновлюємо всі дані в ДЗК і РРП
-                    TaskName = taskName                 // Назва задачі (обов'язково)
-                    // isDzkOnly                        // Перевірка ДЗК + НГО без РРП
+                    TaskName = taskName,                // Назва задачі (обов'язково)
+                    GetHistoricalData = getHistoricalData,
+                    Param = paramRequest                // Вибір реестрів по яким необхідно здійснити перевірку (null - якщо по всім)
+                    // isDzkOnly                        // 
+
                 };
 
 
@@ -97,20 +109,6 @@ namespace vkursi_api_example.estate
                 JsonConvert.DeserializeObject<EstateCreateTaskApiResponseBodyModel>(responseString);
 
             return ECTAResponseBody;
-
-            //if (ECTAResponseBody.isSuccess == true) // ECTAResponseBody.isSuccess = true - задача створена успішно
-            //{
-            //    return ECTAResponseBody.taskId;     // Id задачі за яким ми будемо перевіряти її виконання
-            //}
-            //else
-            //{
-            //    Console.WriteLine("error: {0}", ECTAResponseBody.status);
-            //    return null;
-
-            //    /* ECTAResponseBody.status = "Not enough money" - недостатньо коштів
-            //     * ECTAResponseBody.status = "Unexpected server error" - непередвачувана помилка
-            //     */
-            //}
 
             /*
 
@@ -207,14 +205,12 @@ namespace vkursi_api_example.estate
         /// Додаткові фільтри по ділянкам
         /// </summary>
         public EstateApiCreateTaskRequestFilter Filter { get; set; }
-
         /// <summary>
         /// Параметри додавання до моніторингу
         /// </summary>
         public EstateApiCreateTaskRequestSmsRrp SmsRrpMonitoring { get; set; }
-
         /// <summary>
-        /// Вікилистовувати історичні данні якщо є
+        /// Використовувати ТІЛЬКИ історичні дані (звіт буде сформовано тільки по ти м кадастромим по яки є історичні в сервісі). Застосомується якщо true
         /// </summary>
         public bool? GetHistoricalData { get; set; }
     }

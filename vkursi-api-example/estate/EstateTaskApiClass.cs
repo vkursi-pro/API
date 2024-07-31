@@ -161,9 +161,13 @@ namespace vkursi_api_example.estate
 
          */
 
-        public static List<GetEstateTaskListResponseBodyModel> GetEstateTaskList(string token)
+        public static List<GetEstateTaskListResponseBodyModel> GetEstateTaskList(ref string token)
         {            
-            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
+            if (string.IsNullOrEmpty(token)) 
+            { 
+                AuthorizeClass _authorize = new AuthorizeClass();
+                token = _authorize.Authorize();
+            }
 
             string responseString = string.Empty;
 
@@ -172,7 +176,7 @@ namespace vkursi_api_example.estate
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatetasklist");
                 RestRequest request = new RestRequest(Method.GET);
 
-                request.AddHeader("Authorization", "Bearer " + token);
+                request.AddHeader("Authorization", $"Bearer {token}");
 
                 IRestResponse response = client.Execute(request);
                 responseString = response.Content;
@@ -191,9 +195,8 @@ namespace vkursi_api_example.estate
                 }
             }
 
-            List<GetEstateTaskListResponseBodyModel> GETLResponseBody = new List<GetEstateTaskListResponseBodyModel>();
-
-            GETLResponseBody = JsonConvert.DeserializeObject<List<GetEstateTaskListResponseBodyModel>>(responseString);
+            List<GetEstateTaskListResponseBodyModel> GETLResponseBody = 
+                JsonConvert.DeserializeObject<List<GetEstateTaskListResponseBodyModel>>(responseString);
 
             return GETLResponseBody;
         }
@@ -330,10 +333,11 @@ namespace vkursi_api_example.estate
     /// Модель відповіді GetEstateTaskList (перелік створенних задач (задачі на виконання запитів до ДРРП, НГО, ДЗК))
     /// </summary>
     public class GetEstateTaskListResponseBodyModel                             // 
-    {/// <summary>
-     /// Id задачі
-     /// </summary>
-        public string Id { get; set; }                                          // 
+    {
+        /// <summary>
+        /// Id задачі
+        /// </summary>
+        public Guid Id { get; set; }                                          // 
         /// <summary>
         /// Назва задачі
         /// </summary>

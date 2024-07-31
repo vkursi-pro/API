@@ -137,8 +137,7 @@ namespace vkursi_api_example
             // 20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
             // [GET] /api/1.0/estate/getestatetasklist
 
-            EstateTaskApiClass.GetEstateTaskList(token);
-
+            EstateTaskApiClass.GetEstateTaskList(ref token);
 
             // 21. Отримання інформації про виконання формування звіту та запитів до ДРРП, НГО, ДЗК за TaskId
             // [POST] /api/1.0/estate/estategettaskdataapi
