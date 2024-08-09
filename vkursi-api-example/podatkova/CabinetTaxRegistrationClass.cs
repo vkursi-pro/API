@@ -20,7 +20,7 @@ namespace vkursi_api_example.podatkova
             --data-raw '{"tin":"21560766"}'
 
         Приклад відповіді:
-            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CabinetTaxRegistration.json
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CabinetTaxRegistrationResponse.json
 
         */
 
