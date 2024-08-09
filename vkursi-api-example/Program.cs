@@ -54,7 +54,7 @@ namespace vkursi_api_example
             // 5. Отримання відомостей про наявні об'єкти нерухоммого майна у фізичних та юридичних осіб за кодом ЄДРПОУ або ІПН
             // [GET] /api/1.0/estate/getestatebycode
 
-            GetEstateByCodeClass.GetRealEstateRights("00131305", token);
+            GetEstateByCodeClass.GetRealEstateRights("00131305", ref token);
 
             // 6. Отримати дані щоденного моніторингу по компаніям які додані на моніторинг (стрічка користувача)
             // [GET] /api/1.0/changes/getchanges
@@ -132,13 +132,12 @@ namespace vkursi_api_example
             // 19. Отримання інформації з ДРРП, НГО, ДЗК + формування звіту по земельним ділянкам (додавання в чергу) та додавання об'єктів до моніторингу СМС РРП
             // [POST] /api/1.0/estate/estatecreatetaskapi
 
-            EstateCreateTaskApiClass.EstateCreateTaskApi(token);
+            EstateCreateTaskApiClass.EstateCreateTaskApi(ref token);
 
             // 20. Отримання інформації створені задачі (задачі на виконання запитів до ДРРП, НГО, ДЗК)
             // [GET] /api/1.0/estate/getestatetasklist
 
-            EstateTaskApiClass.GetEstateTaskList(token);
-
+            EstateTaskApiClass.GetEstateTaskList(ref token);
 
             // 21. Отримання інформації про виконання формування звіту та запитів до ДРРП, НГО, ДЗК за TaskId
             // [POST] /api/1.0/estate/estategettaskdataapi
@@ -153,7 +152,7 @@ namespace vkursi_api_example
             // 23. ДРОРМ отримання витяга
             // [POST] /api/1.0/MovableLoads/getpaymovableloads
 
-            GetPayMovableLoadsClass.GetPayMovableLoads(token, 17374040);
+            GetPayMovableLoadsClass.GetPayMovableLoads(ref token, 17374040);
 
             // 24. ДРРП отримання скороченных данных по ІПН / ЄДРПОУ
             // [POST] /api/1.0/Estate/GetEstates
@@ -163,7 +162,7 @@ namespace vkursi_api_example
             // 25. Отримання повного витяга з реєстру нерухомого майна (ДРРП)
             // [POST] /api/1.0/estate/getadvancedrrpreport
 
-            GetAdvancedRrpReportClass.GetAdvancedRrpReport(token, 5001466269723, 68345530);
+            GetAdvancedRrpReportClass.GetAdvancedRrpReport(ref token, 5001466269723, 68345530);
 
             // 26. Рекізити судового документа
             // [POST] /api/1.0/courtdecision/getdecisionbyid

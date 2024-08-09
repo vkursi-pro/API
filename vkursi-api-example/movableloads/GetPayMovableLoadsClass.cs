@@ -20,7 +20,7 @@ namespace vkursi_api_example.movableloads
              
          */
 
-        public static GetPayMovableLoadsResponseModel GetPayMovableLoads(string token, int movableId)
+        public static GetPayMovableLoadsResponseModel GetPayMovableLoads(ref string token, int movableId)
         {
             if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
 
