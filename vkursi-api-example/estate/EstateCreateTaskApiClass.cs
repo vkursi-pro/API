@@ -40,7 +40,7 @@ namespace vkursi_api_example.estate
             List<string> koatuus = null,
             List<string> edrpous = null,
             List<string> ipns = null,
-            bool calculateCost = true, 
+            bool calculateCost = false, 
             bool isNeedUpdateAll = false, 
             string taskName = "Назва задачі",
             EstateApiCreateTaskParamRequest paramRequest = null, 

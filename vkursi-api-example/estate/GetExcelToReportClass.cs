@@ -46,10 +46,17 @@ namespace vkursi_api_example.estate
                     Console.WriteLine("Запит не успішний");
                     return null;
                 }
+
+                else if ((int)response.StatusCode == 200 && string.Equals(responseString, "\"Not found\""))
+                {
+                    Console.WriteLine("Запит не успішний");
+                    return new EstateReportFullExtendedExcelModel();
+                }
             }
 
-            EstateReportFullExtendedExcelModel ECTAResponseBody =
-                JsonConvert.DeserializeObject<EstateReportFullExtendedExcelModel>(responseString);
+            EstateReportFullExtendedExcelModel ECTAResponseBody = new EstateReportFullExtendedExcelModel();
+
+            ECTAResponseBody =  JsonConvert.DeserializeObject<EstateReportFullExtendedExcelModel>(responseString);
 
             return ECTAResponseBody;
 
@@ -303,7 +310,7 @@ namespace vkursi_api_example.estate
         /// <summary>
         /// Дата завершення дії права користування (розраховано сервісом)
         /// </summary>
-        public DateTime? DateEndTenant { get; set; }
+        public string DateEndTenant { get; set; }
         /// <summary>
         /// Орендна плата, грн	
         /// </summary>
@@ -396,5 +403,29 @@ namespace vkursi_api_example.estate
         /// Опис предмета іншого речового права
         /// </summary>
         public string DescriptionRights { get; set; }
+        /// <summary>
+        /// Дата завершення дії права користування (розраховано сервісом) (Формат: Дата)
+        /// </summary>
+        public DateTime? DateEndTenantDate { get; set; }
+
+        /// <summary>
+        /// Дата витягу ДРРП
+        /// </summary>
+        public DateTime? LastUpdateDrrp { get; set; }
+
+        /// <summary>
+        /// Дата витягу ДЗК
+        /// </summary>
+        public DateTime? LastUpdateDzk { get; set; }
+
+        /// <summary>
+        /// ID витягу ДРРП
+        /// </summary>
+        public Guid? RrpId { get; set; }
+
+        /// <summary>
+        /// ID витягу ДЗК
+        /// </summary>
+        public Guid? DzkId { get; set; }
     }
 }

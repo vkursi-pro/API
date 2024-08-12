@@ -3,6 +3,7 @@ using RestSharp;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using vkursi_api_example.token;
+using System.Threading;
 
 namespace vkursi_api_example.movableloads
 {
@@ -44,6 +45,13 @@ namespace vkursi_api_example.movableloads
 
                 IRestResponse response = client.Execute(request);
                 responseString = response.Content;
+
+                if (response.Content == null || !response.Content.Contains("Дані успішно знайдено"))
+                {
+                    Thread.Sleep(15000);
+                    response = client.Execute(request);
+                    responseString = response.Content;
+                }
 
                 if ((int)response.StatusCode == 401)
                 {
