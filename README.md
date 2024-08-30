@@ -1120,5 +1120,104 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOccupiedTerritoriesResponse.json" target="_blank"> GetOccupiedTerritoriesResponse.json</a></p>
 
+<br>
+<br>
+
+<h3>183. Службові особи підприємства, КБВ, які містяться в Реєстрі корупціонерів</h3>
+
+<p><b>Дані методу: </b>Перевірка наявності службових осіб підприємства, КБВ у Реєстрі корупціонерів</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/CheckCorruptionRegistry' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn...' \
+            --data-raw '{"Codes":["00131305"]}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckCorruptionRegistryClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckCorruptionRegistry</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckCorruptionRegistryClass.cs#L131" target="_blank">CheckCorruptionRegistryModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckCorruptionRegistryResponse.json" target="_blank">CheckCorruptionRegistryResponse.json</a></p>
+
+<br>
+<br>
+
+<h3>184. Службові особи підприємства, КБВ, які перебувають в розшуку за СБУ</h3>
+
+<p><b>Дані методу: </b>Перевірка наявності службових осіб підприємства, КБВ в розшуку за СБУ</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/CheckSBUWantedRegistry' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn...' \
+            --data-raw '{"Codes":["00131305"]}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckSBUWantedRegistryClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckSBUWantedRegistry</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckSBUWantedRegistryClass.cs#L131" target="_blank">CheckSBUWantedRegistryModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckSBUWantedRegistryResponse.json" target="_blank">CheckSBUWantedRegistryResponse.json</a></p>
+
+<br>
+<br>
+
+<h3>185. Службові особи підприємства, КБВ, які перебувають в розшуку за МВС: які переховуються від органів влади або безвісті зниклі громадяни</h3>
+
+<p><b>Дані методу: </b>Перевірка наявності службових осіб підприємства, КБВ в розшуку за МВС</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/CheckMVSWantedRegistry' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn...' \
+            --data-raw '{"Codes":["00131305"]}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckMVSWantedRegistryClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckMVSWantedRegistry</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckMVSWantedRegistryClass.cs#L131" target="_blank">CheckMVSWantedRegistryModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckMVSWantedRegistryResponse.json" target="_blank">CheckMVSWantedRegistryResponse.json</a></p>
+
+<br>
+<br>
+
+<h3>186. Пошук серед службових осіб підприємства та КБВ, осіб, які відносяться до публічних осіб, або пов'язаних з публічною особою</h3>
+
+<p><b>Дані методу: </b>Перевірка наявності службових осіб підприємства, КБВ у Реєстрі публічних осіб (PEP)</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/CheckPepRegistry' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn...' \
+            --data-raw '{"Codes":["00131305"]}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckPepRegistryClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckPepRegistry</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckPepRegistryClass.cs#L131" target="_blank">CheckPepRegistryModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckPepRegistryResponse.json" target="_blank">CheckPepRegistryResponse.json</a></p>
+
+<br>
+<br>
+
+<h3>188. Судова статистика по організації</h3>
+
+<p><b>Дані методу: </b>Отримання судової статистики для організації</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOrganizationCourtStatistics' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn...' \
+            --data-raw '{"Codes":["00131305"]}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationCourtStatisticsClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrganizationCourtStatistics</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationCourtStatisticsClass.cs#L131" target="_blank">GetOrganizationCourtStatisticsModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrganizationCourtStatisticsResponse.json" target="_blank">GetOrganizationCourtStatisticsResponse.json</a></p>
+
+<br>
+<br>
+
+
 
 <h3>Перелік статусів відповідей API</h3>
