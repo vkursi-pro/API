@@ -1,0 +1,29 @@
+{
+    "status": "Дані знайдено",
+    "isSuccess": true,
+    "data": [
+        {
+            "code": "30727527",
+            "data": [
+                {
+                    "name": "ПОРОШЕНКО ПЕТРО ОЛЕКСІЙОВИЧ",
+                    "isRisky": false,
+                    "allCountryRegistrations": [
+                        "УКРАЇНА"
+                    ],
+                    "allAddresses": [
+                        "01021, УКРАЇНА, 01021, МІСТО КИЇВ, ВУЛИЦЯ ГРУШЕВСЬКОГО, БУДИНОК 9, КВАРТИРА 37"
+                    ],
+                    "riskyCountries": []
+                },
+                {
+                    "name": "ЛЕВИЦЬКИЙ МАКСИМ ОЛЕГОВИЧ",
+                    "isRisky": false,
+                    "allCountryRegistrations": [],
+                    "allAddresses": [],
+                    "riskyCountries": []
+                }
+            ]
+        }
+    ]
+}

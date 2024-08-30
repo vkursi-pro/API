@@ -587,6 +587,12 @@ namespace vkursi_api_example
             CheckPepRegistryClass checkPepRegistryClass = new CheckPepRegistryClass();
             checkPepRegistryClass.GetPepRegistryClass(ref token, "30727527");
 
+            // 187. Адреса реєстрації засновників або кінцевих бенефіціарних власників у ризикових юрисдикціях
+            // [POST] api/1.0/organizations/CheckRiskyJurisdictionAddresses
+            CheckRiskyJurisdictionAddressesClass checkRiskyJurisdictionAddressesClass = new();
+
+            checkRiskyJurisdictionAddressesClass.GetRiskyJurisdictionAddresses(ref token, "00131305");
+
             // 188. Судова статистика по організації
             // [POST] api/1.0/organizations/GetOrganizationCourtStatistics
             GetOrganizationCourtStatisticsClass courtStatisticsClass = new GetOrganizationCourtStatisticsClass();
