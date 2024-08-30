@@ -1106,9 +1106,6 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 <br>
 <br>
 
-<br>
-<br>
-
 <h3>167. Перевірка реєстрації ЮО та ФОП, а також їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих Російською Федерацією</h3>
 <p><b>Дані методу: </b>Перевірка реєстрації на окупованих територіях</p>
 <pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/GetOccupiedTerritories' \
