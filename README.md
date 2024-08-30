@@ -1199,6 +1199,26 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 <br>
 <br>
 
+
+<h3>187. Адреса реєстрації засновників або кінцевих бенефіціарних власників у ризикових юрисдикціях</h3>
+
+<p><b>Дані методу: </b>Перевірка адрес реєстрації засновників або кінцевих бенефіціарних власників у ризикових юрисдикціях</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/CheckRiskyJurisdictionAddresses' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn...' \
+            --data-raw '{"Codes":["00131305"]}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckRiskyJurisdictionAddressesClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckRiskyJurisdictionAddresses</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckRiskyJurisdictionAddressesClass.cs#L114" target="_blank">CheckRiskyJurisdictionAddressesModel</a></p>
+
+<p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckRiskyJurisdictionAddressesResponse.json" target="_blank">CheckRiskyJurisdictionAddressesResponse.json</a></p>
+
+<br>
+<br>
+
 <h3>188. Судова статистика по організації</h3>
 
 <p><b>Дані методу: </b>Отримання судової статистики для організації</p>
