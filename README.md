@@ -1192,7 +1192,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckPepRegistryClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckPepRegistry</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckPepRegistryClass.cs#L151" target="_blank">CheckPepRegistryModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckPepRegistryClass.cs#L115" target="_blank">CheckPepRegistryModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckPepRegistryResponse.json" target="_blank">CheckPepRegistryResponse.json</a></p>
 
