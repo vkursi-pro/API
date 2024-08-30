@@ -1,0 +1,15 @@
+{
+    "status": "Дані знайдено",
+    "isSuccess": true,
+    "data": [
+        {
+            "code": "00131305",
+            "corruptionData": [
+                {
+                    "name": "Лайщук Любомир Романович",
+                    "licenseId": "84aaaeff-1e6a-41b7-8eaf-53327c1c6aa7"
+                }
+            ]
+        }
+    ]
+}

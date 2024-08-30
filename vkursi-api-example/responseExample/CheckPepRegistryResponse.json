@@ -1,0 +1,22 @@
+{
+    "status": "Дані знайдено",
+    "isSuccess": true,
+    "data": [
+        {
+            "code": "30727527",
+            "data": [
+                {
+                    "name": "ПОРОШЕНКО ПЕТРО ОЛЕКСІЙОВИЧ",
+                    "connectionType": "декларант",
+                    "isPep": true,
+                    "isPepAnalized": true
+                },
+                {
+                    "name": "ЛЕВИЦЬКИЙ МАКСИМ ОЛЕГОВИЧ",
+                    "isPep": false,
+                    "isPepAnalized": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "status": "Дані знайдено",
+    "isSuccess": true,
+    "data": [
+        {
+            "code": "30727527",
+            "data": {
+                "totalCount": 8,
+                "plaintiffCount": 6,
+                "defendantCount": 0,
+                "otherSideCount": 6,
+                "loserCount": 2,
+                "winCount": 0,
+                "intendedCount": 0,
+                "caseCount": 3,
+                "inProcess": 0,
+                "totalDocuments": 8,
+                "listJusticeKindses": [
+                    {
+                        "id": 4,
+                        "name": "Адміністративне",
+                        "count": 6
+                    },
+                    {
+                        "id": 3,
+                        "name": "Господарське",
+                        "count": 2
+                    },
+                    {
+                        "id": 0,
+                        "name": "Iнше",
+                        "count": 0
+                    },
+                    {
+                        "id": 1,
+                        "name": "Цивільне",
+                        "count": 0
+                    },
+                    {
+                        "id": 2,
+                        "name": "Кримінальне",
+                        "count": 0
+                    },
+                    {
+                        "id": 5,
+                        "name": "Адмінправопорушення",
+                        "count": 0
+                    }
+                ]
+            }
+        }
+    ]
+}

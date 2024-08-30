@@ -13,6 +13,7 @@ using vkursi_api_example.monitoring;
 using vkursi_api_example.movableloads;
 using vkursi_api_example.organizations;
 using vkursi_api_example.organizations.Bankruptcy;
+using vkursi_api_example.organizations.Court;
 using vkursi_api_example.organizations.FinanceKvartal;
 using vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp;
 using vkursi_api_example.organizations.MVS;
@@ -40,8 +41,30 @@ namespace vkursi_api_example
             token = _authorize.Authorize();
 
 
-            
+            //183. Пошук по Реєстр корупціонерів за кодом ЄДРПОУ
+            //[POST] api/1.0/organizations/CheckCorruptionRegistry
+            CheckCorruptionRegistryClass checkCorruptionRegistryClass = new CheckCorruptionRegistryClass();
+            checkCorruptionRegistryClass.GetCorruptionRegistry(ref token, "00131305");
 
+            // 184. Службові особи підприємства, КБВ, які перебувають в розшуку за СБУ
+            // [POST] api/1.0/organizations/CheckSBUWantedRegistry
+            CheckSBUWantedRegistryClass checkSBUWantedRegistry = new CheckSBUWantedRegistryClass();
+            checkSBUWantedRegistry.GetSBUWantedRegistryClass(ref token, "00131305");
+
+            // 185. Службові особи підприємства, КБВ, які перебувають в розшуку за МВС: які переховуються від органів влади або безвісті зниклі громадяни
+            // [POST] api/1.0/organizations/CheckSBUWantedRegistry
+            CheckMVSWantedRegistryClass checkMVSWantedRegistryClass = new CheckMVSWantedRegistryClass();
+            checkMVSWantedRegistryClass.GetMVSWantedRegistryClass(ref token, "00131305");
+
+            // 186. Пошук серезд службових осіб підприємства та КБВ, осіб які відносяться до публічних осіб, або пов'язаних з публічною особою
+            // [POST] api/1.0/organizations/CheckPepRegistry
+            CheckPepRegistryClass checkPepRegistryClass = new CheckPepRegistryClass();
+            checkPepRegistryClass.GetPepRegistryClass(ref token, "30727527");
+
+            // 188. Судова статистика по організації
+            // [POST] api/1.0/organizations/GetOrganizationCourtStatistics
+            GetOrganizationCourtStatisticsClass courtStatisticsClass = new GetOrganizationCourtStatisticsClass();
+            courtStatisticsClass.GetOrganizationCourtStatistics(ref token, "00131305");
 
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
@@ -570,25 +593,7 @@ namespace vkursi_api_example
             //[POST] api/1.0/organizations/GetOccupiedTerritories
             GetOccupiedTerritoriesModel.GetOccupiedTerritories(ref token);
 
-            //183. Пошук по Реєстр корупціонерів за кодом ЄДРПОУ
-            //[POST] api/1.0/organizations/CheckCorruptionRegistry
-            CheckCorruptionRegistryClass checkCorruptionRegistryClass = new CheckCorruptionRegistryClass();
-            checkCorruptionRegistryClass.GetCorruptionRegistry(ref token, "00131305");
-
-            // 184. Службові особи підприємства, КБВ, які перебувають в розшуку за СБУ
-            // [POST] api/1.0/organizations/CheckSBUWantedRegistry
-            CheckSBUWantedRegistryClass checkSBUWantedRegistry = new CheckSBUWantedRegistryClass();
-            checkSBUWantedRegistry.GetSBUWantedRegistryClass(ref token, "00131305");
-
-            // 185. Службові особи підприємства, КБВ, які перебувають в розшуку за МВС: які переховуються від органів влади або безвісті зниклі громадяни
-            // [POST] api/1.0/organizations/CheckSBUWantedRegistry
-            CheckMVSWantedRegistryClass checkMVSWantedRegistryClass = new CheckMVSWantedRegistryClass();
-            checkMVSWantedRegistryClass.GetMVSWantedRegistryClass(ref token, "00131305");
-
-            // 186. Пошук серезд службових осіб підприємства та КБВ, осіб які відносяться до публічних осіб, або пов'язаних з публічною особою
-            // [POST] api/1.0/organizations/CheckPepRegistry
-            CheckPepRegistryClass checkPepRegistryClass = new CheckPepRegistryClass();
-            checkPepRegistryClass.GetPepRegistryClass(ref token, "30727527");
+            
 
 
             // Перелік статусів відповідей API
