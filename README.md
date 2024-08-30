@@ -1135,7 +1135,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckCorruptionRegistryClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckCorruptionRegistry</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckCorruptionRegistryClass.cs#L131" target="_blank">CheckCorruptionRegistryModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckCorruptionRegistryClass.cs#L118" target="_blank">CheckCorruptionRegistryModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckCorruptionRegistryResponse.json" target="_blank">CheckCorruptionRegistryResponse.json</a></p>
 
@@ -1154,7 +1154,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckSBUWantedRegistryClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckSBUWantedRegistry</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckSBUWantedRegistryClass.cs#L131" target="_blank">CheckSBUWantedRegistryModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckSBUWantedRegistryClass.cs#L117" target="_blank">CheckSBUWantedRegistryModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckSBUWantedRegistryResponse.json" target="_blank">CheckSBUWantedRegistryResponse.json</a></p>
 
@@ -1173,7 +1173,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckMVSWantedRegistryClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckMVSWantedRegistry</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckMVSWantedRegistryClass.cs#L131" target="_blank">CheckMVSWantedRegistryModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckMVSWantedRegistryClass.cs#L116" target="_blank">CheckMVSWantedRegistryModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckMVSWantedRegistryResponse.json" target="_blank">CheckMVSWantedRegistryResponse.json</a></p>
 
@@ -1192,7 +1192,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckPepRegistryClass.cs" target="_blank">[POST] /api/1.0/organizations/CheckPepRegistry</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckPepRegistryClass.cs#L131" target="_blank">CheckPepRegistryModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/CheckPepRegistryClass.cs#L151" target="_blank">CheckPepRegistryModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/CheckPepRegistryResponse.json" target="_blank">CheckPepRegistryResponse.json</a></p>
 
@@ -1211,7 +1211,7 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationCourtStatisticsClass.cs" target="_blank">[POST] /api/1.0/organizations/GetOrganizationCourtStatistics</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationCourtStatisticsClass.cs#L131" target="_blank">GetOrganizationCourtStatisticsModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetOrganizationCourtStatisticsClass.cs#L120" target="_blank">GetOrganizationCourtStatisticsModel</a></p>
 
 <p><b>Приклад відповіді: </b> <a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetOrganizationCourtStatisticsResponse.json" target="_blank">GetOrganizationCourtStatisticsResponse.json</a></p>
 
