@@ -1,0 +1,41 @@
+{
+    "status": "Дані знайдено",
+    "isSuccess": true,
+    "data": [
+        {
+            "code": "00131305",
+            "sbuWantedData": [
+                {
+                    "licenseName": "Відомості з реєстру Служби безпеки України",
+                    "actual": true,
+                    "licenseId": "41e4d704-5b34-461d-9eb2-890838f72630",
+                    "searchedString": "Селіверстов Віктор Валентинович",
+                    "searchByBirthDay": false,
+                    "personName": "Селіверстов Віктор Валентинович",
+                    "info": {
+                        "HrefForPhoto": "https://ssu.gov.ua/uploads/images/2022/05/17/48c17258ec5623ae4a2675a4b82f52b9.jpg",
+                        "name_HrefForPhoto": "Посилання фото",
+                        "Precaution": "державний та міжнародний розшук",
+                        "name_Precaution": "Запобіжний захід",
+                        "DateOfBirth": "02.08.1954",
+                        "name_DateOfBirth": "Дата народження",
+                        "FirstName": "Віктор",
+                        "name_FirstName": "Ім'я",
+                        "Surmane": "Селіверстов",
+                        "name_Surmane": "Прізвище",
+                        "Patronymic": "Валентинович",
+                        "name_Patronymic": "По батькові",
+                        "ArticleOfAccusation": "ч. 3 ст. 110 КК України",
+                        "name_ArticleOfAccusation": "Стаття звинувачення (ККУ)",
+                        "ContactInformation": "Черговий УСБУ у Хмельницькій області, тел: (0382) 65-72-73",
+                        "name_ContactInformation": "Контактна Інформація",
+                        "Sex": "Чоловіча",
+                        "name_Sex": "Стать",
+                        "Href": "/u-rozshuku/seliverstov-viktor-valentynovych",
+                        "name_Href": "Посилання на СБУ"
+                    }
+                }
+            ]
+        }
+    ]
+}

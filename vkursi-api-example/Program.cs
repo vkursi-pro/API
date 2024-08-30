@@ -15,6 +15,9 @@ using vkursi_api_example.organizations;
 using vkursi_api_example.organizations.Bankruptcy;
 using vkursi_api_example.organizations.FinanceKvartal;
 using vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp;
+using vkursi_api_example.organizations.MVS;
+using vkursi_api_example.organizations.PEP;
+using vkursi_api_example.organizations.SBU;
 using vkursi_api_example.person;
 using vkursi_api_example.podatkova;
 using vkursi_api_example.token;
@@ -35,6 +38,11 @@ namespace vkursi_api_example
 
             AuthorizeClass _authorize = new AuthorizeClass();
             token = _authorize.Authorize();
+
+
+            
+
+
 
             // 2. Запит на отримання скорочених даних по організаціям за кодом ЄДРПОУ
             // [POST] /api/1.0/organizations/getorganizations
@@ -561,6 +569,27 @@ namespace vkursi_api_example
             //167. Перевірка реєстрації ЮО та ФОП, а також  їх власників, учасників, бенефіціарів на територіях, на яких ведуться (велися) бойові дії або тимчасово окупованих російською федерацією"
             //[POST] api/1.0/organizations/GetOccupiedTerritories
             GetOccupiedTerritoriesModel.GetOccupiedTerritories(ref token);
+
+            //183. Пошук по Реєстр корупціонерів за кодом ЄДРПОУ
+            //[POST] api/1.0/organizations/CheckCorruptionRegistry
+            CheckCorruptionRegistryClass checkCorruptionRegistryClass = new CheckCorruptionRegistryClass();
+            checkCorruptionRegistryClass.GetCorruptionRegistry(ref token, "00131305");
+
+            // 184. Службові особи підприємства, КБВ, які перебувають в розшуку за СБУ
+            // [POST] api/1.0/organizations/CheckSBUWantedRegistry
+            CheckSBUWantedRegistryClass checkSBUWantedRegistry = new CheckSBUWantedRegistryClass();
+            checkSBUWantedRegistry.GetSBUWantedRegistryClass(ref token, "00131305");
+
+            // 185. Службові особи підприємства, КБВ, які перебувають в розшуку за МВС: які переховуються від органів влади або безвісті зниклі громадяни
+            // [POST] api/1.0/organizations/CheckSBUWantedRegistry
+            CheckMVSWantedRegistryClass checkMVSWantedRegistryClass = new CheckMVSWantedRegistryClass();
+            checkMVSWantedRegistryClass.GetMVSWantedRegistryClass(ref token, "00131305");
+
+            // 186. Пошук серезд службових осіб підприємства та КБВ, осіб які відносяться до публічних осіб, або пов'язаних з публічною особою
+            // [POST] api/1.0/organizations/CheckPepRegistry
+            CheckPepRegistryClass checkPepRegistryClass = new CheckPepRegistryClass();
+            checkPepRegistryClass.GetPepRegistryClass(ref token, "30727527");
+
 
             // Перелік статусів відповідей API
 
