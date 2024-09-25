@@ -12,7 +12,7 @@ namespace vkursi_api_example.enforcement
     public class GetEnforcementsWithEcpClass
     {
         /// <summary>
-        /// 157. Отримання відомостей про виконавчі провадження з ЕЦП
+        /// 159. Отримання відомостей про виконавчі провадження з ЕЦП
         /// [POST] /api/1.0/enforcement/GetEnforcementsWithEcp
         /// </summary>
         /// <param name="code"></param>

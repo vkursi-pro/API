@@ -533,7 +533,7 @@ namespace vkursi_api_example
 
             GetFoundingDocumentsClass.GetFoundingDocuments(ref token, "00131305");
 
-            // 157. Отримання відомостей про виконавчі провадження з ЕЦП
+            // 159. Отримання відомостей про виконавчі провадження з ЕЦП
             // [POST] /api/1.0/enforcement/GetEnforcementsWithEcp
 
             GetEnforcementsWithEcpClass.GetEnforcementsWithEcp(ref token, "00131305");
@@ -555,8 +555,6 @@ namespace vkursi_api_example
             //165. Отримання відповіді з даними по фінансовій звітності юридичної особи за конкретний рік, та конкретний період
             //[POST] api / 1.0 / organizations / GetOrgFinanceOriginalData
             GetOrgFinanceKvartalOriginalClass.GetOrgFinanceKvartalOriginal(ref token, "00131050", 2024, 3);
-
-            GetRegistrationStatusAndGeolocationClass.GetRegistrationStatusAndGeolocation(ref token, "00131050");
 
             //166.Отримання відповіді з даними місцезнаходження юр.особи розбиту по частинам(в тому числі координати)
             //[POST] api/1.0/organizations/GetRegistrationStatusAndGeolocation
