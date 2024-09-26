@@ -38,7 +38,7 @@ namespace vkursi_api_example.organizations
                     Code = code,                                             //00131512
                 };
 
-                string body = JsonConvert.SerializeObject(GOFRequesRow);      // Example: {"Code":["00131512"]}
+                string body = JsonConvert.SerializeObject(GOFRequesRow);      // Example: {"Code":"00131512"}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);

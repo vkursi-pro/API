@@ -50,7 +50,7 @@ namespace vkursi_api_example.organizations
                     periodType = periodType                                  // 3 - перший квартал, 6 - півріччя, 9 - дев'ять місяців, 12 - річна
                 };
 
-                string body = JsonConvert.SerializeObject(GOFRequesRow);      // Example: {"Code":["00131512"]}
+                string body = JsonConvert.SerializeObject(GOFRequesRow);      // Example: {"Code":"00131512","periodYear": 2024, "periodType": 3}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
