@@ -116,7 +116,7 @@ namespace vkursi_api_example.organizations
      
     */
     /// <summary>
-    /// Модель запиту (Example: {"searchType":1,"code":"32352162"})
+    /// Модель запиту (Example: {"Codes":["21560766"]})
     /// </summary>
     public class GetFinancialIndustrialGroupRequestBodyModel                            
     {/// <summary>
