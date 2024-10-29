@@ -45,7 +45,12 @@ namespace vkursi_api_example.organizations
             {
                 string body = jsonStr;  // Example body: {\"borgZarPlati\":[{\"indicatorValue\":\">=200000\",\"weight\":1},{\"indicatorValue\":\">100000#=<200000\",\"weight\":2},{\"indicatorValue\":\"=<100000\",\"weight\":3}],\"vidkrytiVp\":[{\"indicatorValue\":\">=5\",\"weight\":1},{\"indicatorValue\":\">1#<5\",\"weight\":2},{\"indicatorValue\":\"=0\",\"weight\":3}]}
 
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/EditExpressScoreWeight");
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/EditExpressScoreWeight?type=1"); // Type = 1 - організації
+                                                                                                                                                // Type = 2 - ФОП
+                                                                                                                                                // Type = 3 - Особи
+
+
+
                 RestRequest request = new RestRequest(Method.POST);
 
                 request.AddHeader("ContentType", "application/json");
