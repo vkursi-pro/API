@@ -152,7 +152,8 @@ namespace vkursi_api_example.courtdecision
         /// </summary>
         public int CourtId { get; set; }                                                // 
         /// <summary>
-        /// Дата офіційної публікації документа
+        /// Дата оф
+        /// іційної публікації документа
         /// </summary>
         public DateTime DatePublished { get; set; }                                     // 
         /// <summary>

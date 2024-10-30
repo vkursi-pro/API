@@ -427,5 +427,20 @@ namespace vkursi_api_example.estate
         /// ID витягу ДЗК
         /// </summary>
         public Guid? DzkId { get; set; }
+
+        /// <summary>
+        /// Цільове призначення за РРП
+        /// </summary>
+        public string PurposePkku { get; set; }
+
+        /// <summary>
+        /// Форма власності ПККУ
+        /// </summary>
+        public string OwnerFormPkku { get; set; }
+
+        /// <summary>
+        /// Категорія ПККУ
+        /// </summary>
+        public string CategoryPkku { get; set; }
     }
 }

@@ -87,6 +87,7 @@ namespace vkursi_api_example.organizations
     {/// <summary>
      /// Перелік кодів ІПН
      /// </summary>
+     /// <example
         public List<string> code = new List<string>();               
     }
     /// <summary>
@@ -96,6 +97,7 @@ namespace vkursi_api_example.organizations
     {/// <summary>
      /// Системний Id Fop
      /// </summary>
+     /// <example></example>
         public Guid Id { get; set; }                                 
         /// <summary>
         /// ПІБ ФОПа (maxLength:256)
