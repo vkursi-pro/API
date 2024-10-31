@@ -65,12 +65,12 @@ namespace vkursi_api_example.estate
                 else if ((int)response.StatusCode == 200 && responseString.Contains("Update in progress, total objects"))
                 {
                     Console.WriteLine("Триває процес оновлення інформації за вказанними параметрами, спробуйте повторити запит через 30 секунд");
-                    return null;
+                    System.Threading.Thread.Sleep(30000);
                 }
                 else if ((int)response.StatusCode == 200 && responseString.Contains("Update in progress, try again later"))
                 {
                     Console.WriteLine("Триває процес оновлення інформації за вказанними параметрами, спробуйте повторити запит через 30 секунд");
-                    return null;
+                    System.Threading.Thread.Sleep(30000);
                 }
                 else if ((int)response.StatusCode == 403 && responseString.Contains("Not enough cards to form a request"))
                 {
