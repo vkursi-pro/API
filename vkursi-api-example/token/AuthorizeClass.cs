@@ -21,14 +21,15 @@ namespace vkursi_api_example.token
             * - Термін дії токену 30 хв (після цого ви отримаєте помилку 401 unauthorized)
 
         */
+
         public string Authorize()
         {
             // Вкажіть ваш логін та пароль від сервісу Vkursi які ви вводили при реєстрації облікового запису vkursi.pro/account/register або зарееструйте новий
 
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
-                Email = "login",       // Логін (Email)
-                Password = "pass"         // Пароль
+                Email = Email,      // Логін (Email)
+                Password = Password // Пароль
             };
 
             AuthorizeResponseModel AuthorizeResponse = new AuthorizeResponseModel();
