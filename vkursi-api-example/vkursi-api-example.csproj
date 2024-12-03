@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>vkursi_api_example</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="16.2.0" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.45" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.71" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
   </ItemGroup>
