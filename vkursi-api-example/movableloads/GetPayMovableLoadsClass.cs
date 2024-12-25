@@ -178,12 +178,12 @@ namespace vkursi_api_example.movableloads
         /// <summary>
         /// Витяг (Оригінальні дані відповіді Nais перетворені в об'єкт).Опис полів від ДП Nais https://nais.gov.ua/files/general/2020/01/27/20200127160802-47.docx 
         /// </summary>
-        public DataObjectClear dataObject { get; set; }                     //    
+        public MovableLoadsModel dataObject { get; set; }                     //    
     }
     /// <summary>
     /// Витяг
     /// </summary>
-    public class DataObjectClear                                            // 
+    public class MovableLoadsModel                                            // 
     {/// <summary>
      /// Ідентифікатор запису (для АПІ не несе інформаційного навантаження)
      /// </summary>
@@ -340,6 +340,11 @@ namespace vkursi_api_example.movableloads
         /// Ознака наявності “Звернення стягнення”
         /// </summary>
         public string penalty { get; set; }             // 
+
+        /// <summary>
+        /// Наш ID для ідентифікації вкладеності. Формується з усього json
+        /// </summary>
+        public Guid? mainId { get; set; }
     }
 
     public class PrTypeAttr

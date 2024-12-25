@@ -2,19 +2,12 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using vkursi_api_example.organizations;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example.movableloads
 {
     public static class GetExistedMovableLoadsClass
     {
-
         /*
         
         Метод:
@@ -22,19 +15,19 @@ namespace vkursi_api_example.movableloads
              [POST] /api/1.0/movableloads/getexistedmovableloads
 
         cURL запиту:
-            curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/MovableLoads/getmovableloads' \
+            curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/MovableLoads/getexistedmovableloads' \
             --header 'ContentType: application/json' \
             --header 'Authorization: Bearer eyJhbGciOiJIUzI1Ni...' \
             --header 'Content-Type: application/json' \
             --data-raw '{"IdList":[282154],"Edrpou":null,"Ipn":null,"DateStart":"2022-01-04T00:00:00","DateEnd":"2022-01-06T00:00:00"}'
 
         Приклад відповіді:
-            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetMovableLoadsResponse.json
+            https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/responseExample/GetExistedMovableloadsResponse.json
 
 
         */
 
-        public static ApiGetExistedAdvancedReportAnswer GetExistedMovableLoads(ref string token)
+        public static ApiGetExistedAdvancedReportAnswer GetExistedMovableLoads(ref string token, ApiGetExistedAdvancedReport requestModel)
         {
             if (string.IsNullOrEmpty(token))
             {
@@ -46,16 +39,18 @@ namespace vkursi_api_example.movableloads
 
             while (string.IsNullOrEmpty(responseString))
             {
-
-                ApiGetExistedAdvancedReport requestModel= new()
+                if (requestModel == null)
                 {
-                    IdList = new()
+                    requestModel = new()
+                    {
+                        IdList = new()
                     {
                         802710,
                     },
-                    DateStart = DateTime.Parse("04.01.2000"),
-                    DateEnd = DateTime.Parse("06.01.2005"),
-                };
+                        DateStart = DateTime.Parse("04.01.2000"),
+                        DateEnd = DateTime.Parse("06.01.2005"),
+                    };
+                }
 
                 string body = JsonConvert.SerializeObject(requestModel);// {"IdList":[282154],"Edrpou":null,"Ipn":null,"DateStart":"2022-01-04T00:00:00","DateEnd":"2022-01-06T00:00:00"}        
 
@@ -160,161 +155,6 @@ namespace vkursi_api_example.movableloads
         public string dataObjectOriginal { get; set; }
         public string dataObjectSign { get; set; }
         public MovableLoadsModel dataObject { get; set; }
-    }
-    public class MovableLoadsModel
-    {
-        /// <summary>
-        /// Ідентифікатор запису (для АПІ не несе інформаційного навантаження)
-        /// </summary>
-        public int? ID { get; set; }
-        /// <summary>
-        /// Номер обтяження
-        /// </summary>
-        public int? opOpID { get; set; }
-        /// <summary>
-        /// Тип запису (код)
-        /// </summary>
-        public int? opType { get; set; }
-        /// <summary>
-        /// Тип обтяження - Податкова застава   LM_TYPE=12 / Звернення стягнення LM_TYPE=13 / Заборона на рухоме майно LM_TYPE=7 / Арешт рухомого майна LM_TYPE = 8 / Застава рухомого майна LM_TYPE = 10 / Інше обтяження рухомого майна LM_TYPE=999
-        /// </summary>
-        public string? lmType { get; set; }
-        /// <summary>
-        /// Стан запису (активний анульований) – в АПІ надходить тільки статус 1 - активний
-        /// </summary>
-        public int? opStatus { get; set; }
-        /// <summary>
-        /// Термін дії обтяження 
-        /// </summary>
-        public DateTime? actTerm { get; set; } // 
-        /// <summary>
-        /// Архівна дата
-        /// </summary>
-        public string? archiveDate { get; set; } // 
-        /// <summary>
-        /// Термін виконання зобов’язання
-        /// </summary>
-        public DateTime? execTerm { get; set; } // 
-
-        /// <summary>
-        /// Реєстраційний номер обтяження (зовнішній ключ)
-        /// </summary>
-        public string? regNum { get; set; } // 
-        /// <summary>
-        /// Розмір основного зобов’язання: сума
-        /// </summary>
-        public string? contractSum { get; set; } // 
-        /// <summary>
-        /// Контрольна сума заяви (для АПІ не несе інформаційного навантаження)
-        /// </summary>
-        public string? checkSum { get; set; } // 
-
-        /// <summary>
-        /// Ознака наявності “Звернення стягнення”
-        /// </summary>
-        public int? penaltyInit { get; set; } // 
-        /// <summary>
-        /// Розмір основного зобов’язання: валюта
-        /// </summary>
-        public string? currencyType { get; set; } // 
-        /// <summary>
-        /// Вид обтяження (публічне = 1,  приватне = 2)
-        /// </summary>
-        public string? lmSort { get; set; } // 
-        /// <summary>
-        /// 1. Дозволено відчужувати 2. Заборонено відчужувати 3. За погодженням з обтяжувачем
-        /// </summary>
-        public string? alPossible { get; set; } // 
-        /// <summary>
-        /// Опис у довільному форматі типу обтяження
-        /// </summary>
-        public string? lmTypeExtension { get; set; } // 
-        /// <summary>
-        /// Додаткові дані до обтяження
-        /// </summary>
-        public string? additional { get; set; } // 
-
-        public string? archRegName { get; set; }
-        /// <summary>
-        /// Дата обтяження
-        /// </summary>
-        public DateTime? regDate { get; set; } // 
-
-        /// <summary>
-        /// Опис майна
-        /// </summary>
-        public List<MovableLoadsPropertyModel> properties { get; set; } // 
-        /// <summary>
-        /// Інформація про сторони (обтяжувач, боржник)
-        /// </summary>
-        public List<MovableLoadSubjectsModel> subjects { get; set; } // 
-        /// <summary>
-        /// Документ(и) на підставі яких внесено обтяження
-        /// </summary>
-        public List<MovableLoadCauseDocumentsModel> causeDocuments { get; set; }
-        /// <summary>
-        /// Дата проведення операції формування витягу
-        /// </summary>
-        public DateTime? opRegDate { get; set; } // 
-        /// <summary>
-        /// Інформація про реєстратора
-        /// </summary>
-        public string? registrarInfo { get; set; }       // 
-        /// <summary>
-        /// Стан документа
-        /// </summary>
-        public string? lmState { get; set; }             // 
-        /// <summary>
-        /// Документи (підтверджуючі реєстрацію обтяження???)
-        /// </summary>
-        public List<MovableLoadsDocumentsModel> documents { get; set; }
-        /// <summary>
-        /// Назва стану документа
-        /// </summary>
-        public string? lmStateName { get; set; }         // 
-        /// <summary>
-        /// Організація реєстратора, який сформував витяг
-        /// </summary>
-        public string? currentObjName { get; set; }      // 
-        /// <summary>
-        /// Реєстратора, який сформував витяг
-        /// </summary>
-        public string? currentRegistrar { get; set; }    // 
-        /// <summary>
-        /// Ознака наявності “Звернення стягнення”
-        /// </summary>
-        public string? penalty { get; set; }             // 
-        /// <summary>
-        /// Наш ID для ідентифікації вкладеності. Формується з усього json
-        /// </summary>
-        public Guid MainId { get; set; }
-
-        public string? prevRegistration { get; set; }
-        /// <summary>
-        /// ID запиту
-        /// </summary>
-        public int? reqReqID { get; set; }
-        public string? bnBnID { get; set; }
-
-        public string? archiveNum { get; set; }
-
-        public int? currentObjID { get; set; }
-        /// <summary>
-        /// Число початку дії обтяження
-        /// </summary>
-        public string? startDay { get; set; } // 
-        /// <summary>
-        /// Місяць початку дії обтяження
-        /// </summary>
-        public string? startMonth { get; set; }
-        /// <summary>
-        /// Рік початку дії обтяження
-        /// </summary>
-        public string? startYear { get; set; }
-        /// <summary>
-        /// Розмір основного зобов’язання: сума (вказано в deciaml)
-        /// </summary>
-        public double? validContractSum { get; set; }
     }
     /// <summary>
     /// Об'єкт(и) обтяження
