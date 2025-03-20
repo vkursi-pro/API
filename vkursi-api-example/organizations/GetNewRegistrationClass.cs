@@ -96,7 +96,7 @@ namespace vkursi_api_example.organizations
 
             List<GetNewRegistrationResponseShortModel> GetNewRegistrationResponseShortList = new List<GetNewRegistrationResponseShortModel>();
 
-            if (IsShortModel == null || IsShortModel == false)
+            if ((IsShortModel == null || IsShortModel == false) && (responseString != "{\"status\":\"11. Запит успішно виконано. Дані не знайдено\",\"statusId\":11,\"isSuccess\":true}"))
             {
                 NewRegistrationFullList = JsonConvert.DeserializeObject<List<GetAdvancedOrganizationResponseModel>>(responseString);
             }
