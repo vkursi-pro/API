@@ -653,10 +653,10 @@ GetOwnershipStructureClass.GetOwnershipStructure(ref token, "31077508");
 <br>
 <br>
         
-<h3>64. Перелік об'єктів в списках</h3>
-[POST] /api/1.0/monitoring/getContent
+// 64. Перелік об'єктів в списках (списки можна отримати /api/1.0/monitoring/getAllReestr)
+// [GET] /api/1.0/monitoring/getContent
 
-GetContentMonitoringClass.GetContent(ref token, "31077508" ); // string reestrId
+GetContentMonitoringClass.GetContent(ref token,Guid.Parse("0b62cc6d-4be1-43ed-9622-1ee5b51236b9"));
 
 <br>
 <br>

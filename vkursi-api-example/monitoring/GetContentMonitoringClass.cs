@@ -9,7 +9,25 @@ namespace vkursi_api_example.monitoring
 {
     public class GetContentMonitoringClass
     {
-        public static List<GetContentMonitoringResponseModel> GetContent(ref string token, string reestrId)
+        //отримати списки які створені користувачем/наявні у користувача /api/1.0/monitoring/getAllReestr
+
+        /// <summary>
+        /// 64. Перелік об'єктів в списках створені користувачем/наявні у користувача "/api/1.0/monitoring/getAllReestr"
+        /// [GET] api/1.0/monitoring/getAllReestr
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="reestrId"></param>
+        /// <returns></returns>
+
+        /*
+        
+        curl --location 'https://vkursi-api.azurewebsites.net/api/1.0/monitoring/getAllReestr?reestrId=0b62cc6d-4be1-43ed-9622-1ee5b51236b9' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsIn...'
+
+        */
+
+        public static List<GetContentMonitoringResponseModel> GetContent(ref string token, Guid reestrId)
         {
             if (string.IsNullOrEmpty(token)) { 
                 AuthorizeClass _authorize = new AuthorizeClass(); 
@@ -20,14 +38,14 @@ namespace vkursi_api_example.monitoring
 
             while (string.IsNullOrEmpty(responseString))
             {
-                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/courtdecision/getcontent");
-                RestRequest request = new RestRequest(Method.POST);
+                RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/monitoring/getcontent");
+                RestRequest request = new RestRequest(Method.GET);
 
-                string body = "\"" + reestrId + "\"";                // Example body: "84583482"
 
+                request.AddQueryParameter("reestrId", reestrId.ToString());
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
-                request.AddParameter("application/json", body, ParameterType.RequestBody);
+
 
                 IRestResponse response = client.Execute(request);
                 responseString = response.Content;
@@ -64,7 +82,7 @@ namespace vkursi_api_example.monitoring
     }
 
     /// <summary>
-    /// ???
+    /// Отримуємо перелік суб'єктів, які перебувають на моніторингу у вказаному в запиті реєстрі
     /// </summary>
     public class GetContentMonitoringResponseModel
     {/// <summary>
