@@ -146,11 +146,27 @@ namespace vkursi_api_example.courtdecision
         /// <summary>
         /// Статус відповіді по API
         /// </summary>
-        public bool IsSuccess { get; set; }
+        public string? Status { get; set; }
         /// <summary>
-        /// Чи успішний запит (maxLength:128)
+        /// Id відповіді по API (відповідно до enum ApiResponseStateEnum)
         /// </summary>
-        public string Status { get; set; }                                      // 
+        public int? StatusId { get; set; }
+        /// <summary>
+        /// Чи успішний запит
+        /// </summary>
+        public bool? IsSuccess { get; set; }
+        /// <summary>
+        /// Статус відповіді по API
+        /// </summary>
+        public Guid? LogId { get; set; }
+        /// <summary>
+        /// Розширене повідомлення про помилку
+        /// </summary>
+        public string? ErrorMessage { get; set; }
+        /// <summary>
+        /// Загальна дата актуальності
+        /// </summary>
+        public DateTime? ActualDate { get; set; }
         /// <summary>
         /// Скрол для отримання наступних документів (100)
         /// </summary>
