@@ -516,7 +516,7 @@ namespace vkursi_api_example
 
             CheckOcupLocationClass.CheckOcupLocation(ref token, "00131305");
 
-            // 153. Довідник ДПС для подання повідомлень про відкриття/закриття рахунків платCourtDecisionExtendedModelFilterників податків у банках та інших фінансових установах до контролюючих органів
+            // 153. Довідник ДПС для подання повідомлень про відкриття/закриття рахунків платників податків у банках та інших фінансових установах до контролюючих органів
             // [POST] /api/1.0/organizations/CompanyDpsInfo
 
             CompanyDpsInfoClass.CompanyDpsInfo(ref token, "00131305");
