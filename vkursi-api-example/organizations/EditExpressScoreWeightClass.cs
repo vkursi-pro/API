@@ -13,7 +13,7 @@ namespace vkursi_api_example.organizations
 
         Метод:
             61. Редагування відомостей вагу ризиків в Експрес оцінці
-            [POST] /api/1.0/organizations/editexpressscoreweight         
+            [POST] /api/1.0/organizations/editexpressscoreweight?type=1       
 
         cURL запиту:
             curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/organizations/EditExpressScoreWeight' \
@@ -47,7 +47,7 @@ namespace vkursi_api_example.organizations
 
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/organizations/EditExpressScoreWeight?type=1"); // Type = 1 - організації
                                                                                                                                                 // Type = 2 - ФОП
-                                                                                                                                                // Type = 3 - Особи
+                                                                                                                                                // Type = 3 - Люди
 
 
 
