@@ -3,6 +3,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using vkursi_api_example.organizations.GetNaisOrganizationInfoWithEcp;
 using vkursi_api_example.token;
 
 namespace vkursi_api_example.organizations
@@ -32,10 +33,10 @@ namespace vkursi_api_example.organizations
             https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/organizations/GetAdvancedOrganizationClass.cs#L130
         */
 
-        public static List<GetAdvancedOrganizationResponseModel> GetNewRegistration(ref string token, string dateReg, string type, 
+        public static List<GetAdvancedOrganizationResponseModel> GetNewRegistration(ref string token, string dateReg, string type,
             int? skip, int? take, bool? IsShortModel = false, bool? isReturnAll = null, bool? changesOnly = null)
         {
-            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass();token = _authorize.Authorize();}
+            if (string.IsNullOrEmpty(token)) { AuthorizeClass _authorize = new AuthorizeClass(); token = _authorize.Authorize(); }
 
             string responseString = string.Empty;
 
@@ -359,5 +360,270 @@ namespace vkursi_api_example.organizations
             /// </summary>
             public string middle_name { get; set; }                             // 
         }
+    }
+
+    public class OrganizationAdviceFullApiModel
+    {
+        /// <summary>
+        /// Основні дані організації з ЄДР (Nais)
+        /// </summary>
+        public OrganizationaisElasticModel? Data { get; set; }
+
+        /// <summary>
+        /// Цифровий підпис даних
+        /// </summary>
+        public string? Sign { get; set; }
+
+        /// <summary>
+        /// Вихідні дані в оригінальному форматі
+        /// </summary>
+        public string? OriginalData { get; set; }
+
+        /// <summary>
+        /// Експрес-оцінка організації з показниками ризиків
+        /// </summary>
+        public OrganizationGageModel? ExpressScore { get; set; }
+
+        /// <summary>
+        /// Аналітика судових рішень, пов'язаних з організацією
+        /// </summary>
+        public CourtDecisionAnaliticViewModel? CourtAnalytic { get; set; }
+
+        /// <summary>
+        /// Дата реєстрації ІПН (індивідуального податкового номера)
+        /// </summary>
+        public DateTime? DateRegInn { get; set; }
+
+        /// <summary>
+        /// Індивідуальний податковий номер (ІПН)
+        /// </summary>
+        public string? Inn { get; set; }
+
+        /// <summary>
+        /// Дата анулювання ІПН (індивідуального податкового номера)
+        /// </summary>
+        public DateTime? DateCanceledInn { get; set; }
+
+        /// <summary>
+        /// Код КОАТУУ (Класифікатор об'єктів адміністративно-територіального устрою України)
+        /// </summary>
+        public string? Koatuu { get; set; }
+
+        /// <summary>
+        /// Інформація про головну організацію (якщо поточна організація є філією)
+        /// </summary>
+        public OrganizationAdviceFullApiModel? BranchMaster { get; set; }
+
+        /// <summary>
+        /// Посилання на сторінку з інформацією про організацію
+        /// </summary>
+        public string? Href { get; set; }
+
+        /// <summary>
+        /// Посилання на архів з усіма даними про організацію
+        /// </summary>
+        public string? HrefAllDataZip { get; set; }
+
+        /// <summary>
+        /// Посилання на PDF-документ з даними ЄДР про організацію
+        /// </summary>
+        public string? HrefEdrDataPdf { get; set; }
+    }
+    /// <summary>
+    /// Відомості з ЕДР (Nais) по компанії (опис з офіційного Nais)
+    /// </summary>
+    public class OrganizationaisElasticModel
+    {
+        /// <summary>
+        /// Унікальний ідентифікатор суб’єкта 
+        /// </summary>
+        public int id { get; set; }
+        /// <summary>
+        /// Стан суб’єкта (див.довідник: х)
+        /// </summary>
+        public int? state { get; set; }
+        /// <summary>
+        /// Текстове відображення стану суб’єкта
+        /// </summary>
+        public string? state_text { get; set; }
+        public string? country { get; set; }
+        /// <summary>
+        /// ЄДРПОУ
+        /// </summary>
+        public string? code { get; set; }
+        /// <summary>
+        /// Найменування юридичної особи
+        /// </summary>
+        public OrganizationaisNamesModel? names { get; set; }
+        /// <summary>
+        /// Код організаційно-правової форми суб’єкта, якщо суб’єкт – юридична особа (maxLength:256)
+        /// </summary>
+        public string? olf_code { get; set; }
+        /// <summary>
+        /// Назва ОПФ суб’єкта, якщо суб’єкт – юридична особа (maxLength:256)
+        /// </summary>
+        public string? olf_name { get; set; }
+        /// <summary>
+        /// Тип ОПФ
+        /// </summary>
+        public string? olf_subtype { get; set; }
+        /// <summary>
+        /// Назва установчого документа, якщо суб’єкт – юридична особа
+        /// </summary>
+        public string? founding_document { get; set; }
+        public string? founding_document_code { get; set; }
+        /// <summary>
+        /// Діяльність на підставі: «1» - власного установчого документа «2» - модельного статуту (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string? founding_document_type { get; set; }
+        /// <summary>
+        /// Назва установчого документа (якщо суб’єкт юридична особа)
+        /// </summary>
+        public string? founding_document_name { get; set; }
+        /// <summary>
+        /// Центральний чи місцевий орган виконавчої влади, до сфери управління якого належить державне підприємство або частка держави у статутному капіталі юридичної особи, якщо ця частка становить не менше 25 відсотків
+        /// </summary>
+        public OrganizationaisExecutivePower? executive_power { get; set; }
+        /// <summary>
+        /// Місцезнаходження реєстраційної справи
+        /// </summary>
+        public string? object_name { get; set; }
+        /// <summary>
+        /// Перелік засновників (учасників) юридичної особи, у тому числі прізвище, ім’я, по батькові, якщо засновник – фізична особа; найменування, місцезнаходження та ідентифікаційний код юридичної особи, якщо засновник – юридична особа
+        /// </summary>
+        public List<OrganizationaisFounders>? founders { get; set; }
+        public OrganizationaisFoundersGeneralInfo? founders_general_info { get; set; }
+        /// <summary>
+        /// Перелік КБВ юридичної особи
+        /// </summary>
+        public List<OrganizationaisFounders>? beneficiaries { get; set; }
+        public OrganizationaisBeneficiariesGeneralInfo? beneficiaries_general_info { get; set; }
+        /// <summary>
+        /// Перелік відокремлених підрозділів юридичної особи
+        /// </summary>
+        public List<OrganizationaisBranches>? branches { get; set; }
+        /// <summary>
+        /// Дані про розмір статутного капіталу (статутного або складеного капіталу) та дату закінчення його формування, якщо суб’єкт – юридична особа
+        /// </summary>
+        public OrganizationaisAuthorisedCapital? authorised_capital { get; set; }
+        /// <summary>
+        /// Відомості про органи управління юридичної особи (вищий, виконавчий, інший)
+        /// </summary>
+        public string? management { get; set; }
+        /// <summary>
+        /// Найменування розпорядчого акту, якщо суб’єкт – юридична особа
+        /// </summary>
+        public string? managing_paper { get; set; }
+        /// <summary>
+        /// Дані про наявність відмітки про те, що юридична особа створюється та діє на підставі модельного статуту
+        /// </summary>
+        public bool? is_modal_statute { get; set; }
+        /// <summary>
+        /// Перелік видів економічної діяльності
+        /// </summary>
+        public List<OrganizationaisActivityKinds>? activity_kinds { get; set; }
+        /// <summary>
+        /// Прізвище, ім’я, по батькові, посада, дата обрання (призначення) осіб, які обираються (призначаються) до органу управління юридичної особи, уповноважених представляти юридичну особу у правовідносинах з третіми особами, або осіб, які мають право вчиняти дії від імені юридичної особи без довіреності, у тому числі підписувати договори та дані про наявність обмежень щодо представництва від імені юридичної особи
+        /// </summary>
+        public List<OrganizationaisHeads>? heads { get; set; }
+        /// <summary>
+        /// Адреса юридичної особи або ФОП
+        /// </summary>
+        public OrganizationaisAddress? address { get; set; }
+        /// <summary>
+        /// Дата державної реєстрації, дата та номер запису в Єдиному державному реєстрі про включення до Єдиного державного реєстру відомостей про юридичну особу
+        /// </summary>
+        public OrganizationaisRegistration? registration { get; set; }
+        /// <summary>
+        /// Дані про перебування юридичної особи в процесі провадження у справі про банкрутство, санації
+        /// </summary>
+        public OrganizationaisBankruptcy? bankruptcy { get; set; }
+        /// <summary>
+        /// Дата та номер запису про державну реєстрацію припинення юридичної особи, підстава для його внесення
+        /// </summary>
+        public OrganizationaisTermination? termination { get; set; }
+        /// <summary>
+        /// Дата та номер запису про відміну державної реєстрації припинення юридичної особи, підстава для його внесення
+        /// </summary>
+        public OrganizationaisTerminationCancel? termination_cancel { get; set; }
+        /// <summary>
+        /// Дані про юридичних осіб – правонаступників
+        /// </summary>
+        public List<OrganizationaisAssignees>? assignees { get; set; }
+        /// <summary>
+        /// Дані про юридичних осіб, правонаступником яких є зареєстрована юридична особа
+        /// </summary>
+        public List<OrganizationaisAssignees>? predecessors { get; set; }
+        /// <summary>
+        /// Відомості, отримані в порядку взаємодії з інформаційними системами органів державної влади
+        /// </summary>
+        public List<OrganizationaisRegistrations>? registrations { get; set; }
+        /// <summary>
+        /// Дані органів статистики про основний вид економічної діяльності юридичної особи, визначений на підставі даних державних статистичних спостережень відповідно до статистичної методології за підсумками діяльності за рік
+        /// </summary>
+        public OrganizationaisPrimaryActivityKind? primary_activity_kind { get; set; }
+        /// <summary>
+        /// Термін, до якого суб’єкт перебуває на обліку в податкових органах за місцем попередньої реєстрації (у разі зміни місцезнаходження)
+        /// </summary>
+        public string? prev_registration_end_term { get; set; }
+        /// <summary>
+        /// Контактна інформація
+        /// </summary>
+        public OrganizationaisContacts? contacts { get; set; }
+        /// <summary>
+        /// Дата відкриття виконавчого провадження (для незавершених виконавчих проваджень)
+        /// </summary>
+        public List<string>? open_enforcements { get; set; }
+        /// <summary>
+        /// Відомості про структуру власності юридичної особи
+        /// </summary>
+        public PropertyStruct property_struct { get; set; }
+
+        /// <summary>
+        /// Системне поле Vkursi: hash унікальності
+        /// </summary>
+        public Guid? hash { get; set; }
+        /// <summary>
+        /// Системне поле Vkursi: дата отримання запису
+        /// </summary>
+        public DateTime? createDate { get; set; }
+        /// <summary>
+        /// Системне поле Vkursi: дата зміни запису
+        /// </summary>
+        public DateTime? modifiedDate { get; set; }
+    }
+    public class OrganizationaisFoundersGeneralInfo
+    {
+        /// <summary>
+        /// Признак ведення обліку засновників
+        /// </summary>
+        public bool? accounting { get; set; }
+
+        /// <summary>
+        /// Дата початку обліку засновників
+        /// </summary>
+        public DateTime? accounting_start_date { get; set; }
+
+        /// <summary>
+        /// Дата завершення обліку засновників
+        /// </summary>
+        public DateTime? accounting_end_date { get; set; }
+    }
+    public class OrganizationaisBeneficiariesGeneralInfo
+    {
+        /// <summary>
+        /// Ознака виключення кінцевих бенефіціарів
+        /// </summary>
+        public bool? excluded { get; set; }
+
+        /// <summary>
+        /// Признак відсутності кінцевих бенефіціарів
+        /// </summary>
+        public bool? is_missing { get; set; }
+
+        /// <summary>
+        /// Причина відсутності кінцевих бенефіціарів
+        /// </summary>
+        public string? reason { get; set; }
     }
 }
