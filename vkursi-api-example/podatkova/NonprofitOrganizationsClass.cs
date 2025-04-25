@@ -5,7 +5,7 @@ using vkursi_api_example.token;
 
 namespace vkursi_api_example.podatkova
 {
-    internal class NonprofitOrganizationsClass
+    public class NonprofitOrganizationsClass
     {
         /*
         
