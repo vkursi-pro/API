@@ -522,7 +522,7 @@ SmsRrpSelectIsRealtyExistsClass.SmsRrpSelectIsRealtyExists(token, 1260724348000)
 <br>
 <br>
 
-<h3>51. Судові документі по ЮО/ФО</h3>
+<h3>51. Стан розгляду судових справ</h3>
 <p><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/courtdecision/GetStanRozgliaduSpravClass.cs" target="_blank">[POST] api/1.0/CourtDecision/getStanRozgliaduSprav</a></p>
 
 <br>
