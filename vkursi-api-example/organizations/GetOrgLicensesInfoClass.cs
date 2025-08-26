@@ -181,5 +181,15 @@ namespace vkursi_api_example.organizations
         /// Стан (maxLength:32)
         /// </summary>
         public string State { get; set; }                                       // 
+        /// <summary>
+        /// Орган який видав ліцензію
+        /// </summary>
+        public string Publisher { get; set; }                                   // 
+
+        /// <summary>
+        /// Детальна інформація про ліцензщію 
+        /// Містить динамічні поля в залежності від конкретного ресєтру/джерела походження. У зв'язку з чим, надати детальний опис моделі не надаєтсья можливим
+        /// </summary>
+        public object Info { get; set; }
     }
 }
