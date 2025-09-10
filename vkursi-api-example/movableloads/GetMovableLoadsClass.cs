@@ -74,6 +74,15 @@ namespace vkursi_api_example.movableloads
             }
 
             GetMovableLoadsResponseModel GMLResponseRow = new GetMovableLoadsResponseModel();
+
+            try
+            {
+                GMLResponseRow = JsonConvert.DeserializeObject<GetMovableLoadsResponseModel>(responseString);
+            }
+            catch (Exception ex)
+            {
+
+            }
             GMLResponseRow = JsonConvert.DeserializeObject<GetMovableLoadsResponseModel>(responseString);
             return GMLResponseRow;
         }
