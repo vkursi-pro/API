@@ -153,9 +153,15 @@ namespace vkursi_api_example.movableloads
         /// <summary>
         /// Перелік обтяжень
         /// </summary>
-        public List<MovableLoadsDatum> data { get; set; }       
+        public List<MovableLoadsDatum> data { get; set; }
         /// <summary>
-        /// ???
+        /// Словник з підписом.
+        /// ПРИМІТКА: у разі необхідності перевірки даних на предмет достовірності це можна зробити за посиланням https://ca.diia.gov.ua/verify
+        /// Для цього необхідно виконати наступне:
+        /// 1. Дані у рядковому форматі, які містяться в полі data помістити у файл якому дати назву наприклад "body.json.p7s";
+        /// 2. Дані які містяться в форматі base64 у словнику позиції value (значення) MIIkGgYJKoZIhvcNAQcCoIIkCzCCJAcCAQExDjAMBgoqhiQCAQEBAQIBMAsGCSqGSIb3DQEHAaCCBnQwggZwMIIGGKADAgECAhQ4I2cQU......
+        /// необхідно конвертувати у byte array файл та дати назву наприклад "application.bin.p7s";
+        /// 3. вставити обидва файли, одночасно за вищезазначеним посиланням для перевірки автентичності даних.
         /// </summary>
         public Dictionary<string, string> originalData { get; set; }
     }
