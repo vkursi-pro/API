@@ -884,6 +884,24 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 
 <br>
 <br>
+
+<h3>140. Отримати дельту змін СМС РРП моніторингу за період</h3>
+
+<p><b>Дані методу: </b>Зміни СМС РРП моніторингу</p>
+
+<pre><code>curl --location --request POST 'https://vkursi-api.azurewebsites.net/api/1.0/estate/smsrrpdiffrencecheckbydaterange' \
+--header 'ContentType: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIU...' \
+--header 'Content-Type: application/json' \
+--data-raw '{ "StartDate": "2024-01-15T00:00:00","EndDate": "2024-01-20T00:00:00"}'
+</code></pre>
+
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetSmsRrpDiffrenceCheckByDateRangeClass.cs" target="_blank">[POST] /api/1.0/organizations/GetNaisOrganizationInfoWithEcp</a></p>
+
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetSmsRrpDiffrenceCheckByDateRangeClass.cs#L97" target="_blank">GetNaisOrganizationInfoWithEcpModel</a></p>
+
+<br>
+<br>
         
 <h3>150. Відомості (витяг) з ЄДР з електронною печаткою (КЕП) Державного підприємства “НАІС”</h3>
 
