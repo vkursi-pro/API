@@ -148,7 +148,7 @@ namespace vkursi_api_example.organizations
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> Name { get; set; }                                          // 
         /// <summary>
-        /// Фільтр по типам зв'язків (LocationType = 1,ChiefType = 2, FounderType = 3, OldNodeNameType = 4,OldNodeChiefType = 5, OldNodeAdressType = 6, OldNodeFounder = 7, Branch = 8, Assignee = 9, Signatorie = 10, Shareholder = 11, ContactType = 12)
+        /// Фільтр по типам зв'язків (LocationType = 1,ChiefType = 2, FounderType = 3, OldNodeNameType = 4,OldNodeChiefType = 5, OldNodeAdressType = 6, OldNodeFounder = 7, Branch = 8, Assignee = 9, Signatorie = 10, Shareholder = 11, ContactType = 12, BeneficiarType = 13, OldBeneficiarType = 14, Predecessor = 15,  OldSignatorie = 16, Fop = 17)
         /// </summary>
         public List<int> FilterRelationType { get; set; }                               //   
         /// <summary>
