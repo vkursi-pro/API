@@ -44,7 +44,12 @@ namespace vkursi_api_example.estate
                 RestClient client = new RestClient("https://vkursi-api.azurewebsites.net/api/1.0/estate/getestatebycode");
                 RestRequest request = new RestRequest(Method.GET);
 
+                bool? withoutHistory = null;
+                bool needUpdate = false;
                 request.AddParameter("code", code);                     // Код ЄДРПОУ або ІПН
+                request.AddParameter("code", withoutHistory);           // Параметр відповідає чи необхідно отримати історичні дані (без застосування параметру такі дані будуть). У разі необхідності треба вказати true в запиті, що не отримувати "історичні дані"
+                request.AddParameter("code", needUpdate);               // Примусове оновлення даних в реальному часі (може змінюватись час виконання/відповіді сервера).  базове значення у разі не передачі цього параметру відповідає flase - оновлення не відбувається
+                                                                        // базове оновлення за алгоритмами Vkursi відбувається кожні два місяці автоматично
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", "Bearer " + token);
 
