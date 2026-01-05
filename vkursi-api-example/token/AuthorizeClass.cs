@@ -28,8 +28,8 @@ namespace vkursi_api_example.token
 
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
-                Email = Email,      // Логін (Email)
-                Password = Password // Пароль
+                Email = "akaShalffei@gmail.com",      // Логін (Email)
+                Password = "jazrom-ceHvom-6bewvu" // Пароль
             };
 
             AuthorizeResponseModel AuthorizeResponse = new AuthorizeResponseModel();
@@ -55,7 +55,7 @@ namespace vkursi_api_example.token
 
             AuthorizeResponseModel AuthorizeResponse = JsonConvert.DeserializeObject<AuthorizeResponseModel>(responseString);
 
-            string token = AuthorizeResponse.Token;
+            string token = AuthorizeResponse?.Token;
 
             // token при запитах додається в header Authorization: Bearer "token"
 
