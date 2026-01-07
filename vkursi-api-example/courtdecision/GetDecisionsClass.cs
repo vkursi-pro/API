@@ -132,7 +132,7 @@ namespace vkursi_api_example.courtdecision
         /// </summary>
         public int? Skip { get; set; }                                          // 
         /// <summary>
-        /// null - all, 1 - Plaintiffs; 2 - Defendants; 3 - Other;
+        /// 0 - по всім категоріям сторони; 1 - Позивачі; 2 - Відповідачі; 3 - Скаржник, 4 - Інше;
         /// </summary>
         public int? TypeSide { get; set; }                                      // 
         /// <summary>
