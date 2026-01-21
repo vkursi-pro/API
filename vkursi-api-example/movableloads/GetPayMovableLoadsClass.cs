@@ -117,6 +117,10 @@ namespace vkursi_api_example.movableloads
      /// Id обтяжння
      /// </summary>
         public int Id { get; set; }                                         // 
+        /// <summary>
+        /// Номер кузова/шасі/серійний номер/VIN для пошуку
+        /// </summary>
+        public string? MvSrNum { get; set; }                                //
     }
     /// <summary>
     /// Модель відповіді
