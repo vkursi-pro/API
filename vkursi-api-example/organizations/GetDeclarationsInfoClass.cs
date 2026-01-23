@@ -78,7 +78,7 @@ namespace vkursi_api_example.organizations
     /// </summary>
     public class GetDeclarationsInfoRequestBodyModel                            
     {/// <summary>
-     /// Перелік ЄДРПОУ / ІПН (обмеження 1)
+     /// Перелік ЄДРПОУ (обмеження 1)
      /// </summary>
         public List<string> Edrpou { get; set; }                                
     }
