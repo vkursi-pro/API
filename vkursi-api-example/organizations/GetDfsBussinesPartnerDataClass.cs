@@ -73,7 +73,7 @@ namespace vkursi_api_example.organizations
     /// </summary>
     public class GetDfsBussinesPartnerDataRequestBodyModel                   
     {/// <summary>
-     /// Код ЄДРПОУ
+     /// Код ЄДРПОУ (допустимий лише 1 код, в інших випадках оброблятись буде лише перший в списку)
      /// </summary>
         public List<string> Code { get; set; }                              
     }
