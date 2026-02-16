@@ -896,9 +896,9 @@ GetLostDocumentsClass.GetLostDocuments(ref token, "КОРОТКИЙ АЛЕКСА
 --data-raw '{ "StartDate": "2024-01-15T00:00:00","EndDate": "2024-01-20T00:00:00"}'
 </code></pre>
 
-<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetSmsRrpDiffrenceCheckByDateRangeClass.cs" target="_blank">[POST] /api/1.0/organizations/GetNaisOrganizationInfoWithEcp</a></p>
+<p><b>Приклад коду: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetSmsRrpDiffrenceCheckByDateRangeClass.cs" target="_blank">[POST] /api/1.0/organizations/smsrrpdiffrencecheckbydaterange</a></p>
 
-<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetSmsRrpDiffrenceCheckByDateRangeClass.cs#L97" target="_blank">GetNaisOrganizationInfoWithEcpModel</a></p>
+<p><b>Модель відповіді: </b><a href="https://github.com/vkursi-pro/API/blob/master/vkursi-api-example/estate/GetSmsRrpDiffrenceCheckByDateRangeClass.cs#L97" target="_blank">SmsRrpDiffrenceCheckDateRangeModelAnswer</a></p>
 
 <br>
 <br>
