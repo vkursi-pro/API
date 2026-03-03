@@ -77,7 +77,7 @@ namespace vkursi_api_example.organizations
     /// </summary>
     public class GetOrgSanctionsRequestBodyModel                                // 
     {/// <summary>
-     /// Код ЄДРПОУ
+     /// Код ЄДРПОУ (приймає лише 1 код)
      /// </summary>
         public List<string> Code { get; set; }                                  // 
         /// <summary>
