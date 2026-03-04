@@ -12,7 +12,7 @@ namespace vkursi_api_example.organizations.Court
     public class GetOrganizationCourtStatisticsClass
     {
         /// <summary>
-        /// 188. Судова статистика по організації
+        /// 188. Судова статистика по організації, ФОП, фіз. особі (за кодом)
         /// [POST] api/1.0/organizations/GetOrganizationCourtStatistics
         /// </summary>
         /// <param name="token"></param>
@@ -112,6 +112,9 @@ namespace vkursi_api_example.organizations.Court
     /// </summary>
     public class GetOrganizationCourtStatisticsModel
     {
+        /// <summary>
+        /// Вхідні параметри запиту ЄДРПОУ, ІПН (перелік кодів обмеження 1)
+        /// </summary>
         public List<string> Codes { get; set; }
     }
     /// <summary>
