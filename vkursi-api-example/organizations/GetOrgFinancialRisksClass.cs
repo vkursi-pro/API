@@ -27,7 +27,7 @@ namespace vkursi_api_example.organizations
                 {
                     Edrpou = new List<string> 
                     {
-                        code                                                    // Код ЄДРПОУ або ІПН
+                        code                                                    // Код ЄДРПОУ
                     }
                 };
 
@@ -73,7 +73,7 @@ namespace vkursi_api_example.organizations
     /// </summary>
     public class GetOrgFinancialRisksRequestBodyModel                           // 
     {/// <summary>
-     /// Перелік ЄДРПОУ / ІПН (обмеження 1)
+     /// Перелік ЄДРПОУ (обмеження 1)
      /// </summary>
         public List<string> Edrpou { get; set; }                                // 
     }
