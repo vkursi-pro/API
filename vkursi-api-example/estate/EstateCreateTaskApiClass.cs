@@ -82,7 +82,7 @@ namespace vkursi_api_example.estate
 
                 // Example Body: {"Edrpous":["19124549"],"Ipns":["3083707142"],"Koatuus":["5621287500"],"Cadastrs":["5621287500:03:001:0019"],"CalculateCost":false,"IsNeedUpdateAll":false,"IsReport":true,"TaskName":"Назва задачі","DzkOnly":false}
 
-                // Example Body with SMS RRP: {"Cadastrs":["5123955400:01:001:0590"],"CalculateCost":false,"InNeedUpdateAll":true,"IsReportTrue":true,"TaskName":"5123955400:01:001:0590","SmsRrpMonitoring":{"SmsRrpMonitoringType":1,"SmsRrpMonitoringTest":false,"SmsRrpMonitoringSections":{"AllInfo":true},"EndOfMonitoringDate":"2022-08-31T00:00:00"}}
+                // Example Body with SMS RRP: {"Cadastrs":["5123955400:01:001:0590"],"CalculateCost":false,"IsNeedUpdateAll":true,"IsReport":true,"TaskName":"5123955400:01:001:0590","SmsRrpMonitoring":{"SmsRrpMonitoringType":1,"SmsRrpMonitoringTest":false,"SmsRrpMonitoringSections":{"AllInfo":true},"EndOfMonitoringDate":"2022-08-31T00:00:00"}}
 
                 request.AddHeader("ContentType", "application/json");
                 request.AddHeader("Authorization", $"Bearer {token}");
