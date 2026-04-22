@@ -130,7 +130,7 @@ namespace vkursi_api_example.organizations
     /// </summary>
     public class GetOrgPdvRequestBodyModel                                          // 
     {/// <summary>
-     /// Код ЄДРПОУ
+     /// Код ЄДРПОУ або ІПН
      /// </summary>
         public List<string> Code { get; set; }                                      // 
     }
