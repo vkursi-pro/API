@@ -29,7 +29,7 @@ namespace vkursi_api_example.token
             AuthorizeRequestBodyModel ARBody = new AuthorizeRequestBodyModel
             {
                 Email = "akaShalffei@gmail.com",      // Логін (Email)
-                Password = "jazrom-ceHvom-6bewvu" // Пароль
+                Password = "**************" // Пароль
             };
 
             AuthorizeResponseModel AuthorizeResponse = new AuthorizeResponseModel();
