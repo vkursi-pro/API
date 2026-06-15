@@ -596,6 +596,10 @@ namespace vkursi_api_example
             GetOrganizationCourtStatisticsClass courtStatisticsClass = new GetOrganizationCourtStatisticsClass();
             courtStatisticsClass.GetOrganizationCourtStatistics(ref token, "00131305");
 
+            // 189. Перевірка контрагента (агрегований метод): реєстраційні дані ЄДР + ПДВ + санкції + кримінальні суди + рф/рб бенефіціари + борг в ЄРБ
+            // [POST] /api/1.0/organizations/businesspartnercheck
+            BusinessPartnerCheckClass.BusinessPartnerCheck(ref token, "00131305");
+
 
             // Перелік статусів відповідей API
 
