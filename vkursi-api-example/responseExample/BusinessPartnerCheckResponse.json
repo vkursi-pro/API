@@ -110,8 +110,38 @@
         "beneficiarExist": true,
         "beneficiarUrl": "https://vkursi.pro/card/35268354#russianbeneficiary"
     },
+    "bankruptcy": null,
+    "contactData": {
+        "dataList": [
+            {
+                "number": "+380937595072",
+                "type": "tel"
+            },
+            {
+                "number": "in.botina@severstal.com",
+                "type": "email"
+            }
+        ]
+    },
+    "reportHref": "https://vkursi.pro/card/vityag-z-edr?id=00000000-0000-0000-0000-000000000000&edrId=12345",
+    "nonProfitData": {
+        "nonProfitExist": false
+    },
+    "cabinetTaxEdpodData": {
+        "edpodExist": false
+    },
+    "registerIsiData": [],
+    "taxpayerCategoryData": {
+        "categoryId": null
+    },
     "erbDebtData": {
         "erbDebtExist": true,
         "erbDebtUrl": "https://vkursi.pro/card/35268354#enforcement"
+    },
+    "diiaCityData": {
+        "diiaCityResident": false,
+        "dateStart": null,
+        "dateEnd": null,
+        "status": null
     }
 }
